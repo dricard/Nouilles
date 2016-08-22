@@ -12,6 +12,8 @@
 		21A148D91D6B841900FA52BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A148D81D6B841900FA52BA /* Assets.xcassets */; };
 		21A148DC1D6B841900FA52BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A148DA1D6B841900FA52BA /* LaunchScreen.storyboard */; };
 		21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */; };
+		21A148E61D6B994400FA52BA /* Nouille.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148E51D6B994400FA52BA /* Nouille.swift */; };
+		21A148E81D6B99EB00FA52BA /* Nouilles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148E71D6B99EB00FA52BA /* Nouilles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		21A148DB1D6B841900FA52BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21A148DD1D6B841900FA52BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListeDeNouillesVC.swift; sourceTree = "<group>"; };
+		21A148E51D6B994400FA52BA /* Nouille.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nouille.swift; sourceTree = "<group>"; };
+		21A148E71D6B99EB00FA52BA /* Nouilles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nouilles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				21A148DA1D6B841900FA52BA /* LaunchScreen.storyboard */,
 				21A148DD1D6B841900FA52BA /* Info.plist */,
 				21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */,
+				21A148E51D6B994400FA52BA /* Nouille.swift */,
+				21A148E71D6B99EB00FA52BA /* Nouilles.swift */,
 			);
 			path = Nouilles;
 			sourceTree = "<group>";
@@ -135,7 +141,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21A148E81D6B99EB00FA52BA /* Nouilles.swift in Sources */,
 				21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */,
+				21A148E61D6B994400FA52BA /* Nouille.swift in Sources */,
 				21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
