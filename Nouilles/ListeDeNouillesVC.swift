@@ -10,18 +10,24 @@ import UIKit
 
 class ListeDeNouillesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    // MARK: - Properties
+    
+    let nouilles = Nouilles.sharedInstance()
+    
+    // MARK: - Outlets
+    
     @IBOutlet var tableView: UITableView!
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return nouilles.listeDeNouilles.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Nouille", forIndexPath: indexPath)
         
-        cell.textLabel?.text = "Tortiglioni"
+        cell.textLabel?.text = nouilles.listeDeNouilles[indexPath.row].name
         if let detail = cell.detailTextLabel {
-            detail.text = "8 minutes"
+            detail.text = "\(nouilles.listeDeNouilles[indexPath.row].time)"
         }
         return cell
     }

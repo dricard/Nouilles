@@ -12,10 +12,27 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var nouillesPR = Nouilles.sharedInstance()
 
-
+    func preloadData() -> [Nouille] {
+        
+        var mesNouilles = [Nouille]()
+        
+        mesNouilles.append(Nouille(name: "Tortiglioni", time: 8.0))
+        mesNouilles.append(Nouille(name: "Macaroni", time: 7.0))
+        mesNouilles.append(Nouille(name: "Fusili", time: 6.0))
+        mesNouilles.append(Nouille(name: "Rotini", time: 5.0))
+        mesNouilles.append(Nouille(name: "Spaghettini", time: 4.0))
+        
+        return mesNouilles
+        
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+
+        nouillesPR.listeDeNouilles = preloadData()
+        
         return true
     }
 

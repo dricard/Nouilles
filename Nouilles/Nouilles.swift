@@ -11,7 +11,15 @@ import UIKit
 class Nouilles: NSObject {
 
     // MARK: - properties
-    let listeDeNouilles = [Nouille]()
+    var listeDeNouilles = [Nouille]()
     
+    // MARK: - Singleton
+    class func sharedInstance() -> Nouilles {
+        struct Singleton {
+            static var sharedInstance = Nouilles()
+        }
+        return Singleton.sharedInstance
+    }
+
     
 }
