@@ -7,29 +7,32 @@
 //
 
 import UIKit
+import CoreData
 
 class ListeDeNouillesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    // MARK: - Properties
-    
-    let nouilles = Nouilles.sharedInstance()
-    
-    // MARK: - Outlets
-    
-    @IBOutlet var tableView: UITableView!
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return nouilles.listeDeNouilles.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Nouille", forIndexPath: indexPath)
-        
-        cell.textLabel?.text = nouilles.listeDeNouilles[indexPath.row].name
-        if let detail = cell.detailTextLabel {
-            detail.text = "\(nouilles.listeDeNouilles[indexPath.row].time)"
-        }
-        return cell
-    }
-    
+   
+   // MARK: - Properties
+   
+   var managedContext: NSManagedObjectContext!
+   
+   // MARK: - Outlets
+   
+   @IBOutlet var tableView: UITableView!
+   @IBAction func addNoodleTapped(_ sender: Any) {
+   }
+   
+   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      return nouilles.listeDeNouilles.count
+   }
+   
+   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "Nouille", for: indexPath)
+      
+      cell.textLabel?.text = nouilles.listeDeNouilles[indexPath.row].name
+      if let detail = cell.detailTextLabel {
+         detail.text = "\(nouilles.listeDeNouilles[indexPath.row].time)"
+      }
+      return cell
+   }
+   
 }
