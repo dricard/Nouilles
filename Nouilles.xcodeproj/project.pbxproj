@@ -7,16 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2137A6041DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6001DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift */; };
+		2137A6051DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6011DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift */; };
+		2137A6061DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6021DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift */; };
+		2137A6071DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6031DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift */; };
+		2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6081DDB945000C1FC35 /* CoreDataStack.swift */; };
+		2137A60D1DDB961200C1FC35 /* NouilleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A60C1DDB961200C1FC35 /* NouilleDetailVC.swift */; };
 		21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148D11D6B841800FA52BA /* AppDelegate.swift */; };
 		21A148D71D6B841900FA52BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A148D51D6B841900FA52BA /* Main.storyboard */; };
 		21A148D91D6B841900FA52BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A148D81D6B841900FA52BA /* Assets.xcassets */; };
 		21A148DC1D6B841900FA52BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A148DA1D6B841900FA52BA /* LaunchScreen.storyboard */; };
 		21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */; };
-		21A148E61D6B994400FA52BA /* Nouille.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148E51D6B994400FA52BA /* Nouille.swift */; };
-		21A148E81D6B99EB00FA52BA /* Nouilles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148E71D6B99EB00FA52BA /* Nouilles.swift */; };
+		21D5102B1D6CA21B003CB856 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21D510291D6CA21B003CB856 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2137A6001DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserRating+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2137A6011DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserRating+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2137A6021DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nouille+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2137A6031DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nouille+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2137A6081DDB945000C1FC35 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		2137A60C1DDB961200C1FC35 /* NouilleDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NouilleDetailVC.swift; sourceTree = "<group>"; };
 		21A148CE1D6B841800FA52BA /* Nouilles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nouilles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A148D11D6B841800FA52BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21A148D61D6B841900FA52BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -24,8 +35,7 @@
 		21A148DB1D6B841900FA52BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21A148DD1D6B841900FA52BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListeDeNouillesVC.swift; sourceTree = "<group>"; };
-		21A148E51D6B994400FA52BA /* Nouille.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nouille.swift; sourceTree = "<group>"; };
-		21A148E71D6B99EB00FA52BA /* Nouilles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nouilles.swift; sourceTree = "<group>"; };
+		21D5102A1D6CA21B003CB856 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +49,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		218651011DD68089001F5BA2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2137A6001DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift */,
+				2137A6011DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift */,
+				2137A6021DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift */,
+				2137A6031DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift */,
+				21D510291D6CA21B003CB856 /* Model.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		218651021DD680A1001F5BA2 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */,
+				2137A60C1DDB961200C1FC35 /* NouilleDetailVC.swift */,
+			);
+			name = VC;
+			sourceTree = "<group>";
+		};
 		21A148C51D6B841600FA52BA = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +89,14 @@
 		21A148D01D6B841800FA52BA /* Nouilles */ = {
 			isa = PBXGroup;
 			children = (
+				218651021DD680A1001F5BA2 /* VC */,
+				218651011DD68089001F5BA2 /* Model */,
 				21A148D11D6B841800FA52BA /* AppDelegate.swift */,
 				21A148D51D6B841900FA52BA /* Main.storyboard */,
 				21A148D81D6B841900FA52BA /* Assets.xcassets */,
 				21A148DA1D6B841900FA52BA /* LaunchScreen.storyboard */,
 				21A148DD1D6B841900FA52BA /* Info.plist */,
-				21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */,
-				21A148E51D6B994400FA52BA /* Nouille.swift */,
-				21A148E71D6B99EB00FA52BA /* Nouilles.swift */,
+				2137A6081DDB945000C1FC35 /* CoreDataStack.swift */,
 			);
 			path = Nouilles;
 			sourceTree = "<group>";
@@ -102,6 +133,7 @@
 				TargetAttributes = {
 					21A148CD1D6B841700FA52BA = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -141,10 +173,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21A148E81D6B99EB00FA52BA /* Nouilles.swift in Sources */,
 				21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */,
-				21A148E61D6B994400FA52BA /* Nouille.swift in Sources */,
+				2137A6061DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift in Sources */,
+				2137A6051DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift in Sources */,
+				21D5102B1D6CA21B003CB856 /* Model.xcdatamodeld in Sources */,
+				2137A6041DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift in Sources */,
+				2137A6071DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift in Sources */,
 				21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */,
+				2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */,
+				2137A60D1DDB961200C1FC35 /* NouilleDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +300,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hexaedre.Nouilles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -274,6 +312,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hexaedre.Nouilles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -296,8 +335,22 @@
 				21A148E21D6B841900FA52BA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		21D510291D6CA21B003CB856 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				21D5102A1D6CA21B003CB856 /* Model.xcdatamodel */,
+			);
+			currentVersion = 21D5102A1D6CA21B003CB856 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 21A148C61D6B841600FA52BA /* Project object */;
 }
