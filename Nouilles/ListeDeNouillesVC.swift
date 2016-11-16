@@ -14,11 +14,31 @@ class ListeDeNouillesVC: UIViewController {
    // MARK: - Properties
    
    var managedContext: NSManagedObjectContext!
+   var fetchedResultsController: NSFetchedResultsController<Nouille>!
    
    // MARK: - Outlets
    
    @IBOutlet var tableView: UITableView!
    @IBOutlet weak var addNoodleButton: UIBarButtonItem!
+   
+   // MARK: - Life Cycle
+   
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      
+      // set-up fetched results controller
+      let fetchRequest: NSFetchRequest<Nouille> = Nouille.fetchRequest()
+      
+      let nameSort = NSSortDescriptor(key: #keyPath(Nouille.name), ascending: true)
+      fetchRequest.sortDescriptors = [nameSort]
+      
+      fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
+      
+      fetchedResultsController.delegate = self
+      
+      doFetch()
+      
+   }
    
    // MARK: - Actions
    
@@ -39,6 +59,18 @@ class ListeDeNouillesVC: UIViewController {
       
       
    }
+   
+   // MARK: - Fetch Request Methods
+   
+   // execute the fetch request
+   func doFetch() {
+      do {
+         try fetchedResultsController.performFetch()
+      } catch let error as NSError {
+         print("Could not fetch \(error), \(error.userInfo)")
+      }
+   }
+
 }
 
 // MARK: - Table View Data Source
@@ -46,15 +78,20 @@ class ListeDeNouillesVC: UIViewController {
 extension ListeDeNouillesVC: UITableViewDataSource {
    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return 1
+      
+      guard let sectionInfo = fetchedResultsController.sections?[section] else { return 0 }
+      
+      return sectionInfo.numberOfObjects
    }
    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "Nouille", for: indexPath)
       
-      cell.textLabel?.text = "Penne Rifate"
+      let nouille = fetchedResultsController.object(at: indexPath)
+      
+      cell.textLabel?.text = nouille.name
       if let detail = cell.detailTextLabel {
-         detail.text = "\(8)"
+         detail.text = "\(nouille.time)"
       }
       return cell
    }
@@ -71,4 +108,13 @@ extension ListeDeNouillesVC: UITableViewDelegate {
       
       
    }
+}
+
+extension ListeDeNouillesVC: NSFetchedResultsControllerDelegate {
+   
+   func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+      tableView.reloadData()
+   }
+   
+   
 }
