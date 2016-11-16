@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class NouilleDetailVC: UIViewController {
 
+   // MARK: - Properties
+   
+   var managedContext: NSManagedObjectContext?
+   
    // MARK: - Outlets
    
    @IBOutlet weak var image: UIView!
