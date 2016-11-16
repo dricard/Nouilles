@@ -91,7 +91,7 @@ extension ListeDeNouillesVC: UITableViewDataSource {
       
       cell.textLabel?.text = nouille.name
       if let detail = cell.detailTextLabel {
-         detail.text = "\(nouille.time)"
+         detail.text = "\(nouille.time!)"
       }
       return cell
    }

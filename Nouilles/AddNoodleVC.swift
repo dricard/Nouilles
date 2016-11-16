@@ -21,7 +21,8 @@ class AddNoodleVC: UIViewController {
    @IBOutlet weak var brandInput: UITextField!
    @IBOutlet weak var mealServingInput: UITextField!
    @IBOutlet weak var sideDishServingInput: UITextField!
-   @IBOutlet weak var ratingINput: UITextField!
+   @IBOutlet weak var ratingInput: UITextField!
+   @IBOutlet weak var cookingTimeInput: UITextField!
    
    // MARK: - Actions
    
@@ -87,6 +88,18 @@ class AddNoodleVC: UIViewController {
       
       if let sideDishServing = Double(sideDishServingInput.text!) {
          newNoodle.servingSideDish = sideDishServing as NSNumber
+      } else {
+         return false
+      }
+
+      if let cookingTime = Double(cookingTimeInput.text!) {
+         newNoodle.time = cookingTime as NSNumber
+      } else {
+         return false
+      }
+
+      if let rating = Double(ratingInput.text!) {
+         newNoodle.rating = rating as NSNumber
       } else {
          return false
       }

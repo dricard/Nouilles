@@ -18,7 +18,7 @@
         <attribute name="servingSideDish" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="sodium" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="sugar" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="time" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="time" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="trans" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="userRating" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="UserRating" inverseName="nouille" inverseEntity="UserRating" syncable="YES"/>
     </entity>

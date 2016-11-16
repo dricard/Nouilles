@@ -281,9 +281,10 @@
                     </view>
                     <connections>
                         <outlet property="brandInput" destination="20J-s0-Uyb" id="tMR-bt-XJI"/>
+                        <outlet property="cookingTimeInput" destination="9xs-60-sHh" id="Ifh-pr-sz0"/>
                         <outlet property="mealServingInput" destination="4c6-xN-Dg3" id="iNq-Xt-0c5"/>
                         <outlet property="nameInput" destination="udk-U7-KGp" id="MtU-OV-xDJ"/>
-                        <outlet property="ratingINput" destination="CzD-wa-xDK" id="Cdf-1c-j9s"/>
+                        <outlet property="ratingInput" destination="CzD-wa-xDK" id="kKy-O0-kPY"/>
                         <outlet property="sideDishServingInput" destination="3WV-Wa-BEB" id="erv-gI-pOM"/>
                     </connections>
                 </viewController>
