@@ -91,7 +91,12 @@ class AddNoodleVC: UIViewController {
          return false
       }
 
-      
+      do {
+         try managedContext?.save()
+      } catch let error as NSError {
+         print("Could not save context in saveNoodleData() \(error), \(error.userInfo)")
+      }
+
       return true
    }
    
