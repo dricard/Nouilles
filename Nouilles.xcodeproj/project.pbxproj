@@ -13,6 +13,7 @@
 		2137A6071DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6031DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift */; };
 		2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6081DDB945000C1FC35 /* CoreDataStack.swift */; };
 		2137A60D1DDB961200C1FC35 /* NouilleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A60C1DDB961200C1FC35 /* NouilleDetailVC.swift */; };
+		2185319B1DDCA5060092B335 /* AddNoodleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2185319A1DDCA5060092B335 /* AddNoodleVC.swift */; };
 		21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148D11D6B841800FA52BA /* AppDelegate.swift */; };
 		21A148D71D6B841900FA52BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A148D51D6B841900FA52BA /* Main.storyboard */; };
 		21A148D91D6B841900FA52BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A148D81D6B841900FA52BA /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		2137A6031DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nouille+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2137A6081DDB945000C1FC35 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2137A60C1DDB961200C1FC35 /* NouilleDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NouilleDetailVC.swift; sourceTree = "<group>"; };
+		2185319A1DDCA5060092B335 /* AddNoodleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoodleVC.swift; sourceTree = "<group>"; };
 		21A148CE1D6B841800FA52BA /* Nouilles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nouilles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A148D11D6B841800FA52BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21A148D61D6B841900FA52BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 			children = (
 				21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */,
 				2137A60C1DDB961200C1FC35 /* NouilleDetailVC.swift */,
+				2185319A1DDCA5060092B335 /* AddNoodleVC.swift */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */,
 				2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */,
 				2137A60D1DDB961200C1FC35 /* NouilleDetailVC.swift in Sources */,
+				2185319B1DDCA5060092B335 /* AddNoodleVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
