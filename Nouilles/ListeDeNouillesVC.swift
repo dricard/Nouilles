@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ListeDeNouillesVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ListeDeNouillesVC: UIViewController {
    
    // MARK: - Properties
    
@@ -18,11 +18,32 @@ class ListeDeNouillesVC: UIViewController, UITableViewDelegate, UITableViewDataS
    // MARK: - Outlets
    
    @IBOutlet var tableView: UITableView!
+   @IBOutlet weak var addNoodleButton: UIBarButtonItem!
    
    // MARK: - Actions
    
    @IBAction func addNoodleTapped(_ sender: Any) {
+      
+      
    }
+   
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      
+      if segue.identifier == "AddNoodleVC" {
+         let vc = segue.destination as! AddNoodleVC
+         vc.managedContext = self.managedContext!
+      } else if segue.identifier == "NouilleDetailVC" {
+         let vc = segue.destination as! NouilleDetailVC
+         vc.managedContext = self.managedContext!
+      }
+      
+      
+   }
+}
+
+// MARK: - Table View Data Source
+
+extension ListeDeNouillesVC: UITableViewDataSource {
    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       return 1
@@ -38,4 +59,16 @@ class ListeDeNouillesVC: UIViewController, UITableViewDelegate, UITableViewDataS
       return cell
    }
    
+}
+
+// MARK: - Table View Delegate
+
+extension ListeDeNouillesVC: UITableViewDelegate {
+   
+   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
+      // a row was selected, prepare the segue
+      
+      
+   }
 }
