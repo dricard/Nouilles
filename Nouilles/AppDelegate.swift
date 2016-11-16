@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
    var window: UIWindow?
    
    // Instanciate the CoreDataStack
-   lazy var coreDataStack = CoreDataStack(modelName: "Nouilles")
+   lazy var coreDataStack = CoreDataStack(modelName: "Model")
    
    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
       

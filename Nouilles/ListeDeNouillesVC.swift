@@ -18,19 +18,22 @@ class ListeDeNouillesVC: UIViewController, UITableViewDelegate, UITableViewDataS
    // MARK: - Outlets
    
    @IBOutlet var tableView: UITableView!
+   
+   // MARK: - Actions
+   
    @IBAction func addNoodleTapped(_ sender: Any) {
    }
    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return nouilles.listeDeNouilles.count
+      return 1
    }
    
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "Nouille", for: indexPath)
       
-      cell.textLabel?.text = nouilles.listeDeNouilles[indexPath.row].name
+      cell.textLabel?.text = "Penne Rifate"
       if let detail = cell.detailTextLabel {
-         detail.text = "\(nouilles.listeDeNouilles[indexPath.row].time)"
+         detail.text = "\(8)"
       }
       return cell
    }

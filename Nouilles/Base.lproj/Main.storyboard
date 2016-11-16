@@ -144,6 +144,9 @@
                                     <constraint firstAttribute="width" constant="100" id="T28-XH-Q3w"/>
                                 </constraints>
                                 <state key="normal" title="Add picture"/>
+                                <connections>
+                                    <action selector="addPictureTapped:" destination="AUZ-8E-KSD" eventType="touchUpInside" id="kJk-EJ-v4t"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPG-tQ-c4u">
                                 <rect key="frame" x="193" y="411" width="100" height="30"/>
@@ -152,6 +155,9 @@
                                     <constraint firstAttribute="height" constant="30" id="qUG-e0-v5w"/>
                                 </constraints>
                                 <state key="normal" title="Scan barcode"/>
+                                <connections>
+                                    <action selector="scanBardoceTapped:" destination="AUZ-8E-KSD" eventType="touchUpInside" id="b78-Dd-pFO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4l-bz-bq9">
                                 <rect key="frame" x="132.5" y="461" width="50" height="30"/>
@@ -160,6 +166,9 @@
                                     <constraint firstAttribute="height" constant="30" id="tjQ-S4-hoh"/>
                                 </constraints>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelTapped:" destination="AUZ-8E-KSD" eventType="touchUpInside" id="9HR-u5-Ulu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLp-hR-LAa">
                                 <rect key="frame" x="193" y="461" width="50" height="30"/>
@@ -168,6 +177,9 @@
                                     <constraint firstAttribute="width" constant="50" id="QrG-74-zbg"/>
                                 </constraints>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveTapped:" destination="AUZ-8E-KSD" eventType="touchUpInside" id="wBc-VD-TJ9"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nom" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9t-Mf-aXL">
                                 <rect key="frame" x="169" y="72" width="37" height="21"/>
@@ -266,6 +278,13 @@
                             <constraint firstItem="XLp-hR-LAa" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" constant="30" id="sh6-1s-vKq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="brandInput" destination="20J-s0-Uyb" id="tMR-bt-XJI"/>
+                        <outlet property="mealServingInput" destination="4c6-xN-Dg3" id="iNq-Xt-0c5"/>
+                        <outlet property="nameInput" destination="udk-U7-KGp" id="MtU-OV-xDJ"/>
+                        <outlet property="ratingINput" destination="CzD-wa-xDK" id="Cdf-1c-j9s"/>
+                        <outlet property="sideDishServingInput" destination="3WV-Wa-BEB" id="erv-gI-pOM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qEh-lu-l7U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

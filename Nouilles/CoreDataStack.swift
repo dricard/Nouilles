@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 
+@available(iOS 10.0, *)
 class CoreDataStack {
    
    private let modelName: String
