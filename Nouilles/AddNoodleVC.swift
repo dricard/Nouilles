@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
 class AddNoodleVC: UIViewController {
 
+   // MARK: - Properties
+   
+   var managedContext: NSManagedObjectContext?
    
    // MARK: - Outlets
    
@@ -28,9 +32,18 @@ class AddNoodleVC: UIViewController {
    }
    
    @IBAction func cancelTapped(_ sender: Any) {
+      navigationController!.popViewController(animated: true)
    }
    
    @IBAction func saveTapped(_ sender: Any) {
+      if saveNoodleData() {
+         // save was successful, pop back to root vc
+         navigationController!.popViewController(animated: true)
+      } else {
+         // there was an error in the save, alert the user
+         print("Error while saving")
+         // TODO: - Present alert to user regarding what went wrong
+      }
    }
    
    // MARK: - Life Cycle
@@ -46,15 +59,74 @@ class AddNoodleVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+   // MARK: - Processing and saving Data
 
-    /*
-    // MARK: - Navigation
+   func saveNoodleData() -> Bool {
+      
+      let newNoodle = Nouille(context: managedContext!)
+      
+      if let name = nameInput.text {
+         newNoodle.name = name
+      } else {
+         return false
+      }
+      
+      if let brand = brandInput.text {
+         newNoodle.brand = brand
+      } else {
+         return false
+      }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+      
+      if let serving = Double(mealServingInput.text!) {
+         newNoodle.servingCustom = serving as NSNumber?
+      } else {
+         return false
+      }
 
+      
+      if let sideDishServing = Double(sideDishServingInput.text!) {
+         newNoodle.servingSideDish = sideDishServing as NSNumber
+      } else {
+         return false
+      }
+
+      
+      return true
+   }
+   
+}
+
+extension AddNoodleVC: UITextFieldDelegate {
+   
+   // Enable touch outide textfields to end editing
+   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+      view.endEditing(true)
+   }
+   
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      
+      // TODO: - Check validity of input value
+      
+      textField.resignFirstResponder()
+      
+      return true
+   }
+   
+   func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason) {
+      
+      // first deal with first responder
+      if textField.isFirstResponder {
+         textField.resignFirstResponder()
+      }
+      
+      switch reason {
+      case .committed:
+         if saveNoodleData() {
+            navigationController!.popViewController(animated: true)
+         }
+      case .cancelled:
+         navigationController!.popToRootViewController(animated: true)
+      }
+   }
 }
