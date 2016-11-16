@@ -10,6 +10,31 @@ import UIKit
 
 class AddNoodleVC: UIViewController {
 
+   
+   // MARK: - Outlets
+   
+   @IBOutlet weak var nameInput: UITextField!
+   @IBOutlet weak var brandInput: UITextField!
+   @IBOutlet weak var mealServingInput: UITextField!
+   @IBOutlet weak var sideDishServingInput: UITextField!
+   @IBOutlet weak var ratingINput: UITextField!
+   
+   // MARK: - Actions
+   
+   @IBAction func addPictureTapped(_ sender: Any) {
+   }
+   
+   @IBAction func scanBardoceTapped(_ sender: Any) {
+   }
+   
+   @IBAction func cancelTapped(_ sender: Any) {
+   }
+   
+   @IBAction func saveTapped(_ sender: Any) {
+   }
+   
+   // MARK: - Life Cycle
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
