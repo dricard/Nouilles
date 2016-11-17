@@ -20,7 +20,7 @@ class NouilleDetailVC: UIViewController {
    
    // MARK: - Outlets
    
-   @IBOutlet weak var image: UIView!
+   @IBOutlet weak var image: UIImageView!
    @IBOutlet weak var name: UILabel!
    @IBOutlet weak var brand: UILabel!
    @IBOutlet weak var servings: UILabel!
@@ -105,6 +105,14 @@ class NouilleDetailVC: UIViewController {
          }
          rating.text = "\(nouille.rating!)"
          cookingTime.text = "\(nouille.time!) mn"
+         
+         // placeholder image for now
+         // TODO: - put code to display proper image
+         
+         if let imageDeNouille = UIImage(named: "penne.png") {
+            image.contentMode = .scaleAspectFill
+            image.image = imageDeNouille
+         }
       }
    }
    
