@@ -104,6 +104,9 @@ class AddNoodleVC: UIViewController {
          return false
       }
 
+      // default to prefer meal size servings
+      newNoodle.mealSizePrefered = true as NSNumber
+      
       do {
          try managedContext?.save()
       } catch let error as NSError {

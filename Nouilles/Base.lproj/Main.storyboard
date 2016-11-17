@@ -633,6 +633,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dJl-ht-A4k">
+                                <rect key="frame" x="318" y="124" width="51" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="49" id="dRH-FG-Kdg"/>
+                                    <constraint firstAttribute="height" constant="31" id="gwZ-5p-8DI"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="preferedMealSizeTapped:" destination="05h-4T-WMG" eventType="valueChanged" id="5i0-uh-wjb"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -653,6 +663,7 @@
                             <constraint firstAttribute="trailing" secondItem="ZTj-ob-Zqd" secondAttribute="trailing" constant="8" id="BfB-5q-swJ"/>
                             <constraint firstItem="8vP-mE-DSz" firstAttribute="top" secondItem="ne3-iJ-Rwa" secondAttribute="bottom" constant="16" id="CSc-6U-bsy"/>
                             <constraint firstItem="w6V-4P-t89" firstAttribute="top" secondItem="ppn-sR-Uc4" secondAttribute="bottom" constant="8" id="DXf-d4-hRt"/>
+                            <constraint firstItem="dJl-ht-A4k" firstAttribute="top" secondItem="OCo-mc-tqr" secondAttribute="bottom" constant="2" id="EJt-Ar-4mg"/>
                             <constraint firstItem="AeY-fu-vrj" firstAttribute="leading" secondItem="uw0-84-Buh" secondAttribute="leading" constant="8" id="FRY-Um-1uM"/>
                             <constraint firstItem="iG0-Sn-J0H" firstAttribute="top" secondItem="0sO-Qs-Ek8" secondAttribute="bottom" constant="24" id="GDq-9H-5OK"/>
                             <constraint firstItem="iG0-Sn-J0H" firstAttribute="centerX" secondItem="uw0-84-Buh" secondAttribute="centerX" id="I0P-ei-RYj"/>
@@ -661,6 +672,7 @@
                             <constraint firstItem="KIs-NK-tCa" firstAttribute="leading" secondItem="uw0-84-Buh" secondAttribute="leading" constant="8" id="JSV-uU-mct"/>
                             <constraint firstItem="HIq-M7-64Y" firstAttribute="leading" secondItem="uw0-84-Buh" secondAttribute="leading" constant="8" id="Kbd-OO-xtR"/>
                             <constraint firstItem="YCI-1h-GvK" firstAttribute="top" secondItem="ORb-6l-LtV" secondAttribute="bottom" constant="1" id="M3D-jV-3oB"/>
+                            <constraint firstAttribute="trailing" secondItem="dJl-ht-A4k" secondAttribute="trailing" constant="8" id="OAu-7D-B8h"/>
                             <constraint firstItem="jOY-SR-6PL" firstAttribute="leading" secondItem="uw0-84-Buh" secondAttribute="leading" constant="8" id="OdL-Lj-MZK"/>
                             <constraint firstItem="HIq-M7-64Y" firstAttribute="top" secondItem="AeY-fu-vrj" secondAttribute="bottom" constant="1" id="P71-fY-gI0"/>
                             <constraint firstItem="LnS-wU-N0e" firstAttribute="top" secondItem="52V-FQ-Isd" secondAttribute="bottom" constant="1" id="PoM-ab-DtF"/>
@@ -726,6 +738,7 @@
                         <outlet property="fat" destination="YCI-1h-GvK" id="4Kw-4x-pw4"/>
                         <outlet property="fibres" destination="wHW-mq-LYa" id="Xm4-6l-uqq"/>
                         <outlet property="image" destination="ne3-iJ-Rwa" id="eIL-RG-zpo"/>
+                        <outlet property="isMealSize" destination="dJl-ht-A4k" id="ep1-AZ-2ye"/>
                         <outlet property="name" destination="Hq8-9P-8BV" id="3uU-pb-bq1"/>
                         <outlet property="protein" destination="kg6-Vj-nWa" id="DU8-nd-7NT"/>
                         <outlet property="rating" destination="0sO-Qs-Ek8" id="fVM-cu-Tbt"/>

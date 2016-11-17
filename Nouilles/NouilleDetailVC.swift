@@ -39,6 +39,7 @@ class NouilleDetailVC: UIViewController {
    @IBOutlet weak var sugars: UILabel!
    @IBOutlet weak var protein: UILabel!
    @IBOutlet weak var rating: UILabel!
+   @IBOutlet weak var isMealSize: UISwitch!
    
    // MARK: - Actions
    
@@ -61,6 +62,19 @@ class NouilleDetailVC: UIViewController {
    @IBAction func startTimerTapped(_ sender: Any) {
    }
    
+   @IBAction func preferedMealSizeTapped(_ sender: Any) {
+      if let nouille = nouille {
+         nouille.mealSizePrefered = isMealSize.isOn as NSNumber
+         
+         do {
+            try managedContext?.save()
+         } catch let error as NSError {
+            print("Could not save context in preferedMealSizeTapped \(error), \(error.userInfo)")
+         }
+
+      }
+      updateInterface()
+   }
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -81,10 +95,16 @@ class NouilleDetailVC: UIViewController {
          name.text = nouille.name!
          brand.text = nouille.brand!
          servings.text = "\(numberOfServings)"
-         servingSize.text = "\(nouille.servingCustom!)"
-         totalServingSize.text = "\(Double(numberOfServings) * Double(nouille.servingCustom!))"
+         isMealSize.isOn = nouille.mealSizePrefered! as Bool
+         if nouille.mealSizePrefered! as Bool {
+            servingSize.text = "\(nouille.servingCustom!)"
+            totalServingSize.text = "\(Double(numberOfServings) * Double(nouille.servingCustom!))"
+         } else {
+            servingSize.text = "\(nouille.servingSideDish!)"
+            totalServingSize.text = "\(Double(numberOfServings) * Double(nouille.servingSideDish!))"
+         }
          rating.text = "\(nouille.rating!)"
-         cookingTime.text = "\(nouille.time!)"
+         cookingTime.text = "\(nouille.time!) mn"
       }
    }
    

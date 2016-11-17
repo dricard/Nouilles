@@ -2,12 +2,13 @@
 //  UserRating+CoreDataProperties.swift
 //  Nouilles
 //
-//  Created by Denis Ricard on 2016-11-15.
+//  Created by Denis Ricard on 2016-11-17.
 //  Copyright © 2016 Hexaedre. All rights reserved.
 //
 
 import Foundation
 import CoreData
+
 
 extension UserRating {
 
@@ -15,8 +16,8 @@ extension UserRating {
         return NSFetchRequest<UserRating>(entityName: "UserRating");
     }
 
-    @NSManaged public var username: String?
     @NSManaged public var rating: NSNumber?
+    @NSManaged public var username: String?
     @NSManaged public var nouille: Nouille?
 
 }
