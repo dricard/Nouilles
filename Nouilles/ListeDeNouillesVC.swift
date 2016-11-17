@@ -73,6 +73,27 @@ class ListeDeNouillesVC: UIViewController {
 
 extension ListeDeNouillesVC: UITableViewDataSource {
    
+   func configure(cell: UITableViewCell, indexPath: IndexPath) {
+      
+      let nouille = fetchedResultsController.object(at: indexPath)
+      
+      cell.textLabel?.text = nouille.name
+      if let detail = cell.detailTextLabel {
+         
+         // construct detail label
+         var label = "Temps: \(nouille.time!) mn, portion: "
+         if nouille.mealSizePrefered! as Bool {
+            label += "\(nouille.servingCustom!) ts (meal), "
+         } else {
+            label += "\(nouille.servingSideDish!) ts (side dish), "
+         }
+         label += "rating: \(nouille.rating!) / 5"
+         detail.text = label
+      }
+     
+      
+   }
+   
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
       
       guard let sectionInfo = fetchedResultsController.sections?[section] else { return 0 }
@@ -83,12 +104,8 @@ extension ListeDeNouillesVC: UITableViewDataSource {
    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "Nouille", for: indexPath)
       
-      let nouille = fetchedResultsController.object(at: indexPath)
+      configure(cell: cell, indexPath: indexPath)
       
-      cell.textLabel?.text = nouille.name
-      if let detail = cell.detailTextLabel {
-         detail.text = "Temps: \(nouille.time!) mn, portion: \(nouille.servingCustom!) ts, rating: \(nouille.rating!) / 5"
-      }
       return cell
    }
    
