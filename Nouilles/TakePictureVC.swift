@@ -10,6 +10,10 @@ import UIKit
 
 class TakePictureVC: UIViewController {
    
+   // MARK: - Properties
+   
+   var passedImage: UIImage?
+   
    // MARK: - Outlets
    
    @IBOutlet weak var albumButton: UIBarButtonItem!
@@ -23,7 +27,20 @@ class TakePictureVC: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      // Do any additional setup after loading the view.
+      // Disable the camera if the device does not have one
+      cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+      // change the instruction in that case
+      if !cameraButton.isEnabled {
+         instructionLabel.text = "Choose an image from the Album \n(no camera on this device)"
+      }
+
+      if let image = passedImage {
+         imageView.contentMode = .scaleAspectFill
+         imageView.image = image
+         instructionLabel.isHidden = true
+      } else {
+         instructionLabel.isHidden = false
+      }
    }
    
    override func didReceiveMemoryWarning() {

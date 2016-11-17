@@ -80,6 +80,18 @@ class NouilleDetailVC: UIViewController {
    
    func imageTapped() {
       print("image was tapped")
+      
+      // segue to take picture VC
+      let controller = storyboard?.instantiateViewController(withIdentifier: "TakePictureVC") as! TakePictureVC
+      
+      if let nouille = nouille {
+         if let imageData = nouille.image {
+            controller.passedImage = UIImage(data: imageData as Data)
+         }
+      }
+      
+      show(controller, sender: self)
+      
    }
    
    // MARK: - Life Cycle

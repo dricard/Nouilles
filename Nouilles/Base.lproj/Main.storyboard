@@ -761,7 +761,7 @@
         <!--Take PictureVC-->
         <scene sceneID="TxX-gC-Av8">
             <objects>
-                <viewController id="cF2-f5-Uwh" customClass="TakePictureVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TakePictureVC" id="cF2-f5-Uwh" customClass="TakePictureVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vKf-37-mNq"/>
                         <viewControllerLayoutGuide type="bottom" id="r7i-iH-7Di"/>
