@@ -51,9 +51,56 @@ class TakePictureVC: UIViewController {
    // MARK: - Actions
    
    @IBAction func cameraTapped(_ sender: Any) {
+      let pickController = UIImagePickerController()
+      if UIImagePickerController.isSourceTypeAvailable(.camera) {
+         
+         pickController.delegate = self
+         pickController.sourceType = .camera
+         
+         let availableTypes = UIImagePickerController.availableMediaTypes(for: pickController.sourceType)
+         
+         pickController.mediaTypes = availableTypes!
+         pickController.allowsEditing = true
+         
+         present(pickController, animated: true, completion: nil)
+         
+      }
    }
    
    @IBAction func albumTapped(_ sender: Any) {
+      
+      let pickController = UIImagePickerController()
+      if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+         
+         pickController.delegate = self
+         pickController.sourceType = .photoLibrary
+
+         let availableTypes = UIImagePickerController.availableMediaTypes(for: pickController.sourceType)
+         
+         pickController.mediaTypes = availableTypes!
+         pickController.allowsEditing = true
+
+         present(pickController, animated: true, completion: nil)
+     
+      }
    }
    
+   // MARK: - Utilities
+   
+   func setUIImage(image: UIImage) {
+      imageView.image = image
+   }
+   
+}
+
+extension TakePictureVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+   
+   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+      dismiss(animated: true, completion: nil)
+      setUIImage(image: info[UIImagePickerControllerEditedImage] as! UIImage)
+   }
+   
+   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+      dismiss(animated: true, completion: nil)
+   }
 }
