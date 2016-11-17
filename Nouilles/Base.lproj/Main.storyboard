@@ -795,10 +795,10 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="603"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose from the album or take a picture" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRx-zZ-dxk">
-                                <rect key="frame" x="82" y="311" width="211" height="46"/>
+                                <rect key="frame" x="10" y="294" width="355" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="211" id="Kqx-bF-mfs"/>
-                                    <constraint firstAttribute="height" constant="46" id="smT-Q0-YUJ"/>
+                                    <constraint firstAttribute="height" constant="80" id="smT-Q0-YUJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -807,11 +807,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eRx-zZ-dxk" firstAttribute="centerX" secondItem="RPz-WS-gFK" secondAttribute="centerX" id="3OZ-Gd-PCy"/>
                             <constraint firstItem="Wg7-Zo-ncr" firstAttribute="leading" secondItem="RPz-WS-gFK" secondAttribute="leading" id="7le-Gt-mPQ"/>
                             <constraint firstItem="Wg7-Zo-ncr" firstAttribute="top" secondItem="vKf-37-mNq" secondAttribute="bottom" id="ChC-oD-TEU"/>
                             <constraint firstItem="r7i-iH-7Di" firstAttribute="top" secondItem="BUb-Km-Nxj" secondAttribute="bottom" id="Jk6-AI-cH4"/>
                             <constraint firstItem="eRx-zZ-dxk" firstAttribute="centerY" secondItem="RPz-WS-gFK" secondAttribute="centerY" id="UTI-Qs-VZA"/>
+                            <constraint firstItem="eRx-zZ-dxk" firstAttribute="leading" secondItem="RPz-WS-gFK" secondAttribute="leading" constant="10" id="UcF-2z-wCA"/>
+                            <constraint firstAttribute="trailing" secondItem="eRx-zZ-dxk" secondAttribute="trailing" constant="10" id="WxI-tY-vTX"/>
                             <constraint firstItem="BUb-Km-Nxj" firstAttribute="leading" secondItem="RPz-WS-gFK" secondAttribute="leading" id="XaF-xF-dpS"/>
                             <constraint firstAttribute="trailing" secondItem="Wg7-Zo-ncr" secondAttribute="trailing" id="ash-5i-bIi"/>
                             <constraint firstItem="BUb-Km-Nxj" firstAttribute="top" secondItem="Wg7-Zo-ncr" secondAttribute="bottom" id="doT-Ll-ak3"/>
