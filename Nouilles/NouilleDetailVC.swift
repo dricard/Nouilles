@@ -18,6 +18,8 @@ class NouilleDetailVC: UIViewController {
    
    var numberOfServings: Int = 3
    
+   let tapRec = UITapGestureRecognizer()
+   
    // MARK: - Outlets
    
    @IBOutlet weak var image: UIImageView!
@@ -76,8 +78,19 @@ class NouilleDetailVC: UIViewController {
       updateInterface()
    }
    
+   func imageTapped() {
+      print("image was tapped")
+   }
+   
+   // MARK: - Life Cycle
+   
    override func viewDidLoad() {
       super.viewDidLoad()
+      
+      // add gesture recognizer for tap on image
+      
+      tapRec.addTarget(self, action: #selector(NouilleDetailVC.imageTapped))
+      image.addGestureRecognizer(tapRec)
       
       updateInterface()
    }

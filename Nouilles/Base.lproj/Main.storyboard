@@ -304,8 +304,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ne3-iJ-Rwa">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ne3-iJ-Rwa">
                                 <rect key="frame" x="8" y="72" width="145" height="160"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="H5c-tE-y1y"/>
                                     <constraint firstAttribute="width" constant="145" id="def-MG-8bF"/>
@@ -645,6 +646,7 @@
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="LnS-wU-N0e" firstAttribute="leading" secondItem="XlB-WF-fLX" secondAttribute="trailing" constant="8" id="08I-L9-3eu"/>
                             <constraint firstItem="G0m-ty-9oe" firstAttribute="top" secondItem="kg6-Vj-nWa" secondAttribute="bottom" constant="11" id="0CD-cD-onJ"/>
