@@ -719,22 +719,22 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="brand" destination="uw0-84-Buh" id="0zL-xo-Wwb"/>
-                        <outlet property="calories" destination="uw0-84-Buh" id="irj-F1-fK2"/>
+                        <outlet property="brand" destination="OCo-mc-tqr" id="9dz-gP-uze"/>
+                        <outlet property="calories" destination="ORb-6l-LtV" id="YAS-NV-quB"/>
                         <outlet property="carbs" destination="LnS-wU-N0e" id="fjC-K6-KdZ"/>
-                        <outlet property="cookingTime" destination="uw0-84-Buh" id="uPo-cZ-scu"/>
-                        <outlet property="fat" destination="uw0-84-Buh" id="Fhe-Mn-6Da"/>
+                        <outlet property="cookingTime" destination="ZTj-ob-Zqd" id="0oy-W8-fya"/>
+                        <outlet property="fat" destination="YCI-1h-GvK" id="4Kw-4x-pw4"/>
                         <outlet property="fibres" destination="wHW-mq-LYa" id="Xm4-6l-uqq"/>
-                        <outlet property="image" destination="uw0-84-Buh" id="YLp-FQ-C0g"/>
-                        <outlet property="name" destination="uw0-84-Buh" id="m0o-d6-0hF"/>
+                        <outlet property="image" destination="ne3-iJ-Rwa" id="eIL-RG-zpo"/>
+                        <outlet property="name" destination="Hq8-9P-8BV" id="3uU-pb-bq1"/>
                         <outlet property="protein" destination="kg6-Vj-nWa" id="DU8-nd-7NT"/>
                         <outlet property="rating" destination="0sO-Qs-Ek8" id="fVM-cu-Tbt"/>
                         <outlet property="saturated" destination="hHz-Sg-tKn" id="7eb-gZ-k0k"/>
-                        <outlet property="servingSize" destination="uw0-84-Buh" id="eJs-qR-0Gb"/>
-                        <outlet property="servings" destination="uw0-84-Buh" id="GKB-hv-0Rx"/>
+                        <outlet property="servingSize" destination="Iex-uQ-ViP" id="l3F-nO-foI"/>
+                        <outlet property="servings" destination="s62-Ol-2dD" id="KYJ-v0-3nc"/>
                         <outlet property="sodium" destination="52V-FQ-Isd" id="bdx-xm-ddx"/>
                         <outlet property="sugars" destination="UqJ-bZ-hAN" id="BjZ-Ha-4VY"/>
-                        <outlet property="totalServingSize" destination="uw0-84-Buh" id="T6M-aW-Jls"/>
+                        <outlet property="totalServingSize" destination="lZ0-2b-PMj" id="7Hy-m1-MuO"/>
                         <outlet property="trans" destination="Zb1-Yp-fFr" id="6dc-Js-l8a"/>
                     </connections>
                 </viewController>

@@ -52,11 +52,7 @@ class ListeDeNouillesVC: UIViewController {
       if segue.identifier == "AddNoodleVC" {
          let vc = segue.destination as! AddNoodleVC
          vc.managedContext = self.managedContext!
-      } else if segue.identifier == "NouilleDetailVC" {
-         let vc = segue.destination as! NouilleDetailVC
-         vc.managedContext = self.managedContext!
       }
-      
       
    }
    
@@ -105,7 +101,11 @@ extension ListeDeNouillesVC: UITableViewDelegate {
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
       // a row was selected, prepare the segue
-      
+      let nouille = fetchedResultsController.object(at: indexPath)
+      let vc = storyboard?.instantiateViewController(withIdentifier: "NouilleDetailVC") as! NouilleDetailVC
+      vc.managedContext = self.managedContext!
+      vc.nouille = nouille
+      show(vc, sender: self)
       
    }
 }
