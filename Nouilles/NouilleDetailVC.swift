@@ -87,10 +87,12 @@ class NouilleDetailVC: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      // add gesture recognizer for tap on image
+      // add gesture recognizer for tap on image if camera available on device
       
-      tapRec.addTarget(self, action: #selector(NouilleDetailVC.imageTapped))
-      image.addGestureRecognizer(tapRec)
+      if UIImagePickerController.isSourceTypeAvailable(.camera) {
+         tapRec.addTarget(self, action: #selector(NouilleDetailVC.imageTapped))
+         image.addGestureRecognizer(tapRec)
+      }
       
       updateInterface()
    }
