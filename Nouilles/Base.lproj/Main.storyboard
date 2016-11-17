@@ -751,11 +751,83 @@
                         <outlet property="sugars" destination="UqJ-bZ-hAN" id="BjZ-Ha-4VY"/>
                         <outlet property="totalServingSize" destination="lZ0-2b-PMj" id="7Hy-m1-MuO"/>
                         <outlet property="trans" destination="Zb1-Yp-fFr" id="6dc-Js-l8a"/>
+                        <segue destination="cF2-f5-Uwh" kind="showDetail" identifier="TakePictureSegue" id="07U-aX-Z57"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B9F-rt-uCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1601" y="1098"/>
+        </scene>
+        <!--Take PictureVC-->
+        <scene sceneID="TxX-gC-Av8">
+            <objects>
+                <viewController id="cF2-f5-Uwh" customClass="TakePictureVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vKf-37-mNq"/>
+                        <viewControllerLayoutGuide type="bottom" id="r7i-iH-7Di"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RPz-WS-gFK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUb-Km-Nxj">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ncW-Lu-ZUW"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pPq-9Z-YjC"/>
+                                    <barButtonItem title="Album" id="CvF-Yh-DmM">
+                                        <connections>
+                                            <action selector="albumTapped:" destination="cF2-f5-Uwh" id="v1Q-94-VPP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fRD-1A-Rrt"/>
+                                    <barButtonItem systemItem="camera" id="ZHa-sO-API">
+                                        <connections>
+                                            <action selector="cameraTapped:" destination="cF2-f5-Uwh" id="Czf-dy-pb7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XLx-p5-3YE"/>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wg7-Zo-ncr">
+                                <rect key="frame" x="0.0" y="20" width="375" height="603"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose from the album or take a picture" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRx-zZ-dxk">
+                                <rect key="frame" x="82" y="311" width="211" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="211" id="Kqx-bF-mfs"/>
+                                    <constraint firstAttribute="height" constant="46" id="smT-Q0-YUJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eRx-zZ-dxk" firstAttribute="centerX" secondItem="RPz-WS-gFK" secondAttribute="centerX" id="3OZ-Gd-PCy"/>
+                            <constraint firstItem="Wg7-Zo-ncr" firstAttribute="leading" secondItem="RPz-WS-gFK" secondAttribute="leading" id="7le-Gt-mPQ"/>
+                            <constraint firstItem="Wg7-Zo-ncr" firstAttribute="top" secondItem="vKf-37-mNq" secondAttribute="bottom" id="ChC-oD-TEU"/>
+                            <constraint firstItem="r7i-iH-7Di" firstAttribute="top" secondItem="BUb-Km-Nxj" secondAttribute="bottom" id="Jk6-AI-cH4"/>
+                            <constraint firstItem="eRx-zZ-dxk" firstAttribute="centerY" secondItem="RPz-WS-gFK" secondAttribute="centerY" id="UTI-Qs-VZA"/>
+                            <constraint firstItem="BUb-Km-Nxj" firstAttribute="leading" secondItem="RPz-WS-gFK" secondAttribute="leading" id="XaF-xF-dpS"/>
+                            <constraint firstAttribute="trailing" secondItem="Wg7-Zo-ncr" secondAttribute="trailing" id="ash-5i-bIi"/>
+                            <constraint firstItem="BUb-Km-Nxj" firstAttribute="top" secondItem="Wg7-Zo-ncr" secondAttribute="bottom" id="doT-Ll-ak3"/>
+                            <constraint firstAttribute="trailing" secondItem="BUb-Km-Nxj" secondAttribute="trailing" id="lJ0-Km-5Yq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="albumButton" destination="CvF-Yh-DmM" id="ugL-2V-Svf"/>
+                        <outlet property="cameraButton" destination="ZHa-sO-API" id="99H-DW-Qwy"/>
+                        <outlet property="imageView" destination="Wg7-Zo-ncr" id="Imn-8n-Uqr"/>
+                        <outlet property="instructionLabel" destination="eRx-zZ-dxk" id="sbU-ZS-rUn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0v2-bm-K3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2493.5999999999999" y="1104.1979010494754"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Cpn-hD-mR2">
