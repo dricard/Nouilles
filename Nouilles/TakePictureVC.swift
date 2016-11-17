@@ -35,9 +35,7 @@ class TakePictureVC: UIViewController {
       }
 
       if let image = passedImage {
-         imageView.contentMode = .scaleAspectFill
-         imageView.image = image
-         instructionLabel.isHidden = true
+         setUIImage(image: image)
       } else {
          instructionLabel.isHidden = false
       }
@@ -61,6 +59,7 @@ class TakePictureVC: UIViewController {
          
          pickController.mediaTypes = availableTypes!
          pickController.allowsEditing = true
+         pickController.showsCameraControls = true
          
          present(pickController, animated: true, completion: nil)
          
@@ -88,7 +87,9 @@ class TakePictureVC: UIViewController {
    // MARK: - Utilities
    
    func setUIImage(image: UIImage) {
+      imageView.contentMode = .scaleAspectFit
       imageView.image = image
+      instructionLabel.isHidden = true
    }
    
 }
