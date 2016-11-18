@@ -797,7 +797,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose from the album or take a picture" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRx-zZ-dxk">
                                 <rect key="frame" x="10" y="294" width="355" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="211" id="Kqx-bF-mfs"/>
                                     <constraint firstAttribute="height" constant="80" id="smT-Q0-YUJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
