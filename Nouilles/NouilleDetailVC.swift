@@ -88,6 +88,10 @@ class NouilleDetailVC: UIViewController {
          if let imageData = nouille.image {
             controller.passedImage = UIImage(data: imageData as Data)
          }
+         controller.managedContext = managedContext
+         controller.nouille = nouille
+      } else {
+         fatalError("Nouille is nil in imageTapped")
       }
       
       show(controller, sender: self)
@@ -111,9 +115,8 @@ class NouilleDetailVC: UIViewController {
       updateInterface()
    }
    
-   override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
+   override func viewWillAppear(_ animated: Bool) {
+      updateInterface()
    }
    
    // MARK: - Utilities
@@ -135,11 +138,10 @@ class NouilleDetailVC: UIViewController {
          rating.text = "\(nouille.rating!)"
          cookingTime.text = "\(nouille.time!) mn"
          
-         // placeholder image for now
-         // TODO: - put code to display proper image
-         
-         if let imageDeNouille = UIImage(named: "penne.png") {
-            image.contentMode = .scaleAspectFill
+         image.contentMode = .scaleAspectFill
+         if let imageData = nouille.image {
+            image.image = UIImage(data: imageData as Data)
+         } else if let imageDeNouille = UIImage(named: "penne.png") {
             image.image = imageDeNouille
          }
       }

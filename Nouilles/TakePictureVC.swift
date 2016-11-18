@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import CoreData
 
 class TakePictureVC: UIViewController {
    
    // MARK: - Properties
    
+   // we use this property to hold the passed image
+   // in case the user cancels the operation
    var passedImage: UIImage?
+   
+   var managedContext: NSManagedObjectContext?
+   var nouille: Nouille?
    
    // MARK: - Outlets
    
@@ -41,9 +47,9 @@ class TakePictureVC: UIViewController {
       }
    }
    
-   override func didReceiveMemoryWarning() {
-      super.didReceiveMemoryWarning()
-      // Dispose of any resources that can be recreated.
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      print("We're going back, save?")
+      
    }
    
    // MARK: - Actions
@@ -99,6 +105,20 @@ extension TakePictureVC: UIImagePickerControllerDelegate, UINavigationController
    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
       dismiss(animated: true, completion: nil)
       setUIImage(image: info[UIImagePickerControllerEditedImage] as! UIImage)
+      if nouille != nil {
+         nouille!.image = UIImagePNGRepresentation(info[UIImagePickerControllerEditedImage] as! UIImage) as NSData?
+         if nouille!.image == nil {
+            fatalError("image is nil")
+         }
+         do {
+            try managedContext?.save()
+         } catch let error as NSError {
+            print("Could not save context \(error), \(error.userInfo)")
+         }
+
+      } else {
+         fatalError("Nouille is nil in TakePictureVC")
+      }
    }
    
    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
