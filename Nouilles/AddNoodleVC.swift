@@ -47,19 +47,66 @@ class AddNoodleVC: UIViewController {
       }
    }
    
+   func backButtonTapped() {
+      print("woohoo")
+      if unsavedChanges() {
+         print("Unsaved Changes")
+         let controller = UIAlertController(title: "Unsaved entry", message: "You have entered some data and have not saved, are you sure you to discard the data?", preferredStyle: .alert)
+         let discardAction = UIAlertAction(title: "Discard", style: .default) { (action) in
+            _ = self.navigationController?.popViewController(animated: true)
+         }
+         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (action) in
+            print("\(action)")
+            if self.saveNoodleData() {
+               // save was successful, pop back to root vc
+               _ = self.navigationController?.popViewController(animated: true)
+            } else {
+               // there was an error in the save, alert the user
+               print("Error while saving")
+               // TODO: - Present alert to user regarding what went wrong
+            }
+         })
+         controller.addAction(discardAction)
+         controller.addAction(saveAction)
+         present(controller, animated: true, completion: nil)
+      } else {
+         print("No unsaved changes")
+         _ = self.navigationController?.popViewController(animated: true)
+      }
+   }
+   
    // MARK: - Life Cycle
    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-    }
+      self.navigationItem.hidesBackButton = true
+      let newBackButton = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(AddNoodleVC.backButtonTapped))
+      self.navigationItem.leftBarButtonItem = newBackButton
+   }
+   
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+   override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+      
+      if self.isMovingFromParentViewController {
+         // We are exiting back, check for unsaved inputs
+         if unsavedChanges() {
+            print("Unsaved Changes")
+            let controller = UIAlertController(title: "Unsaved entry", message: "You have entered some data and have not saved, are you sure you to discard the data?", preferredStyle: .alert)
+            let discardAction = UIAlertAction(title: "Discard", style: .default, handler: nil)
+            let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (action) in
+               print("\(action)")
+            })
+            controller.addAction(discardAction)
+            controller.addAction(saveAction)
+            present(controller, animated: true, completion: nil)
+         } else {
+            print("No unsaved cahnges")
+         }
+      }
+   }
+   
    // MARK: - Processing and saving Data
 
    func saveNoodleData() -> Bool {
@@ -114,6 +161,23 @@ class AddNoodleVC: UIViewController {
       }
 
       return true
+   }
+   
+   func unsavedChanges() -> Bool {
+      
+      // default to false
+      let foundUnsavedData = false
+      
+      // check for non empty text field
+
+      if !(nameInput.text?.isEmpty)! { return true }
+      if !(brandInput.text?.isEmpty)! { return true }
+      if !(mealServingInput.text?.isEmpty)! { return true }
+      if !(sideDishServingInput.text?.isEmpty)! { return true }
+      if !(ratingInput.text?.isEmpty)! { return true }
+      if !(cookingTimeInput.text?.isEmpty)! { return true }
+
+      return foundUnsavedData
    }
    
 }
