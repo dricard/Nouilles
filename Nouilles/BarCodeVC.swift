@@ -21,6 +21,8 @@ class BarCodeVC: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
+      // TODO: - Check for availability of camera on this device, exit gracefully
+      
       // initialize a device object
       let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
       
