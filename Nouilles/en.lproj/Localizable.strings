@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  Nouilles
+
+  Created by Denis Ricard on 2016-11-21.
+  Copyright © 2016 Hexaedre. All rights reserved.
+*/
+
+"Noodle" = "Noodle";
+"Choose from the album or take a picture" = "Choose from the album or take a picture";
+"Qty" = "Qty";
+"Time" = "Time";
+"Minus" = "Minus";
+"Plus" = "Plus";
+"Nutritional value per serving" = "Nutritional value per serving";
+"Rating" = "Rating";
+"Edit" = "Edit";
+"Calories" = "Calories";
+"Fat" = "Fat";
+"Saturated" = "Saturated";
+"Trans" = "Trans";
+"Sodium" = "Sodium";
+"Carbohydrate" = "Carbohydrate";
+"Fibre" = "Fibre";
+"Sugars" = "Sugars";
+"Protein" = "Protein";
+"Name" = "Name";
+"Brand" = "Brand";
+"Meal serving" = "Meal serving";
+"Side dish serving" = "Side dish serving";
+"Cooking time" = "Cooking time";
+"Add picture" = "Add picture";
+"Scan barcode" = "Scan barcode";
+"Cancel" = "Cancel";
+"Save" = "Save";
+"Back" = "Back";

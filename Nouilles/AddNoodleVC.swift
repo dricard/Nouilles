@@ -88,23 +88,26 @@ class AddNoodleVC: UIViewController {
 
    override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
-      
+
       if self.isMovingFromParentViewController {
          // We are exiting back, check for unsaved inputs
          if unsavedChanges() {
             print("Unsaved Changes")
-            let controller = UIAlertController(title: "Unsaved entry", message: "You have entered some data and have not saved, are you sure you to discard the data?", preferredStyle: .alert)
-            let discardAction = UIAlertAction(title: "Discard", style: .default, handler: nil)
+            let controller = UIAlertController(title: "Unsaved entry", message: "You have entered some data and have not saved, are you sure you want to discard the data?", preferredStyle: .alert)
+            let discardAction = UIAlertAction(title: "Discard", style: .default, handler: { (action) in
+               print("User chose to discard")
+            })
             let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (action) in
-               print("\(action)")
+               print("User chose to save")
             })
             controller.addAction(discardAction)
             controller.addAction(saveAction)
             present(controller, animated: true, completion: nil)
          } else {
-            print("No unsaved cahnges")
+            print("No unsaved changes")
          }
       }
+      
    }
    
    // MARK: - Processing and saving Data

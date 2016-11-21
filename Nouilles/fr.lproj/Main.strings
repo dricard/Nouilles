@@ -1,0 +1,162 @@
+
+/* Class = "UILabel"; text = "Portion à côté"; ObjectID = "0Kl-GI-VKS"; */
+"0Kl-GI-VKS.text" = "Portion à côté";
+
+/* Class = "UILabel"; text = "4.5 / 5"; ObjectID = "0sO-Qs-Ek8"; */
+"0sO-Qs-Ek8.text" = "4.5 / 5";
+
+/* Class = "UITextField"; placeholder = "Catelli"; ObjectID = "20J-s0-Uyb"; */
+"20J-s0-Uyb.placeholder" = "Catelli";
+
+/* Class = "UITextField"; placeholder = "0.25"; ObjectID = "3WV-Wa-BEB"; */
+"3WV-Wa-BEB.placeholder" = "0.25";
+
+/* Class = "UITextField"; placeholder = "0.75"; ObjectID = "4c6-xN-Dg3"; */
+"4c6-xN-Dg3.placeholder" = "0.75";
+
+/* Class = "UILabel"; text = "10 mg"; ObjectID = "52V-FQ-Isd"; */
+"52V-FQ-Isd.text" = "10 mg";
+
+/* Class = "UILabel"; text = "Qtée"; ObjectID = "8vP-mE-DSz"; */
+"8vP-mE-DSz.text" = "Qtée";
+
+/* Class = "UITextField"; placeholder = "8.5"; ObjectID = "9xs-60-sHh"; */
+"9xs-60-sHh.placeholder" = "8.5";
+
+/* Class = "UILabel"; text = "Fibres"; ObjectID = "AeY-fu-vrj"; */
+"AeY-fu-vrj.text" = "Fibres";
+
+/* Class = "UILabel"; text = "Lipides"; ObjectID = "Af2-ki-OS9"; */
+"Af2-ki-OS9.text" = "Lipides";
+
+/* Class = "UIBarButtonItem"; title = "Album"; ObjectID = "CvF-Yh-DmM"; */
+"CvF-Yh-DmM.title" = "Album";
+
+/* Class = "UITextField"; placeholder = "3.0"; ObjectID = "CzD-wa-xDK"; */
+"CzD-wa-xDK.placeholder" = "3.0";
+
+/* Class = "UIButton"; normalTitle = "Changer"; ObjectID = "G0m-ty-9oe"; */
+"G0m-ty-9oe.normalTitle" = "Changer";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "G4l-bz-bq9"; */
+"G4l-bz-bq9.normalTitle" = "Cancel";
+
+/* Class = "UILabel"; text = "Sucres"; ObjectID = "HIq-M7-64Y"; */
+"HIq-M7-64Y.text" = "Sucres";
+
+/* Class = "UILabel"; text = "Penne Rigate"; ObjectID = "Hq8-9P-8BV"; */
+"Hq8-9P-8BV.text" = "Penne Rigate";
+
+/* Class = "UILabel"; text = "85g"; ObjectID = "Iex-uQ-ViP"; */
+"Iex-uQ-ViP.text" = "85g";
+
+/* Class = "UILabel"; text = "Trans"; ObjectID = "KIs-NK-tCa"; */
+"KIs-NK-tCa.text" = "Trans";
+
+/* Class = "UILabel"; text = "62 g"; ObjectID = "LnS-wU-N0e"; */
+"LnS-wU-N0e.text" = "62 g";
+
+/* Class = "UIButton"; normalTitle = "Plus"; ObjectID = "N22-LI-U5S"; */
+"N22-LI-U5S.normalTitle" = "Plus";
+
+/* Class = "UIButton"; normalTitle = "Add picture"; ObjectID = "NfO-Ft-foS"; */
+"NfO-Ft-foS.normalTitle" = "Add picture";
+
+/* Class = "UILabel"; text = "Catelli"; ObjectID = "OCo-mc-tqr"; */
+"OCo-mc-tqr.text" = "Catelli";
+
+/* Class = "UIButton"; normalTitle = "Scan barcode"; ObjectID = "OPG-tQ-c4u"; */
+"OPG-tQ-c4u.normalTitle" = "Lire code bar";
+
+/* Class = "UILabel"; text = "300"; ObjectID = "ORb-6l-LtV"; */
+"ORb-6l-LtV.text" = "300";
+
+/* Class = "UINavigationItem"; title = "Nouilles"; ObjectID = "OXz-dx-Pyu"; */
+"OXz-dx-Pyu.title" = "Nouilles";
+
+/* Class = "UILabel"; text = "Temps"; ObjectID = "UoX-E1-x1q"; */
+"UoX-E1-x1q.text" = "Temps";
+
+/* Class = "UILabel"; text = "2 g"; ObjectID = "UqJ-bZ-hAN"; */
+"UqJ-bZ-hAN.text" = "2 g";
+
+/* Class = "UILabel"; text = "Nom"; ObjectID = "V9t-Mf-aXL"; */
+"V9t-Mf-aXL.text" = "Nom";
+
+/* Class = "UILabel"; text = "Temps de cuisson"; ObjectID = "Vkk-Jk-a56"; */
+"Vkk-Jk-a56.text" = "Temps de cuisson";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "XLp-hR-LAa"; */
+"XLp-hR-LAa.normalTitle" = "Sauvegarder";
+
+/* Class = "UILabel"; text = "Glucides"; ObjectID = "XlB-WF-fLX"; */
+"XlB-WF-fLX.text" = "Glucides";
+
+/* Class = "UILabel"; text = "Subtitle"; ObjectID = "Y3y-gP-70t"; */
+"Y3y-gP-70t.text" = "Subtitle";
+
+/* Class = "UILabel"; text = "1,5 g"; ObjectID = "YCI-1h-GvK"; */
+"YCI-1h-GvK.text" = "1,5 g";
+
+/* Class = "UILabel"; text = "8 minutes"; ObjectID = "ZTj-ob-Zqd"; */
+"ZTj-ob-Zqd.text" = "8 minutes";
+
+/* Class = "UIButton"; normalTitle = "Minus"; ObjectID = "ZVe-g2-mry"; */
+"ZVe-g2-mry.normalTitle" = "Moins";
+
+/* Class = "UILabel"; text = "0 g"; ObjectID = "Zb1-Yp-fFr"; */
+"Zb1-Yp-fFr.text" = "0 g";
+
+/* Class = "UILabel"; text = "Marque"; ObjectID = "dZt-r7-Xd4"; */
+"dZt-r7-Xd4.text" = "Marque";
+
+/* Class = "UILabel"; text = "Choose from the album or take a picture"; ObjectID = "eRx-zZ-dxk"; */
+"eRx-zZ-dxk.text" = "Choisir de l'album ou prendre une photo";
+
+/* Class = "UILabel"; text = "0,3 g"; ObjectID = "hHz-Sg-tKn"; */
+"hHz-Sg-tKn.text" = "0,3 g";
+
+/* Class = "UIButton"; normalTitle = "Partir minuterie"; ObjectID = "iG0-Sn-J0H"; */
+"iG0-Sn-J0H.normalTitle" = "Partir minuterie";
+
+/* Class = "UILabel"; text = "Saturés"; ObjectID = "jOY-SR-6PL"; */
+"jOY-SR-6PL.text" = "Saturés";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "jem-jI-Ldw"; */
+"jem-jI-Ldw.text" = "Title";
+
+/* Class = "UILabel"; text = "11 g"; ObjectID = "kg6-Vj-nWa"; */
+"kg6-Vj-nWa.text" = "11 g";
+
+/* Class = "UILabel"; text = "2 tasses (227 gr)"; ObjectID = "lZ0-2b-PMj"; */
+"lZ0-2b-PMj.text" = "2 tasses (227 gr)";
+
+/* Class = "UILabel"; text = "Protéines"; ObjectID = "nCa-9h-HAa"; */
+"nCa-9h-HAa.text" = "Protéines";
+
+/* Class = "UILabel"; text = "Valeur nutritive par portion"; ObjectID = "ppn-sR-Uc4"; */
+"ppn-sR-Uc4.text" = "Valeur nutritive par portion";
+
+/* Class = "UILabel"; text = "Sodium"; ObjectID = "rwZ-JB-gny"; */
+"rwZ-JB-gny.text" = "Sodium";
+
+/* Class = "UILabel"; text = "4"; ObjectID = "s62-Ol-2dD"; */
+"s62-Ol-2dD.text" = "4";
+
+/* Class = "UILabel"; text = "Portion repas"; ObjectID = "snr-6b-CzX"; */
+"snr-6b-CzX.text" = "Portion repas";
+
+/* Class = "UILabel"; text = "Mon appréciation"; ObjectID = "uTE-lt-KLN"; */
+"uTE-lt-KLN.text" = "Mon appréciation";
+
+/* Class = "UITextField"; placeholder = "Anneaux"; ObjectID = "udk-U7-KGp"; */
+"udk-U7-KGp.placeholder" = "Anneaux";
+
+/* Class = "UILabel"; text = "Rating"; ObjectID = "vLO-kr-rC7"; */
+"vLO-kr-rC7.text" = "Appréciation";
+
+/* Class = "UILabel"; text = "Calories"; ObjectID = "w6V-4P-t89"; */
+"w6V-4P-t89.text" = "Calories";
+
+/* Class = "UILabel"; text = "8 g"; ObjectID = "wHW-mq-LYa"; */
+"wHW-mq-LYa.text" = "8 g";
