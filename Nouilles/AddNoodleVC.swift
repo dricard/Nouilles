@@ -81,7 +81,7 @@ class AddNoodleVC: UIViewController {
         super.viewDidLoad()
 
       self.navigationItem.hidesBackButton = true
-      let newBackButton = UIBarButtonItem(title: "< Back", style: .plain, target: self, action: #selector(AddNoodleVC.backButtonTapped))
+      let newBackButton = UIBarButtonItem(title: .Back, style: .plain, target: self, action: #selector(AddNoodleVC.backButtonTapped))
       self.navigationItem.leftBarButtonItem = newBackButton
    }
    

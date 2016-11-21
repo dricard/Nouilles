@@ -139,10 +139,10 @@
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NfO-Ft-foS">
-                                <rect key="frame" x="83" y="355" width="100" height="30"/>
+                                <rect key="frame" x="32.5" y="355" width="150" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="M4J-Fx-Jf6"/>
-                                    <constraint firstAttribute="width" constant="100" id="T28-XH-Q3w"/>
+                                    <constraint firstAttribute="width" constant="150" id="T28-XH-Q3w"/>
                                 </constraints>
                                 <state key="normal" title="Add picture"/>
                                 <connections>
@@ -150,9 +150,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPG-tQ-c4u">
-                                <rect key="frame" x="193" y="355" width="100" height="30"/>
+                                <rect key="frame" x="192.5" y="355" width="150" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="9f9-xA-FJO"/>
+                                    <constraint firstAttribute="width" constant="150" id="9f9-xA-FJO"/>
                                     <constraint firstAttribute="height" constant="30" id="qUG-e0-v5w"/>
                                 </constraints>
                                 <state key="normal" title="Scan barcode"/>
@@ -161,9 +161,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4l-bz-bq9">
-                                <rect key="frame" x="132.5" y="405" width="50" height="30"/>
+                                <rect key="frame" x="82.5" y="395" width="100" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="oB1-8c-ydb"/>
+                                    <constraint firstAttribute="width" constant="100" id="oB1-8c-ydb"/>
                                     <constraint firstAttribute="height" constant="30" id="tjQ-S4-hoh"/>
                                 </constraints>
                                 <state key="normal" title="Cancel"/>
@@ -172,10 +172,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XLp-hR-LAa">
-                                <rect key="frame" x="193" y="405" width="50" height="30"/>
+                                <rect key="frame" x="192.5" y="395" width="100" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="A1y-9b-ICH"/>
-                                    <constraint firstAttribute="width" constant="50" id="QrG-74-zbg"/>
+                                    <constraint firstAttribute="width" constant="100" id="QrG-74-zbg"/>
                                 </constraints>
                                 <state key="normal" title="Save"/>
                                 <connections>
@@ -250,13 +250,13 @@
                             <constraint firstItem="dZt-r7-Xd4" firstAttribute="top" secondItem="udk-U7-KGp" secondAttribute="bottom" constant="5" id="5Kr-Wd-KBZ"/>
                             <constraint firstItem="G4l-bz-bq9" firstAttribute="centerY" secondItem="XLp-hR-LAa" secondAttribute="centerY" id="6gI-OS-t7J"/>
                             <constraint firstItem="20J-s0-Uyb" firstAttribute="top" secondItem="dZt-r7-Xd4" secondAttribute="bottom" constant="2" id="8le-1Y-56R"/>
-                            <constraint firstItem="NfO-Ft-foS" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" constant="-55" id="9LB-WR-v6R"/>
-                            <constraint firstItem="XLp-hR-LAa" firstAttribute="top" secondItem="OPG-tQ-c4u" secondAttribute="bottom" constant="20" id="E2b-us-gWT"/>
+                            <constraint firstItem="NfO-Ft-foS" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" constant="-80" id="9LB-WR-v6R"/>
+                            <constraint firstItem="XLp-hR-LAa" firstAttribute="top" secondItem="OPG-tQ-c4u" secondAttribute="bottom" constant="10" id="E2b-us-gWT"/>
                             <constraint firstItem="OPG-tQ-c4u" firstAttribute="top" secondItem="CzD-wa-xDK" secondAttribute="bottom" constant="20" id="G7A-i1-RTQ"/>
                             <constraint firstItem="Vkk-Jk-a56" firstAttribute="centerY" secondItem="9xs-60-sHh" secondAttribute="centerY" id="Hoq-F2-Xi6"/>
                             <constraint firstItem="snr-6b-CzX" firstAttribute="centerY" secondItem="4c6-xN-Dg3" secondAttribute="centerY" id="ISU-I5-Kax"/>
                             <constraint firstItem="4c6-xN-Dg3" firstAttribute="top" secondItem="20J-s0-Uyb" secondAttribute="bottom" constant="8" id="Idc-D8-i4Y"/>
-                            <constraint firstItem="G4l-bz-bq9" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" constant="-30" id="IqN-sD-AnL"/>
+                            <constraint firstItem="G4l-bz-bq9" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" constant="-55" id="IqN-sD-AnL"/>
                             <constraint firstItem="0Kl-GI-VKS" firstAttribute="centerY" secondItem="3WV-Wa-BEB" secondAttribute="centerY" id="JSA-be-taJ"/>
                             <constraint firstItem="20J-s0-Uyb" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" id="NzP-0B-dcP"/>
                             <constraint firstItem="udk-U7-KGp" firstAttribute="top" secondItem="V9t-Mf-aXL" secondAttribute="bottom" constant="2" id="OJy-jW-e83"/>
@@ -268,7 +268,7 @@
                             <constraint firstItem="3WV-Wa-BEB" firstAttribute="top" secondItem="4c6-xN-Dg3" secondAttribute="bottom" constant="8" id="ZpR-tL-m0i"/>
                             <constraint firstItem="vLO-kr-rC7" firstAttribute="centerY" secondItem="CzD-wa-xDK" secondAttribute="centerY" id="cz0-mQ-d3W"/>
                             <constraint firstItem="V9t-Mf-aXL" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" id="eQL-RE-yI3"/>
-                            <constraint firstItem="OPG-tQ-c4u" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" constant="55" id="fXe-Bm-jg3"/>
+                            <constraint firstItem="OPG-tQ-c4u" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" constant="80" id="fXe-Bm-jg3"/>
                             <constraint firstItem="0Kl-GI-VKS" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" constant="-75" id="gL4-n6-ZiY"/>
                             <constraint firstItem="9xs-60-sHh" firstAttribute="top" secondItem="3WV-Wa-BEB" secondAttribute="bottom" constant="8" id="gz0-j0-Gz6"/>
                             <constraint firstItem="9xs-60-sHh" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" constant="55" id="hjS-tb-HVb"/>
@@ -276,7 +276,7 @@
                             <constraint firstItem="udk-U7-KGp" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" id="lDQ-mC-T42"/>
                             <constraint firstItem="V9t-Mf-aXL" firstAttribute="top" secondItem="RnQ-Rk-4eL" secondAttribute="bottom" constant="8" id="o9K-lM-kiO"/>
                             <constraint firstItem="vLO-kr-rC7" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" constant="-75" id="oeb-pf-qBS"/>
-                            <constraint firstItem="XLp-hR-LAa" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" constant="30" id="sh6-1s-vKq"/>
+                            <constraint firstItem="XLp-hR-LAa" firstAttribute="centerX" secondItem="tCm-DX-U4I" secondAttribute="centerX" constant="55" id="sh6-1s-vKq"/>
                         </constraints>
                     </view>
                     <connections>

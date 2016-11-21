@@ -77,17 +77,17 @@ extension ListeDeNouillesVC: UITableViewDataSource {
       
       let nouille = fetchedResultsController.object(at: indexPath)
       
-      cell.textLabel?.text = nouille.name
+      cell.textLabel?.text = "\(nouille.name!)  —  \(nouille.brand!)"
       if let detail = cell.detailTextLabel {
          
          // construct detail label
-         var label = "Temps: \(nouille.time!) mn, portion: "
+         var label = "\(.time): \(nouille.time!) mn, \(.serving): "
          if nouille.mealSizePrefered! as Bool {
-            label += "\(nouille.servingCustom!) ts (meal), "
+            label += "\(nouille.servingCustom!) ts (\(.meal)), "
          } else {
-            label += "\(nouille.servingSideDish!) ts (side dish), "
+            label += "\(nouille.servingSideDish!) ts (\(.sideDish)), "
          }
-         label += "rating: \(nouille.rating!) / 5"
+         label += "\(.rating): \(nouille.rating!)/5"
          detail.text = label
       }
      

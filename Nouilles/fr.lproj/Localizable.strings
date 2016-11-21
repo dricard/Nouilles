@@ -14,6 +14,7 @@
 "Plus" = "Plus";
 "Nutritional value per serving" = "Valeur nutrituve par portion";
 "Rating" = "Appréciation";
+"rating" = "appréciation";
 "Edit" = "Editer";
 "Calories" = "Calories";
 "Fat" = "Lipides";
@@ -34,3 +35,7 @@
 "Cancel" = "Canceller";
 "Save" = "Sauvegarder";
 "Back" = "Retour";
+"meal" = "repas";
+"Serving" = "Portion";
+"serving" = "portion";
+"side dish" = "à côté";

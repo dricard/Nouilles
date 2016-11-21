@@ -60,7 +60,7 @@
 "N22-LI-U5S.normalTitle" = "Plus";
 
 /* Class = "UIButton"; normalTitle = "Add picture"; ObjectID = "NfO-Ft-foS"; */
-"NfO-Ft-foS.normalTitle" = "Add picture";
+"NfO-Ft-foS.normalTitle" = "Ajouter photo";
 
 /* Class = "UILabel"; text = "Catelli"; ObjectID = "OCo-mc-tqr"; */
 "OCo-mc-tqr.text" = "Catelli";
