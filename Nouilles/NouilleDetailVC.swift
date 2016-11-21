@@ -62,6 +62,21 @@ class NouilleDetailVC: UIViewController {
    
    
    @IBAction func startTimerTapped(_ sender: Any) {
+      print("start timer was tapped")
+      
+      // segue to take picture VC
+      let controller = storyboard?.instantiateViewController(withIdentifier: "TimerVC") as! TimerVC
+      
+      if let nouille = nouille {
+         if let time = nouille.time {
+            controller.cookingTime = Int(Double(time) * 60.0)
+         }
+
+      } else {
+         fatalError("Nouille is nil in startTimerTapped")
+      }
+      
+      show(controller, sender: self)
    }
    
    @IBAction func preferedMealSizeTapped(_ sender: Any) {
