@@ -15,6 +15,7 @@
 		2137A60D1DDB961200C1FC35 /* NouilleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A60C1DDB961200C1FC35 /* NouilleDetailVC.swift */; };
 		21795F2F1DE33EAB00FAC131 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21795F311DE33EAB00FAC131 /* Localizable.strings */; };
 		21795F341DE3435100FAC131 /* LocalizationUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21795F331DE3435100FAC131 /* LocalizationUtilities.swift */; };
+		21795F361DE358F200FAC131 /* BarCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21795F351DE358F200FAC131 /* BarCodeVC.swift */; };
 		2185319B1DDCA5060092B335 /* AddNoodleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2185319A1DDCA5060092B335 /* AddNoodleVC.swift */; };
 		2198B46A1DDE413B006C88C2 /* TakePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198B4691DDE413B006C88C2 /* TakePictureVC.swift */; };
 		21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148D11D6B841800FA52BA /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 		21795F301DE33EAB00FAC131 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21795F321DE33EC300FAC131 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		21795F331DE3435100FAC131 /* LocalizationUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationUtilities.swift; sourceTree = "<group>"; };
+		21795F351DE358F200FAC131 /* BarCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeVC.swift; sourceTree = "<group>"; };
 		2185319A1DDCA5060092B335 /* AddNoodleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoodleVC.swift; sourceTree = "<group>"; };
 		2198B4691DDE413B006C88C2 /* TakePictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePictureVC.swift; sourceTree = "<group>"; };
 		21A148CE1D6B841800FA52BA /* Nouilles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nouilles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,7 @@
 				2137A60C1DDB961200C1FC35 /* NouilleDetailVC.swift */,
 				2185319A1DDCA5060092B335 /* AddNoodleVC.swift */,
 				2198B4691DDE413B006C88C2 /* TakePictureVC.swift */,
+				21795F351DE358F200FAC131 /* BarCodeVC.swift */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				21795F341DE3435100FAC131 /* LocalizationUtilities.swift in Sources */,
 				21D5102B1D6CA21B003CB856 /* Model.xcdatamodeld in Sources */,
 				2137A6041DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift in Sources */,
+				21795F361DE358F200FAC131 /* BarCodeVC.swift in Sources */,
 				2137A6071DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift in Sources */,
 				21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */,
 				2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */,
