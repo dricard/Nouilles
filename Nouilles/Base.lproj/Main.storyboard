@@ -23,18 +23,18 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NAn-ym-LWb" id="S4x-lE-glt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jem-jI-Ldw">
-                                            <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                            <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Y3y-gP-70t">
-                                            <rect key="frame" x="15" y="25" width="41" height="14"/>
+                                            <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -859,13 +859,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kW2-aq-Gmk">
-                                <rect key="frame" x="87" y="40" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="SfQ-P6-Faq"/>
-                                    <constraint firstAttribute="width" constant="200" id="jw3-h9-k4X"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L13-6W-s26">
                                 <rect key="frame" x="83" y="250" width="100" height="76"/>
                                 <constraints>
@@ -920,29 +913,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRI-at-JTh" customClass="TimerView" customModule="Nouilles" customModuleProvider="target">
+                                <rect key="frame" x="88" y="40" width="200" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="AqF-a4-luF"/>
+                                    <constraint firstAttribute="height" constant="200" id="FN1-K4-3nb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="EuZ-bG-zsx" firstAttribute="leading" secondItem="wAp-SU-SlP" secondAttribute="leading" constant="50" id="0o7-Jp-AZu"/>
-                            <constraint firstItem="fcF-JR-N7T" firstAttribute="top" secondItem="kW2-aq-Gmk" secondAttribute="bottom" constant="10" id="1uD-nh-Vix"/>
                             <constraint firstItem="VDk-zd-FlF" firstAttribute="top" secondItem="93i-ct-yM2" secondAttribute="bottom" constant="50" id="3xC-cb-AWH"/>
                             <constraint firstItem="fcF-JR-N7T" firstAttribute="centerX" secondItem="wAp-SU-SlP" secondAttribute="centerX" id="BNe-FS-LR7"/>
-                            <constraint firstItem="L13-6W-s26" firstAttribute="top" secondItem="kW2-aq-Gmk" secondAttribute="bottom" constant="10" id="IMI-oW-Q9t"/>
+                            <constraint firstItem="fcF-JR-N7T" firstAttribute="top" secondItem="SRI-at-JTh" secondAttribute="bottom" constant="10" id="FUg-cL-Ih6"/>
+                            <constraint firstItem="SRI-at-JTh" firstAttribute="top" secondItem="r0j-qB-78J" secondAttribute="bottom" constant="20" id="ILc-j1-By0"/>
+                            <constraint firstItem="L13-6W-s26" firstAttribute="top" secondItem="SRI-at-JTh" secondAttribute="bottom" constant="10" id="O1k-ew-b3L"/>
                             <constraint firstItem="y81-iL-Uyr" firstAttribute="centerX" secondItem="wAp-SU-SlP" secondAttribute="centerX" constant="55" id="ODE-BZ-kQS"/>
                             <constraint firstItem="L13-6W-s26" firstAttribute="centerX" secondItem="wAp-SU-SlP" secondAttribute="centerX" constant="-55" id="YyC-kW-14v"/>
-                            <constraint firstItem="kW2-aq-Gmk" firstAttribute="top" secondItem="r0j-qB-78J" secondAttribute="bottom" constant="20" id="Zgk-s0-Zuw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="93i-ct-yM2" secondAttribute="trailing" constant="50" id="enk-RK-Iu9"/>
-                            <constraint firstItem="kW2-aq-Gmk" firstAttribute="centerX" secondItem="wAp-SU-SlP" secondAttribute="centerX" id="hoy-Jm-cO9"/>
-                            <constraint firstItem="y81-iL-Uyr" firstAttribute="top" secondItem="kW2-aq-Gmk" secondAttribute="bottom" constant="10" id="qmZ-6w-kZB"/>
+                            <constraint firstItem="SRI-at-JTh" firstAttribute="centerX" secondItem="wAp-SU-SlP" secondAttribute="centerX" id="l9b-c5-mVC"/>
+                            <constraint firstItem="y81-iL-Uyr" firstAttribute="top" secondItem="SRI-at-JTh" secondAttribute="bottom" constant="10" id="z7O-S2-RpK"/>
                             <constraint firstItem="VDk-zd-FlF" firstAttribute="top" secondItem="EuZ-bG-zsx" secondAttribute="bottom" constant="50" id="zVf-kl-oiV"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="EuZ-bG-zsx" id="zeo-9g-sT4"/>
-                        <outlet property="imageView" destination="kW2-aq-Gmk" id="rhv-uc-1Sd"/>
                         <outlet property="minutesTimerLabel" destination="L13-6W-s26" id="4P8-Nn-8o2"/>
                         <outlet property="pauseButton" destination="93i-ct-yM2" id="g7t-gV-r7l"/>
                         <outlet property="secondsTimerLabel" destination="y81-iL-Uyr" id="8oN-J1-xxt"/>
+                        <outlet property="timerView" destination="SRI-at-JTh" id="c2X-aR-plD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NBE-gg-Nkz" userLabel="First Responder" sceneMemberID="firstResponder"/>

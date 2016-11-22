@@ -21,7 +21,7 @@ class TimerVC: UIViewController {
    
    // MARK: - Outlets
    
-   @IBOutlet weak var imageView: UIImageView!
+   @IBOutlet weak var timerView: TimerView!
    @IBOutlet weak var minutesTimerLabel: UILabel!
    @IBOutlet weak var secondsTimerLabel: UILabel!
    @IBOutlet weak var cancelButton: UIButton!
@@ -40,7 +40,7 @@ class TimerVC: UIViewController {
       // on load, timerPaused is true so this will initiate
       // the time display
       updateTimerLabel()
-      // now unpause the timer¢
+      // now unpause the timer
       timerPaused = false
       startTimer()
       
@@ -62,8 +62,11 @@ class TimerVC: UIViewController {
          }
          minutes = secondsLeft / 60
          seconds = secondsLeft % 60
+         let spacer = seconds < 10 ? "0" : ""
          minutesTimerLabel.text = "\(minutes)"
-         secondsTimerLabel.text = "\(seconds)"
+         secondsTimerLabel.text = "\(spacer)\(seconds)"
+         let ratio = 1 - Double(secondsLeft) / Double(cookingTime)
+         timerView.progress = CGFloat(ratio)
          
       } else {
          

@@ -13,6 +13,8 @@
 		2137A6071DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6031DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift */; };
 		2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6081DDB945000C1FC35 /* CoreDataStack.swift */; };
 		2137A60D1DDB961200C1FC35 /* NouilleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A60C1DDB961200C1FC35 /* NouilleDetailVC.swift */; };
+		21431A911DE3CE1E000CC37A /* NoodlesStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */; };
+		21431A931DE3D3E0000CC37A /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21431A921DE3D3E0000CC37A /* TimerView.swift */; };
 		21795F2F1DE33EAB00FAC131 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21795F311DE33EAB00FAC131 /* Localizable.strings */; };
 		21795F341DE3435100FAC131 /* LocalizationUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21795F331DE3435100FAC131 /* LocalizationUtilities.swift */; };
 		21795F361DE358F200FAC131 /* BarCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21795F351DE358F200FAC131 /* BarCodeVC.swift */; };
@@ -34,6 +36,8 @@
 		2137A6031DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nouille+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2137A6081DDB945000C1FC35 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2137A60C1DDB961200C1FC35 /* NouilleDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NouilleDetailVC.swift; sourceTree = "<group>"; };
+		21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoodlesStyleKit.swift; sourceTree = "<group>"; };
+		21431A921DE3D3E0000CC37A /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		21795F2D1DE339E800FAC131 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		21795F2E1DE339E900FAC131 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		21795F301DE33EAB00FAC131 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -64,6 +68,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21431A8F1DE3CDF8000CC37A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */,
+				21A148D51D6B841900FA52BA /* Main.storyboard */,
+				21A148DA1D6B841900FA52BA /* LaunchScreen.storyboard */,
+				21431A921DE3D3E0000CC37A /* TimerView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		21795F2A1DE3389D00FAC131 /* Localization */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,13 +132,12 @@
 		21A148D01D6B841800FA52BA /* Nouilles */ = {
 			isa = PBXGroup;
 			children = (
+				21431A8F1DE3CDF8000CC37A /* View */,
 				21795F2A1DE3389D00FAC131 /* Localization */,
 				218651021DD680A1001F5BA2 /* VC */,
 				218651011DD68089001F5BA2 /* Model */,
 				21A148D11D6B841800FA52BA /* AppDelegate.swift */,
-				21A148D51D6B841900FA52BA /* Main.storyboard */,
 				21A148D81D6B841900FA52BA /* Assets.xcassets */,
-				21A148DA1D6B841900FA52BA /* LaunchScreen.storyboard */,
 				21A148DD1D6B841900FA52BA /* Info.plist */,
 				2137A6081DDB945000C1FC35 /* CoreDataStack.swift */,
 			);
@@ -211,8 +225,10 @@
 				2137A6051DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift in Sources */,
 				21795F341DE3435100FAC131 /* LocalizationUtilities.swift in Sources */,
 				21D5102B1D6CA21B003CB856 /* Model.xcdatamodeld in Sources */,
+				21431A931DE3D3E0000CC37A /* TimerView.swift in Sources */,
 				2137A6041DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift in Sources */,
 				21795F361DE358F200FAC131 /* BarCodeVC.swift in Sources */,
+				21431A911DE3CE1E000CC37A /* NoodlesStyleKit.swift in Sources */,
 				2137A6071DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift in Sources */,
 				21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */,
 				2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */,
