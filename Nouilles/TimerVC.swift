@@ -62,9 +62,10 @@ class TimerVC: UIViewController {
          }
          minutes = secondsLeft / 60
          seconds = secondsLeft % 60
-         let spacer = seconds < 10 ? "0" : ""
-         minutesTimerLabel.text = "\(minutes)"
-         secondsTimerLabel.text = "\(spacer)\(seconds)"
+         let spacerS = seconds < 10 ? "0" : ""
+         let spacerM = minutes < 10 ? "0" : ""
+         minutesTimerLabel.text = "\(spacerM)\(minutes)"
+         secondsTimerLabel.text = "\(spacerS)\(seconds)"
          let ratio = 1 - Double(secondsLeft) / Double(cookingTime)
          timerView.progress = CGFloat(ratio)
          
@@ -75,7 +76,6 @@ class TimerVC: UIViewController {
    }
    
    func startTimer() {
-      print("In start Timer")
       // invalidate any previously running timer, start a new timer
       timer?.invalidate()
       timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(TimerVC.updateTimerLabel), userInfo: nil, repeats: true)

@@ -62,7 +62,6 @@ class NouilleDetailVC: UIViewController {
    
    
    @IBAction func startTimerTapped(_ sender: Any) {
-      print("start timer was tapped")
       
       // segue to take picture VC
       let controller = storyboard?.instantiateViewController(withIdentifier: "TimerVC") as! TimerVC
