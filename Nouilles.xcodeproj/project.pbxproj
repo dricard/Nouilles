@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210200F61DE791DC00D1F349 /* FoodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200F51DE791DC00D1F349 /* FoodAPI.swift */; };
+		210200F81DE792B800D1F349 /* NetworkParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200F71DE792B800D1F349 /* NetworkParameters.swift */; };
+		210200FA1DE7955A00D1F349 /* NetworkKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200F91DE7955A00D1F349 /* NetworkKeys.swift */; };
 		2137A6041DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6001DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift */; };
 		2137A6051DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6011DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift */; };
 		2137A6061DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6021DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift */; };
@@ -30,6 +33,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		210200F51DE791DC00D1F349 /* FoodAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodAPI.swift; sourceTree = "<group>"; };
+		210200F71DE792B800D1F349 /* NetworkParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkParameters.swift; sourceTree = "<group>"; };
+		210200F91DE7955A00D1F349 /* NetworkKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkKeys.swift; sourceTree = "<group>"; };
 		2137A6001DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserRating+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2137A6011DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserRating+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2137A6021DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nouille+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -68,6 +74,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		210200F41DE791BC00D1F349 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				210200F51DE791DC00D1F349 /* FoodAPI.swift */,
+				210200F71DE792B800D1F349 /* NetworkParameters.swift */,
+				210200F91DE7955A00D1F349 /* NetworkKeys.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		21431A8F1DE3CDF8000CC37A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +148,7 @@
 		21A148D01D6B841800FA52BA /* Nouilles */ = {
 			isa = PBXGroup;
 			children = (
+				210200F41DE791BC00D1F349 /* Network */,
 				21431A8F1DE3CDF8000CC37A /* View */,
 				21795F2A1DE3389D00FAC131 /* Localization */,
 				218651021DD680A1001F5BA2 /* VC */,
@@ -220,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21795F381DE3896C00FAC131 /* TimerVC.swift in Sources */,
+				210200F61DE791DC00D1F349 /* FoodAPI.swift in Sources */,
 				21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */,
 				2137A6061DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift in Sources */,
 				2137A6051DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift in Sources */,
@@ -228,7 +246,9 @@
 				21431A931DE3D3E0000CC37A /* TimerView.swift in Sources */,
 				2137A6041DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift in Sources */,
 				21795F361DE358F200FAC131 /* BarCodeVC.swift in Sources */,
+				210200F81DE792B800D1F349 /* NetworkParameters.swift in Sources */,
 				21431A911DE3CE1E000CC37A /* NoodlesStyleKit.swift in Sources */,
+				210200FA1DE7955A00D1F349 /* NetworkKeys.swift in Sources */,
 				2137A6071DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift in Sources */,
 				21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */,
 				2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */,

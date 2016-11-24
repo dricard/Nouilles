@@ -94,6 +94,9 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
          
          if let codeValue = metadataObject.stringValue {
             print("Found metadata with value: \(codeValue)")
+            
+            // send find by UPC request to network API
+            FoodAPI.sendFindUPCRequest(upc: codeValue)
          }
 
       }
