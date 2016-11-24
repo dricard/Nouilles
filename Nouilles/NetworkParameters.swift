@@ -13,6 +13,14 @@ import Foundation
 // instantiation
 enum NetworkParams {
    
+   // FOOD API
    static let FoodAPIBaseURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/"
    static let FindByUPCPath = "products/upc/"
+   
+   // Network request error codes
+   static let CodeFindByUPCRequestFailed = 101
+   static let CodeSendRequestFailed = 102
+   static let CodeNoDataReturned = 103
+   static let CodeCouldNotParseData = 104
+
 }
