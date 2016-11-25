@@ -16,12 +16,16 @@ class BarCodeVC: UIViewController {
    var captureSession: AVCaptureSession?
    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
    var barCodeFrameView: UIView?
+   var successView: ScanSuccessView?
    var sound = Sound()
+   
+   // MARK: - Life Cycle
    
    override func viewDidLoad() {
       super.viewDidLoad()
       
       // TODO: - Check for availability of camera on this device, exit gracefully
+      
       
       // initialize a device object
       let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -61,6 +65,21 @@ class BarCodeVC: UIViewController {
             view.bringSubview(toFront: barCodeFrameView)
          }
          
+         // Initialize the successView (success or failure indicator)
+         successView = ScanSuccessView()
+         if let successView = successView {
+            view.addSubview(successView)
+            successView.translatesAutoresizingMaskIntoConstraints = false
+            successView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -75).isActive = true
+            successView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+            successView.heightAnchor.constraint(equalToConstant: 75).isActive = true
+            successView.widthAnchor.constraint(equalToConstant: 75).isActive = true
+            view.bringSubview(toFront: successView)
+         }
+         
+         successView?.isHidden = true
+
+         
          // start video capture
          captureSession?.startRunning()
          
@@ -98,6 +117,9 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
             // give audio feedback
             sound.playSound()
             
+            // show the success state view
+            successView?.isHidden = false
+            
             let upc = String(codeValue.characters.dropFirst())
             print("Found metadata with value: \(upc)")
             
@@ -107,6 +129,7 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
                // check for error
                guard error == nil else {
                   // no need to print error, it was taken care in network code
+                  self.successView?.successState = false
                   return
                }
                
@@ -117,6 +140,7 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
                
                if let result = productInfo {
                   // we have data
+                  self.successView?.successState = true
                   print(result)
                }
             })
