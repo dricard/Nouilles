@@ -17,7 +17,6 @@ class BarCodeVC: UIViewController {
    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
    var barCodeFrameView: UIView?
    
-   
    override func viewDidLoad() {
       super.viewDidLoad()
       
@@ -68,9 +67,7 @@ class BarCodeVC: UIViewController {
       } catch let error as NSError {
          print("Could not instantiate AVCaptureDeviceInput \(error), \(error.userInfo)")
       }
-
    }
-   
 }
 
 extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
@@ -93,13 +90,36 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
          barCodeFrameView?.frame = barCodeObj!.bounds
          
          if let codeValue = metadataObject.stringValue {
-            print("Found metadata with value: \(codeValue)")
+            
+            // we found a barcode: stop scanning
+            captureSession?.stopRunning()
+            
+            // give audio feedback
+            
+            
+            let upc = String(codeValue.characters.dropFirst())
+            print("Found metadata with value: \(upc)")
             
             // send find by UPC request to network API
-            FoodAPI.sendFindUPCRequest(upc: codeValue)
+            FoodAPI.sendFindUPCRequest(upc: upc, completionHandlerForUPCRequest: { (productInfo, success, error) in
+               
+               // check for error
+               guard error == nil else {
+                  // no need to print error, it was taken care in network code
+                  return
+               }
+               
+               // check for success
+               guard success else {
+                  return
+               }
+               
+               if let result = productInfo {
+                  // we have data
+                  print(result)
+               }
+            })
          }
-
       }
-      
    }
 }

@@ -10,6 +10,7 @@
 		210200F61DE791DC00D1F349 /* FoodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200F51DE791DC00D1F349 /* FoodAPI.swift */; };
 		210200F81DE792B800D1F349 /* NetworkParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200F71DE792B800D1F349 /* NetworkParameters.swift */; };
 		210200FA1DE7955A00D1F349 /* NetworkKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200F91DE7955A00D1F349 /* NetworkKeys.swift */; };
+		210200FE1DE7C40A00D1F349 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200FD1DE7C40A00D1F349 /* Sound.swift */; };
 		2137A6041DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6001DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift */; };
 		2137A6051DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6011DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift */; };
 		2137A6061DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6021DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift */; };
@@ -36,6 +37,7 @@
 		210200F51DE791DC00D1F349 /* FoodAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodAPI.swift; sourceTree = "<group>"; };
 		210200F71DE792B800D1F349 /* NetworkParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkParameters.swift; sourceTree = "<group>"; };
 		210200F91DE7955A00D1F349 /* NetworkKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkKeys.swift; sourceTree = "<group>"; };
+		210200FD1DE7C40A00D1F349 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		2137A6001DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserRating+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2137A6011DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserRating+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2137A6021DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nouille+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -82,6 +84,25 @@
 				210200F91DE7955A00D1F349 /* NetworkKeys.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		210200FB1DE7C38A00D1F349 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				2137A6081DDB945000C1FC35 /* CoreDataStack.swift */,
+			);
+			name = "Core Data";
+			sourceTree = "<group>";
+		};
+		210200FC1DE7C3A700D1F349 /* Divers */ = {
+			isa = PBXGroup;
+			children = (
+				21A148D11D6B841800FA52BA /* AppDelegate.swift */,
+				21A148D81D6B841900FA52BA /* Assets.xcassets */,
+				21A148DD1D6B841900FA52BA /* Info.plist */,
+				210200FD1DE7C40A00D1F349 /* Sound.swift */,
+			);
+			name = Divers;
 			sourceTree = "<group>";
 		};
 		21431A8F1DE3CDF8000CC37A /* View */ = {
@@ -148,15 +169,13 @@
 		21A148D01D6B841800FA52BA /* Nouilles */ = {
 			isa = PBXGroup;
 			children = (
+				210200FC1DE7C3A700D1F349 /* Divers */,
+				210200FB1DE7C38A00D1F349 /* Core Data */,
 				210200F41DE791BC00D1F349 /* Network */,
 				21431A8F1DE3CDF8000CC37A /* View */,
 				21795F2A1DE3389D00FAC131 /* Localization */,
 				218651021DD680A1001F5BA2 /* VC */,
 				218651011DD68089001F5BA2 /* Model */,
-				21A148D11D6B841800FA52BA /* AppDelegate.swift */,
-				21A148D81D6B841900FA52BA /* Assets.xcassets */,
-				21A148DD1D6B841900FA52BA /* Info.plist */,
-				2137A6081DDB945000C1FC35 /* CoreDataStack.swift */,
 			);
 			path = Nouilles;
 			sourceTree = "<group>";
@@ -251,6 +270,7 @@
 				210200FA1DE7955A00D1F349 /* NetworkKeys.swift in Sources */,
 				2137A6071DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift in Sources */,
 				21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */,
+				210200FE1DE7C40A00D1F349 /* Sound.swift in Sources */,
 				2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */,
 				2137A60D1DDB961200C1FC35 /* NouilleDetailVC.swift in Sources */,
 				2198B46A1DDE413B006C88C2 /* TakePictureVC.swift in Sources */,
