@@ -11,6 +11,7 @@
 		210200F81DE792B800D1F349 /* NetworkParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200F71DE792B800D1F349 /* NetworkParameters.swift */; };
 		210200FA1DE7955A00D1F349 /* NetworkKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200F91DE7955A00D1F349 /* NetworkKeys.swift */; };
 		210200FE1DE7C40A00D1F349 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200FD1DE7C40A00D1F349 /* Sound.swift */; };
+		210201001DE7CED000D1F349 /* scanBeep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 210200FF1DE7CED000D1F349 /* scanBeep.mp3 */; };
 		2137A6041DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6001DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift */; };
 		2137A6051DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6011DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift */; };
 		2137A6061DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6021DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift */; };
@@ -38,6 +39,7 @@
 		210200F71DE792B800D1F349 /* NetworkParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkParameters.swift; sourceTree = "<group>"; };
 		210200F91DE7955A00D1F349 /* NetworkKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkKeys.swift; sourceTree = "<group>"; };
 		210200FD1DE7C40A00D1F349 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
+		210200FF1DE7CED000D1F349 /* scanBeep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scanBeep.mp3; sourceTree = "<group>"; };
 		2137A6001DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserRating+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2137A6011DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserRating+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2137A6021DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nouille+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				21A148D81D6B841900FA52BA /* Assets.xcassets */,
 				21A148DD1D6B841900FA52BA /* Info.plist */,
 				210200FD1DE7C40A00D1F349 /* Sound.swift */,
+				210200FF1DE7CED000D1F349 /* scanBeep.mp3 */,
 			);
 			name = Divers;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21A148DC1D6B841900FA52BA /* LaunchScreen.storyboard in Resources */,
+				210201001DE7CED000D1F349 /* scanBeep.mp3 in Resources */,
 				21795F2F1DE33EAB00FAC131 /* Localizable.strings in Resources */,
 				21A148D91D6B841900FA52BA /* Assets.xcassets in Resources */,
 				21A148D71D6B841900FA52BA /* Main.storyboard in Resources */,

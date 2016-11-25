@@ -16,6 +16,7 @@ class BarCodeVC: UIViewController {
    var captureSession: AVCaptureSession?
    var videoPreviewLayer: AVCaptureVideoPreviewLayer?
    var barCodeFrameView: UIView?
+   var sound = Sound()
    
    override func viewDidLoad() {
       super.viewDidLoad()
@@ -95,7 +96,7 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
             captureSession?.stopRunning()
             
             // give audio feedback
-            
+            sound.playSound()
             
             let upc = String(codeValue.characters.dropFirst())
             print("Found metadata with value: \(upc)")
