@@ -140,8 +140,13 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
                
                if let result = productInfo {
                   // we have data
-                  self.successView?.successState = true
-                  print(result)
+                  
+                  if result["status"] != nil {
+                     self.successView?.successState = false
+                  } else {
+                     self.successView?.successState = true
+                  }
+
                }
             })
          }
