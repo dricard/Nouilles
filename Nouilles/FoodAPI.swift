@@ -45,7 +45,7 @@ class FoodAPI {
          
          // GUARD: Was there an error returned by the URL request?
          guard error == nil else {
-            sendError("SendFindByUPCRequest retuurned and error: \(error)", code: NetworkParams.CodeFindByUPCRequestFailed)
+            sendError("SendFindByUPCRequest returned and error: \(error)", code: NetworkParams.CodeFindByUPCRequestFailed)
             return
          }
          

@@ -25,6 +25,7 @@
 		21795F341DE3435100FAC131 /* LocalizationUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21795F331DE3435100FAC131 /* LocalizationUtilities.swift */; };
 		21795F361DE358F200FAC131 /* BarCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21795F351DE358F200FAC131 /* BarCodeVC.swift */; };
 		21795F381DE3896C00FAC131 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21795F371DE3896C00FAC131 /* TimerVC.swift */; };
+		217B62E71DEB3019005A9F9D /* NutritionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217B62E61DEB3019005A9F9D /* NutritionAPI.swift */; };
 		2185319B1DDCA5060092B335 /* AddNoodleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2185319A1DDCA5060092B335 /* AddNoodleVC.swift */; };
 		2198B46A1DDE413B006C88C2 /* TakePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198B4691DDE413B006C88C2 /* TakePictureVC.swift */; };
 		21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148D11D6B841800FA52BA /* AppDelegate.swift */; };
@@ -57,6 +58,7 @@
 		21795F331DE3435100FAC131 /* LocalizationUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizationUtilities.swift; sourceTree = "<group>"; };
 		21795F351DE358F200FAC131 /* BarCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeVC.swift; sourceTree = "<group>"; };
 		21795F371DE3896C00FAC131 /* TimerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
+		217B62E61DEB3019005A9F9D /* NutritionAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionAPI.swift; sourceTree = "<group>"; };
 		2185319A1DDCA5060092B335 /* AddNoodleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoodleVC.swift; sourceTree = "<group>"; };
 		2198B4691DDE413B006C88C2 /* TakePictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePictureVC.swift; sourceTree = "<group>"; };
 		21A148CE1D6B841800FA52BA /* Nouilles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nouilles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,7 @@
 				210200F51DE791DC00D1F349 /* FoodAPI.swift */,
 				210200F71DE792B800D1F349 /* NetworkParameters.swift */,
 				210200F91DE7955A00D1F349 /* NetworkKeys.swift */,
+				217B62E61DEB3019005A9F9D /* NutritionAPI.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21795F381DE3896C00FAC131 /* TimerVC.swift in Sources */,
+				217B62E71DEB3019005A9F9D /* NutritionAPI.swift in Sources */,
 				210200F61DE791DC00D1F349 /* FoodAPI.swift in Sources */,
 				21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */,
 				2137A6061DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift in Sources */,

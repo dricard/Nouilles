@@ -16,11 +16,18 @@ enum NetworkParams {
    // FOOD API
    static let FoodAPIBaseURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/food/"
    static let FindByUPCPath = "products/upc/"
-   
-   // Network request error codes
+
+   // NUTRITION API
+   static let NutritionAPIBaseURL = "https://nutritionix-api.p.mashape.com/v1_1/"
+   static let FindByStringPath = "search/"
+   static let Fields = "fields"
+   static let FieldsParameters = "item_name,item_id,brand_name,nf_calories,nf_total_fat"
+
+   // Network request error codes (application specific)
    static let CodeFindByUPCRequestFailed = 101
    static let CodeSendRequestFailed = 102
    static let CodeNoDataReturned = 103
    static let CodeCouldNotParseData = 104
+   static let CodeFindByStringRequestFailed = 105
 
 }
