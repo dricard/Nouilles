@@ -74,6 +74,7 @@ class BarCodeVC: UIViewController {
             successView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
             successView.heightAnchor.constraint(equalToConstant: 75).isActive = true
             successView.widthAnchor.constraint(equalToConstant: 75).isActive = true
+            successView.backgroundColor = UIColor.clear
             view.bringSubview(toFront: successView)
          }
          
