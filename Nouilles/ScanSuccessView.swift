@@ -12,9 +12,15 @@ class ScanSuccessView: UIView {
    
    // MARK: - Properties
    
-   private var state: Bool = false
+   enum scanningStates {
+      case processing
+      case failure
+      case success
+   }
    
-   var successState: Bool {
+   private var state: scanningStates = .processing
+   
+   var successState: scanningStates {
       set (newState) {
          state = newState
          setNeedsDisplay()
@@ -25,10 +31,14 @@ class ScanSuccessView: UIView {
    }
    override func draw(_ rect: CGRect) {
       
-      if state {
-         NoodlesStyleKit.drawScanSuccess()
-      } else {
+      switch state {
+      case .processing:
+         NoodlesStyleKit.drawScanProcessing()
+      case .failure:
          NoodlesStyleKit.drawScanFailure()
+      case .success:
+         NoodlesStyleKit.drawScanSuccess()
+
       }
    }
    

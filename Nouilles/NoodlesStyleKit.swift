@@ -26,6 +26,8 @@ public class NoodlesStyleKit : NSObject {
         static var scanFailureTargets: [AnyObject]?
         static var imageOfScanSuccess: UIImage?
         static var scanSuccessTargets: [AnyObject]?
+        static var imageOfScanProcessing: UIImage?
+        static var scanProcessingTargets: [AnyObject]?
     }
 
     //// Colors
@@ -205,6 +207,62 @@ public class NoodlesStyleKit : NSObject {
 
     }
 
+    public dynamic class func drawScanProcessing(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 75, height: 75), resizing: ResizingBehavior = .aspectFit) {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()!
+        
+        //// Resize to Target Frame
+        context.saveGState()
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 75, height: 75), target: targetFrame)
+        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
+        context.scaleBy(x: resizedFrame.width / 75, y: resizedFrame.height / 75)
+
+
+        //// Oval Drawing
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 4, y: 4, width: 67, height: 67))
+        NoodlesStyleKit.timer1.setFill()
+        ovalPath.fill()
+        NoodlesStyleKit.timerBkg.setStroke()
+        ovalPath.lineWidth = 1
+        ovalPath.stroke()
+
+
+        //// Rectangle 2 Drawing
+        context.saveGState()
+        context.translateBy(x: 24, y: 37)
+
+        let rectangle2Path = UIBezierPath(rect: CGRect(x: -3.06, y: -3, width: 6.12, height: 6))
+        NoodlesStyleKit.timerBkg.setFill()
+        rectangle2Path.fill()
+
+        context.restoreGState()
+
+
+        //// Rectangle Drawing
+        context.saveGState()
+        context.translateBy(x: 38, y: 37)
+
+        let rectanglePath = UIBezierPath(rect: CGRect(x: -3.06, y: -3, width: 6.12, height: 6))
+        NoodlesStyleKit.timerBkg.setFill()
+        rectanglePath.fill()
+
+        context.restoreGState()
+
+
+        //// Rectangle 3 Drawing
+        context.saveGState()
+        context.translateBy(x: 51, y: 37)
+
+        let rectangle3Path = UIBezierPath(rect: CGRect(x: -3.06, y: -3, width: 6.12, height: 6))
+        NoodlesStyleKit.timerBkg.setFill()
+        rectangle3Path.fill()
+
+        context.restoreGState()
+        
+        context.restoreGState()
+
+    }
+
     //// Generated Images
 
     public dynamic class func imageOfTimerAnimation(timerRatio: CGFloat = 0) -> UIImage {
@@ -245,6 +303,20 @@ public class NoodlesStyleKit : NSObject {
         return Cache.imageOfScanSuccess!
     }
 
+    public dynamic class var imageOfScanProcessing: UIImage {
+        if Cache.imageOfScanProcessing != nil {
+            return Cache.imageOfScanProcessing!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 75, height: 75), false, 0)
+            NoodlesStyleKit.drawScanProcessing()
+
+        Cache.imageOfScanProcessing = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfScanProcessing!
+    }
+
     //// Customization Infrastructure
 
     @IBOutlet dynamic var scanFailureTargets: [AnyObject]! {
@@ -263,6 +335,16 @@ public class NoodlesStyleKit : NSObject {
             Cache.scanSuccessTargets = newValue
             for target: AnyObject in newValue {
                 let _ = target.perform(NSSelectorFromString("setSelectedImage:"), with: NoodlesStyleKit.imageOfScanSuccess)
+            }
+        }
+    }
+
+    @IBOutlet dynamic var scanProcessingTargets: [AnyObject]! {
+        get { return Cache.scanProcessingTargets }
+        set {
+            Cache.scanProcessingTargets = newValue
+            for target: AnyObject in newValue {
+                let _ = target.perform(NSSelectorFromString("setImage:"), with: NoodlesStyleKit.imageOfScanProcessing)
             }
         }
     }

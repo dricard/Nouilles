@@ -130,7 +130,7 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
                // check for error
                guard error == nil else {
                   // no need to print error, it was taken care in network code
-                  self.successView?.successState = false
+                  self.successView?.successState = .failure
                   return
                }
                
@@ -143,9 +143,9 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
                   // we have data
                   
                   if result["status"] != nil {
-                     self.successView?.successState = false
+                     self.successView?.successState = .failure
                   } else {
-                     self.successView?.successState = true
+                     self.successView?.successState = .success
                   }
 
                }
