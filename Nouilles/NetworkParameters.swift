@@ -21,7 +21,7 @@ enum NetworkParams {
    static let NutritionAPIBaseURL = "https://nutritionix-api.p.mashape.com/v1_1/"
    static let FindByStringPath = "search/"
    static let Fields = "fields"
-   static let FieldsParameters = "item_name,item_id,brand_name,nf_calories,nf_total_fat"
+   static let FieldsParameters = "item_name,item_id,brand_name,nf_calories,nf_total_fat,nf_saturated_fat,nf_trans_fatty_acid,nf_sodium,nf_total_carbohydrate,nf_dietary_fiber,nf_sugars,nf_protein,nf_serving_size_qty,nf_serving_size_unit,nf_serving_weight_grams,images_front_full_url"
 
    // Network request error codes (application specific)
    static let CodeFindByUPCRequestFailed = 101

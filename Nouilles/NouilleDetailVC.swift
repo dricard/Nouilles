@@ -146,7 +146,7 @@ class NouilleDetailVC: UIViewController {
                
                if let result = foodInfo {
                   // we have data
-                  ¢
+                  
                   print(result)
                }
             })
