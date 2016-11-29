@@ -9,12 +9,19 @@
 import Foundation
 
 // Inspired by a blog post
+// This file contains a number of enums and structs that are used
+// to validate the data entered by the user. This separates the
+// the concerns of the VC and those of the model (which knows
+// about the data). The way this is set-up is by component and
+// it is composable.
 
 // First the result types
 enum ValidatorResult {
    case valid
    case invalid(error: Error)
 }
+
+// MARK: - Error Enumerations
 
 // Now the error cases
 enum NameBrandValidatorError: Error {
@@ -45,7 +52,13 @@ enum RatingValidatingError: Error {
    case tooBig
 }
 
-// Convinience method
+// MARK: - Error Reporting
+
+// Convinience method for error reporting
+// this is localization complient
+// see LocalizationUtilities.swift
+// for the String extension defined to help
+// remove the NSLocalizedString code clutter
 
 enum ErrorCode {
    
@@ -65,10 +78,14 @@ enum ErrorCode {
    }
 }
 
-// we define a protocol
+// MARK: - Validator Protocol
+
+// we define the protocol
 protocol Validator {
    func validateValue(_ value: String) -> ValidatorResult
 }
+
+// MARK: - Component Validators
 
 // and a series of component validators
 
@@ -160,6 +177,8 @@ struct TooBigValidator: Validator {
    
 }
 
+// MARK: - Composite Validator
+
 // now a way to compose those component together
 
 struct CompositeValidator: Validator {
@@ -184,6 +203,8 @@ struct CompositeValidator: Validator {
       return .valid
    }
 }
+
+// MARK: - Validator Configuration
 
 // and a way to configure them
 
