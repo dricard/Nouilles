@@ -27,7 +27,7 @@ public class Nouille: NSManagedObject {
 
    // MARK: - Properties
    
-   static func checkForNutritionalInformation(nouille: Nouille?) {
+   static func checkForNutritionalInformation(nouille: Nouille?, context: NSManagedObjectContext) {
  
       /// This checks if we already have nutritional informations
       /// - returns: false if if we already have nutritional information, and true 
@@ -68,7 +68,22 @@ public class Nouille: NSManagedObject {
             print("IN MODEL WITH DATA")
             print(result)
             
-            // TODO: - we should save it to the context so it's available elsewhere
+            nouille.calories = result.calories as NSNumber?
+            nouille.fat = result.fat as NSNumber?
+            nouille.saturated = result.saturatedFat as NSNumber?
+            nouille.trans = result.transFat as NSNumber?
+            nouille.sodium = result.sodium as NSNumber?
+            nouille.carbs = result.carbs as NSNumber?
+            nouille.fibre = result.fibre as NSNumber?
+            nouille.sugar = result.sugars as NSNumber?
+            nouille.protein = result.protein as NSNumber?
+            
+            do {
+               try context.save()
+            } catch let error as NSError {
+               print("Could not save context in checkForNutritionalInformation \(error), \(error.userInfo)")
+            }
+
          }
       })
 

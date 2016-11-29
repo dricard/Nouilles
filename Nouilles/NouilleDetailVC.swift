@@ -126,7 +126,7 @@ class NouilleDetailVC: UIViewController {
       image.addGestureRecognizer(tapRec)
 
       // Ask Model to make sure we have nutritional information
-      Nouille.checkForNutritionalInformation(nouille: nouille)
+      Nouille.checkForNutritionalInformation(nouille: nouille, context: managedContext!)
       
       updateInterface()
    }
@@ -161,7 +161,56 @@ class NouilleDetailVC: UIViewController {
             image.image = imageDeNouille
          }
          
+         // nutritional information
          
+         if let nb_calories = nouille.calories {
+            calories.text = "\(nb_calories)"
+         } else {
+            calories.text = .noData
+         }
+
+         if let nb_fat = nouille.fat {
+            fat.text = "\(nb_fat)"
+         } else {
+            fat.text = .noData
+         }
+         if let nb_saturated = nouille.saturated {
+            saturated.text = "\(nb_saturated)"
+         } else {
+            saturated.text = .noData
+         }
+         if let nb_trans = nouille.trans {
+            trans.text = "\(nb_trans)"
+         } else {
+            trans.text = .noData
+         }
+         if let nb_sodium = nouille.sodium {
+            sodium.text = "\(nb_sodium)"
+         } else {
+            sodium.text = .noData
+         }
+         if let nb_carbs = nouille.carbs {
+            carbs.text = "\(nb_carbs)"
+         } else {
+            carbs.text = .noData
+         }
+         if let nb_fibre = nouille.fibre {
+            fibres.text = "\(nb_fibre)"
+         } else {
+            fibres.text = .noData
+         }
+         if let nb_sugars = nouille.sugar {
+            sugars.text = "\(nb_sugars)"
+         } else {
+            sugars.text = .noData
+         }
+         if let nb_protein = nouille.protein {
+            protein.text = "\(nb_protein)"
+         } else {
+            protein.text = .noData
+         }
+
+      
       }
    }
    

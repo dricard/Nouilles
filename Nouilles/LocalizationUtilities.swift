@@ -48,5 +48,7 @@ extension String {
    static let tooBig = NSLocalizedString("is outside the allowed range of values")
    static let invalid = NSLocalizedString("is invalid")
    
-
+   // NouilleDetailVC
+   
+   static let noData = NSLocalizedString("no data")
 }
