@@ -121,40 +121,13 @@ class NouilleDetailVC: UIViewController {
       // even if no camera is available on device
       // because user can choose from the album
       
-      
+      // add gesture recognizer on image so user can add/change picture
       tapRec.addTarget(self, action: #selector(NouilleDetailVC.imageTapped))
       image.addGestureRecognizer(tapRec)
 
-      if let nouille = nouille {
-         if nouille.calories == nil || nouille.calories == 0 {
-            // no nutritional information, try to fetch from network
-
-            let searchString = "\(nouille.name!) \(nouille.brand!) noodles"
-            print("Sending request to network with search string: \(searchString)")
-            NutritionAPI.findNutritionInformation(searchString: searchString, completionHandlerForFindNutritionInfoRequest: {(foodInfo, success, error) in
-               
-               // check for error
-               guard error == nil else {
-                  // no need to print error, it was taken care in network code
-                  return
-               }
-               
-               // check for success
-               guard success else {
-                  return
-               }
-               
-               if let result = foodInfo {
-                  // we have data
-                  
-                  print(result)
-               }
-            })
-            
-         } else {
-            print("Calories is non nil: \(nouille.calories!)")
-         }
-      }
+      // Ask Model to make sure we have nutritional information
+      Nouille.checkForNutritionalInformation(nouille: nouille)
+      
       updateInterface()
    }
    
