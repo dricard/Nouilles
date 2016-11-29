@@ -11,7 +11,7 @@ import Foundation
 class NutritionAPI {
    
    
-   static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: [String:AnyObject]?, _ success: Bool, _ error: NSError?) -> Void) {
+   static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void) {
 
       let sessionConfig = URLSessionConfiguration.default
       
@@ -80,10 +80,28 @@ class NutritionAPI {
          let parsedResult = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:AnyObject]
          
          // GUARD: make sure we could parse the data
-         guard let foodInfo = parsedResult else {
+         guard let result = parsedResult??["hits"] as? [[String:AnyObject]] else {
             sendError("Could not parse the data", code: NetworkParams.CodeCouldNotParseData)
             return
          }
+         
+         // extract useful information from parsed data
+         
+         let infoArray: [String:AnyObject] = result.first!["fields"] as! [String : AnyObject]
+         
+         let calories = infoArray["nf_calories"] as? Int
+         let fat = infoArray["nf_total_fat"] as? Double
+         let saturatedFat = infoArray["nf_saturated_fat"] as? Double
+         let transFat = infoArray["nf_trans_fatty_acid"] as? Double
+         let sodium = infoArray["nf_sodium"] as? Double
+         let carbs = infoArray["nf_total_carbohydrate"] as? Double
+         let fibre = infoArray["nf_dietary_fiber"] as? Double
+         let sugars = infoArray["nf_sugars"] as? Double
+         let protein = infoArray["nf_protein"] as? Double
+         
+         // return the information to calling method
+         
+         let foodInfo = NutritionInfoData(calories: calories, fat: fat, saturatedFat: saturatedFat, transFat: transFat, sodium: sodium, carbs: carbs, fibre: fibre, sugars: sugars, protein: protein)
          
          completionHandlerForFindNutritionInfoRequest(foodInfo, true, nil)
 

@@ -9,14 +9,30 @@
 import Foundation
 import CoreData
 
+struct NutritionInfoData {
+   
+   var calories: Int?
+   var fat: Double?
+   var saturatedFat: Double?
+   var transFat: Double?
+   var sodium: Double?
+   var carbs: Double?
+   var fibre: Double?
+   var sugars: Double?
+   var protein: Double?
+   
+}
+
 public class Nouille: NSManagedObject {
 
    // MARK: - Properties
    
-   
    static func checkForNutritionalInformation(nouille: Nouille?) {
  
-      func isNutritionInformationAvailable(_ nouille: Nouille) -> Bool {
+      /// This checks if we already have nutritional informations
+      /// - returns: false if if we already have nutritional information, and true 
+      ///   if we should fetch the data from the network
+      func shouldFetchNutritionalInformation(_ nouille: Nouille) -> Bool {
          // TODO: -  Find a better way to test if we already have nutritional information
          if nouille.calories == nil || nouille.calories == 0 {
             return true
@@ -29,7 +45,7 @@ public class Nouille: NSManagedObject {
       guard let nouille = nouille else { return }
       
       // then check if the information is already available
-      guard isNutritionInformationAvailable(nouille) else { return }
+      guard shouldFetchNutritionalInformation(nouille) else { return }
       
       // we need data, so request it from the NetworkCoordinator
       let searchString = "\(nouille.name!) \(nouille.brand!) noodles"
