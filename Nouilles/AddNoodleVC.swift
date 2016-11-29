@@ -46,15 +46,15 @@ class AddNoodleVC: UIViewController {
    }
    
    func backButtonTapped() {
-      print("woohoo")
+
       if unsavedChanges() {
-         print("Unsaved Changes")
-         let controller = UIAlertController(title: "Unsaved entry", message: "You have entered some data and have not saved, are you sure you to discard the data?", preferredStyle: .alert)
-         let discardAction = UIAlertAction(title: "Discard", style: .default) { (action) in
+
+         let controller = UIAlertController(title: .unsavedEntry, message: .areYouSure, preferredStyle: .alert)
+         let discardAction = UIAlertAction(title: .discard, style: .default) { (action) in
             _ = self.navigationController?.popViewController(animated: true)
          }
-         let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (action) in
-            print("\(action)")
+         let saveAction = UIAlertAction(title: .save, style: .default, handler: { (action) in
+
             let saveActionResult = self.saveNoodleData()
             if saveActionResult.success {
                // save was successful, pop back to root vc
@@ -70,7 +70,7 @@ class AddNoodleVC: UIViewController {
          controller.addAction(saveAction)
          present(controller, animated: true, completion: nil)
       } else {
-         print("No unsaved changes")
+
          _ = self.navigationController?.popViewController(animated: true)
       }
    }
@@ -92,19 +92,17 @@ class AddNoodleVC: UIViewController {
       if self.isMovingFromParentViewController {
          // We are exiting back, check for unsaved inputs
          if unsavedChanges() {
-            print("Unsaved Changes")
-            let controller = UIAlertController(title: "Unsaved entry", message: "You have entered some data and have not saved, are you sure you want to discard the data?", preferredStyle: .alert)
-            let discardAction = UIAlertAction(title: "Discard", style: .default, handler: { (action) in
+
+            let controller = UIAlertController(title: .unsavedEntry, message: .areYouSure, preferredStyle: .alert)
+            let discardAction = UIAlertAction(title: .discard, style: .default, handler: { (action) in
                print("User chose to discard")
             })
-            let saveAction = UIAlertAction(title: "Save", style: .default, handler: { (action) in
+            let saveAction = UIAlertAction(title: .save, style: .default, handler: { (action) in
                print("User chose to save")
             })
             controller.addAction(discardAction)
             controller.addAction(saveAction)
             present(controller, animated: true, completion: nil)
-         } else {
-            print("No unsaved changes")
          }
       }
       
@@ -114,16 +112,12 @@ class AddNoodleVC: UIViewController {
 
    func presentValidationErrorDialog(_ field: String, _ error: Error) {
       
-      print("=============")
-      print("In present error dialog")
-      print("=============")
-
       let controller = UIAlertController()
-      controller.title = "Invalid Entry"
+      controller.title = .invalidEntry
       let errorType = "\(error)"
-      controller.message = "Field '\(field)' \(ErrorCode.message(rawValue: errorType))"
+      controller.message = "\(.field) '\(field)' \(ErrorCode.message(rawValue: errorType))"
       
-      let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.default, handler: nil)
+      let okAction = UIAlertAction(title: .ok, style: UIAlertActionStyle.default, handler: nil)
       controller.addAction(okAction)
       self.present(controller, animated: true, completion: nil)
       
@@ -154,8 +148,8 @@ class AddNoodleVC: UIViewController {
          case .valid:
             _name = name
          case .invalid(let error):
-            presentValidationErrorDialog("Name", error)
-            return (false, "Name", error)
+            presentValidationErrorDialog(.name, error)
+            return (false, .name, error)
          }
       } else {
          fatalError()
@@ -166,8 +160,8 @@ class AddNoodleVC: UIViewController {
          case .valid:
             _brand = brand
          case .invalid(let error):
-            presentValidationErrorDialog("Brand", error)
-            return (false, "Brand", error)
+            presentValidationErrorDialog(.brand, error)
+            return (false, .brand, error)
          }
       } else {
          fatalError()
@@ -180,8 +174,8 @@ class AddNoodleVC: UIViewController {
             let serving = Double(servingText)!
             _serving = serving
          case .invalid(let error):
-            presentValidationErrorDialog("Meal Serving", error)
-            return (false, "Meal Serving", error)
+            presentValidationErrorDialog(.mealServing, error)
+            return (false, .mealServing, error)
          }
       } else {
          fatalError()
@@ -190,11 +184,13 @@ class AddNoodleVC: UIViewController {
       if let sideDishServingText = sideDishServingInput.text {
          switch sideDishServingValidator.validateValue(sideDishServingText) {
          case .valid:
-            let serving = Double(sideDishServingText)! // If valid, then it's been checked for casting
+            // If valid, then it's been checked for casting
+            // so we can for unwrap here
+            let serving = Double(sideDishServingText)!
             _sdServing = serving
          case .invalid(let error):
-            presentValidationErrorDialog("Side dish serving", error)
-            return (false, "Side dish serving", error)
+            presentValidationErrorDialog(.sdMealServing, error)
+            return (false, .sdMealServing, error)
          }
       } else {
          fatalError()
@@ -203,11 +199,13 @@ class AddNoodleVC: UIViewController {
       if let cookingTimeText = cookingTimeInput.text {
          switch cookingTimeValidator.validateValue(cookingTimeText) {
          case .valid:
+            // If valid, then it's been checked for casting
+            // so we can for unwrap here
             let cookingTime = Double(cookingTimeText)!
             _time = cookingTime
          case .invalid(let error):
-            presentValidationErrorDialog("Cooking time", error)
-            return (false, "Cooking time", error)
+            presentValidationErrorDialog(.cookingTime, error)
+            return (false, .cookingTime, error)
          }
       } else {
          fatalError()
@@ -216,11 +214,13 @@ class AddNoodleVC: UIViewController {
       if let ratingText = ratingInput.text {
          switch ratingValidator.validateValue(ratingText) {
          case .valid:
+            // If valid, then it's been checked for casting
+            // so we can for unwrap here
             let rating = Double(ratingText)!
             _rating = rating
          case .invalid(let error):
-            presentValidationErrorDialog("Rating", error)
-            return (false, "Rating", error)
+            presentValidationErrorDialog(.ratingCap, error)
+            return (false, .ratingCap, error)
          }
       } else {
          fatalError()
@@ -287,8 +287,6 @@ extension AddNoodleVC: UITextFieldDelegate {
    }
    
    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-      
-      // TODO: - Check validity of input value
       
       textField.resignFirstResponder()
       

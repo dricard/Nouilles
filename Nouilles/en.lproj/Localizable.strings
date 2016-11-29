@@ -39,4 +39,15 @@
 "Serving" = "Serving";
 "serving" = "serving";
 "side dish" = "side dish";
+"cannot be empty" = "cannot be empty";
+"must be a number" = "must be a number";
+"cannot be negative" = "cannot be negative";
+"is outside the allowed range of values" = "is outside the allowed range of values";
+"is invalid" = "is invalid";
+"Field" = "Field";
+"Unsaved entry" = "Unsaved entry";
+"You have entered some data and have not saved, are you sure you want to discard the data?" = "You have entered some data and have not saved, are you sure you want to discard the data?";
+"Discard" = "Discard";
+"Invalid Entry" = "Invalid Entry";
+"ok" = "ok";
 

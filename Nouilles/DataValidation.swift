@@ -52,15 +52,15 @@ enum ErrorCode {
    static func message(rawValue: String) -> String {
       switch rawValue {
       case "empty":
-         return "cannot be empty"
+         return .empty
       case "notANumber":
-         return "must be a number"
+         return .notANumber
       case "negativeOrZero":
-         return "cannot be negative"
+         return .negativeOrZero
       case "tooBig":
-         return "is outside the allowed range of values"
+         return .tooBig
       default:
-         return "is invalid"
+         return .invalid
       }
    }
 }
