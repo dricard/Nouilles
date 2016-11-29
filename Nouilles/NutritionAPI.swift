@@ -89,7 +89,7 @@ class NutritionAPI {
          
          let infoArray: [String:AnyObject] = result.first!["fields"] as! [String : AnyObject]
          
-         let calories = infoArray["nf_calories"] as? Int
+         let calories = infoArray["nf_calories"] as? Double
          let fat = infoArray["nf_total_fat"] as? Double
          let saturatedFat = infoArray["nf_saturated_fat"] as? Double
          let transFat = infoArray["nf_trans_fatty_acid"] as? Double
@@ -98,10 +98,11 @@ class NutritionAPI {
          let fibre = infoArray["nf_dietary_fiber"] as? Double
          let sugars = infoArray["nf_sugars"] as? Double
          let protein = infoArray["nf_protein"] as? Double
+         let serving = infoArray["nf_serving_size_qty"] as? Double
          
          // return the information to calling method
          
-         let foodInfo = NutritionInfoData(calories: calories, fat: fat, saturatedFat: saturatedFat, transFat: transFat, sodium: sodium, carbs: carbs, fibre: fibre, sugars: sugars, protein: protein)
+         let foodInfo = NutritionInfoData(calories: calories, fat: fat, saturatedFat: saturatedFat, transFat: transFat, sodium: sodium, carbs: carbs, fibre: fibre, sugars: sugars, protein: protein, serving: serving)
          
          completionHandlerForFindNutritionInfoRequest(foodInfo, true, nil)
 

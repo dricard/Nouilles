@@ -247,6 +247,9 @@ class AddNoodleVC: UIViewController {
          print("Could not save context in saveNoodleData() \(error), \(error.userInfo)")
       }
 
+      // Ask Model to fetch nutritional information
+      Nouille.checkForNutritionalInformation(nouille: newNoodle, context: managedContext!)
+      
       dataSaved = true
       return (true, nil, nil)
    }

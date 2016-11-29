@@ -11,7 +11,7 @@ import CoreData
 
 struct NutritionInfoData {
    
-   var calories: Int?
+   var calories: Double?
    var fat: Double?
    var saturatedFat: Double?
    var transFat: Double?
@@ -20,7 +20,7 @@ struct NutritionInfoData {
    var fibre: Double?
    var sugars: Double?
    var protein: Double?
-   
+   var serving: Double?
 }
 
 public class Nouille: NSManagedObject {
@@ -77,6 +77,7 @@ public class Nouille: NSManagedObject {
             nouille.fibre = result.fibre as NSNumber?
             nouille.sugar = result.sugars as NSNumber?
             nouille.protein = result.protein as NSNumber?
+            nouille.serving = result.serving as NSNumber?
             
             do {
                try context.save()

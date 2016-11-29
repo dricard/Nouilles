@@ -125,9 +125,6 @@ class NouilleDetailVC: UIViewController {
       tapRec.addTarget(self, action: #selector(NouilleDetailVC.imageTapped))
       image.addGestureRecognizer(tapRec)
 
-      // Ask Model to make sure we have nutritional information
-      Nouille.checkForNutritionalInformation(nouille: nouille, context: managedContext!)
-      
       updateInterface()
    }
    
@@ -139,6 +136,20 @@ class NouilleDetailVC: UIViewController {
    
    func updateInterface() {
       
+      var customServingSize: Double = 0.0
+      var referenceServing: Double = 0.0
+      
+      func scaleData(qty: Double) -> Double {
+         
+         if referenceServing != 0 {
+            return customServingSize * qty / referenceServing
+         } else {
+            print("DIVIDE BY ZERO ERROR")
+            return 0
+         }
+         
+      }
+      
       if let nouille = nouille {
          name.text = nouille.name!
          brand.text = nouille.brand!
@@ -146,10 +157,14 @@ class NouilleDetailVC: UIViewController {
          isMealSize.isOn = nouille.mealSizePrefered! as Bool
          if nouille.mealSizePrefered! as Bool {
             servingSize.text = "\(nouille.servingCustom!)"
-            totalServingSize.text = "\(Double(numberOfServings) * Double(nouille.servingCustom!))"
+            customServingSize = Double(nouille.servingCustom!)
+            let totalServing = Double(numberOfServings) * customServingSize
+            totalServingSize.text = "\(totalServing)"
          } else {
             servingSize.text = "\(nouille.servingSideDish!)"
-            totalServingSize.text = "\(Double(numberOfServings) * Double(nouille.servingSideDish!))"
+            customServingSize = Double(nouille.servingSideDish!)
+            let totalServing = Double(numberOfServings) * customServingSize
+            totalServingSize.text = "\(totalServing)"
          }
          rating.text = "\(nouille.rating!)"
          cookingTime.text = "\(nouille.time!) mn"
@@ -163,49 +178,64 @@ class NouilleDetailVC: UIViewController {
          
          // nutritional information
          
-         if let nb_calories = nouille.calories {
-            calories.text = "\(nb_calories)"
+         if let nb_serving = nouille.serving {
+            referenceServing = Double(nb_serving)
+            servingSize.text = "\(nb_serving)"
          } else {
             calories.text = .noData
          }
-
+        
+         if let nb_calories = nouille.calories {
+            let scaled = scaleData(qty: Double(nb_calories))
+            calories.text = "\(scaled)"
+         } else {
+            calories.text = .noData
+         }
          if let nb_fat = nouille.fat {
-            fat.text = "\(nb_fat)"
+            let scaled = scaleData(qty: Double(nb_fat))
+            fat.text = "\(scaled)"
          } else {
             fat.text = .noData
          }
          if let nb_saturated = nouille.saturated {
-            saturated.text = "\(nb_saturated)"
+            let scaled = scaleData(qty: Double(nb_saturated))
+            saturated.text = "\(scaled)"
          } else {
             saturated.text = .noData
          }
          if let nb_trans = nouille.trans {
-            trans.text = "\(nb_trans)"
+            let scaled = scaleData(qty: Double(nb_trans))
+            trans.text = "\(scaled)"
          } else {
             trans.text = .noData
          }
          if let nb_sodium = nouille.sodium {
-            sodium.text = "\(nb_sodium)"
+            let scaled = scaleData(qty: Double(nb_sodium))
+            sodium.text = "\(scaled)"
          } else {
             sodium.text = .noData
          }
          if let nb_carbs = nouille.carbs {
-            carbs.text = "\(nb_carbs)"
+            let scaled = scaleData(qty: Double(nb_carbs))
+            carbs.text = "\(scaled)"
          } else {
             carbs.text = .noData
          }
          if let nb_fibre = nouille.fibre {
-            fibres.text = "\(nb_fibre)"
+            let scaled = scaleData(qty: Double(nb_fibre))
+            fibres.text = "\(scaled)"
          } else {
             fibres.text = .noData
          }
          if let nb_sugars = nouille.sugar {
-            sugars.text = "\(nb_sugars)"
+            let scaled = scaleData(qty: Double(nb_sugars))
+            sugars.text = "\(scaled)"
          } else {
             sugars.text = .noData
          }
          if let nb_protein = nouille.protein {
-            protein.text = "\(nb_protein)"
+            let scaled = scaleData(qty: Double(nb_protein))
+            protein.text = "\(scaled)"
          } else {
             protein.text = .noData
          }
