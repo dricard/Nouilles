@@ -540,16 +540,9 @@ public class NoodlesStyleKit : NSObject {
 
     }
 
-    public dynamic class func drawRatingIndicator(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 95, height: 20), resizing: ResizingBehavior = .aspectFit, rating: CGFloat = 0) {
+    public dynamic class func drawRatingIndicator(frame: CGRect = CGRect(x: 0, y: 0, width: 95, height: 20), rating: CGFloat = 2.5) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
-        
-        //// Resize to Target Frame
-        context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 95, height: 20), target: targetFrame)
-        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 95, y: resizedFrame.height / 20)
-
 
 
         //// Variable Declarations
@@ -560,16 +553,16 @@ public class NoodlesStyleKit : NSObject {
         context.setBlendMode(.colorBurn)
 
         let starPath = UIBezierPath()
-        starPath.move(to: CGPoint(x: 9.5, y: 2))
-        starPath.addLine(to: CGPoint(x: 12.67, y: 6.63))
-        starPath.addLine(to: CGPoint(x: 18.06, y: 8.22))
-        starPath.addLine(to: CGPoint(x: 14.64, y: 12.67))
-        starPath.addLine(to: CGPoint(x: 14.79, y: 18.28))
-        starPath.addLine(to: CGPoint(x: 9.5, y: 16.4))
-        starPath.addLine(to: CGPoint(x: 4.21, y: 18.28))
-        starPath.addLine(to: CGPoint(x: 4.36, y: 12.67))
-        starPath.addLine(to: CGPoint(x: 0.94, y: 8.22))
-        starPath.addLine(to: CGPoint(x: 6.33, y: 6.63))
+        starPath.move(to: CGPoint(x: frame.minX + 9.5, y: frame.minY + 0.10000 * frame.height))
+        starPath.addLine(to: CGPoint(x: frame.minX + 12.67, y: frame.minY + 0.33157 * frame.height))
+        starPath.addLine(to: CGPoint(x: frame.minX + 18.06, y: frame.minY + 0.41094 * frame.height))
+        starPath.addLine(to: CGPoint(x: frame.minX + 14.64, y: frame.minY + 0.63343 * frame.height))
+        starPath.addLine(to: CGPoint(x: frame.minX + 14.79, y: frame.minY + 0.91406 * frame.height))
+        starPath.addLine(to: CGPoint(x: frame.minX + 9.5, y: frame.minY + 0.82000 * frame.height))
+        starPath.addLine(to: CGPoint(x: frame.minX + 4.21, y: frame.minY + 0.91406 * frame.height))
+        starPath.addLine(to: CGPoint(x: frame.minX + 4.36, y: frame.minY + 0.63343 * frame.height))
+        starPath.addLine(to: CGPoint(x: frame.minX + 0.94, y: frame.minY + 0.41094 * frame.height))
+        starPath.addLine(to: CGPoint(x: frame.minX + 6.33, y: frame.minY + 0.33157 * frame.height))
         starPath.close()
         NoodlesStyleKit.lighterGreen.setFill()
         starPath.fill()
@@ -578,20 +571,25 @@ public class NoodlesStyleKit : NSObject {
 
 
         //// Star 2 Drawing
+        context.saveGState()
+        context.setBlendMode(.colorBurn)
+
         let star2Path = UIBezierPath()
-        star2Path.move(to: CGPoint(x: 28.5, y: 2))
-        star2Path.addLine(to: CGPoint(x: 31.67, y: 6.63))
-        star2Path.addLine(to: CGPoint(x: 37.06, y: 8.22))
-        star2Path.addLine(to: CGPoint(x: 33.64, y: 12.67))
-        star2Path.addLine(to: CGPoint(x: 33.79, y: 18.28))
-        star2Path.addLine(to: CGPoint(x: 28.5, y: 16.4))
-        star2Path.addLine(to: CGPoint(x: 23.21, y: 18.28))
-        star2Path.addLine(to: CGPoint(x: 23.36, y: 12.67))
-        star2Path.addLine(to: CGPoint(x: 19.94, y: 8.22))
-        star2Path.addLine(to: CGPoint(x: 25.33, y: 6.63))
+        star2Path.move(to: CGPoint(x: frame.minX + 0.30000 * frame.width, y: frame.minY + 0.10000 * frame.height))
+        star2Path.addLine(to: CGPoint(x: frame.minX + 0.33341 * frame.width, y: frame.minY + 0.33157 * frame.height))
+        star2Path.addLine(to: CGPoint(x: frame.minX + 0.39010 * frame.width, y: frame.minY + 0.41094 * frame.height))
+        star2Path.addLine(to: CGPoint(x: frame.minX + 0.35406 * frame.width, y: frame.minY + 0.63343 * frame.height))
+        star2Path.addLine(to: CGPoint(x: frame.minX + 0.35568 * frame.width, y: frame.minY + 0.91406 * frame.height))
+        star2Path.addLine(to: CGPoint(x: frame.minX + 0.30000 * frame.width, y: frame.minY + 0.82000 * frame.height))
+        star2Path.addLine(to: CGPoint(x: frame.minX + 0.24432 * frame.width, y: frame.minY + 0.91406 * frame.height))
+        star2Path.addLine(to: CGPoint(x: frame.minX + 0.24594 * frame.width, y: frame.minY + 0.63343 * frame.height))
+        star2Path.addLine(to: CGPoint(x: frame.minX + 0.20990 * frame.width, y: frame.minY + 0.41094 * frame.height))
+        star2Path.addLine(to: CGPoint(x: frame.minX + 0.26659 * frame.width, y: frame.minY + 0.33157 * frame.height))
         star2Path.close()
         NoodlesStyleKit.lighterGreen.setFill()
         star2Path.fill()
+
+        context.restoreGState()
 
 
         //// Star 3 Drawing
@@ -599,16 +597,16 @@ public class NoodlesStyleKit : NSObject {
         context.setBlendMode(.colorBurn)
 
         let star3Path = UIBezierPath()
-        star3Path.move(to: CGPoint(x: 47.5, y: 2))
-        star3Path.addLine(to: CGPoint(x: 50.67, y: 6.63))
-        star3Path.addLine(to: CGPoint(x: 56.06, y: 8.22))
-        star3Path.addLine(to: CGPoint(x: 52.64, y: 12.67))
-        star3Path.addLine(to: CGPoint(x: 52.79, y: 18.28))
-        star3Path.addLine(to: CGPoint(x: 47.5, y: 16.4))
-        star3Path.addLine(to: CGPoint(x: 42.21, y: 18.28))
-        star3Path.addLine(to: CGPoint(x: 42.36, y: 12.67))
-        star3Path.addLine(to: CGPoint(x: 38.94, y: 8.22))
-        star3Path.addLine(to: CGPoint(x: 44.33, y: 6.63))
+        star3Path.move(to: CGPoint(x: frame.minX + 0.50000 * frame.width, y: frame.minY + 0.10000 * frame.height))
+        star3Path.addLine(to: CGPoint(x: frame.minX + 0.53341 * frame.width, y: frame.minY + 0.33157 * frame.height))
+        star3Path.addLine(to: CGPoint(x: frame.minX + 0.59010 * frame.width, y: frame.minY + 0.41094 * frame.height))
+        star3Path.addLine(to: CGPoint(x: frame.minX + 0.55406 * frame.width, y: frame.minY + 0.63343 * frame.height))
+        star3Path.addLine(to: CGPoint(x: frame.minX + 0.55568 * frame.width, y: frame.minY + 0.91406 * frame.height))
+        star3Path.addLine(to: CGPoint(x: frame.minX + 0.50000 * frame.width, y: frame.minY + 0.82000 * frame.height))
+        star3Path.addLine(to: CGPoint(x: frame.minX + 0.44432 * frame.width, y: frame.minY + 0.91406 * frame.height))
+        star3Path.addLine(to: CGPoint(x: frame.minX + 0.44594 * frame.width, y: frame.minY + 0.63343 * frame.height))
+        star3Path.addLine(to: CGPoint(x: frame.minX + 0.40990 * frame.width, y: frame.minY + 0.41094 * frame.height))
+        star3Path.addLine(to: CGPoint(x: frame.minX + 0.46659 * frame.width, y: frame.minY + 0.33157 * frame.height))
         star3Path.close()
         NoodlesStyleKit.lighterGreen.setFill()
         star3Path.fill()
@@ -621,16 +619,16 @@ public class NoodlesStyleKit : NSObject {
         context.setBlendMode(.colorBurn)
 
         let star4Path = UIBezierPath()
-        star4Path.move(to: CGPoint(x: 66.5, y: 2))
-        star4Path.addLine(to: CGPoint(x: 69.67, y: 6.63))
-        star4Path.addLine(to: CGPoint(x: 75.06, y: 8.22))
-        star4Path.addLine(to: CGPoint(x: 71.64, y: 12.67))
-        star4Path.addLine(to: CGPoint(x: 71.79, y: 18.28))
-        star4Path.addLine(to: CGPoint(x: 66.5, y: 16.4))
-        star4Path.addLine(to: CGPoint(x: 61.21, y: 18.28))
-        star4Path.addLine(to: CGPoint(x: 61.36, y: 12.67))
-        star4Path.addLine(to: CGPoint(x: 57.94, y: 8.22))
-        star4Path.addLine(to: CGPoint(x: 63.33, y: 6.63))
+        star4Path.move(to: CGPoint(x: frame.minX + 0.70000 * frame.width, y: frame.minY + 0.10000 * frame.height))
+        star4Path.addLine(to: CGPoint(x: frame.minX + 0.73341 * frame.width, y: frame.minY + 0.33157 * frame.height))
+        star4Path.addLine(to: CGPoint(x: frame.minX + 0.79010 * frame.width, y: frame.minY + 0.41094 * frame.height))
+        star4Path.addLine(to: CGPoint(x: frame.minX + 0.75406 * frame.width, y: frame.minY + 0.63343 * frame.height))
+        star4Path.addLine(to: CGPoint(x: frame.minX + 0.75568 * frame.width, y: frame.minY + 0.91406 * frame.height))
+        star4Path.addLine(to: CGPoint(x: frame.minX + 0.70000 * frame.width, y: frame.minY + 0.82000 * frame.height))
+        star4Path.addLine(to: CGPoint(x: frame.minX + 0.64432 * frame.width, y: frame.minY + 0.91406 * frame.height))
+        star4Path.addLine(to: CGPoint(x: frame.minX + 0.64594 * frame.width, y: frame.minY + 0.63343 * frame.height))
+        star4Path.addLine(to: CGPoint(x: frame.minX + 0.60990 * frame.width, y: frame.minY + 0.41094 * frame.height))
+        star4Path.addLine(to: CGPoint(x: frame.minX + 0.66659 * frame.width, y: frame.minY + 0.33157 * frame.height))
         star4Path.close()
         NoodlesStyleKit.lighterGreen.setFill()
         star4Path.fill()
@@ -643,16 +641,16 @@ public class NoodlesStyleKit : NSObject {
         context.setBlendMode(.colorBurn)
 
         let star5Path = UIBezierPath()
-        star5Path.move(to: CGPoint(x: 85.5, y: 2))
-        star5Path.addLine(to: CGPoint(x: 88.67, y: 6.63))
-        star5Path.addLine(to: CGPoint(x: 94.06, y: 8.22))
-        star5Path.addLine(to: CGPoint(x: 90.64, y: 12.67))
-        star5Path.addLine(to: CGPoint(x: 90.79, y: 18.28))
-        star5Path.addLine(to: CGPoint(x: 85.5, y: 16.4))
-        star5Path.addLine(to: CGPoint(x: 80.21, y: 18.28))
-        star5Path.addLine(to: CGPoint(x: 80.36, y: 12.67))
-        star5Path.addLine(to: CGPoint(x: 76.94, y: 8.22))
-        star5Path.addLine(to: CGPoint(x: 82.33, y: 6.63))
+        star5Path.move(to: CGPoint(x: frame.maxX - 9.5, y: frame.minY + 0.10000 * frame.height))
+        star5Path.addLine(to: CGPoint(x: frame.maxX - 6.33, y: frame.minY + 0.33157 * frame.height))
+        star5Path.addLine(to: CGPoint(x: frame.maxX - 0.94, y: frame.minY + 0.41094 * frame.height))
+        star5Path.addLine(to: CGPoint(x: frame.maxX - 4.36, y: frame.minY + 0.63343 * frame.height))
+        star5Path.addLine(to: CGPoint(x: frame.maxX - 4.21, y: frame.minY + 0.91406 * frame.height))
+        star5Path.addLine(to: CGPoint(x: frame.maxX - 9.5, y: frame.minY + 0.82000 * frame.height))
+        star5Path.addLine(to: CGPoint(x: frame.maxX - 14.79, y: frame.minY + 0.91406 * frame.height))
+        star5Path.addLine(to: CGPoint(x: frame.maxX - 14.64, y: frame.minY + 0.63343 * frame.height))
+        star5Path.addLine(to: CGPoint(x: frame.maxX - 18.06, y: frame.minY + 0.41094 * frame.height))
+        star5Path.addLine(to: CGPoint(x: frame.maxX - 12.67, y: frame.minY + 0.33157 * frame.height))
         star5Path.close()
         NoodlesStyleKit.lighterGreen.setFill()
         star5Path.fill()
@@ -662,7 +660,7 @@ public class NoodlesStyleKit : NSObject {
 
         //// Rectangle Drawing
         context.saveGState()
-        context.translateBy(x: 95, y: 0)
+        context.translateBy(x: frame.minX + 95, y: frame.minY)
         context.scaleBy(x: ratingRatio, y: 1)
 
         context.saveGState()
@@ -675,9 +673,6 @@ public class NoodlesStyleKit : NSObject {
         context.restoreGState()
 
         context.restoreGState()
-        
-        context.restoreGState()
-
     }
 
     //// Generated Images
@@ -776,9 +771,9 @@ public class NoodlesStyleKit : NSObject {
         return Cache.imageOfMealSizeIndicatorSD!
     }
 
-    public dynamic class func imageOfRatingIndicator(rating: CGFloat = 0) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 95, height: 20), false, 0)
-            NoodlesStyleKit.drawRatingIndicator(rating: rating)
+    public dynamic class func imageOfRatingIndicator(imageSize: CGSize = CGSize(width: 95, height: 20), rating: CGFloat = 2.5) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
+            NoodlesStyleKit.drawRatingIndicator(frame: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height), rating: rating)
 
         let imageOfRatingIndicator = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
