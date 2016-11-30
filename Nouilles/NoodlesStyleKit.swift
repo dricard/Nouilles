@@ -26,7 +26,7 @@ public class NoodlesStyleKit : NSObject {
         static let baseOrange: UIColor = UIColor(red: 1.000, green: 0.782, blue: 0.122, alpha: 1.000)
         static let lighterGreen: UIColor = NoodlesStyleKit.baseGreen.highlight(withLevel: 0.3)
         static let darkerGreen: UIColor = NoodlesStyleKit.baseGreen.shadow(withLevel: 0.3)
-        static let lighterYellow: UIColor = NoodlesStyleKit.baseYellow.highlight(withLevel: 0.3)
+        static let lighterYellow: UIColor = NoodlesStyleKit.baseYellow.withSaturation(0.1)
         static let darkerYellow: UIColor = NoodlesStyleKit.baseYellow.shadow(withLevel: 0.1)
         static let lighterOrange: UIColor = NoodlesStyleKit.baseOrange.highlight(withLevel: 0.3)
         static let darkerOrange: UIColor = NoodlesStyleKit.baseOrange.shadow(withLevel: 0.3)

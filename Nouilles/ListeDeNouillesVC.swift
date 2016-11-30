@@ -137,6 +137,8 @@ extension ListeDeNouillesVC: UITableViewDataSource {
       
       let nouille = fetchedResultsController.object(at: indexPath)
       
+      cell.backgroundColor = NoodlesStyleKit.lighterYellow
+       
       cell.nameLabel?.text = nouille.name!
       cell.brandLabel?.text = nouille.brand!
 
