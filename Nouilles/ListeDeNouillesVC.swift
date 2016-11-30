@@ -149,7 +149,11 @@ extension ListeDeNouillesVC: UITableViewDataSource {
       if let imageData = nouille.image as? Data {
          let boxImage = UIImage(data: imageData)
          cell.boxImageView?.image = boxImage
+      } else {
+         // draw default image
+         cell.boxImageView?.image = NoodlesStyleKit.imageOfNouille
       }
+      cell.ratingImageView?.image = NoodlesStyleKit.imageOfRatingIndicator(rating: nouille.rating as! CGFloat)
    }
    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
