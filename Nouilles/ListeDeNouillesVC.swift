@@ -142,8 +142,10 @@ extension ListeDeNouillesVC: UITableViewDataSource {
 
       if nouille.mealSizePrefered! as Bool {
          cell.qtyLabel?.text = formatWithFraction(value: Double(nouille.servingCustom!))
+         cell.mealSizeView?.image = NoodlesStyleKit.imageOfMealSizeIndicator
       } else {
          cell.qtyLabel?.text = formatWithFraction(value: Double(nouille.servingSideDish!))
+         cell.mealSizeView?.image = NoodlesStyleKit.imageOfMealSizeIndicatorSD
       }
       cell.timeLabel?.text = formatWithExponent(value: Double(nouille.time!))
       if let imageData = nouille.image as? Data {
@@ -154,6 +156,8 @@ extension ListeDeNouillesVC: UITableViewDataSource {
          cell.boxImageView?.image = NoodlesStyleKit.imageOfNouille
       }
       cell.ratingImageView?.image = NoodlesStyleKit.imageOfRatingIndicator(rating: nouille.rating as! CGFloat)
+      
+      
    }
    
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

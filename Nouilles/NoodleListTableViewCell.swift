@@ -23,6 +23,7 @@ class NoodleListTableViewCell: UITableViewCell {
    @IBOutlet weak var qtyUnitLabel: UILabel!
    @IBOutlet weak var qtyLabel: UILabel!
    @IBOutlet weak var ratingImageView: UIImageView!
+   @IBOutlet weak var mealSizeView: UIImageView!
    
    
     override func awakeFromNib() {
