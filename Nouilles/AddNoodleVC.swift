@@ -239,6 +239,8 @@ class AddNoodleVC: UIViewController {
 
       // default to prefer meal size servings
       newNoodle.mealSizePrefered = true as NSNumber
+      // default to number of serving of 1
+      newNoodle.numberOfServing = 1
       
       // Save the context / new noodle to coredata
       do {

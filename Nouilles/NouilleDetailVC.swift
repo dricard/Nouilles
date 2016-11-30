@@ -16,8 +16,6 @@ class NouilleDetailVC: UIViewController {
    var managedContext: NSManagedObjectContext?
    var nouille: Nouille?
    
-   var numberOfServings: Int = 3
-   
    let tapRec = UITapGestureRecognizer()
    
    // MARK: - Outlets
@@ -46,14 +44,18 @@ class NouilleDetailVC: UIViewController {
    // MARK: - Actions
    
    @IBAction func minusTapped(_ sender: Any) {
+      var numberOfServings = nouille?.numberOfServing as! Int16
       numberOfServings -= 1
       if numberOfServings < 1 { numberOfServings = 1 }
+      nouille?.numberOfServing = numberOfServings as NSNumber
       updateInterface()
    }
    
    @IBAction func plusTapped(_ sender: Any) {
+      var numberOfServings = nouille?.numberOfServing as! Int16
       numberOfServings += 1
       if numberOfServings > 9 { numberOfServings = 9 }
+      nouille?.numberOfServing = numberOfServings as NSNumber
       updateInterface()
    }
    
@@ -128,6 +130,17 @@ class NouilleDetailVC: UIViewController {
       updateInterface()
    }
    
+   override func viewDidDisappear(_ animated: Bool) {
+      // we might have changed the usual number of servings, save
+      do {
+         try managedContext?.save()
+      } catch let error as NSError {
+         print("Could not save context \(error), \(error.userInfo)")
+      }
+
+      
+   }
+   
    override func viewWillAppear(_ animated: Bool) {
       updateInterface()
    }
@@ -151,6 +164,7 @@ class NouilleDetailVC: UIViewController {
       }
       
       if let nouille = nouille {
+         let numberOfServings = nouille.numberOfServing as! Int
          name.text = nouille.name!
          brand.text = nouille.brand!
          servings.text = "\(numberOfServings)"
