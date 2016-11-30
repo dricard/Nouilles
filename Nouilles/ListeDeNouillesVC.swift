@@ -106,12 +106,7 @@ extension ListeDeNouillesVC: UITableViewDataSource {
       let integerPart = Int(value)
       let fractionalPart = value.truncatingRemainder(dividingBy: 1.0)
       
-      print(integerPart)
-      print(fractionalPart)
-      
       var returnedString = integerPart != 0 ? "\(integerPart)" : ""
-      
-      print(returnedString)
       
       switch fractionalPart {
       case 0.15...0.17:
@@ -135,7 +130,6 @@ extension ListeDeNouillesVC: UITableViewDataSource {
          }
       }
       
-      print(returnedString)
       return returnedString
    }
 
