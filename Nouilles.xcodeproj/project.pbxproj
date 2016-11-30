@@ -23,6 +23,7 @@
 		21431A911DE3CE1E000CC37A /* NoodlesStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */; };
 		21431A931DE3D3E0000CC37A /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21431A921DE3D3E0000CC37A /* TimerView.swift */; };
 		215AB2A71DEC677A00B5AC23 /* DataValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215AB2A61DEC677A00B5AC23 /* DataValidation.swift */; };
+		215CC4E71DEF14B400070019 /* NoodleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CC4E61DEF14B400070019 /* NoodleListTableViewCell.swift */; };
 		21795F2F1DE33EAB00FAC131 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21795F311DE33EAB00FAC131 /* Localizable.strings */; };
 		21795F341DE3435100FAC131 /* LocalizationUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21795F331DE3435100FAC131 /* LocalizationUtilities.swift */; };
 		21795F361DE358F200FAC131 /* BarCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21795F351DE358F200FAC131 /* BarCodeVC.swift */; };
@@ -55,6 +56,7 @@
 		21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoodlesStyleKit.swift; sourceTree = "<group>"; };
 		21431A921DE3D3E0000CC37A /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		215AB2A61DEC677A00B5AC23 /* DataValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValidation.swift; sourceTree = "<group>"; };
+		215CC4E61DEF14B400070019 /* NoodleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoodleListTableViewCell.swift; sourceTree = "<group>"; };
 		21795F2D1DE339E800FAC131 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		21795F2E1DE339E900FAC131 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		21795F301DE33EAB00FAC131 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				21A148DA1D6B841900FA52BA /* LaunchScreen.storyboard */,
 				21431A921DE3D3E0000CC37A /* TimerView.swift */,
 				21058BA21DE8C3BF007E3C08 /* ScanSuccessView.swift */,
+				215CC4E61DEF14B400070019 /* NoodleListTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				2137A60D1DDB961200C1FC35 /* NouilleDetailVC.swift in Sources */,
 				2198B46A1DDE413B006C88C2 /* TakePictureVC.swift in Sources */,
 				2185319B1DDCA5060092B335 /* AddNoodleVC.swift in Sources */,
+				215CC4E71DEF14B400070019 /* NoodleListTableViewCell.swift in Sources */,
 				215AB2A71DEC677A00B5AC23 /* DataValidation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
