@@ -749,7 +749,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="70B-m2-J6T">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="70B-m2-J6T">
                                 <rect key="frame" x="327" y="127" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="PZW-Ss-sob"/>

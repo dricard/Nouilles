@@ -17,6 +17,7 @@ class NouilleDetailVC: UIViewController {
    var nouille: Nouille?
    
    let tapRec = UITapGestureRecognizer()
+   let tapMS = UITapGestureRecognizer()
    
    // MARK: - Outlets
    
@@ -85,19 +86,21 @@ class NouilleDetailVC: UIViewController {
       show(controller, sender: self)
    }
    
-//   @IBAction func preferedMealSizeTapped(_ sender: Any) {
-//      if let nouille = nouille {
-////         nouille.mealSizePrefered = isMealSize.isOn as NSNumber
-//         
-//         do {
-//            try managedContext?.save()
-//         } catch let error as NSError {
-//            print("Could not save context in preferedMealSizeTapped \(error), \(error.userInfo)")
-//         }
-//
-//      }
-//      updateInterface()
-//   }
+   func preferedMealSizeTapped(_ sender: Any) {
+      if let nouille = nouille {
+         
+         let newState = !(nouille.mealSizePrefered as! Bool)
+         nouille.mealSizePrefered = newState as NSNumber
+         
+         do {
+            try managedContext?.save()
+         } catch let error as NSError {
+            print("Could not save context in preferedMealSizeTapped \(error), \(error.userInfo)")
+         }
+
+      }
+      updateInterface()
+   }
    
    func imageTapped() {
       print("image was tapped")
@@ -131,6 +134,10 @@ class NouilleDetailVC: UIViewController {
       // add gesture recognizer on image so user can add/change picture
       tapRec.addTarget(self, action: #selector(NouilleDetailVC.imageTapped))
       image.addGestureRecognizer(tapRec)
+
+      // add gesture recognizer on preferedMealSize so user can toggle
+      tapMS.addTarget(self, action: #selector(NouilleDetailVC.preferedMealSizeTapped))
+      mealPreferedSizeIndicator.addGestureRecognizer(tapMS)
 
       updateInterface()
    }
