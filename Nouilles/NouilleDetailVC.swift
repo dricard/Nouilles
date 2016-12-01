@@ -39,7 +39,6 @@ class NouilleDetailVC: UIViewController {
    @IBOutlet weak var sugars: UILabel!
    @IBOutlet weak var protein: UILabel!
    @IBOutlet weak var rating: UILabel!
-   @IBOutlet weak var isMealSize: UISwitch!
    
    // MARK: - Actions
    
@@ -80,19 +79,19 @@ class NouilleDetailVC: UIViewController {
       show(controller, sender: self)
    }
    
-   @IBAction func preferedMealSizeTapped(_ sender: Any) {
-      if let nouille = nouille {
-         nouille.mealSizePrefered = isMealSize.isOn as NSNumber
-         
-         do {
-            try managedContext?.save()
-         } catch let error as NSError {
-            print("Could not save context in preferedMealSizeTapped \(error), \(error.userInfo)")
-         }
-
-      }
-      updateInterface()
-   }
+//   @IBAction func preferedMealSizeTapped(_ sender: Any) {
+//      if let nouille = nouille {
+////         nouille.mealSizePrefered = isMealSize.isOn as NSNumber
+//         
+//         do {
+//            try managedContext?.save()
+//         } catch let error as NSError {
+//            print("Could not save context in preferedMealSizeTapped \(error), \(error.userInfo)")
+//         }
+//
+//      }
+//      updateInterface()
+//   }
    
    func imageTapped() {
       print("image was tapped")
@@ -168,7 +167,7 @@ class NouilleDetailVC: UIViewController {
          name.text = nouille.name!
          brand.text = nouille.brand!
          servings.text = "\(numberOfServings)"
-         isMealSize.isOn = nouille.mealSizePrefered! as Bool
+//         isMealSize.isOn = nouille.mealSizePrefered! as Bool
          if nouille.mealSizePrefered! as Bool {
             servingSize.text = "\(nouille.servingCustom!)"
             customServingSize = Double(nouille.servingCustom!)
