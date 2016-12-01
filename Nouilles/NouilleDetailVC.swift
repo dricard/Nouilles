@@ -18,6 +18,7 @@ class NouilleDetailVC: UIViewController {
    
    let tapRec = UITapGestureRecognizer()
    let tapMS = UITapGestureRecognizer()
+   let tapSeg = UITapGestureRecognizer()
    
    // MARK: - Outlets
    
@@ -42,28 +43,30 @@ class NouilleDetailVC: UIViewController {
    @IBOutlet weak var rating: UILabel!
    @IBOutlet weak var mealPreferedSizeIndicator: UIImageView!
    @IBOutlet weak var ratingView: UIImageView!
-   @IBOutlet weak var segementedControl: UISegmentedControl!
+   @IBOutlet weak var segmentedControl: UISegmentedControl!
    
    // MARK: - Actions
    
    @IBAction func segmentedControlTapped(_ sender: Any) {
+
+      var numberOfServings = nouille?.numberOfServing as! Int16
+
+      switch segmentedControl.selectedSegmentIndex {
+      case 0:
+         // substract
+         numberOfServings -= 1
+         if numberOfServings < 1 { numberOfServings = 1 }
+      case 1:
+         // add
+         numberOfServings += 1
+         if numberOfServings > 9 { numberOfServings = 9 }
+      default:
+         break
+      }
+      nouille?.numberOfServing = numberOfServings as NSNumber
+      updateInterface()
+      
    }
-   
-//   @IBAction func minusTapped(_ sender: Any) {
-//      var numberOfServings = nouille?.numberOfServing as! Int16
-//      numberOfServings -= 1
-//      if numberOfServings < 1 { numberOfServings = 1 }
-//      nouille?.numberOfServing = numberOfServings as NSNumber
-//      updateInterface()
-//   }
-//   
-//   @IBAction func plusTapped(_ sender: Any) {
-//      var numberOfServings = nouille?.numberOfServing as! Int16
-//      numberOfServings += 1
-//      if numberOfServings > 9 { numberOfServings = 9 }
-//      nouille?.numberOfServing = numberOfServings as NSNumber
-//      updateInterface()
-//   }
    
    @IBAction func changeRatingTapped(_ sender: Any) {
    }
@@ -139,6 +142,9 @@ class NouilleDetailVC: UIViewController {
       tapMS.addTarget(self, action: #selector(NouilleDetailVC.preferedMealSizeTapped))
       mealPreferedSizeIndicator.addGestureRecognizer(tapMS)
 
+      // add segmented control target
+      segmentedControl.addTarget(self, action: #selector(NouilleDetailVC.segmentedControlTapped), for: .valueChanged)
+      
       updateInterface()
    }
    

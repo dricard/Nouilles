@@ -723,7 +723,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" selectedSegmentIndex="0" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAf-oY-UzW">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="bar" momentary="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAf-oY-UzW">
                                 <rect key="frame" x="235" y="258" width="88" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="88" id="d3v-1k-Ulb"/>
@@ -905,7 +905,7 @@
                         <outlet property="rating" destination="0sO-Qs-Ek8" id="fVM-cu-Tbt"/>
                         <outlet property="ratingView" destination="Ux9-1O-zFJ" id="59J-sm-zCI"/>
                         <outlet property="saturated" destination="hHz-Sg-tKn" id="7eb-gZ-k0k"/>
-                        <outlet property="segementedControl" destination="FAf-oY-UzW" id="YYw-vd-KLL"/>
+                        <outlet property="segmentedControl" destination="FAf-oY-UzW" id="310-Jm-Zzq"/>
                         <outlet property="servingSize" destination="Iex-uQ-ViP" id="l3F-nO-foI"/>
                         <outlet property="servings" destination="s62-Ol-2dD" id="KYJ-v0-3nc"/>
                         <outlet property="sodium" destination="52V-FQ-Isd" id="bdx-xm-ddx"/>
