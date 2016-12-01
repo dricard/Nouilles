@@ -150,6 +150,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Noodles" id="OXz-dx-Pyu">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="m6N-cD-GCh">
+                            <connections>
+                                <segue destination="Cwf-gI-Icy" kind="show" identifier="Filter" id="LpM-bO-cJf"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EgQ-bV-bVp">
                             <connections>
                                 <action selector="addNoodleTapped:" destination="NMS-6w-XZK" id="Ggw-lw-Vs1"/>
@@ -989,6 +994,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0v2-bm-K3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2493.5999999999999" y="1104.1979010494754"/>
+        </scene>
+        <!--Filter-->
+        <scene sceneID="KeT-Qt-dYr">
+            <objects>
+                <tableViewController storyboardIdentifier="FilterVC" title="Filter" clearsSelectionOnViewWillAppear="NO" id="Cwf-gI-Icy" customClass="FilterVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nTl-hY-nrB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sortOptionCell" textLabel="Ude-xB-i2W" detailTextLabel="Ldh-TN-oef" style="IBUITableViewCellStyleSubtitle" id="Xcm-EC-oba">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xcm-EC-oba" id="lFD-Sr-vdx">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ude-xB-i2W">
+                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ldh-TN-oef">
+                                            <rect key="frame" x="15" y="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Cwf-gI-Icy" id="3iH-ai-3wo"/>
+                            <outlet property="delegate" destination="Cwf-gI-Icy" id="aQd-tm-Jc6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="oUq-JM-GLS"/>
+                    <connections>
+                        <outlet property="tableView" destination="nTl-hY-nrB" id="rtm-yE-xsn"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jNe-Xc-vCJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="420" y="1660"/>
         </scene>
         <!--TimerVC-->
         <scene sceneID="hZu-nt-gGj">
