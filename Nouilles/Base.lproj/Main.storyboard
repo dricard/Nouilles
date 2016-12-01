@@ -733,6 +733,9 @@
                                     <segment title="-"/>
                                     <segment title="+"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentedControlTapped:" destination="05h-4T-WMG" eventType="valueChanged" id="h5u-jM-7Po"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s62-Ol-2dD">
                                 <rect key="frame" x="247" y="158.5" width="65" height="65"/>
@@ -896,10 +899,13 @@
                         <outlet property="fat" destination="YCI-1h-GvK" id="4Kw-4x-pw4"/>
                         <outlet property="fibres" destination="wHW-mq-LYa" id="Xm4-6l-uqq"/>
                         <outlet property="image" destination="ne3-iJ-Rwa" id="eIL-RG-zpo"/>
+                        <outlet property="mealPreferedSizeIndicator" destination="70B-m2-J6T" id="hME-fd-3h7"/>
                         <outlet property="name" destination="Hq8-9P-8BV" id="3uU-pb-bq1"/>
                         <outlet property="protein" destination="kg6-Vj-nWa" id="DU8-nd-7NT"/>
                         <outlet property="rating" destination="0sO-Qs-Ek8" id="fVM-cu-Tbt"/>
+                        <outlet property="ratingView" destination="Ux9-1O-zFJ" id="59J-sm-zCI"/>
                         <outlet property="saturated" destination="hHz-Sg-tKn" id="7eb-gZ-k0k"/>
+                        <outlet property="segementedControl" destination="FAf-oY-UzW" id="YYw-vd-KLL"/>
                         <outlet property="servingSize" destination="Iex-uQ-ViP" id="l3F-nO-foI"/>
                         <outlet property="servings" destination="s62-Ol-2dD" id="KYJ-v0-3nc"/>
                         <outlet property="sodium" destination="52V-FQ-Isd" id="bdx-xm-ddx"/>

@@ -39,24 +39,30 @@ class NouilleDetailVC: UIViewController {
    @IBOutlet weak var sugars: UILabel!
    @IBOutlet weak var protein: UILabel!
    @IBOutlet weak var rating: UILabel!
+   @IBOutlet weak var mealPreferedSizeIndicator: UIImageView!
+   @IBOutlet weak var ratingView: UIImageView!
+   @IBOutlet weak var segementedControl: UISegmentedControl!
    
    // MARK: - Actions
    
-   @IBAction func minusTapped(_ sender: Any) {
-      var numberOfServings = nouille?.numberOfServing as! Int16
-      numberOfServings -= 1
-      if numberOfServings < 1 { numberOfServings = 1 }
-      nouille?.numberOfServing = numberOfServings as NSNumber
-      updateInterface()
+   @IBAction func segmentedControlTapped(_ sender: Any) {
    }
    
-   @IBAction func plusTapped(_ sender: Any) {
-      var numberOfServings = nouille?.numberOfServing as! Int16
-      numberOfServings += 1
-      if numberOfServings > 9 { numberOfServings = 9 }
-      nouille?.numberOfServing = numberOfServings as NSNumber
-      updateInterface()
-   }
+//   @IBAction func minusTapped(_ sender: Any) {
+//      var numberOfServings = nouille?.numberOfServing as! Int16
+//      numberOfServings -= 1
+//      if numberOfServings < 1 { numberOfServings = 1 }
+//      nouille?.numberOfServing = numberOfServings as NSNumber
+//      updateInterface()
+//   }
+//   
+//   @IBAction func plusTapped(_ sender: Any) {
+//      var numberOfServings = nouille?.numberOfServing as! Int16
+//      numberOfServings += 1
+//      if numberOfServings > 9 { numberOfServings = 9 }
+//      nouille?.numberOfServing = numberOfServings as NSNumber
+//      updateInterface()
+//   }
    
    @IBAction func changeRatingTapped(_ sender: Any) {
    }
@@ -167,19 +173,21 @@ class NouilleDetailVC: UIViewController {
          name.text = nouille.name!
          brand.text = nouille.brand!
          servings.text = "\(numberOfServings)"
-//         isMealSize.isOn = nouille.mealSizePrefered! as Bool
          if nouille.mealSizePrefered! as Bool {
+            mealPreferedSizeIndicator?.image = NoodlesStyleKit.imageOfMealSizeIndicator
             servingSize.text = "\(nouille.servingCustom!)"
             customServingSize = Double(nouille.servingCustom!)
             let totalServing = Double(numberOfServings) * customServingSize
             totalServingSize.text = "\(totalServing)"
          } else {
+            mealPreferedSizeIndicator?.image = NoodlesStyleKit.imageOfMealSizeIndicatorSD
             servingSize.text = "\(nouille.servingSideDish!)"
             customServingSize = Double(nouille.servingSideDish!)
             let totalServing = Double(numberOfServings) * customServingSize
             totalServingSize.text = "\(totalServing)"
          }
          rating.text = "\(nouille.rating!)"
+         ratingView?.image = NoodlesStyleKit.imageOfRatingIndicator(rating: nouille.rating as! CGFloat)
          cookingTime.text = "\(nouille.time!) mn"
          
          image.contentMode = .scaleAspectFill
