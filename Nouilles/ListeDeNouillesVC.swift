@@ -16,6 +16,8 @@ class ListeDeNouillesVC: UIViewController {
    var managedContext: NSManagedObjectContext!
    var fetchedResultsController: NSFetchedResultsController<Nouille>!
    
+   let fetchRequest: NSFetchRequest<Nouille> = Nouille.fetchRequest()
+
    // MARK: - Outlets
    
    @IBOutlet var tableView: UITableView!
@@ -27,7 +29,6 @@ class ListeDeNouillesVC: UIViewController {
       super.viewDidLoad()
       
       // set-up fetched results controller
-      let fetchRequest: NSFetchRequest<Nouille> = Nouille.fetchRequest()
       
       let nameSort = NSSortDescriptor(key: #keyPath(Nouille.name), ascending: true)
       fetchRequest.sortDescriptors = [nameSort]
@@ -39,6 +40,8 @@ class ListeDeNouillesVC: UIViewController {
       doFetch()
       
    }
+   
+   
    
    // MARK: - Actions
    
@@ -52,6 +55,10 @@ class ListeDeNouillesVC: UIViewController {
       if segue.identifier == "AddNoodleVC" {
          let vc = segue.destination as! AddNoodleVC
          vc.managedContext = self.managedContext!
+      } else if segue.identifier == "toFilterVC" {
+         let nc = segue.destination as? UINavigationController
+         let vc = nc?.topViewController as! FilterVC
+         vc.delegate = self
       }
       
    }
@@ -222,4 +229,27 @@ extension ListeDeNouillesVC: NSFetchedResultsControllerDelegate {
    }
    
    
+}
+
+extension ListeDeNouillesVC: FilterVCDelegate {
+
+   func filterVC(filter: FilterVC, didSelectPredicate predicate: NSPredicate?, sortDescriptor: [NSSortDescriptor]?) {
+      
+      fetchRequest.predicate = nil
+      fetchRequest.sortDescriptors = nil
+      
+      fetchRequest.predicate = predicate
+      
+      if let sr = sortDescriptor {
+         fetchRequest.sortDescriptors = sr
+      }
+      
+      fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
+     
+      fetchedResultsController.delegate = self
+
+      doFetch()
+      tableView.reloadData()
+   }
+
 }

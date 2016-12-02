@@ -9,14 +9,14 @@
 import UIKit
 
 protocol FilterVCDelegate: class {
-   func filterVC(filter: FilterVC, didSelectPredicate predicate: NSPredicate?, sortDescriptor: NSSortDescriptor?)
+   func filterVC(filter: FilterVC, didSelectPredicate predicate: NSPredicate?, sortDescriptor: [NSSortDescriptor]?)
 }
 
 class FilterVC: UITableViewController {
    
    // MARK: - Properties
    
-   let sortOptions = ["By Name", "By Brand", "By Rating", "By Cooking Time"]
+   let sortOptions = [ "By Name", "By Brand", "By Rating", "By Cooking Time" ]
    
    let sortOptionDescription = [
       "Sort by name",
@@ -25,8 +25,8 @@ class FilterVC: UITableViewController {
       "Sort by cooking time, then by name"
    ]
    
-   let predicateOptions = ["On-hand", "All"]
-   let predicateDescription = ["Only those listed as on-hand", "All noodles"]
+   let predicateOptions = [ "All", "On-hand" ]
+   let predicateDescription = [ "All noodles", "Only those listed as on-hand" ]
    
    weak var delegate: FilterVCDelegate?
    var selectedPredicate: NSPredicate?
@@ -69,12 +69,20 @@ class FilterVC: UITableViewController {
       
       self.clearsSelectionOnViewWillAppear = false
       
-      // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-      // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+      self.navigationItem.hidesBackButton = true
+      let newBackButton = UIBarButtonItem(title: .Back, style: .plain, target: self, action: #selector(FilterVC.sendSortOption))
+      self.navigationItem.leftBarButtonItem = newBackButton
+
    }
    
+   func sendSortOption() {
+      delegate?.filterVC(filter: self, didSelectPredicate: selectedPredicate, sortDescriptor: selectedSortDescriptor)
+      dismiss(animated: true, completion: nil)
+      print("HERE")
+   }
+   
+   
    override func numberOfSections(in tableView: UITableView) -> Int {
-      
       return 2
    }
    
@@ -100,9 +108,17 @@ class FilterVC: UITableViewController {
       let cell = tableView.dequeueReusableCell(withIdentifier: "sortOptionCell", for: indexPath)
       
       if indexPath.section == 0 {
+         if currentSort == nil {
+            currentSort = indexPath
+            cell.accessoryType = .checkmark
+         }
          cell.textLabel?.text = sortOptions[indexPath.row]
          cell.detailTextLabel?.text = sortOptionDescription[indexPath.row]
       } else {
+         if currentPredicate == nil {
+            currentPredicate = indexPath
+            cell.accessoryType = .checkmark
+         }
          cell.textLabel?.text = predicateOptions[indexPath.row]
          cell.detailTextLabel?.text = predicateDescription[indexPath.row]
       }
@@ -149,50 +165,6 @@ class FilterVC: UITableViewController {
       }
       
    }
-   
-   /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-    // Return false if you do not want the specified item to be editable.
-    return true
-    }
-    */
-   
-   /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    if editingStyle == .delete {
-    // Delete the row from the data source
-    tableView.deleteRows(at: [indexPath], with: .fade)
-    } else if editingStyle == .insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
-   
-   /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-    
-    }
-    */
-   
-   /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-    // Return false if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-   
-   /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+
    
 }

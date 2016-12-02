@@ -152,7 +152,7 @@
                     <navigationItem key="navigationItem" title="Noodles" id="OXz-dx-Pyu">
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="m6N-cD-GCh">
                             <connections>
-                                <segue destination="Cwf-gI-Icy" kind="show" identifier="Filter" id="LpM-bO-cJf"/>
+                                <segue destination="cXs-VQ-lAX" kind="show" identifier="toFilterVC" id="Clf-6d-BMA"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EgQ-bV-bVp">
@@ -994,6 +994,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0v2-bm-K3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2493.5999999999999" y="1104.1979010494754"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QlZ-1f-dxD">
+            <objects>
+                <navigationController id="cXs-VQ-lAX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="diL-zU-Y4A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Cwf-gI-Icy" kind="relationship" relationship="rootViewController" id="agN-Qa-c6s"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="szH-ze-umT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-356" y="1659"/>
         </scene>
         <!--Filter-->
         <scene sceneID="KeT-Qt-dYr">
