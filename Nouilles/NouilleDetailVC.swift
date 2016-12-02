@@ -19,6 +19,7 @@ class NouilleDetailVC: UIViewController {
    let tapRec = UITapGestureRecognizer()
    let tapMS = UITapGestureRecognizer()
    let tapSeg = UITapGestureRecognizer()
+   let tapOH = UITapGestureRecognizer()
    
    // MARK: - Outlets
    
@@ -44,6 +45,7 @@ class NouilleDetailVC: UIViewController {
    @IBOutlet weak var mealPreferedSizeIndicator: UIImageView!
    @IBOutlet weak var ratingView: UIImageView!
    @IBOutlet weak var segmentedControl: UISegmentedControl!
+   @IBOutlet weak var onHandIndicatorView: UIImageView!
    
    // MARK: - Actions
    
@@ -104,7 +106,23 @@ class NouilleDetailVC: UIViewController {
       }
       updateInterface()
    }
-   
+
+   func onHandTapped(_ sender: Any) {
+      if let nouille = nouille {
+         
+         let newState = !(nouille.onHand as! Bool)
+         nouille.onHand = newState as NSNumber
+         
+         do {
+            try managedContext?.save()
+         } catch let error as NSError {
+            print("Could not save context in preferedMealSizeTapped \(error), \(error.userInfo)")
+         }
+         
+      }
+      updateInterface()
+   }
+
    func imageTapped() {
       print("image was tapped")
       
@@ -142,6 +160,10 @@ class NouilleDetailVC: UIViewController {
       tapMS.addTarget(self, action: #selector(NouilleDetailVC.preferedMealSizeTapped))
       mealPreferedSizeIndicator.addGestureRecognizer(tapMS)
 
+      // add gesture recognizer on onHandIndicator so user can toggle
+      tapOH.addTarget(self, action: #selector(NouilleDetailVC.onHandTapped))
+      onHandIndicatorView.addGestureRecognizer(tapOH)
+
       // add segmented control target
       segmentedControl.addTarget(self, action: #selector(NouilleDetailVC.segmentedControlTapped), for: .valueChanged)
       
@@ -156,7 +178,6 @@ class NouilleDetailVC: UIViewController {
          print("Could not save context \(error), \(error.userInfo)")
       }
 
-      
    }
    
    override func viewWillAppear(_ animated: Bool) {
@@ -270,6 +291,11 @@ class NouilleDetailVC: UIViewController {
             image.image = imageDeNouille
          }
          
+         if nouille.onHand as! Bool {
+            onHandIndicatorView?.image = NoodlesStyleKit.imageOfOnHandIndicator
+         } else {
+            onHandIndicatorView?.image = NoodlesStyleKit.imageOfOnHandIndicatorEmpty
+         }
          // nutritional information
          
          if let nb_serving = nouille.serving {
