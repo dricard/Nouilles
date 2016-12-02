@@ -143,6 +143,11 @@ class NouilleDetailVC: UIViewController {
       
    }
    
+   func editButtonTapped() {
+      
+   }
+   
+
    // MARK: - Life Cycle
    
    override func viewDidLoad() {
@@ -166,6 +171,11 @@ class NouilleDetailVC: UIViewController {
 
       // add segmented control target
       segmentedControl.addTarget(self, action: #selector(NouilleDetailVC.segmentedControlTapped), for: .valueChanged)
+      
+      // add edit button to navigation bar
+      let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(NouilleDetailVC.editButtonTapped))
+      self.navigationItem.rightBarButtonItem = editButton
+
       
       updateInterface()
    }
