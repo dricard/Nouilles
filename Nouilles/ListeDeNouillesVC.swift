@@ -201,27 +201,66 @@ extension ListeDeNouillesVC: UITableViewDataSource {
       return cell
    }
    
-   // This enables the swipe left to delete gesture on the tableview
-   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-      if editingStyle == UITableViewCellEditingStyle.delete {
-         
-         let nouille = fetchedResultsController.object(at: indexPath)
-         
-         managedContext.delete(nouille)
-         
-         do {
-            try managedContext.save()
-         } catch let error as NSError {
-            print("Could not save context \(error), \(error.userInfo)")
-         }
-
-         
-      }
-   }
-
    
 }
 
+// MARK: - Gestures
+
+extension ListeDeNouillesVC {
+   
+   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+      
+      // toggle onHand setting
+      let toggleOnHandAction = UITableViewRowAction(style: .normal, title: "toggle on hand", handler: { (action, indexPath) -> Void in
+
+         let nouille = self.fetchedResultsController.object(at: indexPath)
+         
+         let onHand = !(nouille.onHand as! Bool)
+         nouille.onHand = onHand as NSNumber?
+         
+         do {
+            try self.managedContext.save()
+         } catch let error as NSError {
+            print("Could not save context \(error), \(error.userInfo)")
+         }
+      })
+      
+      let deleteNoodleAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) -> Void in
+
+         let nouille = self.fetchedResultsController.object(at: indexPath)
+         
+         self.managedContext.delete(nouille)
+         
+         do {
+            try self.managedContext.save()
+         } catch let error as NSError {
+            print("Could not save context \(error), \(error.userInfo)")
+         }
+         
+         
+      })
+      return [toggleOnHandAction, deleteNoodleAction]
+   }
+   
+   // This enables the swipe left to delete gesture on the tableview
+   //   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+   //      if editingStyle == UITableViewCellEditingStyle.delete {
+   //
+   //         let nouille = fetchedResultsController.object(at: indexPath)
+   //
+   //         managedContext.delete(nouille)
+   //
+   //         do {
+   //            try managedContext.save()
+   //         } catch let error as NSError {
+   //            print("Could not save context \(error), \(error.userInfo)")
+   //         }
+   //
+   //         
+   //      }
+   //   }
+   
+}
 // MARK: - Table View Delegate
 
 extension ListeDeNouillesVC: UITableViewDelegate {
