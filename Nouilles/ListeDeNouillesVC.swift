@@ -177,6 +177,11 @@ extension ListeDeNouillesVC: UITableViewDataSource {
       }
       cell.ratingImageView?.image = NoodlesStyleKit.imageOfRatingIndicator(rating: nouille.rating as! CGFloat)
       
+      if nouille.onHand as! Bool {
+         cell.onHandIndicatorView?.image = NoodlesStyleKit.imageOfOnHandIndicator
+      } else {
+         cell.onHandIndicatorView?.image = NoodlesStyleKit.imageOfOnHandIndicatorEmpty
+      }
       
    }
    
