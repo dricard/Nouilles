@@ -18,6 +18,11 @@ class ListeDeNouillesVC: UIViewController {
    
    let fetchRequest: NSFetchRequest<Nouille> = Nouille.fetchRequest()
 
+   var selectedPredicate: NSPredicate?
+   var selectedSortDescriptor: [NSSortDescriptor]?
+
+   var filters = Filters()
+   
    // MARK: - Outlets
    
    @IBOutlet var tableView: UITableView!
@@ -31,6 +36,7 @@ class ListeDeNouillesVC: UIViewController {
       // set-up fetched results controller
       
       let nameSort = NSSortDescriptor(key: #keyPath(Nouille.name), ascending: true)
+      selectedSortDescriptor = [nameSort]
       fetchRequest.sortDescriptors = [nameSort]
       
       fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -50,6 +56,8 @@ class ListeDeNouillesVC: UIViewController {
       
    }
    
+   // MARK: - Navigation
+   
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       
       if segue.identifier == "AddNoodleVC" {
@@ -59,6 +67,9 @@ class ListeDeNouillesVC: UIViewController {
          let nc = segue.destination as? UINavigationController
          let vc = nc?.topViewController as! FilterVC
          vc.delegate = self
+         vc.selectedSortDescriptor = selectedSortDescriptor
+         vc.selectedPredicate = selectedPredicate
+         vc.filters = filters
       }
       
    }
@@ -233,14 +244,17 @@ extension ListeDeNouillesVC: NSFetchedResultsControllerDelegate {
 
 extension ListeDeNouillesVC: FilterVCDelegate {
 
-   func filterVC(filter: FilterVC, didSelectPredicate predicate: NSPredicate?, sortDescriptor: [NSSortDescriptor]?) {
+   func filterVC(filter: FilterVC) {
+      
+      selectedPredicate = filters.predicate()
+      selectedSortDescriptor = filters.sortDescriptors()
       
       fetchRequest.predicate = nil
       fetchRequest.sortDescriptors = nil
       
-      fetchRequest.predicate = predicate
+      fetchRequest.predicate = selectedPredicate
       
-      if let sr = sortDescriptor {
+      if let sr = selectedSortDescriptor {
          fetchRequest.sortDescriptors = sr
       }
       

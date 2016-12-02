@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FilterVCDelegate: class {
-   func filterVC(filter: FilterVC, didSelectPredicate predicate: NSPredicate?, sortDescriptor: [NSSortDescriptor]?)
+   func filterVC(filter: FilterVC)
 }
 
 class FilterVC: UITableViewController {
@@ -33,6 +33,8 @@ class FilterVC: UITableViewController {
    var selectedSortDescriptor: [NSSortDescriptor]?
    var currentSort: IndexPath?
    var currentPredicate: IndexPath?
+   
+   var filters: Filters?
    
    lazy var onHandPredicate: NSPredicate = {
       return NSPredicate(format: "%K == true", #keyPath(Nouille.onHand))
@@ -76,93 +78,92 @@ class FilterVC: UITableViewController {
    }
    
    func sendSortOption() {
-      delegate?.filterVC(filter: self, didSelectPredicate: selectedPredicate, sortDescriptor: selectedSortDescriptor)
+      
+      // this sends the list view a "message" to refilter its list
+      delegate?.filterVC(filter: self)
       dismiss(animated: true, completion: nil)
-      print("HERE")
+
    }
    
    
    override func numberOfSections(in tableView: UITableView) -> Int {
-      return 2
+      
+      guard let filters = filters else { return 0 }
+      
+      return filters.numberOfSections()
    }
    
    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      if section == 0 {
-         return sortOptions.count
-      } else {
-         return predicateOptions.count
-      }
+ 
+      guard let filters = filters else { return 0 }
+      
+      return filters.rowsInSection(section: section)
+      
    }
    
    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
       
-      if section == 0 {
-         return "Sort"
-      } else {
-         return "Show"
-      }
+      guard let filters = filters else { return nil }
+
+      return filters.headerTitle(section: section)
+
    }
    
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
+      guard let filters = filters else { fatalError() }
+
       let cell = tableView.dequeueReusableCell(withIdentifier: "sortOptionCell", for: indexPath)
       
-      if indexPath.section == 0 {
-         if currentSort == nil {
-            currentSort = indexPath
-            cell.accessoryType = .checkmark
-         }
-         cell.textLabel?.text = sortOptions[indexPath.row]
-         cell.detailTextLabel?.text = sortOptionDescription[indexPath.row]
-      } else {
-         if currentPredicate == nil {
-            currentPredicate = indexPath
-            cell.accessoryType = .checkmark
-         }
-         cell.textLabel?.text = predicateOptions[indexPath.row]
-         cell.detailTextLabel?.text = predicateDescription[indexPath.row]
-      }
+      cell.accessoryType = filters.accessoryIndicator(indexPath: indexPath)
+      cell.textLabel?.text = filters.title(indexPath: indexPath)
+      cell.detailTextLabel?.text = filters.description(indexPath: indexPath)
       
       return cell
    }
    
    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
-      if indexPath.section == 0 {
-         if currentSort != nil {
-            let previouslySelected = tableView.cellForRow(at: currentSort!)! as UITableViewCell
-            previouslySelected.accessoryType = .none
-         }
-         currentSort = indexPath
-         let selected = tableView.cellForRow(at: indexPath)! as UITableViewCell
-         selected.accessoryType = .checkmark
-         switch indexPath.row {
-         case 0:
-            selectedSortDescriptor = [nameSortDescriptor]
-         case 1:
-            selectedSortDescriptor = [brandSortDescriptor, nameSortDescriptor]
-         case 2:
-            selectedSortDescriptor = [ratingSortDescriptor, nameSortDescriptor]
-         case 3:
-            selectedSortDescriptor = [timeSortDescriptor, nameSortDescriptor]
-         default:
-            selectedSortDescriptor = [nameSortDescriptor]
-         }
-      } else {
-         if currentPredicate != nil {
-            let previouslySelected = tableView.cellForRow(at: currentPredicate!)! as UITableViewCell
-            previouslySelected.accessoryType = .none
-         }
-         currentPredicate = indexPath
-         let selected = tableView.cellForRow(at: indexPath)! as UITableViewCell
-         selected.accessoryType = .checkmark
-         switch indexPath.row {
-         case 0:
-            selectedPredicate = onHandPredicate
-         default:
-            selectedPredicate = nil
-         }
-      }
+      guard let filters = filters else { fatalError() }
+    
+      filters.setFilters(indexPath: indexPath)
+      tableView.reloadData()
+      
+//      if indexPath.section == 0 {
+//         if currentSort != nil {
+//            let previouslySelected = tableView.cellForRow(at: currentSort!)! as UITableViewCell
+//            previouslySelected.accessoryType = .none
+//         }
+//         currentSort = indexPath
+//         let selected = tableView.cellForRow(at: indexPath)! as UITableViewCell
+//         selected.accessoryType = .checkmark
+//         switch indexPath.row {
+//         case 0:
+//            selectedSortDescriptor = [nameSortDescriptor]
+//         case 1:
+//            selectedSortDescriptor = [brandSortDescriptor, nameSortDescriptor]
+//         case 2:
+//            selectedSortDescriptor = [ratingSortDescriptor, nameSortDescriptor]
+//         case 3:
+//            selectedSortDescriptor = [timeSortDescriptor, nameSortDescriptor]
+//         default:
+//            selectedSortDescriptor = [nameSortDescriptor]
+//         }
+//      } else {
+//         if currentPredicate != nil {
+//            let previouslySelected = tableView.cellForRow(at: currentPredicate!)! as UITableViewCell
+//            previouslySelected.accessoryType = .none
+//         }
+//         currentPredicate = indexPath
+//         let selected = tableView.cellForRow(at: indexPath)! as UITableViewCell
+//         selected.accessoryType = .checkmark
+//         switch indexPath.row {
+//         case 0:
+//            selectedPredicate = onHandPredicate
+//         default:
+//            selectedPredicate = nil
+//         }
+//      }
       
    }
 

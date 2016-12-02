@@ -14,6 +14,7 @@
 		210201001DE7CED000D1F349 /* scanBeep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 210200FF1DE7CED000D1F349 /* scanBeep.mp3 */; };
 		21058BA31DE8C3BF007E3C08 /* ScanSuccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21058BA21DE8C3BF007E3C08 /* ScanSuccessView.swift */; };
 		210816911DF0C942007497BE /* FilterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210816901DF0C942007497BE /* FilterVC.swift */; };
+		210D7D131DF1BCAD00408E59 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210D7D121DF1BCAD00408E59 /* Filters.swift */; };
 		2137A6041DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6001DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift */; };
 		2137A6051DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6011DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift */; };
 		2137A6061DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6021DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift */; };
@@ -48,6 +49,7 @@
 		210200FF1DE7CED000D1F349 /* scanBeep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = scanBeep.mp3; sourceTree = "<group>"; };
 		21058BA21DE8C3BF007E3C08 /* ScanSuccessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanSuccessView.swift; sourceTree = "<group>"; };
 		210816901DF0C942007497BE /* FilterVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterVC.swift; sourceTree = "<group>"; };
+		210D7D121DF1BCAD00408E59 /* Filters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
 		2137A6001DDB91DB00C1FC35 /* UserRating+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserRating+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2137A6011DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserRating+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2137A6021DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nouille+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				2137A6031DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift */,
 				21D510291D6CA21B003CB856 /* Model.xcdatamodeld */,
 				215AB2A61DEC677A00B5AC23 /* DataValidation.swift */,
+				210D7D121DF1BCAD00408E59 /* Filters.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 				210200F61DE791DC00D1F349 /* FoodAPI.swift in Sources */,
 				21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */,
 				2137A6061DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift in Sources */,
+				210D7D131DF1BCAD00408E59 /* Filters.swift in Sources */,
 				210816911DF0C942007497BE /* FilterVC.swift in Sources */,
 				2137A6051DDB91DB00C1FC35 /* UserRating+CoreDataProperties.swift in Sources */,
 				21795F341DE3435100FAC131 /* LocalizationUtilities.swift in Sources */,
