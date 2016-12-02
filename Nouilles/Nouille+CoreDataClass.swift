@@ -27,6 +27,68 @@ public class Nouille: NSManagedObject {
 
    // MARK: - Properties
    
+   let dataLabels = [
+      "Name",
+      "Brand",
+      "Cooking time (mn)",
+      "Meal serving size (cups)",
+      "Side dish serving size (cups)",
+      "Rating (0-5)",
+      "Usually prefer meal size",
+      "Have noodles on hand",
+      "Nutritional info serving size",
+      "Calories",
+      "Fat (total, g)",
+      "Saturated (g)",
+      "Trans fats (g)",
+      "Sodium (mg)",
+      "Carbohydrate (g)",
+      "Fibre (g)",
+      "Sugars (g)",
+      "Protein (g)",
+   ]
+
+   let cellTypes = [
+      "TextCell",
+      "TextCell",
+      "NumberCell",
+      "NumberCell",
+      "NumberCell",
+      "NumberCell",
+      "BoolCell",
+      "BoolCell",
+      "NumberCell",
+      "NumberCell",
+      "NumberCell",
+      "NumberCell",
+      "NumberCell",
+      "NumberCell",
+      "NumberCell",
+      "NumberCell",
+      "NumberCell",
+      "NumberCell",
+      ]
+
+   // MARK: - Tableview Datasource convinience methods
+   
+   func numberOfSection() -> Int {
+      return 1
+   }
+   
+   func numberOfRows(section: Int) -> Int {
+      return dataLabels.count
+   }
+   
+   func reuseIdentifier(indexPath: IndexPath) -> String {
+      return cellTypes[indexPath.row]
+   }
+   
+   func dataLabel(indexPath: IndexPath) -> String {
+      return dataLabels[indexPath.row]
+   }
+   
+   // MARK: - Network calling methods
+   
    static func checkForNutritionalInformation(nouille: Nouille?, context: NSManagedObjectContext) {
  
       /// This checks if we already have nutritional informations

@@ -31,6 +31,10 @@
 		21795F361DE358F200FAC131 /* BarCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21795F351DE358F200FAC131 /* BarCodeVC.swift */; };
 		21795F381DE3896C00FAC131 /* TimerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21795F371DE3896C00FAC131 /* TimerVC.swift */; };
 		217B62E71DEB3019005A9F9D /* NutritionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217B62E61DEB3019005A9F9D /* NutritionAPI.swift */; };
+		217D10B41DF213A400262255 /* EditDataVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D10B31DF213A400262255 /* EditDataVC.swift */; };
+		217D10B61DF2207200262255 /* TextTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D10B51DF2207200262255 /* TextTableViewCell.swift */; };
+		217D10B81DF2208900262255 /* NumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D10B71DF2208900262255 /* NumberTableViewCell.swift */; };
+		217D10BA1DF2209900262255 /* BoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D10B91DF2209900262255 /* BoolTableViewCell.swift */; };
 		2185319B1DDCA5060092B335 /* AddNoodleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2185319A1DDCA5060092B335 /* AddNoodleVC.swift */; };
 		2198B46A1DDE413B006C88C2 /* TakePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198B4691DDE413B006C88C2 /* TakePictureVC.swift */; };
 		21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148D11D6B841800FA52BA /* AppDelegate.swift */; };
@@ -69,6 +73,10 @@
 		21795F351DE358F200FAC131 /* BarCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeVC.swift; sourceTree = "<group>"; };
 		21795F371DE3896C00FAC131 /* TimerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerVC.swift; sourceTree = "<group>"; };
 		217B62E61DEB3019005A9F9D /* NutritionAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionAPI.swift; sourceTree = "<group>"; };
+		217D10B31DF213A400262255 /* EditDataVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDataVC.swift; sourceTree = "<group>"; };
+		217D10B51DF2207200262255 /* TextTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextTableViewCell.swift; sourceTree = "<group>"; };
+		217D10B71DF2208900262255 /* NumberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberTableViewCell.swift; sourceTree = "<group>"; };
+		217D10B91DF2209900262255 /* BoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolTableViewCell.swift; sourceTree = "<group>"; };
 		2185319A1DDCA5060092B335 /* AddNoodleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoodleVC.swift; sourceTree = "<group>"; };
 		2198B4691DDE413B006C88C2 /* TakePictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePictureVC.swift; sourceTree = "<group>"; };
 		21A148CE1D6B841800FA52BA /* Nouilles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nouilles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +141,9 @@
 				21431A921DE3D3E0000CC37A /* TimerView.swift */,
 				21058BA21DE8C3BF007E3C08 /* ScanSuccessView.swift */,
 				215CC4E61DEF14B400070019 /* NoodleListTableViewCell.swift */,
+				217D10B51DF2207200262255 /* TextTableViewCell.swift */,
+				217D10B71DF2208900262255 /* NumberTableViewCell.swift */,
+				217D10B91DF2209900262255 /* BoolTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -170,6 +181,7 @@
 				21795F351DE358F200FAC131 /* BarCodeVC.swift */,
 				21795F371DE3896C00FAC131 /* TimerVC.swift */,
 				210816901DF0C942007497BE /* FilterVC.swift */,
+				217D10B31DF213A400262255 /* EditDataVC.swift */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -284,6 +296,7 @@
 				213B05151DEDDA1300A5002A /* NetworkCoordinator.swift in Sources */,
 				217B62E71DEB3019005A9F9D /* NutritionAPI.swift in Sources */,
 				210200F61DE791DC00D1F349 /* FoodAPI.swift in Sources */,
+				217D10B41DF213A400262255 /* EditDataVC.swift in Sources */,
 				21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */,
 				2137A6061DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift in Sources */,
 				210D7D131DF1BCAD00408E59 /* Filters.swift in Sources */,
@@ -297,12 +310,15 @@
 				21795F361DE358F200FAC131 /* BarCodeVC.swift in Sources */,
 				210200F81DE792B800D1F349 /* NetworkParameters.swift in Sources */,
 				21431A911DE3CE1E000CC37A /* NoodlesStyleKit.swift in Sources */,
+				217D10BA1DF2209900262255 /* BoolTableViewCell.swift in Sources */,
+				217D10B81DF2208900262255 /* NumberTableViewCell.swift in Sources */,
 				210200FA1DE7955A00D1F349 /* NetworkKeys.swift in Sources */,
 				2137A6071DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift in Sources */,
 				21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */,
 				210200FE1DE7C40A00D1F349 /* Sound.swift in Sources */,
 				2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */,
 				2137A60D1DDB961200C1FC35 /* NouilleDetailVC.swift in Sources */,
+				217D10B61DF2207200262255 /* TextTableViewCell.swift in Sources */,
 				2198B46A1DDE413B006C88C2 /* TakePictureVC.swift in Sources */,
 				2185319B1DDCA5060092B335 /* AddNoodleVC.swift in Sources */,
 				215CC4E71DEF14B400070019 /* NoodleListTableViewCell.swift in Sources */,
