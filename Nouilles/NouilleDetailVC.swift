@@ -124,7 +124,6 @@ class NouilleDetailVC: UIViewController {
    }
 
    func imageTapped() {
-      print("image was tapped")
       
       // segue to take picture VC
       let controller = storyboard?.instantiateViewController(withIdentifier: "TakePictureVC") as! TakePictureVC
@@ -145,6 +144,15 @@ class NouilleDetailVC: UIViewController {
    
    func editButtonTapped() {
       
+      // segue to edit data VC
+      let controller = storyboard?.instantiateViewController(withIdentifier: "EditDataVC") as! EditDataVC
+      
+      if let nouille = nouille {
+         controller.nouille = nouille
+      } else {
+         fatalError()
+      }
+      show(controller, sender: self)
    }
    
 

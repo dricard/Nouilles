@@ -43,30 +43,35 @@ class EditDataVC: UITableViewController {
       
    }
    
+   func configureTextCell(cell: UITableViewCell, indexPath: IndexPath) {
+      let textCell = cell as! TextTableViewCell
+      textCell.dataLabel.text = nouille?.dataLabel(indexPath: indexPath)
+   }
+   
+   func configureNumberCell(cell: UITableViewCell, indexPath: IndexPath) {
+      let numberCell = cell as! NumberTableViewCell
+      numberCell.dataLabel.text = nouille?.dataLabel(indexPath: indexPath)
+   }
+   
+   func configureBoolCell(cell: UITableViewCell, indexPath: IndexPath) {
+      let boolCell = cell as! BoolTableViewCell
+      boolCell.dataLabel.text = nouille?.dataLabel(indexPath: indexPath)
+   }
    
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       
       let identifier = nouille?.reuseIdentifier(indexPath: indexPath)
       
+      let cell = tableView.dequeueReusableCell(withIdentifier: identifier!, for: indexPath)
       
       if identifier! == "TextCell" {
-         let cell = tableView.dequeueReusableCell(withIdentifier: identifier!, for: indexPath) as! TextTableViewCell
-         cell.dataLabel.text = nouille?.dataLabel(indexPath: indexPath)
-         return cell
-
+         configureTextCell(cell: cell, indexPath: indexPath)
       } else if identifier! == "NumberCell" {
-         let cell = tableView.dequeueReusableCell(withIdentifier: identifier!, for: indexPath) as! NumberTableViewCell
-         cell.dataLabel.text = nouille?.dataLabel(indexPath: indexPath)
-         return cell
-
+         configureNumberCell(cell: cell, indexPath: indexPath)
       } else if identifier == "BoolCell" {
-         let cell = tableView.dequeueReusableCell(withIdentifier: identifier!, for: indexPath) as! BoolTableViewCell
-         cell.dataLabel.text = nouille?.dataLabel(indexPath: indexPath)
-         return cell
-
+         configureBoolCell(cell: cell, indexPath: indexPath)
       }
-      
-            
+      return cell   
    }
    
    
