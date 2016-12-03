@@ -30,23 +30,44 @@ public class Nouille: NSManagedObject {
    let dataLabels = [
       "Name",
       "Brand",
-      "Cooking time (mn)",
-      "Meal serving size (cups)",
-      "Side dish serving size (cups)",
-      "Rating (0-5)",
+      "Cooking time",
+      "Meal serving size",
+      "Side dish serving size",
+      "Rating",
       "Usually prefer meal size",
       "Have noodles on hand",
       "Nutritional info serving size",
       "Calories",
-      "Fat (total, g)",
-      "Saturated (g)",
-      "Trans fats (g)",
-      "Sodium (mg)",
-      "Carbohydrate (g)",
-      "Fibre (g)",
-      "Sugars (g)",
-      "Protein (g)",
+      "Fat",
+      "Saturated",
+      "Trans fats",
+      "Sodium",
+      "Carbohydrate",
+      "Fibre",
+      "Sugars",
+      "Protein",
    ]
+
+   let unitsLabels = [
+      "",
+      "",
+      "mn",
+      "cups",
+      "cups",
+      "0-5 ⭐️",
+      "",
+      "",
+      "cups",
+      "",
+      "g",
+      "g",
+      "g",
+      "mg",
+      "g",
+      "g",
+      "g",
+      "g",
+      ]
 
    let cellTypes = [
       "TextCell",
@@ -85,6 +106,10 @@ public class Nouille: NSManagedObject {
    
    func dataLabel(indexPath: IndexPath) -> String {
       return dataLabels[indexPath.row]
+   }
+   
+   func unitsLabel(indexPath: IndexPath) -> String {
+      return unitsLabels[indexPath.row]
    }
    
    func data(indexPath: IndexPath) -> String {
