@@ -87,6 +87,65 @@ public class Nouille: NSManagedObject {
       return dataLabels[indexPath.row]
    }
    
+   func data(indexPath: IndexPath) -> String {
+      
+      switch indexPath.row {
+      case 0:
+         return "\(name!)"
+      case 1:
+         return "\(brand!)"
+      case 2:
+         return "\(time!)"
+      case 3:
+         return "\(servingCustom!)"
+      case 4:
+         return "\(servingSideDish!)"
+      case 5:
+         return "\(rating!)"
+      case 6:
+         return "Prefer Meal Size"
+      case 7:
+         return "Have noodles on hand"
+      case 8:
+         return "\(serving!)"
+      case 9:
+         return "\(calories!)"
+      case 10:
+         return "\(fat!)"
+      case 11:
+         return "\(saturated!)"
+      case 12:
+         return "\(trans!)"
+      case 13:
+         return "\(sodium!)"
+      case 14:
+         return "\(carbs!)"
+      case 15:
+         return "\(fibre!)"
+      case 16:
+         return "\(sugar!)"
+      case 17:
+         return "\(protein!)"
+      default:
+         return ""
+      }
+      
+   }
+   
+   func state(indexPath: IndexPath) -> Bool {
+      
+      if indexPath.row == 6 {
+         return mealSizePrefered! as Bool
+      } else if indexPath.row == 7 {
+         return onHand! as Bool
+      } else {
+         // should not happen
+         print("Bad parameter called")
+         return true
+      }
+   }
+   
+   
    // MARK: - Network calling methods
    
    static func checkForNutritionalInformation(nouille: Nouille?, context: NSManagedObjectContext) {

@@ -46,16 +46,20 @@ class EditDataVC: UITableViewController {
    func configureTextCell(cell: UITableViewCell, indexPath: IndexPath) {
       let textCell = cell as! TextTableViewCell
       textCell.dataLabel.text = nouille?.dataLabel(indexPath: indexPath)
+      textCell.label.text = nouille?.data(indexPath: indexPath)
    }
    
    func configureNumberCell(cell: UITableViewCell, indexPath: IndexPath) {
       let numberCell = cell as! NumberTableViewCell
       numberCell.dataLabel.text = nouille?.dataLabel(indexPath: indexPath)
+      numberCell.label.text = nouille?.data(indexPath: indexPath)
    }
    
    func configureBoolCell(cell: UITableViewCell, indexPath: IndexPath) {
       let boolCell = cell as! BoolTableViewCell
       boolCell.dataLabel.text = nouille?.dataLabel(indexPath: indexPath)
+      boolCell.label.text = nouille?.data(indexPath: indexPath)
+      boolCell.boolStateSwitch.isOn = nouille!.state(indexPath: indexPath)
    }
    
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
