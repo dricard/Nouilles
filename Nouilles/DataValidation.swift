@@ -28,14 +28,10 @@ enum NameBrandValidatorError: Error {
    case empty
 }
 
-enum ServingValidatorError: Error {
+enum NumberValidatorError: Error {
    case empty
    case notANumber
    case negativeOrZero
-}
-
-enum NumberValidatorError: Error {
-   case notANumber
 }
 
 enum CookingTimeValidatorError: Error {
@@ -88,6 +84,14 @@ protocol Validator {
 // MARK: - Component Validators
 
 // and a series of component validators
+
+struct discardValidator: Validator {
+   internal func validateValue(_ value: String) -> ValidatorResult {
+      // this is used for cases where we do not have to
+      // validate but it's useful to return something
+      return .valid
+   }
+}
 
 struct EmptyStringValidator: Validator {
    
@@ -212,6 +216,10 @@ struct ValidatorConfigurator {
    
    static let sharedInstance = ValidatorConfigurator()
    
+   func boolValidator() -> Validator {
+      return discardValidator()
+   }
+
    func nameValidator() -> Validator {
       return emptyFieldStringValidator()
    }
@@ -220,12 +228,12 @@ struct ValidatorConfigurator {
       return emptyFieldStringValidator()
    }
 
-   func servingValidator() -> Validator {
-      return servingStringValidator()
+   func numberValidator() -> Validator {
+      return numberStringValidator()
    }
 
    func sideDishServingValidator() -> Validator {
-      return servingStringValidator()
+      return numberStringValidator()
    }
 
    func cookingTimeValidator() -> Validator {
@@ -242,8 +250,8 @@ struct ValidatorConfigurator {
       return EmptyStringValidator(invalidError: NameBrandValidatorError.empty)
    }
    
-   private func servingStringValidator() -> Validator {
-      return CompositeValidator(validators: EmptyStringValidator(invalidError: ServingValidatorError.empty), NotANumberValidator(invalidError: ServingValidatorError.notANumber), NegativeOrZeroValidator(invalidError: ServingValidatorError.negativeOrZero))
+   private func numberStringValidator() -> Validator {
+      return CompositeValidator(validators: EmptyStringValidator(invalidError: NumberValidatorError.empty), NotANumberValidator(invalidError: NumberValidatorError.notANumber), NegativeOrZeroValidator(invalidError: NumberValidatorError.negativeOrZero))
    }
 
    private func cookingTimeStringValidator() -> Validator {

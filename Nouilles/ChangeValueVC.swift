@@ -27,7 +27,7 @@ class ChangeValueVC: UIViewController {
    
    // MARK: - Actions
    
-   @IBAction func cancelButtonTapped(_ sender: Any) {
+   func cancelButtonTapped(_ sender: Any) {
       navigationController!.popViewController(animated: true)
    }
    
@@ -48,12 +48,55 @@ class ChangeValueVC: UIViewController {
          valueUnitLabel.text = nouille.unitsLabel(indexPath: indexPath)
          textField.text = nouille.data(indexPath: indexPath)
       }
+      
+      textField.delegate = self
    }
    
-   // MARK: - Actions
+}
+
+extension ChangeValueVC: UITextFieldDelegate {
    
-   func cancelTapped() {
+   func presentValidationErrorDialog(_ field: String, _ error: Error) {
+      
+      let controller = UIAlertController()
+      controller.title = .invalidEntry
+      let errorType = "\(error)"
+      controller.message = "\(.field) '\(field)' \(ErrorCode.message(rawValue: errorType))"
+      
+      let okAction = UIAlertAction(title: .ok, style: UIAlertActionStyle.default, handler: nil)
+      controller.addAction(okAction)
+      self.present(controller, animated: true, completion: nil)
       
    }
+   
 
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      
+      guard let nouille = nouille, let indexPath = indexPath else { return true }
+      
+      let validator = nouille.validator(indexPath: indexPath)
+      
+      // validate the data
+      switch validator.validateValue(textField.text!) {
+      case .valid:
+         if editType == "NumberCell" {
+            // we chan for unwrap since the data was
+            // validated for typecast to Double in the validation
+            let returnValue = Double(textField.text!)!
+            nouille.updateValue(value: returnValue, forDataAt: indexPath)
+         }
+         return true
+      case .invalid(let error):
+         presentValidationErrorDialog((nouille.dataLabel(indexPath: indexPath)), error)
+         return true
+      }
+   }
+
+   func textFieldDidEndEditing(_ textField: UITextField) {
+      
+      if textField.isFirstResponder {
+         textField.resignFirstResponder()
+      }
+
+   }
 }

@@ -129,8 +129,8 @@ class AddNoodleVC: UIViewController {
       let validatorConfigurator = ValidatorConfigurator.sharedInstance
       let nameValidator = validatorConfigurator.nameValidator()
       let brandValidator = validatorConfigurator.brandValidator()
-      let mealServingValidator = validatorConfigurator.servingValidator()
-      let sideDishServingValidator = validatorConfigurator.sideDishServingValidator()
+      let mealServingValidator = validatorConfigurator.numberValidator()
+      let sideDishServingValidator = validatorConfigurator.numberValidator()
       let cookingTimeValidator = validatorConfigurator.cookingTimeValidator()
       let ratingValidator = validatorConfigurator.ratingValidator()
       
