@@ -84,6 +84,7 @@ public class NoodlesStyleKit : NSObject {
 
         //// Variable Declarations
         let timerDash: CGFloat = 6 + timerRatio * 478
+        let spinArrow: CGFloat = -timerRatio * 360 * 8
 
         //// Bezier Drawing
         let bezierPath = UIBezierPath()
@@ -126,6 +127,59 @@ public class NoodlesStyleKit : NSObject {
         context.setLineDash(phase: 4, lengths: [timerDash, 478])
         timerMaskPath.stroke()
         context.restoreGState()
+
+        context.restoreGState()
+
+
+        //// Oval Drawing
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 86.5, y: 9.5, width: 27, height: 27))
+        NoodlesStyleKit.darkerGreen.setFill()
+        ovalPath.fill()
+        UIColor.black.setStroke()
+        ovalPath.lineWidth = 1
+        ovalPath.stroke()
+
+
+        //// Group
+        context.saveGState()
+        context.translateBy(x: 100, y: 22.62)
+        context.rotate(by: -spinArrow * CGFloat.pi/180)
+
+
+
+        //// Rectangle Drawing
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: -6, y: -0.62, width: 13, height: 1), cornerRadius: 0.5)
+        NoodlesStyleKit.baseOrange.setStroke()
+        rectanglePath.lineWidth = 2
+        rectanglePath.stroke()
+
+
+        //// Rectangle 2 Drawing
+        context.saveGState()
+        context.translateBy(x: 1.8, y: 0.38)
+        context.rotate(by: 30 * CGFloat.pi/180)
+
+        let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: -1.93, y: -3.35, width: 6, height: 1), cornerRadius: 0.5)
+        NoodlesStyleKit.baseOrange.setStroke()
+        rectangle2Path.lineWidth = 2
+        rectangle2Path.stroke()
+
+        context.restoreGState()
+
+
+        //// Rectangle 3 Drawing
+        context.saveGState()
+        context.translateBy(x: 1.8, y: 3.38)
+        context.rotate(by: -30 * CGFloat.pi/180)
+
+        let rectangle3Path = UIBezierPath(roundedRect: CGRect(x: 0, y: -1, width: 6, height: 1), cornerRadius: 0.5)
+        NoodlesStyleKit.baseOrange.setStroke()
+        rectangle3Path.lineWidth = 2
+        rectangle3Path.stroke()
+
+        context.restoreGState()
+
+
 
         context.restoreGState()
         
