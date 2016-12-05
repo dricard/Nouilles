@@ -15,6 +15,7 @@ class ChangeValueVC: UIViewController {
    var nouille: Nouille?
    var editType: String?
    var indexPath: IndexPath?
+   var shouldReturn: Bool = true
    
    // MARK: - Outlets
    
@@ -28,9 +29,15 @@ class ChangeValueVC: UIViewController {
    // MARK: - Actions
    
    func cancelButtonTapped(_ sender: Any) {
+      textField.resignFirstResponder()
       navigationController!.popViewController(animated: true)
    }
    
+   // Enable touch outside to end editing
+   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+      shouldReturn = false
+      view.endEditing(true)
+   }
    
    // MARK: - Life Cycle
    
@@ -69,10 +76,9 @@ extension ChangeValueVC: UITextFieldDelegate {
       
    }
    
+   func validateAndSave() -> ValidatorResult {
 
-   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-      
-      guard let nouille = nouille, let indexPath = indexPath else { return true }
+      guard let nouille = nouille, let indexPath = indexPath else { return .valid }
       
       let validator = nouille.validator(indexPath: indexPath)
       
@@ -85,11 +91,25 @@ extension ChangeValueVC: UITextFieldDelegate {
             let returnValue = Double(textField.text!)!
             nouille.updateValue(value: returnValue, forDataAt: indexPath)
          }
-         return true
+         return .valid
       case .invalid(let error):
-         presentValidationErrorDialog((nouille.dataLabel(indexPath: indexPath)), error)
+         presentValidationErrorDialog(nouille.dataLabel(indexPath: indexPath), error)
+         return .invalid(error: error)
+      }
+
+      
+   }
+
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      
+      switch validateAndSave() {
+      case .valid:
+         textField.resignFirstResponder()
+         return true
+      case .invalid(_):
          return true
       }
+      
    }
 
    func textFieldDidEndEditing(_ textField: UITextField) {
@@ -97,6 +117,11 @@ extension ChangeValueVC: UITextFieldDelegate {
       if textField.isFirstResponder {
          textField.resignFirstResponder()
       }
-
+      if shouldReturn {
+         navigationController!.popViewController(animated: true)
+      } else {
+         _ = validateAndSave()
+         shouldReturn = true
+      }
    }
 }
