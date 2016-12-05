@@ -382,6 +382,7 @@ public class Nouille: NSManagedObject {
       case 0.85417...0.93749:
          returnedString += "⅞"
       case 0.93750...0.99999:
+         // round to next interger, drop remainder
          integerPart += 1
          returnedString = "\(integerPart)"
       default:
@@ -396,26 +397,41 @@ public class Nouille: NSManagedObject {
    
    static func formatWithExponent(value: Double) -> String {
       
-      let integerPart = Int(value)
+      var integerPart = Int(value)
       let fractionalPart = value.truncatingRemainder(dividingBy: 1.0)
       
-      var returnedString = integerPart != 0 ? "\(integerPart)" : ""
+      var returnedString = integerPart != 0 ? "\(integerPart)" : "0"
       
       switch fractionalPart {
-      case 0.15...0.17:
+      case 0.00001...0.04166:
+         // drop too small fraction
+         break
+      case 0.04167...0.12499:
+         returnedString += "⁰⁵"
+      case 0.12500...0.20832:
          returnedString += "¹⁰"
-      case 0.24...0.26:
+      case 0.20833...0.29166:
          returnedString += "¹⁵"
-      case 0.32...0.34:
+      case 0.29167...0.37499:
          returnedString += "²⁰"
-      case 0.49...0.51:
+      case 0.37500...0.45832:
+         returnedString += "²⁵"
+      case 0.45833...0.54166:
          returnedString += "³⁰"
-      case 0.66...0.68:
+      case 0.54167...0.62499:
+         returnedString += "³⁵"
+      case 0.62500...0.70832:
          returnedString += "⁴⁰"
-      case 0.74...0.76:
+      case 0.70833...0.79166:
          returnedString += "⁴⁵"
-      case 0.82...0.84:
+      case 0.79167...0.87499:
          returnedString += "⁵⁰"
+      case 0.87500...0.95832:
+         returnedString += "⁵⁵"
+      case 0.95833...0.99999:
+         // round to next interger, drop remainder
+         integerPart += 1
+         returnedString = "\(integerPart)"
       default:
          if fractionalPart != 0 {
             let rounded = Int(fractionalPart * 100)
