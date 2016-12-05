@@ -91,66 +91,6 @@ class ListeDeNouillesVC: UIViewController {
 
 extension ListeDeNouillesVC: UITableViewDataSource {
    
-   func formatWithFraction(value: Double) -> String {
-      
-      let integerPart = Int(value)
-      let fractionalPart = value.truncatingRemainder(dividingBy: 1.0)
-      
-      var returnedString = integerPart != 0 ? "\(integerPart)" : ""
-      
-      switch fractionalPart {
-      case 0.24...0.26:
-         returnedString += "¼"
-      case 0.32...0.34:
-         returnedString += "⅓"
-      case 0.49...0.51:
-         returnedString += "½"
-      case 0.66...0.68:
-         returnedString += "⅔"
-      case 0.74...0.76:
-         returnedString += "¾"
-      default:
-         if fractionalPart != 0 {
-            let rounded = Int(fractionalPart * 100)
-            returnedString += ".\(rounded)"
-         }
-      }
-      
-      return returnedString
-   }
-
-   func formatWithExponent(value: Double) -> String {
-      
-      let integerPart = Int(value)
-      let fractionalPart = value.truncatingRemainder(dividingBy: 1.0)
-      
-      var returnedString = integerPart != 0 ? "\(integerPart)" : ""
-      
-      switch fractionalPart {
-      case 0.15...0.17:
-         returnedString += "¹⁰"
-      case 0.24...0.26:
-         returnedString += "¹⁵"
-      case 0.32...0.34:
-         returnedString += "²⁰"
-      case 0.49...0.51:
-         returnedString += "³⁰"
-      case 0.66...0.68:
-         returnedString += "⁴⁰"
-      case 0.74...0.76:
-         returnedString += "⁴⁵"
-      case 0.82...0.84:
-         returnedString += "⁵⁰"
-      default:
-         if fractionalPart != 0 {
-            let rounded = Int(fractionalPart * 100)
-            returnedString += ".\(rounded)"
-         }
-      }
-      
-      return returnedString
-   }
-
    func configure(cell: NoodleListTableViewCell, indexPath: IndexPath) {
       
       let nouille = fetchedResultsController.object(at: indexPath)
@@ -161,13 +101,13 @@ extension ListeDeNouillesVC: UITableViewDataSource {
       cell.brandLabel?.text = nouille.brand!
 
       if nouille.mealSizePrefered! as Bool {
-         cell.qtyLabel?.text = formatWithFraction(value: Double(nouille.servingCustom!))
+         cell.qtyLabel?.text = Nouille.formatWithFraction(value: Double(nouille.servingCustom!))
          cell.mealSizeView?.image = NoodlesStyleKit.imageOfMealSizeIndicator
       } else {
-         cell.qtyLabel?.text = formatWithFraction(value: Double(nouille.servingSideDish!))
+         cell.qtyLabel?.text = Nouille.formatWithFraction(value: Double(nouille.servingSideDish!))
          cell.mealSizeView?.image = NoodlesStyleKit.imageOfMealSizeIndicatorSD
       }
-      cell.timeLabel?.text = formatWithExponent(value: Double(nouille.time!))
+      cell.timeLabel?.text = Nouille.formatWithExponent(value: Double(nouille.time!))
       if let imageData = nouille.image as? Data {
          let boxImage = UIImage(data: imageData)
          cell.boxImageView?.image = boxImage

@@ -204,66 +204,6 @@ class NouilleDetailVC: UIViewController {
    
    // MARK: - Utilities
 
-   func formatWithFraction(value: Double) -> String {
-      
-      let integerPart = Int(value)
-      let fractionalPart = value.truncatingRemainder(dividingBy: 1.0)
-      
-      var returnedString = integerPart != 0 ? "\(integerPart)" : ""
-      
-      switch fractionalPart {
-      case 0.24...0.26:
-         returnedString += "¼"
-      case 0.32...0.34:
-         returnedString += "⅓"
-      case 0.49...0.51:
-         returnedString += "½"
-      case 0.66...0.68:
-         returnedString += "⅔"
-      case 0.74...0.76:
-         returnedString += "¾"
-      default:
-         if fractionalPart != 0 {
-            let rounded = Int(fractionalPart * 100)
-            returnedString += ".\(rounded)"
-         }
-      }
-      
-      return returnedString
-   }
-   
-   func formatWithExponent(value: Double) -> String {
-      
-      let integerPart = Int(value)
-      let fractionalPart = value.truncatingRemainder(dividingBy: 1.0)
-      
-      var returnedString = integerPart != 0 ? "\(integerPart)" : ""
-      
-      switch fractionalPart {
-      case 0.15...0.17:
-         returnedString += "¹⁰"
-      case 0.24...0.26:
-         returnedString += "¹⁵"
-      case 0.32...0.34:
-         returnedString += "²⁰"
-      case 0.49...0.51:
-         returnedString += "³⁰"
-      case 0.66...0.68:
-         returnedString += "⁴⁰"
-      case 0.74...0.76:
-         returnedString += "⁴⁵"
-      case 0.82...0.84:
-         returnedString += "⁵⁰"
-      default:
-         if fractionalPart != 0 {
-            let rounded = Int(fractionalPart * 100)
-            returnedString += ".\(rounded)"
-         }
-      }
-      
-      return returnedString
-   }
-
    func updateInterface() {
       
       var customServingSize: Double = 0.0
@@ -290,17 +230,17 @@ class NouilleDetailVC: UIViewController {
             servingSize.text = "\(nouille.servingCustom!)"
             customServingSize = Double(nouille.servingCustom!)
             let totalServing = Double(numberOfServings) * customServingSize
-            totalServingSize.text = formatWithFraction(value: totalServing)
+            totalServingSize.text = Nouille.formatWithFraction(value: totalServing)
          } else {
             mealPreferedSizeIndicator?.image = NoodlesStyleKit.imageOfMealSizeIndicatorSD
             servingSize.text = "\(nouille.servingSideDish!)"
             customServingSize = Double(nouille.servingSideDish!)
             let totalServing = Double(numberOfServings) * customServingSize
-            totalServingSize.text = formatWithFraction(value: totalServing)
+            totalServingSize.text = Nouille.formatWithFraction(value: totalServing)
          }
          rating.text = "\(nouille.rating!)"
          ratingView?.image = NoodlesStyleKit.imageOfRatingIndicator(rating: nouille.rating as! CGFloat)
-         cookingTime.text = formatWithExponent(value: Double(nouille.time!))
+         cookingTime.text = Nouille.formatWithExponent(value: Double(nouille.time!))
          
          image.contentMode = .scaleAspectFill
          if let imageData = nouille.image {
