@@ -1,54 +1,55 @@
 //
-//  NutritionAPI.swift
+//  FatSecretAPI.swift
 //  Nouilles
 //
-//  Created by Denis Ricard on 2016-11-27.
+//  Created by Denis Ricard on 2016-12-05.
 //  Copyright © 2016 Hexaedre. All rights reserved.
 //
 
 import Foundation
 
-class NutritionAPI {
+class FatSecretAPI {
    
    
    static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void) {
-
+      
       let sessionConfig = URLSessionConfiguration.default
       
       /* Create session, and optionally set a URLSessionDelegate. */
       let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
       
-      /* Example URL for GET request:
-       https://nutritionix-api.p.mashape.com/v1_1/search/bows%20catelli%20noodles
-       */
-      
-      print("\(NetworkParams.NutritionAPIBaseURL)\(NetworkParams.FindByStringPath)")
-      
       // Build the URL for GET request
-      guard var URL = URL(string: "\(NetworkParams.NutritionAPIBaseURL)\(NetworkParams.FindByStringPath)") else {return}
+      guard var URL = URL(string: "\(NetworkParams.FatSecretAPIBaseURL)") else {return}
       
-      URL = URL.appendingPathComponent("\(searchString)")
-      print(URL)
       // Build parameters
-      let URLParams = [
-         NetworkParams.Fields: NetworkParams.FieldsParameters,
-         ]
-      
-      URL = URL.appendingQueryParameters(URLParams)
+//      let URLParams = [
+//         NetworkParams.Fields: NetworkParams.FieldsParameters,
+//         ]
+//      
+//      URL = URL.appendingQueryParameters(URLParams)
       var request = URLRequest(url: URL)
       request.httpMethod = "GET"
       
       // Configure the Headers
       
-      request.addValue(NetworkKeys.MashapeKey, forHTTPHeaderField: "X-Mashape-Key")
-//      request.addValue("session=8X6p1kLdydkNF2scPvvInw.TAQXJwNV-o3aTJR2DKIWB-zLzKjLg0e0_ohFvG06bHE.1480259704623.86400000.PM5xLW6ulxfTz7-Okualb6gol8khsGpir4GYClWgENs", forHTTPHeaderField: "Cookie")
-      request.addValue("application/json", forHTTPHeaderField: "Accept")
+      let timeStamp = Date(timeIntervalSince1970: 0)
+      print("Timestamp is \(timeStamp)")
       
+      request.addValue(NetworkKeys.FSConsumerKey, forHTTPHeaderField: "oauth_consumer_key")
+      request.addValue("HMAC-SHA1", forHTTPHeaderField: "oauth_signature_method")
+      request.addValue("1480964897", forHTTPHeaderField: "oauth_timestamp")
+      request.addValue("WuyyC7Ms0BplxXqCol5UBu3lV5gQMFAq", forHTTPHeaderField: "oauth_nonce")
+      request.addValue("1.0", forHTTPHeaderField: "oauth_version")
+      request.addValue("json", forHTTPHeaderField: "format")
+      request.addValue("food.search", forHTTPHeaderField: "method")
+      request.addValue("\(searchString)", forHTTPHeaderField: "search_expression")
+
+      print(URL)
       print(request)
       
       // Make the request
       let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
- 
+         
          // Utility function
          func sendError(_ error: String, code: Int) {
             print("Error: \(error), code: \(code)")
@@ -105,14 +106,11 @@ class NutritionAPI {
          let foodInfo = NutritionInfoData(calories: calories, fat: fat, saturatedFat: saturatedFat, transFat: transFat, sodium: sodium, carbs: carbs, fibre: fibre, sugars: sugars, protein: protein, serving: serving)
          
          completionHandlerForFindNutritionInfoRequest(foodInfo, true, nil)
-
+         
          
       })
       task.resume()
       session.finishTasksAndInvalidate()
    }
+   
 }
-
-
-
-

@@ -43,6 +43,7 @@
 		21A148DC1D6B841900FA52BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A148DA1D6B841900FA52BA /* LaunchScreen.storyboard */; };
 		21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */; };
 		21B87D301DF32A0600A4AB4E /* ChangeValueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */; };
+		21D30BC41DF5E6D400D077E9 /* FatSecretAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */; };
 		21D5102B1D6CA21B003CB856 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21D510291D6CA21B003CB856 /* Model.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		21A148DD1D6B841900FA52BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListeDeNouillesVC.swift; sourceTree = "<group>"; };
 		21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeValueVC.swift; sourceTree = "<group>"; };
+		21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatSecretAPI.swift; sourceTree = "<group>"; };
 		21D5102A1D6CA21B003CB856 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -110,6 +112,7 @@
 				210200F91DE7955A00D1F349 /* NetworkKeys.swift */,
 				217B62E61DEB3019005A9F9D /* NutritionAPI.swift */,
 				213B05141DEDDA1300A5002A /* NetworkCoordinator.swift */,
+				21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 			files = (
 				21795F381DE3896C00FAC131 /* TimerVC.swift in Sources */,
 				213B05151DEDDA1300A5002A /* NetworkCoordinator.swift in Sources */,
+				21D30BC41DF5E6D400D077E9 /* FatSecretAPI.swift in Sources */,
 				217B62E71DEB3019005A9F9D /* NutritionAPI.swift in Sources */,
 				210200F61DE791DC00D1F349 /* FoodAPI.swift in Sources */,
 				217D10B41DF213A400262255 /* EditDataVC.swift in Sources */,

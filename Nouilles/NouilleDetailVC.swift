@@ -50,9 +50,9 @@ class NouilleDetailVC: UIViewController {
    // MARK: - Actions
    
    @IBAction func segmentedControlTapped(_ sender: Any) {
-
+      
       var numberOfServings = nouille?.numberOfServing as! Int16
-
+      
       switch segmentedControl.selectedSegmentIndex {
       case 0:
          // substract
@@ -71,8 +71,82 @@ class NouilleDetailVC: UIViewController {
    }
    
    @IBAction func changeRatingTapped(_ sender: Any) {
+      
+      // OAuth process for FatSecret
+      
+      // Parameters for the func
+      /*
+       
+      httpMethod: String // GET or POST
+      requestURL: String // http://platform.fatsecret.com/rest/server.api
+      
+      */
+      
+      var httpMethod = "GET"
+      var requestURL = NetworkParams.FatSecretAPIBaseURL
+      
+      // 0. Create normalized parameters variables
+      
+      let timeStamp = Int64(NSDate().timeIntervalSince1970)
+      print("Timestamp is \(timeStamp)")
+      
+      let nonce = "iletaitunpetitnavire"
+      
+      // 1. create a signature base string
+      
+      // Build normalized parameters
+      // we use an array of tuples here instead of the usual
+      // dictionary to preserve the order
+      let normalizedParams = [
+         ("oauth_consumer_key", NetworkKeys.FSConsumerKey),
+         ("oauth_signature_method", "HMAC-SHA1"),
+         ("oauth_timestamp", "\(timeStamp)"),
+         ("oauth_nonce", "iletaitunpetitbateau"),
+         ("oauth_version", "1.0")
+         ]
+      
+      var normalizedParametersString = createNormalizedStringFrom(normalizedParameters: normalizedParams)
+ 
+      // percent encode all 3 parts
+      httpMethod = httpMethod.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLQueryParametersAllowedCharacterSet())!
+      requestURL = requestURL.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLQueryParametersAllowedCharacterSet())!
+      normalizedParametersString = normalizedParametersString.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLQueryParametersAllowedCharacterSet())!
+      
+      var signatureBaseString = "\(httpMethod)&\(requestURL)&\(normalizedParametersString)"
+      
+      print(signatureBaseString)
+      print("after %encoding")
+      
    }
    
+   func createNormalizedStringFrom(normalizedParameters: [(String, String)]) -> String {
+      
+      var parts: [String] = []
+      
+      for (key, value) in normalizedParameters {
+         let part = String(format: "%@=%@", String(describing: key).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!, String(describing: value).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+         parts.append(part)
+      }
+      parts.sort()
+      
+      return parts.joined(separator: "&")
+
+   }
+   
+   func signRequest(_ signatureBaseString) -> String? {
+      
+      // this is limited in scope since I won't be using methods that require
+      // access tokens for this app. this would need to me modified in case
+      // where there is an access token
+      
+      let key = "\(NetworkKeys.FSConsumerKey)&"
+      
+      guard let keyData = key.data(using: NSUTF8StringEncoding), signatureBaseStringData = signatureBaseString.data(using: NSUTF8StringEncoding), outputData = NSMutableData(length: Int(kSecDigestHMACSHA1)) else { return nil }
+      
+      outputData.lenght = Int(kSecDigestHMACSHA1)
+      
+      
+   }
    
    @IBAction func startTimerTapped(_ sender: Any) {
       
@@ -83,7 +157,7 @@ class NouilleDetailVC: UIViewController {
          if let time = nouille.time {
             controller.cookingTime = Int(Double(time) * 60.0)
          }
-
+         
       } else {
          fatalError("Nouille is nil in startTimerTapped")
       }
@@ -102,11 +176,11 @@ class NouilleDetailVC: UIViewController {
          } catch let error as NSError {
             print("Could not save context in preferedMealSizeTapped \(error), \(error.userInfo)")
          }
-
+         
       }
       updateInterface()
    }
-
+   
    func onHandTapped(_ sender: Any) {
       if let nouille = nouille {
          
@@ -122,7 +196,7 @@ class NouilleDetailVC: UIViewController {
       }
       updateInterface()
    }
-
+   
    func imageTapped() {
       
       // segue to take picture VC
@@ -155,35 +229,35 @@ class NouilleDetailVC: UIViewController {
       show(controller, sender: self)
    }
    
-
+   
    // MARK: - Life Cycle
    
    override func viewDidLoad() {
       super.viewDidLoad()
       
-      // add gesture recognizer for tap on image 
+      // add gesture recognizer for tap on image
       // even if no camera is available on device
       // because user can choose from the album
       
       // add gesture recognizer on image so user can add/change picture
       tapRec.addTarget(self, action: #selector(NouilleDetailVC.imageTapped))
       image.addGestureRecognizer(tapRec)
-
+      
       // add gesture recognizer on preferedMealSize so user can toggle
       tapMS.addTarget(self, action: #selector(NouilleDetailVC.preferedMealSizeTapped))
       mealPreferedSizeIndicator.addGestureRecognizer(tapMS)
-
+      
       // add gesture recognizer on onHandIndicator so user can toggle
       tapOH.addTarget(self, action: #selector(NouilleDetailVC.onHandTapped))
       onHandIndicatorView.addGestureRecognizer(tapOH)
-
+      
       // add segmented control target
       segmentedControl.addTarget(self, action: #selector(NouilleDetailVC.segmentedControlTapped), for: .valueChanged)
       
       // add edit button to navigation bar
       let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(NouilleDetailVC.editButtonTapped))
       self.navigationItem.rightBarButtonItem = editButton
-
+      
       
       updateInterface()
    }
@@ -195,7 +269,7 @@ class NouilleDetailVC: UIViewController {
       } catch let error as NSError {
          print("Could not save context \(error), \(error.userInfo)")
       }
-
+      
    }
    
    override func viewWillAppear(_ animated: Bool) {
@@ -203,7 +277,7 @@ class NouilleDetailVC: UIViewController {
    }
    
    // MARK: - Utilities
-
+   
    func updateInterface() {
       
       var customServingSize: Double = 0.0
@@ -262,7 +336,7 @@ class NouilleDetailVC: UIViewController {
          } else {
             calories.text = .noData
          }
-        
+         
          if let nb_calories = nouille.calories {
             let scaled = scaleData(qty: Double(nb_calories))
             calories.text = "\(scaled)"
@@ -317,8 +391,8 @@ class NouilleDetailVC: UIViewController {
          } else {
             protein.text = .noData
          }
-
-      
+         
+         
       }
    }
    

@@ -43,7 +43,53 @@ class NetworkCoordinator {
    
    static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void)  {
       
-      NutritionAPI.findNutritionInformation(searchString: searchString, completionHandlerForFindNutritionInfoRequest: completionHandlerForFindNutritionInfoRequest)
+      FatSecretAPI.findNutritionInformation(searchString: searchString, completionHandlerForFindNutritionInfoRequest: completionHandlerForFindNutritionInfoRequest)
 
    }
 }
+
+protocol URLQueryParameterStringConvertible {
+   var queryParameters: String {get}
+}
+
+extension Dictionary : URLQueryParameterStringConvertible {
+   
+   var queryParameters: String {
+      var parts: [String] = []
+      for (key, value) in self {
+         let part = String(format: "%@=%@",
+                           String(describing: key).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!,
+                           String(describing: value).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+         parts.append(part as String)
+      }
+      return parts.joined(separator: "&")
+   }
+   
+}
+
+extension String {
+   
+   func appendingQueryParameters(_ parametersDictionary : Dictionary<String, String>) -> String {
+      let URLString : String = String(format: "%@?%@", self, parametersDictionary.queryParameters)
+      return URLString
+   }
+   
+}
+
+extension URL {
+   
+   func appendingQueryParameters(_ parametersDictionary : Dictionary<String, String>) -> URL {
+      let URLString : String = String(format: "%@?%@", self.absoluteString, parametersDictionary.queryParameters)
+      return URL(string: URLString)!
+   }
+   
+}
+
+extension CharacterSet {
+   
+   static func URLQueryParametersAllowedCharacterSet() -> CharacterSet {
+      return self.init(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-._~?0123456789")
+   }
+   
+}
+
