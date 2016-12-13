@@ -13,36 +13,48 @@ class FatSecretAPI {
    
    static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void) {
       
+      // Get the parameters common to all requests
+      var normalizedParams = FatSecretAPI.commonParameters()
+      
+      // set specific parameters for this call: foods.search
+      let httpMethod = "GET"
+      let requestURL = NetworkParams.FatSecretAPIBaseURL
+      let requestParams: [(String, String)] = [ ("method", "foods.search"), ("format", "json"), ("search_expression", searchString)]
+
+      // add specific parameters to common parameters
+      for parameters in requestParams {
+         normalizedParams.append(parameters)
+      }
+
+      // get the signature
+      let signature = FatSecretAPI.signOauthRequest(httpMethod: httpMethod, requestURL: requestURL, requestParams: normalizedParams)
+      
+      // and add this to the parameters
+      normalizedParams.append(("oauth_signature", signature))
+
+      // now send the request
+
       let sessionConfig = URLSessionConfiguration.default
       
       /* Create session, and optionally set a URLSessionDelegate. */
       let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
       
       // Build the URL for GET request
-      guard var URL = URL(string: "\(NetworkParams.FatSecretAPIBaseURL)") else {return}
+      guard var URL = URL(string: NetworkParams.FatSecretAPIBaseURL) else {return}
       
-      // Build parameters
-//      let URLParams = [
-//         NetworkParams.Fields: NetworkParams.FieldsParameters,
-//         ]
-//      
-//      URL = URL.appendingQueryParameters(URLParams)
+      // Build parameters dictionary
+      var URLParams: [String:String] = [:]
+      
+      for (field, value) in normalizedParams {
+         URLParams[field] = value
+      }
+      
+      // add the parameters to the URL
+      URL = URL.appendingQueryParameters(URLParams)
+
+      // create the request
       var request = URLRequest(url: URL)
-      request.httpMethod = "GET"
-      
-      // Configure the Headers
-      
-      let timeStamp = Date(timeIntervalSince1970: 0)
-      print("Timestamp is \(timeStamp)")
-      
-      request.addValue(NetworkKeys.FSConsumerKey, forHTTPHeaderField: "oauth_consumer_key")
-      request.addValue("HMAC-SHA1", forHTTPHeaderField: "oauth_signature_method")
-      request.addValue("1480964897", forHTTPHeaderField: "oauth_timestamp")
-      request.addValue("WuyyC7Ms0BplxXqCol5UBu3lV5gQMFAq", forHTTPHeaderField: "oauth_nonce")
-      request.addValue("1.0", forHTTPHeaderField: "oauth_version")
-      request.addValue("json", forHTTPHeaderField: "format")
-      request.addValue("food.search", forHTTPHeaderField: "method")
-      request.addValue("\(searchString)", forHTTPHeaderField: "search_expression")
+      request.httpMethod = httpMethod
 
       print(URL)
       print(request)
@@ -86,24 +98,24 @@ class FatSecretAPI {
             return
          }
          
-         // extract useful information from parsed data
-         
-         let infoArray: [String:AnyObject] = result.first!["fields"] as! [String : AnyObject]
-         
-         let calories = infoArray["nf_calories"] as? Double
-         let fat = infoArray["nf_total_fat"] as? Double
-         let saturatedFat = infoArray["nf_saturated_fat"] as? Double
-         let transFat = infoArray["nf_trans_fatty_acid"] as? Double
-         let sodium = infoArray["nf_sodium"] as? Double
-         let carbs = infoArray["nf_total_carbohydrate"] as? Double
-         let fibre = infoArray["nf_dietary_fiber"] as? Double
-         let sugars = infoArray["nf_sugars"] as? Double
-         let protein = infoArray["nf_protein"] as? Double
-         let serving = infoArray["nf_serving_size_qty"] as? Double
-         
-         // return the information to calling method
-         
-         let foodInfo = NutritionInfoData(calories: calories, fat: fat, saturatedFat: saturatedFat, transFat: transFat, sodium: sodium, carbs: carbs, fibre: fibre, sugars: sugars, protein: protein, serving: serving)
+//         // extract useful information from parsed data
+//         
+//         let infoArray: [String:AnyObject] = result.first!["fields"] as! [String : AnyObject]
+//         
+//         let calories = infoArray["nf_calories"] as? Double
+//         let fat = infoArray["nf_total_fat"] as? Double
+//         let saturatedFat = infoArray["nf_saturated_fat"] as? Double
+//         let transFat = infoArray["nf_trans_fatty_acid"] as? Double
+//         let sodium = infoArray["nf_sodium"] as? Double
+//         let carbs = infoArray["nf_total_carbohydrate"] as? Double
+//         let fibre = infoArray["nf_dietary_fiber"] as? Double
+//         let sugars = infoArray["nf_sugars"] as? Double
+//         let protein = infoArray["nf_protein"] as? Double
+//         let serving = infoArray["nf_serving_size_qty"] as? Double
+//         
+//         // return the information to calling method
+//         
+         let foodInfo = NutritionInfoData(calories: 200, fat: 3, saturatedFat: 0.3, transFat: 0, sodium: 5, carbs: 61, fibre: 3, sugars: 6, protein: 11, serving: 1)
          
          completionHandlerForFindNutritionInfoRequest(foodInfo, true, nil)
          
@@ -113,4 +125,112 @@ class FatSecretAPI {
       session.finishTasksAndInvalidate()
    }
    
+   static func commonParameters() -> [(String, String)] {
+
+      // 0. Create common parameters variables
+      
+      let timeStamp = Int64(NSDate().timeIntervalSince1970)
+      print("Timestamp is \(timeStamp)")
+      
+//      let nonce = UUID().uuidString
+      let nonce = "iletaitunpetitnavire"
+      print("Nonce is: \(nonce)")
+      
+      let commonParams = [
+         ("oauth_consumer_key", NetworkKeys.FSConsumerKey),
+         ("oauth_signature_method", "HMAC-SHA1"),
+         ("oauth_timestamp", "\(timeStamp)"),
+         ("oauth_nonce", nonce),
+         ("oauth_version", "1.0")
+      ]
+      return commonParams
+   }
+   
+   static func signOauthRequest(httpMethod: String, requestURL: String, requestParams: [(String, String)]) -> String {
+      
+      // 1. create a signature base string
+      
+      // concatenate the parameters after sorting them
+      let normalizedParametersString = FatSecretAPI.createNormalizedStringFrom(normalizedParameters: requestParams)
+      
+      // percent encode all 3 parts
+      let httpMethodEncoded = httpMethod.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLQueryParametersAllowedCharacterSet())!
+      let requestURLEncoded = requestURL.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLQueryParametersAllowedCharacterSet())!
+      let normalizedParametersStringEncoded = normalizedParametersString.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLQueryParametersAllowedCharacterSet())!
+      
+      // create the signature base string from all 3 parts
+      let signatureBaseString = "\(httpMethodEncoded)&\(requestURLEncoded)&\(normalizedParametersStringEncoded)"
+      
+      print("Signature base string: \(signatureBaseString)")
+      print("after %encoding")
+      
+      // Encode signature string using HMAC-SAH1
+      let signature = FatSecretAPI.signRequest(signatureBaseString)
+      print(signature)
+
+      return signature
+   }
+   
+   // This creates the normalize string by building key=value pairs, then
+   // sorting them using lexicographical byte value ordering
+   static func createNormalizedStringFrom(normalizedParameters: [(String, String)]) -> String {
+      
+      var parts: [String] = []
+      
+      for (key, value) in normalizedParameters {
+         let part = String(format: "%@=%@", String(describing: key).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!, String(describing: value).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+         parts.append(part)
+      }
+      parts.sort()
+      
+      return parts.joined(separator: "&")
+      
+   }
+
+   // this does the required signing process
+   static func signRequest(_ signatureBaseString: String) -> String {
+      
+      // this is limited in scope since I won't be using methods that require
+      // access tokens for this app. this would need to me modified in case
+      // where there is an access token
+      
+      let key = "\(NetworkKeys.FSConsumerKey)&"
+      
+      let hashed = FatSecretAPI.hmac(key: key, data: signatureBaseString)
+      
+      // here we have to base64-encode this, then escape it with percent-encoding (RFC3986)
+      // and returned the digest octet string
+      let data = hashed.data(using: String.Encoding.utf8)
+      let base64 = data!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
+      let escaped = base64.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLQueryParametersAllowedCharacterSet())!
+      
+      return escaped
+   }
+   
+   // this is a utility function to do the HMAC-SHA1 part
+   // this was adapted/translated from an answer on stack overflow
+   static func hmac(key: String, data: String) -> String {
+      
+      // This was tested [here](http://www.freeformatter.com/hmac-generator.html)
+      // and passed the test (same result as my algorithm for the same data/key)
+      var result: [CUnsignedChar]
+      if let cKey = key.cString(using: String.Encoding.utf8), let cData = data.cString(using: String.Encoding.utf8) {
+         let crypto = CCHmacAlgorithm(kCCHmacAlgSHA1)
+         result = Array(repeating: 0, count: Int(CC_SHA1_DIGEST_LENGTH))
+         
+         CCHmac(crypto, cKey, cKey.count-1, cData, cData.count-1, &result)
+         
+      } else {
+         fatalError("Nil returned when processing input strings as UTF8")
+      }
+      
+      let hash = NSMutableString()
+      for val in result {
+         hash.appendFormat("%02hhx", val)
+      }
+      
+      return hash as String
+      
+   }
+
 }

@@ -62,6 +62,7 @@ extension Dictionary : URLQueryParameterStringConvertible {
                            String(describing: value).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
          parts.append(part as String)
       }
+      parts.sort()
       return parts.joined(separator: "&")
    }
    
@@ -73,7 +74,7 @@ extension String {
       let URLString : String = String(format: "%@?%@", self, parametersDictionary.queryParameters)
       return URLString
    }
-   
+
 }
 
 extension URL {
@@ -83,12 +84,18 @@ extension URL {
       return URL(string: URLString)!
    }
    
+   func appendingSignatureParameter(_ signature : String) -> URL {
+      let URLString : String = String(format: "%@&%@", self.absoluteString, "oauth_signature=\(signature)")
+      return URL(string: URLString)!
+
+   }
+   
 }
 
 extension CharacterSet {
    
    static func URLQueryParametersAllowedCharacterSet() -> CharacterSet {
-      return self.init(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-._~?0123456789")
+      return self.init(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-._~0123456789")
    }
    
 }

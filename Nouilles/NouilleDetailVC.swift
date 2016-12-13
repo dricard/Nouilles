@@ -72,79 +72,11 @@ class NouilleDetailVC: UIViewController {
    
    @IBAction func changeRatingTapped(_ sender: Any) {
       
-      // OAuth process for FatSecret
-      
-      // Parameters for the func
-      /*
-       
-      httpMethod: String // GET or POST
-      requestURL: String // http://platform.fatsecret.com/rest/server.api
-      
-      */
-      
-      var httpMethod = "GET"
-      var requestURL = NetworkParams.FatSecretAPIBaseURL
-      
-      // 0. Create normalized parameters variables
-      
-      let timeStamp = Int64(NSDate().timeIntervalSince1970)
-      print("Timestamp is \(timeStamp)")
-      
-      let nonce = "iletaitunpetitnavire"
-      
-      // 1. create a signature base string
-      
-      // Build normalized parameters
-      // we use an array of tuples here instead of the usual
-      // dictionary to preserve the order
-      let normalizedParams = [
-         ("oauth_consumer_key", NetworkKeys.FSConsumerKey),
-         ("oauth_signature_method", "HMAC-SHA1"),
-         ("oauth_timestamp", "\(timeStamp)"),
-         ("oauth_nonce", "iletaitunpetitbateau"),
-         ("oauth_version", "1.0")
-         ]
-      
-      var normalizedParametersString = createNormalizedStringFrom(normalizedParameters: normalizedParams)
- 
-      // percent encode all 3 parts
-      httpMethod = httpMethod.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLQueryParametersAllowedCharacterSet())!
-      requestURL = requestURL.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLQueryParametersAllowedCharacterSet())!
-      normalizedParametersString = normalizedParametersString.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLQueryParametersAllowedCharacterSet())!
-      
-      var signatureBaseString = "\(httpMethod)&\(requestURL)&\(normalizedParametersString)"
-      
-      print(signatureBaseString)
-      print("after %encoding")
-      
-   }
-   
-   func createNormalizedStringFrom(normalizedParameters: [(String, String)]) -> String {
-      
-      var parts: [String] = []
-      
-      for (key, value) in normalizedParameters {
-         let part = String(format: "%@=%@", String(describing: key).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!, String(describing: value).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
-         parts.append(part)
-      }
-      parts.sort()
-      
-      return parts.joined(separator: "&")
-
-   }
-   
-   func signRequest(_ signatureBaseString) -> String? {
-      
-      // this is limited in scope since I won't be using methods that require
-      // access tokens for this app. this would need to me modified in case
-      // where there is an access token
-      
-      let key = "\(NetworkKeys.FSConsumerKey)&"
-      
-      guard let keyData = key.data(using: NSUTF8StringEncoding), signatureBaseStringData = signatureBaseString.data(using: NSUTF8StringEncoding), outputData = NSMutableData(length: Int(kSecDigestHMACSHA1)) else { return nil }
-      
-      outputData.lenght = Int(kSecDigestHMACSHA1)
-      
+      FatSecretAPI.findNutritionInformation(searchString: "Gemelli", completionHandlerForFindNutritionInfoRequest: {(data, success, error) -> Void in
+        
+         print(data)
+         
+      })
       
    }
    
@@ -339,55 +271,55 @@ class NouilleDetailVC: UIViewController {
          
          if let nb_calories = nouille.calories {
             let scaled = scaleData(qty: Double(nb_calories))
-            calories.text = "\(scaled)"
+            calories.text = Nouille.formatedNutritionalInfo(for: "calories", with: scaled)
          } else {
             calories.text = .noData
          }
          if let nb_fat = nouille.fat {
             let scaled = scaleData(qty: Double(nb_fat))
-            fat.text = "\(scaled)"
+            fat.text = Nouille.formatedNutritionalInfo(for: "fat", with: scaled)
          } else {
             fat.text = .noData
          }
          if let nb_saturated = nouille.saturated {
             let scaled = scaleData(qty: Double(nb_saturated))
-            saturated.text = "\(scaled)"
+            saturated.text = Nouille.formatedNutritionalInfo(for: "saturated", with: scaled)
          } else {
             saturated.text = .noData
          }
          if let nb_trans = nouille.trans {
             let scaled = scaleData(qty: Double(nb_trans))
-            trans.text = "\(scaled)"
+            trans.text = Nouille.formatedNutritionalInfo(for: "trans", with: scaled)
          } else {
             trans.text = .noData
          }
          if let nb_sodium = nouille.sodium {
             let scaled = scaleData(qty: Double(nb_sodium))
-            sodium.text = "\(scaled)"
+            sodium.text = Nouille.formatedNutritionalInfo(for: "sodium", with: scaled)
          } else {
             sodium.text = .noData
          }
          if let nb_carbs = nouille.carbs {
             let scaled = scaleData(qty: Double(nb_carbs))
-            carbs.text = "\(scaled)"
+            carbs.text = Nouille.formatedNutritionalInfo(for: "carbs", with: scaled)
          } else {
             carbs.text = .noData
          }
          if let nb_fibre = nouille.fibre {
             let scaled = scaleData(qty: Double(nb_fibre))
-            fibres.text = "\(scaled)"
+            fibres.text = Nouille.formatedNutritionalInfo(for: "fibre", with: scaled)
          } else {
             fibres.text = .noData
          }
          if let nb_sugars = nouille.sugar {
             let scaled = scaleData(qty: Double(nb_sugars))
-            sugars.text = "\(scaled)"
+            sugars.text = Nouille.formatedNutritionalInfo(for: "sugar", with: scaled)
          } else {
             sugars.text = .noData
          }
          if let nb_protein = nouille.protein {
             let scaled = scaleData(qty: Double(nb_protein))
-            protein.text = "\(scaled)"
+            protein.text = Nouille.formatedNutritionalInfo(for: "protein", with: scaled)
          } else {
             protein.text = .noData
          }

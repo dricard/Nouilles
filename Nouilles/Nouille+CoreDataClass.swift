@@ -442,6 +442,51 @@ public class Nouille: NSManagedObject {
       return returnedString
    }
    
+   static func formatedNutritionalInfo(for nutritionalInfo: String, with scaledValue: Double) -> String {
+      
+      switch nutritionalInfo {
+      case "calories":
+         // total calories in kcal. Always returned with precision of 0 decimal places
+         let cal = Int(round(scaledValue))
+         return "\(cal)"
+      case "fat":
+         // total fat in grams. Always returned with a precision of 1 decimal places
+         let fats = round(scaledValue * 10) / 10
+         return "\(fats)"
+      case "saturated":
+         // saturated fat in grams. Always returned with a precision of 1 decimal places
+         let saturateds = round(scaledValue * 10) / 10
+         return "\(saturateds)"
+      case "trans":
+         // trans fat in grams. Always returned with a precision of 1 decimal places
+         let transs = round(scaledValue * 10) / 10
+         return "\(transs)"
+      case "sodium":
+         // sodium in milligrams. Always returned with a precision of 0 decimal places
+         let sodiums = Int(round(scaledValue))
+         return "\(sodiums)"
+      case "carbs":
+         // carbohydrate in grams. always returned with a precision of 0 decimal places
+         let carbss = Int(round(scaledValue))
+         return "\(carbss)"
+      case "fibre":
+         // dietary fiber in grams. always returned with a precision of 0 decimal places
+         let fibres = Int(round(scaledValue))
+         return "\(fibres)"
+      case "sugar":
+         // sugar in grams. Always returned with a precision of 0 decimal places
+         let sugars = Int(round(scaledValue))
+         return "\(sugars)"
+      case "protein":
+         // protein in grams. Always returned with a precision of 0 decimal places
+         let proteins = Int(round(scaledValue))
+         return "\(proteins)"
+      default:
+         print("Error, wrong parameter passed to formatedNutritionalInfo")
+         return ""
+      }
+
+   }
 
    
 }
