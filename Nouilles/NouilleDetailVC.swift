@@ -74,7 +74,7 @@ class NouilleDetailVC: UIViewController {
       
       FatSecretAPI.findNutritionInformation(searchString: "Gemelli", completionHandlerForFindNutritionInfoRequest: {(data, success, error) -> Void in
         
-         print(data)
+         print(data ?? "Failed to download data")
          
       })
       
