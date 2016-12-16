@@ -35,6 +35,13 @@ import Foundation
 
 class NetworkCoordinator {
    
+   // MARK: - Definitions
+   
+   enum foodAPIProviders {
+      case nutritionix
+      case fatSecret
+   }
+   
    // MARK: - Interface
    
    static func sendFindUPCRequest(upc: String, completionHandlerForUPCRequest: @escaping (_ productInfo: [String:AnyObject]?, _ success: Bool, _ error: NSError?) -> Void) {
@@ -43,7 +50,16 @@ class NetworkCoordinator {
    
    static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void)  {
       
-      FatSecretAPI.findNutritionInformation(searchString: searchString, completionHandlerForFindNutritionInfoRequest: completionHandlerForFindNutritionInfoRequest)
+      // for testing purposes I can switch API providers here.
+      // if both are good I might set this as a use defined preferences
+      let selectedAPI: foodAPIProviders = .nutritionix
+
+      switch selectedAPI {
+      case .fatSecret:
+         FatSecretAPI.findNutritionInformation(searchString: searchString, completionHandlerForFindNutritionInfoRequest: completionHandlerForFindNutritionInfoRequest)
+      case .nutritionix:
+         NutritionAPI.findNutritionInformation(searchString: searchString, completionHandlerForFindNutritionInfoRequest: completionHandlerForFindNutritionInfoRequest)
+      }
 
    }
 }

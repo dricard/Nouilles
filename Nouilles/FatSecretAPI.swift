@@ -201,8 +201,9 @@ class FatSecretAPI {
       // here we have to base64-encode this, then escape it with percent-encoding (RFC3986)
       // and returned the digest octet string
       let data = hashed.data(using: String.Encoding.utf8)
-      let base64 = data!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
-      let escaped = base64.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLQueryParametersAllowedCharacterSet())!
+      let base64 = data!.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0)).characters
+      let base64_28 = String(base64.dropLast(base64.count - 28))
+      let escaped = base64_28.addingPercentEncoding(withAllowedCharacters: CharacterSet.URLQueryParametersAllowedCharacterSet())!
       
       return escaped
    }
