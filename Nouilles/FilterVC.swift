@@ -69,6 +69,7 @@ class FilterVC: UITableViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
+      title = "Filters"
       self.clearsSelectionOnViewWillAppear = false
       
       self.navigationItem.hidesBackButton = true
