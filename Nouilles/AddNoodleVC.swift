@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class AddNoodleVC: UIViewController {
-
+   
    // MARK: - Properties
    
    var managedContext: NSManagedObjectContext?
@@ -46,15 +46,15 @@ class AddNoodleVC: UIViewController {
    }
    
    func backButtonTapped() {
-
+      
       if unsavedChanges() {
-
+         
          let controller = UIAlertController(title: .unsavedEntry, message: .areYouSure, preferredStyle: .alert)
          let discardAction = UIAlertAction(title: .discard, style: .default) { (action) in
             _ = self.navigationController?.popViewController(animated: true)
          }
          let saveAction = UIAlertAction(title: .save, style: .default, handler: { (action) in
-
+            
             let saveActionResult = self.saveNoodleData()
             if saveActionResult.success {
                // save was successful, pop back to root vc
@@ -70,29 +70,31 @@ class AddNoodleVC: UIViewController {
          controller.addAction(saveAction)
          present(controller, animated: true, completion: nil)
       } else {
-
+         
          _ = self.navigationController?.popViewController(animated: true)
       }
    }
    
    // MARK: - Life Cycle
    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+   override func viewDidLoad() {
+      super.viewDidLoad()
+      
+      title = "Add noodle"
+      
       self.navigationItem.hidesBackButton = true
       let newBackButton = UIBarButtonItem(title: .Back, style: .plain, target: self, action: #selector(AddNoodleVC.backButtonTapped))
       self.navigationItem.leftBarButtonItem = newBackButton
    }
    
-
+   
    override func viewWillDisappear(_ animated: Bool) {
       super.viewWillDisappear(animated)
-
+      
       if self.isMovingFromParentViewController {
          // We are exiting back, check for unsaved inputs
          if unsavedChanges() {
-
+            
             let controller = UIAlertController(title: .unsavedEntry, message: .areYouSure, preferredStyle: .alert)
             let discardAction = UIAlertAction(title: .discard, style: .default, handler: { (action) in
                print("User chose to discard")
@@ -109,7 +111,7 @@ class AddNoodleVC: UIViewController {
    }
    
    // MARK: - Processing and saving Data
-
+   
    func presentValidationErrorDialog(_ field: String, _ error: Error) {
       
       let controller = UIAlertController()
@@ -166,7 +168,7 @@ class AddNoodleVC: UIViewController {
       } else {
          fatalError()
       }
-
+      
       
       if let servingText = mealServingInput.text {
          switch mealServingValidator.validateValue(servingText) {
@@ -180,7 +182,7 @@ class AddNoodleVC: UIViewController {
       } else {
          fatalError()
       }
-
+      
       if let sideDishServingText = sideDishServingInput.text {
          switch sideDishServingValidator.validateValue(sideDishServingText) {
          case .valid:
@@ -210,7 +212,7 @@ class AddNoodleVC: UIViewController {
       } else {
          fatalError()
       }
-
+      
       if let ratingText = ratingInput.text {
          switch ratingValidator.validateValue(ratingText) {
          case .valid:
@@ -225,10 +227,10 @@ class AddNoodleVC: UIViewController {
       } else {
          fatalError()
       }
-
+      
       // Create the new noodle
       let newNoodle = Nouille(context: managedContext!)
-
+      
       // user data
       newNoodle.name = _name
       newNoodle.brand = _brand
@@ -236,7 +238,7 @@ class AddNoodleVC: UIViewController {
       newNoodle.servingSideDish = _sdServing as NSNumber
       newNoodle.time = _time as NSNumber
       newNoodle.rating = _rating as NSNumber
-
+      
       // default to prefer meal size servings
       newNoodle.mealSizePrefered = true as NSNumber
       // default to number of serving of 1
@@ -250,7 +252,7 @@ class AddNoodleVC: UIViewController {
       } catch let error as NSError {
          print("Could not save context in saveNoodleData() \(error), \(error.userInfo)")
       }
-
+      
       // Ask Model to fetch nutritional information
       Nouille.checkForNutritionalInformation(nouille: newNoodle, context: managedContext!)
       
