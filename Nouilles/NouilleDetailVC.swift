@@ -41,7 +41,6 @@ class NouilleDetailVC: UIViewController {
    @IBOutlet weak var fibres: UILabel!
    @IBOutlet weak var sugars: UILabel!
    @IBOutlet weak var protein: UILabel!
-   @IBOutlet weak var rating: UILabel!
    @IBOutlet weak var mealPreferedSizeIndicator: UIImageView!
    @IBOutlet weak var ratingView: UIImageView!
    @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -67,16 +66,6 @@ class NouilleDetailVC: UIViewController {
       }
       nouille?.numberOfServing = numberOfServings as NSNumber
       updateInterface()
-      
-   }
-   
-   @IBAction func changeRatingTapped(_ sender: Any) {
-      
-      FatSecretAPI.findNutritionInformation(searchString: "Gemelli", completionHandlerForFindNutritionInfoRequest: {(data, success, error) -> Void in
-        
-         print(data ?? "Failed to download data")
-         
-      })
       
    }
    
@@ -244,7 +233,6 @@ class NouilleDetailVC: UIViewController {
             let totalServing = Double(numberOfServings) * customServingSize
             totalServingSize.text = Nouille.formatWithFraction(value: totalServing)
          }
-         rating.text = "\(nouille.rating!)"
          ratingView?.image = NoodlesStyleKit.imageOfRatingIndicator(rating: nouille.rating as! CGFloat)
          cookingTime.text = Nouille.formatWithExponent(value: Double(nouille.time!))
          
@@ -264,7 +252,8 @@ class NouilleDetailVC: UIViewController {
          
          if let nb_serving = nouille.serving {
             referenceServing = Double(nb_serving)
-            servingSize.text = "\(nb_serving)"
+            let servingString = Nouille.formatWithFraction(value: referenceServing)
+            servingSize.text = "\(servingString) cp"
          } else {
             calories.text = .noData
          }

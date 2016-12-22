@@ -452,35 +452,35 @@ public class Nouille: NSManagedObject {
       case "fat":
          // total fat in grams. Always returned with a precision of 1 decimal places
          let fats = round(scaledValue * 10) / 10
-         return "\(fats)"
+         return "\(fats) g"
       case "saturated":
          // saturated fat in grams. Always returned with a precision of 1 decimal places
          let saturateds = round(scaledValue * 10) / 10
-         return "\(saturateds)"
+         return "\(saturateds) g"
       case "trans":
          // trans fat in grams. Always returned with a precision of 1 decimal places
-         let transs = round(scaledValue * 10) / 10
-         return "\(transs)"
+         let transString = round(scaledValue * 10) / 10
+         return "\(transString) g"
       case "sodium":
          // sodium in milligrams. Always returned with a precision of 0 decimal places
          let sodiums = Int(round(scaledValue))
-         return "\(sodiums)"
+         return "\(sodiums) mg"
       case "carbs":
          // carbohydrate in grams. always returned with a precision of 0 decimal places
-         let carbss = Int(round(scaledValue))
-         return "\(carbss)"
+         let carbsString = Int(round(scaledValue))
+         return "\(carbsString) g"
       case "fibre":
          // dietary fiber in grams. always returned with a precision of 0 decimal places
          let fibres = Int(round(scaledValue))
-         return "\(fibres)"
+         return "\(fibres) g"
       case "sugar":
          // sugar in grams. Always returned with a precision of 0 decimal places
          let sugars = Int(round(scaledValue))
-         return "\(sugars)"
+         return "\(sugars) g"
       case "protein":
          // protein in grams. Always returned with a precision of 0 decimal places
          let proteins = Int(round(scaledValue))
-         return "\(proteins)"
+         return "\(proteins) g"
       default:
          print("Error, wrong parameter passed to formatedNutritionalInfo")
          return ""
