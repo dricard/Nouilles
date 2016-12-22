@@ -18,7 +18,7 @@ class TimerVC: UIViewController {
    var seconds = 0
    var timer: Timer?
    var timerPaused = true
-   
+   var cancelTR = UITapGestureRecognizer()
    var pauseTapRec = UITapGestureRecognizer()
    
    // MARK: - Outlets
@@ -26,21 +26,26 @@ class TimerVC: UIViewController {
    @IBOutlet weak var timerView: TimerView!
    @IBOutlet weak var minutesTimerLabel: UILabel!
    @IBOutlet weak var secondsTimerLabel: UILabel!
-   @IBOutlet weak var cancelButton: UIButton!
    @IBOutlet weak var pausePlayView: UIImageView!
+   @IBOutlet weak var cancelView: UIImageView!
    
    
    // MARK: - Life Cycle
    
    override func viewDidLoad() {
       super.viewDidLoad()
-      
-      // add gesture recognizer on image so user can pause/play timer
+ 
+      // add gesture recognizer on cancelView so user can cancel timer
+      cancelTR.addTarget(self, action: #selector(TimerVC.cancelTapped))
+      cancelView.addGestureRecognizer(cancelTR)
+
+      // add gesture recognizer on pausePlayView so user can pause/play timer
       pauseTapRec.addTarget(self, action: #selector(TimerVC.pauseTapped))
       pausePlayView.addGestureRecognizer(pauseTapRec)
 
       // set to pause image (during play)
       pausePlayView.image = NoodlesStyleKit.imageOfPause
+      cancelView.image = NoodlesStyleKit.imageOfCancel
       
       // limit to under an hour cooking time. If it takes more than
       // 60 mn to cook it's not noodles...
@@ -102,7 +107,7 @@ class TimerVC: UIViewController {
    
    // MARK: - Actions
    
-   @IBAction func cancelTapped(_ sender: Any) {
+   func cancelTapped(_ sender: Any) {
       stopTimer()
    }
    
