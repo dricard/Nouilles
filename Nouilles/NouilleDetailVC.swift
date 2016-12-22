@@ -156,6 +156,8 @@ class NouilleDetailVC: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
+      view.backgroundColor = NoodlesStyleKit.lighterYellow
+      
       // add gesture recognizer for tap on image
       // even if no camera is available on device
       // because user can choose from the album

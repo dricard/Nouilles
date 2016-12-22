@@ -81,6 +81,7 @@ class AddNoodleVC: UIViewController {
       super.viewDidLoad()
       
       title = "Add noodle"
+      view.backgroundColor = NoodlesStyleKit.lighterYellow
       
       self.navigationItem.hidesBackButton = true
       let newBackButton = UIBarButtonItem(title: .Back, style: .plain, target: self, action: #selector(AddNoodleVC.backButtonTapped))
