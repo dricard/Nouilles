@@ -53,6 +53,8 @@ public class NoodlesStyleKit : NSObject {
         static var playTargets: [AnyObject]?
         static var imageOfCancel: UIImage?
         static var cancelTargets: [AnyObject]?
+        static var imageOfCancelSelected: UIImage?
+        static var cancelSelectedTargets: [AnyObject]?
     }
 
     //// Colors
@@ -983,6 +985,53 @@ public class NoodlesStyleKit : NSObject {
 
     }
 
+    public dynamic class func drawCancelSelected(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 75, height: 75), resizing: ResizingBehavior = .aspectFit) {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()!
+        
+        //// Resize to Target Frame
+        context.saveGState()
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 75, height: 75), target: targetFrame)
+        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
+        context.scaleBy(x: resizedFrame.width / 75, y: resizedFrame.height / 75)
+
+
+        //// Oval Drawing
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 2, y: 2, width: 71, height: 71))
+        NoodlesStyleKit.lighterOrange.setFill()
+        ovalPath.fill()
+        NoodlesStyleKit.darkerOrange.setStroke()
+        ovalPath.lineWidth = 1
+        ovalPath.stroke()
+
+
+        //// Rectangle Drawing
+        context.saveGState()
+        context.translateBy(x: 38.42, y: 36.99)
+        context.rotate(by: 45 * CGFloat.pi/180)
+
+        let rectanglePath = UIBezierPath(rect: CGRect(x: -2.5, y: -23, width: 5, height: 46))
+        NoodlesStyleKit.darkerOrange.setFill()
+        rectanglePath.fill()
+
+        context.restoreGState()
+
+
+        //// Rectangle 2 Drawing
+        context.saveGState()
+        context.translateBy(x: 38.5, y: 37)
+        context.rotate(by: -45 * CGFloat.pi/180)
+
+        let rectangle2Path = UIBezierPath(rect: CGRect(x: -2.5, y: -23, width: 5, height: 46))
+        NoodlesStyleKit.darkerOrange.setFill()
+        rectangle2Path.fill()
+
+        context.restoreGState()
+        
+        context.restoreGState()
+
+    }
+
     //// Generated Images
 
     public dynamic class func imageOfTimerAnimation(timerRatio: CGFloat = 0) -> UIImage {
@@ -1159,6 +1208,20 @@ public class NoodlesStyleKit : NSObject {
         return Cache.imageOfCancel!
     }
 
+    public dynamic class var imageOfCancelSelected: UIImage {
+        if Cache.imageOfCancelSelected != nil {
+            return Cache.imageOfCancelSelected!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 75, height: 75), false, 0)
+            NoodlesStyleKit.drawCancelSelected()
+
+        Cache.imageOfCancelSelected = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCancelSelected!
+    }
+
     //// Customization Infrastructure
 
     @IBOutlet dynamic var scanFailureTargets: [AnyObject]! {
@@ -1267,6 +1330,16 @@ public class NoodlesStyleKit : NSObject {
             Cache.cancelTargets = newValue
             for target: AnyObject in newValue {
                 let _ = target.perform(NSSelectorFromString("setImage:"), with: NoodlesStyleKit.imageOfCancel)
+            }
+        }
+    }
+
+    @IBOutlet dynamic var cancelSelectedTargets: [AnyObject]! {
+        get { return Cache.cancelSelectedTargets }
+        set {
+            Cache.cancelSelectedTargets = newValue
+            for target: AnyObject in newValue {
+                let _ = target.perform(NSSelectorFromString("setSelectedImage:"), with: NoodlesStyleKit.imageOfCancelSelected)
             }
         }
     }

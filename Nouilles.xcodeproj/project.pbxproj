@@ -45,6 +45,7 @@
 		21B87D301DF32A0600A4AB4E /* ChangeValueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */; };
 		21D30BC41DF5E6D400D077E9 /* FatSecretAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */; };
 		21D5102B1D6CA21B003CB856 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21D510291D6CA21B003CB856 /* Model.xcdatamodeld */; };
+		21D9C0D81E0C6474006361E7 /* ringSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21D9C0D71E0C6474006361E7 /* ringSound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeValueVC.swift; sourceTree = "<group>"; };
 		21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatSecretAPI.swift; sourceTree = "<group>"; };
 		21D5102A1D6CA21B003CB856 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		21D9C0D71E0C6474006361E7 /* ringSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ringSound.mp3; sourceTree = "<group>"; };
 		21FE64091DF8652D0012B799 /* Nouilles-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nouilles-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,6 +136,7 @@
 				21A148DD1D6B841900FA52BA /* Info.plist */,
 				210200FD1DE7C40A00D1F349 /* Sound.swift */,
 				210200FF1DE7CED000D1F349 /* scanBeep.mp3 */,
+				21D9C0D71E0C6474006361E7 /* ringSound.mp3 */,
 				21FE64091DF8652D0012B799 /* Nouilles-Bridging-Header.h */,
 			);
 			name = Divers;
@@ -289,6 +292,7 @@
 				210201001DE7CED000D1F349 /* scanBeep.mp3 in Resources */,
 				21795F2F1DE33EAB00FAC131 /* Localizable.strings in Resources */,
 				21A148D91D6B841900FA52BA /* Assets.xcassets in Resources */,
+				21D9C0D81E0C6474006361E7 /* ringSound.mp3 in Resources */,
 				21A148D71D6B841900FA52BA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,16 +13,19 @@ class Sound: NSObject {
    
    // MARK: - Properties
    
-   var audioPlayer: AVAudioPlayer!
+   var beepPlayer: AVAudioPlayer!
+   var ringPlayer: AVAudioPlayer!
    var audioEngine: AVAudioEngine!
    var timer: Timer?
    
    override init() {
       
-      let url = Bundle.main.url(forResource: "scanBeep", withExtension: "mp3")!
+      let beepUrl = Bundle.main.url(forResource: "scanBeep", withExtension: "mp3")!
+      let ringUrl = Bundle.main.url(forResource: "ringSound", withExtension: "mp3")!
       
       do {
-         self.audioPlayer = try AVAudioPlayer.init(contentsOf: url)
+         self.beepPlayer = try AVAudioPlayer.init(contentsOf: beepUrl)
+         self.ringPlayer = try AVAudioPlayer.init(contentsOf: ringUrl)
          
       } catch let error as NSError {
          print("Could not create audioPlayer \(error), \(error.userInfo)")
@@ -32,21 +35,33 @@ class Sound: NSObject {
       super.init()
    }
    
-   func playSound() {
+   func playBeep() {
       
-      audioPlayer.play()
+      beepPlayer.play()
       startTimer()
+      
+   }
+   
+   func playRing() {
+      
+      ringPlayer.play()
       
    }
    
    func startTimer() {
       // invalidate any previously running timer, start a new timer
       timer?.invalidate()
-      timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(Sound.stopSound), userInfo: nil, repeats: true)
+      timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(Sound.stopBeep), userInfo: nil, repeats: true)
    }
 
-   func stopSound() {
-      audioPlayer.stop()
+   func stopBeep() {
+      beepPlayer.stop()
+      audioEngine.stop()
+      audioEngine.reset()
+   }
+
+   func stopRing() {
+      ringPlayer.stop()
       audioEngine.stop()
       audioEngine.reset()
    }

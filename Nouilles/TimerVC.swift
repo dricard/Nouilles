@@ -18,8 +18,10 @@ class TimerVC: UIViewController {
    var seconds = 0
    var timer: Timer?
    var timerPaused = true
+   var ringing = false
    var cancelTR = UITapGestureRecognizer()
    var pauseTapRec = UITapGestureRecognizer()
+   var sound = Sound()
    
    // MARK: - Outlets
    
@@ -84,8 +86,8 @@ class TimerVC: UIViewController {
          timerView.progress = CGFloat(ratio)
          
       } else {
-         
          stopTimer()
+         playSound()
       }
    }
    
@@ -102,13 +104,18 @@ class TimerVC: UIViewController {
       secondsTimerLabel.text = "00"
    }
    
-   func pauseTimer() {
+   func playSound() {
+      sound.playRing()
+      ringing = true
    }
    
    // MARK: - Actions
    
    func cancelTapped(_ sender: Any) {
       stopTimer()
+      if ringing {
+         sound.stopRing()
+      }
    }
    
    func pauseTapped(_ sender: Any) {
@@ -117,6 +124,9 @@ class TimerVC: UIViewController {
          pausePlayView.image = NoodlesStyleKit.imageOfPlay
       } else {
          pausePlayView.image = NoodlesStyleKit.imageOfPause
+      }
+      if ringing {
+         sound.stopRing()
       }
    }
    

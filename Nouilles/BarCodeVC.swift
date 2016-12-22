@@ -116,7 +116,7 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
             captureSession?.stopRunning()
             
             // give audio feedback
-            sound.playSound()
+            sound.playBeep()
             
             // show the success state view
             successView?.isHidden = false
