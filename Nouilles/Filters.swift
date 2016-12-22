@@ -83,6 +83,24 @@ class Filters: NSObject {
       }
    }
 
+   func sortForIndex(index: Int) -> [NSSortDescriptor] {
+      _currentSort = index
+      return sortDescriptors()
+   }
+   
+   func indexForSort() -> Int {
+      return _currentSort
+   }
+
+   func predicateForIndex(index: Int) -> NSPredicate? {
+      _currentPredicate = index
+      return predicate()
+   }
+   
+   func indexForPredicate() -> Int {
+      return _currentPredicate
+   }
+   
    func sortTitle(indexPath: IndexPath) -> String {
       return sortTitleText[indexPath.row]
    }

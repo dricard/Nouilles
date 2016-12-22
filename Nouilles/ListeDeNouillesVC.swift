@@ -23,6 +23,9 @@ class ListeDeNouillesVC: UIViewController {
 
    var filters = Filters()
    
+   let sortDescriptorIndexKey = "sortDescriptorIndexKey"
+   let predicateIndexKey = "predicateIndexKey"
+   
    // MARK: - Outlets
    
    @IBOutlet var tableView: UITableView!
@@ -33,12 +36,25 @@ class ListeDeNouillesVC: UIViewController {
    override func viewDidLoad() {
       super.viewDidLoad()
       
+      // read sort and predicate prefs
+      
+      if let sortIndex = UserDefaults.standard.value(forKey: sortDescriptorIndexKey) {
+         
+         selectedSortDescriptor = filters.sortForIndex(index: sortIndex as! Int)
+         
+         selectedPredicate = filters.predicateForIndex(index: UserDefaults.standard.value(forKey: predicateIndexKey) as! Int)
+         
+      } else {
+         // there are no prefs, use defaults
+         UserDefaults.standard.set(0, forKey: sortDescriptorIndexKey)
+         UserDefaults.standard.set(0, forKey: predicateIndexKey)         
+      }
+      
+      fetchRequest.sortDescriptors = selectedSortDescriptor
+      fetchRequest.predicate = selectedPredicate
+      
       // set-up fetched results controller
-      
-      let nameSort = NSSortDescriptor(key: #keyPath(Nouille.name), ascending: true)
-      selectedSortDescriptor = [nameSort]
-      fetchRequest.sortDescriptors = [nameSort]
-      
+
       fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: nil)
       
       fetchedResultsController.delegate = self
@@ -46,8 +62,6 @@ class ListeDeNouillesVC: UIViewController {
       doFetch()
       
    }
-   
-   
    
    // MARK: - Actions
    
@@ -248,6 +262,11 @@ extension ListeDeNouillesVC: FilterVCDelegate {
 
       doFetch()
       tableView.reloadData()
+      
+      // save new sort and predicate in prefs
+      UserDefaults.standard.set(filters.indexForSort(), forKey: sortDescriptorIndexKey)
+      UserDefaults.standard.set(filters.indexForPredicate(), forKey: predicateIndexKey)
+
    }
 
 }
