@@ -19,19 +19,28 @@ class TimerVC: UIViewController {
    var timer: Timer?
    var timerPaused = true
    
+   var pauseTapRec = UITapGestureRecognizer()
+   
    // MARK: - Outlets
    
    @IBOutlet weak var timerView: TimerView!
    @IBOutlet weak var minutesTimerLabel: UILabel!
    @IBOutlet weak var secondsTimerLabel: UILabel!
    @IBOutlet weak var cancelButton: UIButton!
-   @IBOutlet weak var pauseButton: UIButton!
+   @IBOutlet weak var pausePlayView: UIImageView!
    
    
    // MARK: - Life Cycle
    
    override func viewDidLoad() {
       super.viewDidLoad()
+      
+      // add gesture recognizer on image so user can pause/play timer
+      pauseTapRec.addTarget(self, action: #selector(TimerVC.pauseTapped))
+      pausePlayView.addGestureRecognizer(pauseTapRec)
+
+      // set to pause image (during play)
+      pausePlayView.image = NoodlesStyleKit.imageOfPause
       
       // limit to under an hour cooking time. If it takes more than
       // 60 mn to cook it's not noodles...
@@ -97,8 +106,13 @@ class TimerVC: UIViewController {
       stopTimer()
    }
    
-   @IBAction func pauseTapped(_ sender: Any) {
+   func pauseTapped(_ sender: Any) {
       timerPaused = !timerPaused
+      if timerPaused {
+         pausePlayView.image = NoodlesStyleKit.imageOfPlay
+      } else {
+         pausePlayView.image = NoodlesStyleKit.imageOfPause
+      }
    }
    
    
