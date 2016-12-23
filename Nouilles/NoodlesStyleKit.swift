@@ -606,7 +606,7 @@ public class NoodlesStyleKit : NSObject {
 
     }
 
-    public dynamic class func drawRatingIndicator(frame: CGRect = CGRect(x: 0, y: 0, width: 95, height: 20), rating: CGFloat = 2.5) {
+    public dynamic class func drawRatingIndicator(frame: CGRect = CGRect(x: 0, y: 0, width: 95, height: 20), rating: CGFloat = 13.5) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
 
@@ -1128,7 +1128,7 @@ public class NoodlesStyleKit : NSObject {
         return Cache.imageOfMealSizeIndicatorSD!
     }
 
-    public dynamic class func imageOfRatingIndicator(imageSize: CGSize = CGSize(width: 95, height: 20), rating: CGFloat = 2.5) -> UIImage {
+    public dynamic class func imageOfRatingIndicator(imageSize: CGSize = CGSize(width: 95, height: 20), rating: CGFloat = 13.5) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
             NoodlesStyleKit.drawRatingIndicator(frame: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height), rating: rating)
 
