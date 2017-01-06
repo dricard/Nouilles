@@ -20,6 +20,7 @@ class NouilleDetailVC: UIViewController {
    let tapMS = UITapGestureRecognizer()
    let tapSeg = UITapGestureRecognizer()
    let tapOH = UITapGestureRecognizer()
+    let tapTimerButton = UITapGestureRecognizer()
    
    // MARK: - Outlets
    
@@ -45,6 +46,7 @@ class NouilleDetailVC: UIViewController {
    @IBOutlet weak var ratingView: UIImageView!
    @IBOutlet weak var segmentedControl: UISegmentedControl!
    @IBOutlet weak var onHandIndicatorView: UIImageView!
+    @IBOutlet weak var timerButtonView: UIImageView!
    
    // MARK: - Actions
    
@@ -69,7 +71,7 @@ class NouilleDetailVC: UIViewController {
       
    }
    
-   @IBAction func startTimerTapped(_ sender: Any) {
+    func startTimerTapped(_ sender: Any) {
       
       // segue to take picture VC
       let controller = storyboard?.instantiateViewController(withIdentifier: "TimerVC") as! TimerVC
@@ -180,8 +182,14 @@ class NouilleDetailVC: UIViewController {
       // add edit button to navigation bar
       let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(NouilleDetailVC.editButtonTapped))
       self.navigationItem.rightBarButtonItem = editButton
-      
-      
+    
+    // draw start timer button
+    timerButtonView.image = NoodlesStyleKit.imageOfTimerButton(imageSize: timerButtonView.frame.size)
+    // add gesture recognizer on timer button so user can start timer
+    tapTimerButton.addTarget(self, action: #selector(NouilleDetailVC.startTimerTapped))
+    timerButtonView.addGestureRecognizer(tapTimerButton)
+    
+    
       updateInterface()
    }
    
