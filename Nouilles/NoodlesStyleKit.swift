@@ -1059,6 +1059,35 @@ public class NoodlesStyleKit : NSObject {
         context.restoreGState()
     }
 
+    public dynamic class func drawTimerButtonSelected(frame: CGRect = CGRect(x: 0, y: 0, width: 240, height: 75)) {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()!
+        // This non-generic function dramatically improves compilation times of complex expressions.
+        func fastFloor(_ x: CGFloat) -> CGFloat { return floor(x) }
+
+        //// Rectangle Drawing
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: frame.minX + fastFloor(frame.width * 0.00417 + 0.5), y: frame.minY + 1, width: fastFloor(frame.width * 0.99583 + 0.5) - fastFloor(frame.width * 0.00417 + 0.5), height: 73), cornerRadius: 6)
+        NoodlesStyleKit.darkerGreen.setFill()
+        rectanglePath.fill()
+        NoodlesStyleKit.darkerGreen.setStroke()
+        rectanglePath.lineWidth = 3
+        rectanglePath.stroke()
+
+
+        //// Text Drawing
+        let textRect = CGRect(x: frame.minX + fastFloor((frame.width - 132) * 0.50000 + 0.5), y: frame.minY + fastFloor((frame.height - 35) * 0.50000 + 0.5), width: 132, height: 35)
+        let textTextContent = "Start timer"
+        let textStyle = NSMutableParagraphStyle()
+        textStyle.alignment = .center
+        let textFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 24), NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: textStyle]
+
+        let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: textRect)
+        textTextContent.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
+        context.restoreGState()
+    }
+
     //// Generated Images
 
     public dynamic class func imageOfTimerAnimation(timerRatio: CGFloat = 0) -> UIImage {
@@ -1257,6 +1286,16 @@ public class NoodlesStyleKit : NSObject {
         UIGraphicsEndImageContext()
 
         return imageOfTimerButton
+    }
+
+    public dynamic class func imageOfTimerButtonSelected(imageSize: CGSize = CGSize(width: 240, height: 75)) -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
+            NoodlesStyleKit.drawTimerButtonSelected(frame: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
+
+        let imageOfTimerButtonSelected = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return imageOfTimerButtonSelected
     }
 
     //// Customization Infrastructure
