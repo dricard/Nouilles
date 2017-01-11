@@ -13,6 +13,10 @@ class ListeDeNouillesVC: UIViewController {
     
     // MARK: - Properties
     
+    // Create a Timers object that will hold timers for
+    // noodles. This will be passed along when needed
+    var timers = Timers()
+    
     var managedContext: NSManagedObjectContext!
     var fetchedResultsController: NSFetchedResultsController<Nouille>!
     
@@ -229,6 +233,7 @@ extension ListeDeNouillesVC: UITableViewDelegate {
         let vc = storyboard?.instantiateViewController(withIdentifier: "NouilleDetailVC") as! NouilleDetailVC
         vc.managedContext = self.managedContext!
         vc.nouille = nouille
+        vc.timers = timers
         show(vc, sender: self)
         
     }
