@@ -43,6 +43,12 @@ class TimerVC: UIViewController {
         pausePlayView.image = NoodlesStyleKit.imageOfPause
         cancelView.image = NoodlesStyleKit.imageOfCancel
         
+        // update once in case we return here while a timer is paused
+        if let noodleTimer = noodleTimer {
+            minutesTimerLabel.text = noodleTimer.timerMinutesLabel()
+            secondsTimerLabel.text = noodleTimer.timerSecondsLabel()
+            timerView.progress = noodleTimer.timerRatio()
+        }
         // update the display
         DispatchQueue.main.async {
             self.internalTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(TimerVC.updateTimerLabel), userInfo: nil, repeats: true)

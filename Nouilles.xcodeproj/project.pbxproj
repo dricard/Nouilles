@@ -48,6 +48,7 @@
 		21D9C0D81E0C6474006361E7 /* ringSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21D9C0D71E0C6474006361E7 /* ringSound.mp3 */; };
 		21E325ED1E252BAA001269DE /* Timers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E325EC1E252BAA001269DE /* Timers.swift */; };
 		21F2FEEB1E2683CA003A8017 /* NoodleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2FEEA1E2683CA003A8017 /* NoodleTimer.swift */; };
+		21FDF5301E26D50200B517E2 /* TimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FDF52F1E26D50200B517E2 /* TimerButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		21D9C0D71E0C6474006361E7 /* ringSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ringSound.mp3; sourceTree = "<group>"; };
 		21E325EC1E252BAA001269DE /* Timers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timers.swift; sourceTree = "<group>"; };
 		21F2FEEA1E2683CA003A8017 /* NoodleTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoodleTimer.swift; sourceTree = "<group>"; };
+		21FDF52F1E26D50200B517E2 /* TimerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerButton.swift; sourceTree = "<group>"; };
 		21FE64091DF8652D0012B799 /* Nouilles-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Nouilles-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +160,7 @@
 				217D10B51DF2207200262255 /* TextTableViewCell.swift */,
 				217D10B71DF2208900262255 /* NumberTableViewCell.swift */,
 				217D10B91DF2209900262255 /* BoolTableViewCell.swift */,
+				21FDF52F1E26D50200B517E2 /* TimerButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				21795F361DE358F200FAC131 /* BarCodeVC.swift in Sources */,
 				210200F81DE792B800D1F349 /* NetworkParameters.swift in Sources */,
 				21431A911DE3CE1E000CC37A /* NoodlesStyleKit.swift in Sources */,
+				21FDF5301E26D50200B517E2 /* TimerButton.swift in Sources */,
 				217D10BA1DF2209900262255 /* BoolTableViewCell.swift in Sources */,
 				217D10B81DF2208900262255 /* NumberTableViewCell.swift in Sources */,
 				210200FA1DE7955A00D1F349 /* NetworkKeys.swift in Sources */,

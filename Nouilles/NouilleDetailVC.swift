@@ -47,7 +47,7 @@ class NouilleDetailVC: UIViewController {
     @IBOutlet weak var ratingView: UIImageView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var onHandIndicatorView: UIImageView!
-    @IBOutlet weak var timerButtonView: UIImageView!
+    @IBOutlet weak var timerButton: TimerButton!
     
     // MARK: - Actions
     
@@ -188,12 +188,9 @@ class NouilleDetailVC: UIViewController {
         let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(NouilleDetailVC.editButtonTapped))
         self.navigationItem.rightBarButtonItem = editButton
         
-        // draw start timer button
-        timerButtonView.image = NoodlesStyleKit.imageOfTimerButton(imageSize: timerButtonView.frame.size)
         // add gesture recognizer on timer button so user can start timer
         tapTimerButton.addTarget(self, action: #selector(NouilleDetailVC.startTimerTapped))
-        timerButtonView.addGestureRecognizer(tapTimerButton)
-        
+        timerButton.addGestureRecognizer(tapTimerButton)
         
         updateInterface()
     }
@@ -328,7 +325,16 @@ class NouilleDetailVC: UIViewController {
                 protein.text = .noData
             }
             
-            
+            // update modify timer button depending if a timer
+            // is running or not
+            guard let timers = timers else { return }
+            if timers.hasTimerFor(noodle: nouille) {
+                // change button name to 'show'
+                timerButton.buttonLabel = "Show Timer"
+            } else {
+                // change button name to 'start'
+                timerButton.buttonLabel = "Start Timer"
+            }
         }
     }
     
