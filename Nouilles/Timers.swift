@@ -40,4 +40,9 @@ class Timers: NSObject {
         return timers[name]
     }
     
+    func deleteTimerFor(noodle: Nouille) {
+        guard let name = noodle.name else { return }
+        timers[name] = nil
+    }
+    
 }

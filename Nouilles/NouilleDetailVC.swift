@@ -86,8 +86,10 @@ class NouilleDetailVC: UIViewController {
         // instantiate VC
         let controller = storyboard?.instantiateViewController(withIdentifier: "TimerVC") as! TimerVC
         
-        // we pass the timer along
+        // we pass the timer information along
         controller.noodleTimer = timers.timerFor(noodle: nouille)
+        controller.timers = timers
+        controller.nouille = nouille
         
         // present the VC
         show(controller, sender: self)
@@ -334,7 +336,7 @@ class NouilleDetailVC: UIViewController {
             } else {
                 // change button name to 'start'
                 timerButton.buttonLabel = "Start Timer"
-            }
+           }
         }
     }
     

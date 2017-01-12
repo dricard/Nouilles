@@ -12,6 +12,8 @@ class TimerVC: UIViewController {
     
     // MARK: - Properties
     
+    var timers: Timers?
+    var nouille: Nouille?
     var noodleTimer: NoodleTimer?
     var cancelTR = UITapGestureRecognizer()
     var pauseTapRec = UITapGestureRecognizer()
@@ -80,6 +82,12 @@ class TimerVC: UIViewController {
         if noodleTimer.isRinging() {
             noodleTimer.stopRing()
         }
+        // remove the timer
+        if let timers = timers, let nouille = nouille {
+            timers.deleteTimerFor(noodle: nouille)
+        }
+        _ = self.navigationController?.popViewController(animated: true)
+
     }
     
     func pauseTapped(_ sender: Any) {
