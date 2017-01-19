@@ -26,7 +26,6 @@ class Sound: NSObject {
       do {
          self.beepPlayer = try AVAudioPlayer.init(contentsOf: beepUrl)
          self.ringPlayer = try AVAudioPlayer.init(contentsOf: ringUrl)
-         
       } catch let error as NSError {
          print("Could not create audioPlayer \(error), \(error.userInfo)")
       }
@@ -43,7 +42,7 @@ class Sound: NSObject {
    }
    
    func playRing() {
-      
+      print("In ringPlayer.play")
       ringPlayer.play()
       
    }

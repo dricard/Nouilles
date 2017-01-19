@@ -236,6 +236,7 @@ extension ListeDeNouillesVC: UITableViewDelegate {
         vc.timers = timers
         show(vc, sender: self)
         
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

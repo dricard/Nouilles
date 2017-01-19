@@ -32,6 +32,7 @@ class Timers: NSObject {
         guard let name = noodle.name, let time = noodle.time else { return }
         let seconds = Int(Double(time) * 60.0)
         let noodleTimer = NoodleTimer(cookingTime: seconds)
+        noodleTimer.delegate = self
         timers[name] = noodleTimer
     }
     
@@ -45,4 +46,15 @@ class Timers: NSObject {
         timers[name] = nil
     }
     
+}
+
+extension Timers: NoodleTimerDelegate {
+    
+    func removeTimerFromList(noodleTimer: NoodleTimer) {
+        for (name, timer) in timers {
+            if timer == noodleTimer {
+                timers[name] = nil
+            }
+        }
+    }
 }

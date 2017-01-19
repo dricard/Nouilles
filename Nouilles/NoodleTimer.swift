@@ -6,6 +6,10 @@
 //  Copyright © 2017 Hexaedre. All rights reserved.
 //
 
+protocol NoodleTimerDelegate: class {
+    func removeTimerFromList(noodleTimer: NoodleTimer)
+}
+
 import UIKit
 
 /// This class represents a single timer with its associated data
@@ -22,6 +26,8 @@ class NoodleTimer: NSObject {
     var ringing: Bool = false
     var sound = Sound()
 
+    weak var delegate: NoodleTimerDelegate?
+    
     private var minutes = 0
     private var seconds = 0
 
@@ -88,10 +94,13 @@ class NoodleTimer: NSObject {
             }
             minutes = secondsLeft / 60
             seconds = secondsLeft % 60
-            
+            print("updateTimer: \(minutes):\(seconds)")
         } else {
-            stopTimer()
+            print("PLAYSOUND")
+            print("Sound object is \(sound)")
             playSound()
+            stopTimer()
+            delegate?.removeTimerFromList(noodleTimer: self)
         }
         
     }
@@ -107,6 +116,7 @@ class NoodleTimer: NSObject {
     }
     
     private func playSound() {
+        print("Sound object is \(sound)")
         sound.playRing()
         ringing = true
     }
