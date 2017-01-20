@@ -175,6 +175,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addNoodleButton" destination="EgQ-bV-bVp" id="uAc-Ev-Agb"/>
+                        <outlet property="filterButton" destination="m6N-cD-GCh" id="biI-OW-2gF"/>
                         <outlet property="tableView" destination="iLN-sx-VsF" id="nZs-9g-KNe"/>
                         <segue destination="05h-4T-WMG" kind="show" identifier="ShowNouilleDetail" id="pJi-yy-IWT"/>
                     </connections>

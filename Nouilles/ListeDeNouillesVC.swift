@@ -34,11 +34,15 @@ class ListeDeNouillesVC: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet weak var addNoodleButton: UIBarButtonItem!
+    @IBOutlet weak var filterButton: UIBarButtonItem!
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // customize filter button
+        filterButton.title = "\u{2630}"
         
         // read sort and predicate prefs
         
