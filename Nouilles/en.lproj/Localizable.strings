@@ -31,6 +31,7 @@
 "Side dish serving" = "Side dish serving";
 "Cooking time" = "Cooking time";
 "Add picture" = "Add picture";
+"Add Noodle" = "Add Noodle";
 "Scan barcode" = "Scan barcode";
 "Cancel" = "Cancel";
 "Save" = "Save";
@@ -51,3 +52,6 @@
 "Invalid Entry" = "Invalid Entry";
 "ok" = "ok";
 "no data" = "no data";
+"Show Timer" = "Show Timer";
+"Start Timer" = "Start Timer";
+"# of people" = "# of people";

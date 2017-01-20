@@ -80,7 +80,7 @@ class AddNoodleVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Add noodle"
+        title = .addNoodleTitle
         view.backgroundColor = NoodlesStyleKit.lighterYellow
         
         self.navigationItem.hidesBackButton = true

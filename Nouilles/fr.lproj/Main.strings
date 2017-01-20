@@ -39,7 +39,7 @@
 "G0m-ty-9oe.normalTitle" = "Changer";
 
 /* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "G4l-bz-bq9"; */
-"G4l-bz-bq9.normalTitle" = "Cancel";
+"G4l-bz-bq9.normalTitle" = "Annuler";
 
 /* Class = "UILabel"; text = "Sucres"; ObjectID = "HIq-M7-64Y"; */
 "HIq-M7-64Y.text" = "Sucres";
@@ -147,7 +147,7 @@
 "snr-6b-CzX.text" = "Portion repas";
 
 /* Class = "UILabel"; text = "Mon appréciation"; ObjectID = "uTE-lt-KLN"; */
-"uTE-lt-KLN.text" = "Mon appréciation";
+"uTE-lt-KLN.text" = "Qtée de référence";
 
 /* Class = "UITextField"; placeholder = "Anneaux"; ObjectID = "udk-U7-KGp"; */
 "udk-U7-KGp.placeholder" = "Anneaux";

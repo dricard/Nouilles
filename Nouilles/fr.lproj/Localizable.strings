@@ -31,8 +31,9 @@
 "Side dish serving" = "Portion accompagnement";
 "Cooking time" = "Temps de cuisson";
 "Add picture" = "Ajouter une image";
+"Add Noodle" = "Ajouter une nouille";
 "Scan barcode" = "Lire code bar";
-"Cancel" = "Canceller";
+"Cancel" = "Annuler";
 "Save" = "Sauvegarder";
 "Back" = "Retour";
 "meal" = "repas";
@@ -51,3 +52,6 @@
 "Invalid Entry" = "Champ invalide";
 "ok" = "ok";
 "no data" = "aucune information";
+"Show Timer" = "Voir la minuterie";
+"Start Timer" = "Partir la minuterie";
+"# of people" = "N. de personnes";

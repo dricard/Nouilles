@@ -48,6 +48,7 @@ class NouilleDetailVC: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var onHandIndicatorView: UIImageView!
     @IBOutlet weak var timerButton: TimerButton!
+    @IBOutlet weak var numberOfPeopleLabel: UILabel!
     
     // MARK: - Actions
     
@@ -187,8 +188,11 @@ class NouilleDetailVC: UIViewController {
         segmentedControl.addTarget(self, action: #selector(NouilleDetailVC.segmentedControlTapped), for: .valueChanged)
         
         // add edit button to navigation bar
-        let editButton = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(NouilleDetailVC.editButtonTapped))
+        let editButton = UIBarButtonItem(title: .editButtonlabel, style: .plain, target: self, action: #selector(NouilleDetailVC.editButtonTapped))
         self.navigationItem.rightBarButtonItem = editButton
+        
+        // localize
+        numberOfPeopleLabel.text = .numberOfPeopleLabel
         
         // add gesture recognizer on timer button so user can start timer
         tapTimerButton.addTarget(self, action: #selector(NouilleDetailVC.startTimerTapped))
@@ -332,10 +336,10 @@ class NouilleDetailVC: UIViewController {
             guard let timers = timers else { return }
             if timers.hasTimerFor(noodle: nouille) {
                 // change button name to 'show'
-                timerButton.buttonLabel = "Show Timer"
+                timerButton.buttonLabel = .timerShowLabel
             } else {
                 // change button name to 'start'
-                timerButton.buttonLabel = "Start Timer"
+                timerButton.buttonLabel = .timerStartLabel
            }
         }
     }
