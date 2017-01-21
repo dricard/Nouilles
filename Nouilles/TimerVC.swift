@@ -55,7 +55,6 @@ class TimerVC: UIViewController {
         DispatchQueue.main.async {
             self.internalTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(TimerVC.updateTimerLabel), userInfo: nil, repeats: true)
         }
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

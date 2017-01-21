@@ -15,6 +15,7 @@ class ListeDeNouillesVC: UIViewController {
     
     // Create a Timers object that will hold timers for
     // noodles. This will be passed along when needed
+    // Note: not to be confused with Timer class
     var timers = Timers()
     
     var managedContext: NSManagedObjectContext!
@@ -135,12 +136,18 @@ extension ListeDeNouillesVC: UITableViewDataSource {
             cell.mealSizeView?.image = NoodlesStyleKit.imageOfMealSizeIndicatorSD
         }
         cell.timeLabel?.text = Nouille.formatWithExponent(value: Double(nouille.time!))
-        if let imageData = nouille.image as? Data {
-            let boxImage = UIImage(data: imageData)
-            cell.boxImageView?.image = boxImage
+        
+        // Set image of noodle or timer if one is running
+        if timers.hasTimerFor(noodle: nouille) {
         } else {
-            // draw default image
-            cell.boxImageView?.image = NoodlesStyleKit.imageOfNouille
+            cell.timerView.isHidden = true
+            if let imageData = nouille.image as? Data {
+                let boxImage = UIImage(data: imageData)
+                cell.boxImageView?.image = boxImage
+            } else {
+                // draw default image
+                cell.boxImageView?.image = NoodlesStyleKit.imageOfNouille
+            }
         }
         cell.ratingImageView?.image = NoodlesStyleKit.imageOfRatingIndicator(rating: nouille.rating as! CGFloat)
         

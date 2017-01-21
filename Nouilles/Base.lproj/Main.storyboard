@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NAn-ym-LWb" id="S4x-lE-glt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6w-KQ-nIn">
@@ -93,7 +93,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TY5-tt-PGV">
-                                            <rect key="frame" x="73" y="46" width="95" height="20"/>
+                                            <rect key="frame" x="73" y="46" width="90" height="19"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="TY5-tt-PGV" secondAttribute="height" multiplier="95:20" id="OVs-go-ads"/>
                                             </constraints>
@@ -112,12 +112,21 @@
                                                 <constraint firstAttribute="width" constant="21" id="sYv-Qf-HjY"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eH1-V2-z7h" customClass="TimerView" customModule="Nouilles" customModuleProvider="target">
+                                            <rect key="frame" x="4" y="4" width="65" height="65"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="eH1-V2-z7h" secondAttribute="height" multiplier="1:1" id="O79-qw-sP2"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="eH1-V2-z7h" firstAttribute="top" secondItem="S4x-lE-glt" secondAttribute="top" constant="4" id="2B5-dJ-0Tl"/>
                                         <constraint firstAttribute="bottom" secondItem="V6w-KQ-nIn" secondAttribute="bottom" constant="4" id="2j9-0c-Afj"/>
                                         <constraint firstItem="l3n-Le-VTf" firstAttribute="width" secondItem="59J-3y-AMh" secondAttribute="width" id="2s8-Wc-tas"/>
                                         <constraint firstItem="TY5-tt-PGV" firstAttribute="top" secondItem="l3n-Le-VTf" secondAttribute="bottom" constant="4" id="3I8-PK-e1W"/>
                                         <constraint firstItem="nAx-m1-6iu" firstAttribute="leading" secondItem="59J-3y-AMh" secondAttribute="trailing" constant="4" id="5PW-U9-aOd"/>
+                                        <constraint firstAttribute="bottom" secondItem="eH1-V2-z7h" secondAttribute="bottom" constant="4" id="5Zz-S3-tch"/>
                                         <constraint firstItem="WJe-TO-b5c" firstAttribute="leading" secondItem="1uu-qe-Xt2" secondAttribute="trailing" constant="4" id="5tJ-7i-jAV"/>
                                         <constraint firstItem="Adc-qS-GU1" firstAttribute="top" secondItem="S4x-lE-glt" secondAttribute="top" constant="4" id="7Ig-X8-ARN"/>
                                         <constraint firstItem="Adc-qS-GU1" firstAttribute="leading" secondItem="nAx-m1-6iu" secondAttribute="trailing" constant="4" id="GMj-8V-EvW"/>
@@ -135,6 +144,7 @@
                                         <constraint firstAttribute="bottom" secondItem="1uu-qe-Xt2" secondAttribute="bottom" constant="4" id="hdC-ka-Sff"/>
                                         <constraint firstAttribute="bottom" secondItem="TY5-tt-PGV" secondAttribute="bottom" constant="8" id="iTJ-eG-AdV"/>
                                         <constraint firstAttribute="bottom" secondItem="WJe-TO-b5c" secondAttribute="bottom" constant="4" id="jY6-9k-5uZ"/>
+                                        <constraint firstItem="eH1-V2-z7h" firstAttribute="leading" secondItem="S4x-lE-glt" secondAttribute="leading" constant="4" id="kWT-aY-Js5"/>
                                         <constraint firstItem="nAx-m1-6iu" firstAttribute="centerY" secondItem="Adc-qS-GU1" secondAttribute="centerY" id="qD7-mp-RoI"/>
                                         <constraint firstAttribute="bottom" secondItem="bYp-pi-kHQ" secondAttribute="bottom" constant="4" id="s0d-Oh-r1l"/>
                                         <constraint firstItem="1uu-qe-Xt2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="TY5-tt-PGV" secondAttribute="trailing" constant="4" id="vYF-hW-DI8"/>
@@ -152,6 +162,7 @@
                                     <outlet property="ratingImageView" destination="TY5-tt-PGV" id="gQg-Xj-fWW"/>
                                     <outlet property="timeLabel" destination="O6r-cv-XVb" id="qmB-ag-vB6"/>
                                     <outlet property="timeUnitLabel" destination="bYp-pi-kHQ" id="VM9-mj-big"/>
+                                    <outlet property="timerView" destination="eH1-V2-z7h" id="bBo-lS-hai"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
