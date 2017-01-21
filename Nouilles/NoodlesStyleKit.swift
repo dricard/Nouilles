@@ -121,11 +121,11 @@ public class NoodlesStyleKit : NSObject {
         context.rotate(by: -90 * CGFloat.pi/180)
 
         let timerMaskPath = UIBezierPath()
-        timerMaskPath.move(to: CGPoint(x: 76.5, y: 0))
-        timerMaskPath.addCurve(to: CGPoint(x: -0, y: 76.5), controlPoint1: CGPoint(x: 76.5, y: 42.25), controlPoint2: CGPoint(x: 42.25, y: 76.5))
-        timerMaskPath.addCurve(to: CGPoint(x: -76.5, y: 0), controlPoint1: CGPoint(x: -42.25, y: 76.5), controlPoint2: CGPoint(x: -76.5, y: 42.25))
-        timerMaskPath.addCurve(to: CGPoint(x: 0, y: -76.5), controlPoint1: CGPoint(x: -76.5, y: -42.25), controlPoint2: CGPoint(x: -42.25, y: -76.5))
-        timerMaskPath.addCurve(to: CGPoint(x: 76.5, y: 0), controlPoint1: CGPoint(x: 42.25, y: -76.5), controlPoint2: CGPoint(x: 76.5, y: -42.25))
+        timerMaskPath.move(to: CGPoint(x: 75, y: -0.75))
+        timerMaskPath.addCurve(to: CGPoint(x: -0.75, y: 75), controlPoint1: CGPoint(x: 75, y: 41.09), controlPoint2: CGPoint(x: 41.09, y: 75))
+        timerMaskPath.addCurve(to: CGPoint(x: -76.5, y: -0.75), controlPoint1: CGPoint(x: -42.59, y: 75), controlPoint2: CGPoint(x: -76.5, y: 41.09))
+        timerMaskPath.addCurve(to: CGPoint(x: -0.75, y: -76.5), controlPoint1: CGPoint(x: -76.5, y: -42.59), controlPoint2: CGPoint(x: -42.59, y: -76.5))
+        timerMaskPath.addCurve(to: CGPoint(x: 75, y: -0.75), controlPoint1: CGPoint(x: 41.09, y: -76.5), controlPoint2: CGPoint(x: 75, y: -42.59))
         timerMaskPath.close()
         UIColor.black.setStroke()
         timerMaskPath.lineWidth = 27
@@ -139,7 +139,7 @@ public class NoodlesStyleKit : NSObject {
 
 
         //// Oval Drawing
-        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 86.5, y: 9.5, width: 27, height: 27))
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 86.5, y: 11.5, width: 27, height: 27))
         NoodlesStyleKit.darkerGreen.setFill()
         ovalPath.fill()
         UIColor.black.setStroke()
@@ -147,42 +147,55 @@ public class NoodlesStyleKit : NSObject {
         ovalPath.stroke()
 
 
-        //// Group
+        //// Group 2
         context.saveGState()
-        context.translateBy(x: 100, y: 23.36)
+        context.translateBy(x: 100, y: 25)
         context.rotate(by: -spinArrow * CGFloat.pi/180)
 
 
 
-        //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: -7, y: -0.36, width: 13, height: 1), cornerRadius: 0.5)
-        NoodlesStyleKit.baseOrange.setStroke()
-        rectanglePath.lineWidth = 2
-        rectanglePath.stroke()
-
-
         //// Rectangle 2 Drawing
-        context.saveGState()
-        context.translateBy(x: 0.8, y: 0.64)
-        context.rotate(by: 30 * CGFloat.pi/180)
-
-        let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: -1.93, y: -3.35, width: 6, height: 1), cornerRadius: 0.5)
+        let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: -6.35, y: -0.25, width: 13, height: 1), cornerRadius: 0.5)
         NoodlesStyleKit.baseOrange.setStroke()
         rectangle2Path.lineWidth = 2
         rectangle2Path.stroke()
+
+
+        //// Rectangle Drawing
+        context.saveGState()
+        context.translateBy(x: 0.15, y: -0.25)
+        context.rotate(by: -45 * CGFloat.pi/180)
+
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: -7, y: -0.02, width: 13, height: 1), cornerRadius: 0.5)
+        NoodlesStyleKit.baseOrange.setStroke()
+        rectanglePath.lineWidth = 2
+        rectanglePath.stroke()
 
         context.restoreGState()
 
 
         //// Rectangle 3 Drawing
         context.saveGState()
-        context.translateBy(x: 0.8, y: 3.64)
-        context.rotate(by: -30 * CGFloat.pi/180)
+        context.translateBy(x: 0.15, y: -0.25)
+        context.rotate(by: 45 * CGFloat.pi/180)
 
-        let rectangle3Path = UIBezierPath(roundedRect: CGRect(x: 0, y: -1, width: 6, height: 1), cornerRadius: 0.5)
+        let rectangle3Path = UIBezierPath(roundedRect: CGRect(x: -6, y: 0.1, width: 13, height: 1), cornerRadius: 0.5)
         NoodlesStyleKit.baseOrange.setStroke()
         rectangle3Path.lineWidth = 2
         rectangle3Path.stroke()
+
+        context.restoreGState()
+
+
+        //// Rectangle 4 Drawing
+        context.saveGState()
+        context.translateBy(x: -0.35, y: 0.5)
+        context.rotate(by: -90 * CGFloat.pi/180)
+
+        let rectangle4Path = UIBezierPath(roundedRect: CGRect(x: -6, y: -0.15, width: 13, height: 1), cornerRadius: 0.5)
+        NoodlesStyleKit.baseOrange.setStroke()
+        rectangle4Path.lineWidth = 2
+        rectangle4Path.stroke()
 
         context.restoreGState()
 
