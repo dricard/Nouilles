@@ -94,10 +94,7 @@ class NoodleTimer: NSObject {
             }
             minutes = secondsLeft / 60
             seconds = secondsLeft % 60
-            print("updateTimer: \(minutes):\(seconds)")
         } else {
-            print("PLAYSOUND")
-            print("Sound object is \(sound)")
             playSound()
             stopTimer()
             delegate?.removeTimerFromList(noodleTimer: self)
@@ -116,7 +113,6 @@ class NoodleTimer: NSObject {
     }
     
     private func playSound() {
-        print("Sound object is \(sound)")
         sound.playRing()
         ringing = true
     }

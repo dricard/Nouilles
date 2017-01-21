@@ -42,7 +42,6 @@ class Sound: NSObject {
    }
    
    func playRing() {
-      print("In ringPlayer.play")
       ringPlayer.play()
       
    }
