@@ -905,13 +905,13 @@ public class NoodlesStyleKit : NSObject {
 
 
         //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(rect: CGRect(x: 20, y: 8, width: 13, height: 32))
+        let rectanglePath = UIBezierPath(rect: CGRect(x: 20, y: 6, width: 13, height: 37))
         NoodlesStyleKit.darkerOrange.setFill()
         rectanglePath.fill()
 
 
         //// Rectangle 2 Drawing
-        let rectangle2Path = UIBezierPath(rect: CGRect(x: 41, y: 8, width: 13, height: 32))
+        let rectangle2Path = UIBezierPath(rect: CGRect(x: 41, y: 6, width: 13, height: 37))
         NoodlesStyleKit.darkerOrange.setFill()
         rectangle2Path.fill()
         
@@ -932,13 +932,13 @@ public class NoodlesStyleKit : NSObject {
 
         //// Polygon Drawing
         context.saveGState()
-        context.translateBy(x: 36, y: 24)
+        context.translateBy(x: 36, y: 25.5)
         context.rotate(by: 90 * CGFloat.pi/180)
 
         let polygonPath = UIBezierPath()
         polygonPath.move(to: CGPoint(x: 0, y: -26.5))
-        polygonPath.addLine(to: CGPoint(x: 15.59, y: 13.25))
-        polygonPath.addLine(to: CGPoint(x: -15.59, y: 13.25))
+        polygonPath.addLine(to: CGPoint(x: 18.62, y: 13.25))
+        polygonPath.addLine(to: CGPoint(x: -18.62, y: 13.25))
         polygonPath.close()
         NoodlesStyleKit.darkerOrange.setFill()
         polygonPath.fill()
