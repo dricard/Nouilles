@@ -421,7 +421,7 @@ public class NoodlesStyleKit : NSObject {
 
 
         //// Oval Drawing
-        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 5.7, y: 25.25, width: 10, height: 10))
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 5.7, y: 24.25, width: 10, height: 10))
         NoodlesStyleKit.baseOrange.setFill()
         ovalPath.fill()
         NoodlesStyleKit.lighterOrange.setStroke()
@@ -448,7 +448,7 @@ public class NoodlesStyleKit : NSObject {
 
 
         //// Oval 6 Drawing
-        let oval6Path = UIBezierPath(ovalIn: CGRect(x: 7.25, y: 26.75, width: 7, height: 7))
+        let oval6Path = UIBezierPath(ovalIn: CGRect(x: 7.25, y: 25.75, width: 7, height: 7))
         NoodlesStyleKit.lighterOrange.setFill()
         oval6Path.fill()
         NoodlesStyleKit.lighterOrange.setStroke()

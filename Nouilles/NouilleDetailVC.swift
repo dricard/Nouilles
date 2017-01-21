@@ -272,8 +272,8 @@ class NouilleDetailVC: UIViewController {
             image.contentMode = .scaleAspectFill
             if let imageData = nouille.image {
                 image.image = UIImage(data: imageData as Data)
-            } else if let imageDeNouille = UIImage(named: "penne.png") {
-                image.image = imageDeNouille
+            } else {
+                image.image = NoodlesStyleKit.imageOfNouille
             }
             
             if nouille.onHand as! Bool {
