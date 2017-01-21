@@ -27,6 +27,7 @@ extension String {
     static let meal = NSLocalizedString("meal")
     static let sideDish = NSLocalizedString("side dish")
     static let rating = NSLocalizedString("rating")
+    static let Rating = NSLocalizedString("Rating")
     
     static let field = NSLocalizedString("field")
     
@@ -57,4 +58,31 @@ extension String {
     static let timerStartLabel = NSLocalizedString("Start Timer")
     static let timerShowLabel = NSLocalizedString("Show Timer")
     static let numberOfPeopleLabel = NSLocalizedString("# of people")
+    
+    // MARK: - Edit noodle
+    
+    static let mealServingSize = NSLocalizedString("Meal serving size")
+    static let sideDishServingSize = NSLocalizedString("Side dish serving size")
+    static let preferMealSize = NSLocalizedString("Usually prefer meal size")
+    static let onHand = NSLocalizedString("Have noodles on hand")
+    static let preferMealSizeTitle = NSLocalizedString("Meal size preference")
+    static let onHandTitle = NSLocalizedString("Noodle availability")
+    static let referenceServingSize = NSLocalizedString("Nutritional info serving size")
+    static let calories = NSLocalizedString("Calories")
+    static let fat = NSLocalizedString("Fat")
+    static let saturated = NSLocalizedString("Saturated")
+    static let trans = NSLocalizedString("Trans fats")
+    static let sodium = NSLocalizedString("Sodium")
+    static let carbs = NSLocalizedString("Carbohydrate")
+    static let fibre = NSLocalizedString("Fibre")
+    static let sugars = NSLocalizedString("Sugars")
+    static let protein = NSLocalizedString("Protein")
+    
+    // MARK: - Units
+    static let mn = NSLocalizedString("mn")
+    static let cups = NSLocalizedString("cups")
+    static let cp = NSLocalizedString("cp")
+    static let g = NSLocalizedString("g")
+    static let mg = NSLocalizedString("mg")
+
 }

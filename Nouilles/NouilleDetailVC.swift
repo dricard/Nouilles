@@ -49,6 +49,8 @@ class NouilleDetailVC: UIViewController {
     @IBOutlet weak var onHandIndicatorView: UIImageView!
     @IBOutlet weak var timerButton: TimerButton!
     @IBOutlet weak var numberOfPeopleLabel: UILabel!
+    @IBOutlet weak var unitsLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     // MARK: - Actions
     
@@ -193,6 +195,8 @@ class NouilleDetailVC: UIViewController {
         
         // localize
         numberOfPeopleLabel.text = .numberOfPeopleLabel
+        unitsLabel.text = .cp
+        timeLabel.text = .mn
         
         // add gesture recognizer on timer button so user can start timer
         tapTimerButton.addTarget(self, action: #selector(NouilleDetailVC.startTimerTapped))
@@ -271,7 +275,7 @@ class NouilleDetailVC: UIViewController {
             if let nb_serving = nouille.serving {
                 referenceServing = Double(nb_serving)
                 let servingString = Nouille.formatWithFraction(value: referenceServing)
-                servingSize.text = "\(servingString) cp"
+                servingSize.text = "\(servingString) " + .cp
             } else {
                 calories.text = .noData
             }

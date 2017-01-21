@@ -905,9 +905,11 @@
                         <outlet property="servings" destination="s62-Ol-2dD" id="KYJ-v0-3nc"/>
                         <outlet property="sodium" destination="52V-FQ-Isd" id="bdx-xm-ddx"/>
                         <outlet property="sugars" destination="UqJ-bZ-hAN" id="BjZ-Ha-4VY"/>
+                        <outlet property="timeLabel" destination="BEU-Ve-sZp" id="Tk6-Dl-RH3"/>
                         <outlet property="timerButton" destination="XTH-ih-RJ9" id="4s3-QX-IQi"/>
                         <outlet property="totalServingSize" destination="lZ0-2b-PMj" id="7Hy-m1-MuO"/>
                         <outlet property="trans" destination="Zb1-Yp-fFr" id="6dc-Js-l8a"/>
+                        <outlet property="unitsLabel" destination="mVl-eb-Ws3" id="dnM-Cp-45r"/>
                         <segue destination="cF2-f5-Uwh" kind="showDetail" identifier="TakePictureSegue" id="07U-aX-Z57"/>
                     </connections>
                 </viewController>

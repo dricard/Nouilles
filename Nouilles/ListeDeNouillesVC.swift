@@ -124,6 +124,8 @@ extension ListeDeNouillesVC: UITableViewDataSource {
         
         cell.nameLabel?.text = nouille.name!
         cell.brandLabel?.text = nouille.brand!
+        cell.qtyUnitLabel.text = .cp
+        cell.timeUnitLabel.text = .mn
         
         if nouille.mealSizePrefered! as Bool {
             cell.qtyLabel?.text = Nouille.formatWithFraction(value: Double(nouille.servingCustom!))
