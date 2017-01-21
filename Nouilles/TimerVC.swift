@@ -33,6 +33,8 @@ class TimerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = NoodlesStyleKit.lighterYellow
+
         // add gesture recognizer on cancelView so user can cancel timer
         cancelTR.addTarget(self, action: #selector(TimerVC.cancelTapped))
         cancelView.addGestureRecognizer(cancelTR)
@@ -47,6 +49,7 @@ class TimerVC: UIViewController {
         
         // update once in case we return here while a timer is paused
         if let noodleTimer = noodleTimer {
+            timerView.backgroundColor = NoodlesStyleKit.lighterYellow
             minutesTimerLabel.text = noodleTimer.timerMinutesLabel()
             secondsTimerLabel.text = noodleTimer.timerSecondsLabel()
             timerView.progress = noodleTimer.timerRatio()
