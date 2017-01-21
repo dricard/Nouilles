@@ -173,6 +173,7 @@ extension ListeDeNouillesVC: UITableViewDataSource {
         // Set image of noodle or timer if one is running
         if timers.hasTimerFor(noodle: nouille) {
             cell.timerView.isHidden = false
+            cell.timerView.backgroundColor = NoodlesStyleKit.lighterYellow
             if let noodleTimer = timers.timerFor(noodle: nouille) {
                 if noodleTimer.isRunning() {
                     cell.timerView.progress = noodleTimer.timerRatio()
