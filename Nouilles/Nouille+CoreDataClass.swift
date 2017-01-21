@@ -348,39 +348,39 @@ public class Nouille: NSManagedObject {
          // drop the fractional part
          break
       case 0.05556...0.11805:
-         returnedString += "⅑"
+        returnedString += "\u{2151}"    // 1/9
       case 0.11806...0.13392:
-         returnedString += "⅛"
+        returnedString += "\u{215B}"  // 1/8
       case 0.13393...0.15475:
-         returnedString += "⅐"
+         returnedString += "\u{2150}" // 1/7
       case 0.15476...0.18332:
-         returnedString += "⅙"
+         returnedString += "\u{2159}" // 1/6
       case 0.18333...0.22499:
-         returnedString += "⅕"
+         returnedString += "\u{2155}" // 1/5
       case 0.22500...0.29166:
-         returnedString += "¼"
+         returnedString += "\u{00BC}" // 1/4
       case 0.29168...0.35416:
-         returnedString += "⅓"
+         returnedString += "\u{2153}"  // 1/3
       case 0.35417...0.38749:
-         returnedString += "⅜"
+         returnedString += "\u{215C}"  // 3/8
       case 0.38750...0.44999:
-         returnedString += "⅖"
+         returnedString += "\u{2156}"  // 2/5
       case 0.45000...0.54999:
-         returnedString += "½"
+         returnedString += "\u{00BD}"  // 1/2
       case 0.55000...0.61249:
-         returnedString += "⅗"
+         returnedString += "\u{2157}"  // 3/5
       case 0.61250...0.64582:
-         returnedString += "⅝"
+         returnedString += "\u{215D}"  // 5/8
       case 0.64583...0.70832:
-         returnedString += "⅔"
+         returnedString += "\u{2154}"  // 2/3
       case 0.70833...0.77499:
-         returnedString += "¾"
+         returnedString += "\u{00BE}"  // 3/4
       case 0.77500...0.81666:
-         returnedString += "⅘"
+         returnedString += "\u{2158}"  // 4/5
       case 0.81667...0.85416:
-         returnedString += "⅚"
+         returnedString += "\u{215A}"  // 5/6
       case 0.85417...0.93749:
-         returnedString += "⅞"
+         returnedString += "\u{215E}"  // 7/8
       case 0.93750...0.99999:
          // round to next interger, drop remainder
          integerPart += 1
