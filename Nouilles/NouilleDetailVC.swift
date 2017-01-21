@@ -23,6 +23,8 @@ class NouilleDetailVC: UIViewController {
     let tapOH = UITapGestureRecognizer()
     let tapTimerButton = UITapGestureRecognizer()
     
+    var didNotTryToFetch = true
+    
     // MARK: - Outlets
     
     @IBOutlet weak var image: UIImageView!
@@ -231,7 +233,16 @@ class NouilleDetailVC: UIViewController {
             if referenceServing != 0 {
                 return customServingSize * qty / referenceServing
             } else {
-                print("DIVIDE BY ZERO ERROR")
+                // Downloading data from the food info API probably failed
+                // if we're here, so try again, but only once
+                
+                if didNotTryToFetch {
+                    // Ask Model to fetch nutritional information
+                    Nouille.checkForNutritionalInformation(nouille: nouille, context: managedContext!)
+                    
+                    print("No nutritional info, trying to fetch again")
+                    didNotTryToFetch = false
+                }
                 return 0
             }
             

@@ -78,11 +78,19 @@ class ListeDeNouillesVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // update display, if a timer completed while the user was in another
+        // view, there might be a TimerVIew displayed still
+        tableView.reloadData()
+        // if we have one or more timers running, start a display timer
         if timers.isNotEmpty() {
             DispatchQueue.main.async {
                 self.internalTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ListeDeNouillesVC.updateTimers), userInfo: nil, repeats: true)
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        internalTimer.invalidate()
     }
     
     // MARK: - Utilities
@@ -94,6 +102,9 @@ class ListeDeNouillesVC: UIViewController {
                     tableView.reloadData()
                 }
             }
+        } else {
+            internalTimer.invalidate()
+            tableView.reloadData()
         }
     }
     
