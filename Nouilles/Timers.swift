@@ -18,6 +18,9 @@ class Timers: NSObject {
     
     var timers = [String:NoodleTimer]()
     
+    // This array of tuples is used for sequence-type access in list view
+    var timersArray = [(String, NoodleTimer)]()
+    
     // MARK: - methods
     
     // check if a timer is associated with a specific noodle
@@ -28,12 +31,18 @@ class Timers: NSObject {
         return timers[name] != nil
     }
     
+    func isNotEmpty() -> Bool {
+        return !timers.isEmpty
+    }
+    
     func createTimerFor(noodle: Nouille) {
         guard let name = noodle.name, let time = noodle.time else { return }
         let seconds = Int(Double(time) * 60.0)
         let noodleTimer = NoodleTimer(cookingTime: seconds)
         noodleTimer.delegate = self
         timers[name] = noodleTimer
+        // now add it to the array for sequence-type access in list view
+        timersArray.append((name, noodleTimer))
     }
     
     func timerFor(noodle: Nouille) -> NoodleTimer? {
@@ -44,6 +53,12 @@ class Timers: NSObject {
     func deleteTimerFor(noodle: Nouille) {
         guard let name = noodle.name else { return }
         timers[name] = nil
+        // Now also remove it from the array
+        for (index, (nameAtIndex, _)) in timersArray.enumerated() {
+            if nameAtIndex == name {
+                timersArray.remove(at: index)
+            }
+        }
     }
     
 }

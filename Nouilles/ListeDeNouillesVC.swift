@@ -17,6 +17,8 @@ class ListeDeNouillesVC: UIViewController {
     // noodles. This will be passed along when needed
     // Note: not to be confused with Timer class
     var timers = Timers()
+    // This is a local timer to refresh the display
+    var internalTimer = Timer()
     
     var managedContext: NSManagedObjectContext!
     var fetchedResultsController: NSFetchedResultsController<Nouille>!
@@ -73,6 +75,26 @@ class ListeDeNouillesVC: UIViewController {
         
         doFetch()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if timers.isNotEmpty() {
+            DispatchQueue.main.async {
+                self.internalTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ListeDeNouillesVC.updateTimers), userInfo: nil, repeats: true)
+            }
+        }
+    }
+    
+    // MARK: - Utilities
+    
+    func updateTimers() {
+        if timers.isNotEmpty() {
+            for (_, noodleTimer) in timers.timersArray {
+                if noodleTimer.isRunning() {
+                    tableView.reloadData()
+                }
+            }
+        }
     }
     
     // MARK: - Actions
@@ -139,6 +161,12 @@ extension ListeDeNouillesVC: UITableViewDataSource {
         
         // Set image of noodle or timer if one is running
         if timers.hasTimerFor(noodle: nouille) {
+            cell.timerView.isHidden = false
+            if let noodleTimer = timers.timerFor(noodle: nouille) {
+                if noodleTimer.isRunning() {
+                    cell.timerView.progress = noodleTimer.timerRatio()
+                }
+            }
         } else {
             cell.timerView.isHidden = true
             if let imageData = nouille.image as? Data {
