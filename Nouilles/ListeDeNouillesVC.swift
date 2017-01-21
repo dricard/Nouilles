@@ -154,6 +154,8 @@ extension ListeDeNouillesVC: UITableViewDataSource {
         
         let nouille = fetchedResultsController.object(at: indexPath)
         
+        // If this color is changed, be sure to also change the timerView
+        // backgroundcolor below to the same color
         cell.backgroundColor = NoodlesStyleKit.lighterYellow
         
         cell.nameLabel?.text = nouille.name!
