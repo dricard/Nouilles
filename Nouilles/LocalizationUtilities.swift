@@ -14,7 +14,7 @@ fileprivate func NSLocalizedString(_ key: String) -> String {
 
 extension String {
     
-    // Add Noodle VC
+    // MARK: Add Noodle VC
     
     static let addNoodleTitle = NSLocalizedString("Add Noodle")
     static let editButtonlabel = NSLocalizedString("Edit")
@@ -44,7 +44,13 @@ extension String {
     static let invalidEntry = NSLocalizedString("Invalid Entry")
     static let ok = NSLocalizedString("ok")
     
-    // Data validation
+    // MARK: - List view
+    
+    static let toggle = NSLocalizedString("Toggle")
+    static let onHandLabel = NSLocalizedString("On Hand")
+    static let delete = NSLocalizedString("Delete")
+    
+    // MARK: Data validation
     
     static let empty = NSLocalizedString("cannot be empty")
     static let notANumber = NSLocalizedString("must be a number")
@@ -52,7 +58,7 @@ extension String {
     static let tooBig = NSLocalizedString("is outside the allowed range of values")
     static let invalid = NSLocalizedString("is invalid")
     
-    // NouilleDetailVC
+    // MARK: NouilleDetailVC
     
     static let noData = NSLocalizedString("no data")
     static let timerStartLabel = NSLocalizedString("Start Timer")

@@ -76,3 +76,6 @@
 "cp" = "ts";
 "g" = "g";
 "mg" = "mg";
+"Toggle" = "Modifier";
+"On Hand" = "Disponibilité";
+"Delete" = "Effacer";

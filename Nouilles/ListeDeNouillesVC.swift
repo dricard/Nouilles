@@ -178,7 +178,7 @@ extension ListeDeNouillesVC {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         // toggle onHand setting
-        let toggleOnHandAction = UITableViewRowAction(style: .normal, title: "\u{2612}\nOn Hand", handler: { (action, indexPath) -> Void in
+        let toggleOnHandAction = UITableViewRowAction(style: .normal, title: "\u{2612}\n\(.toggle)\n\(.onHandLabel)", handler: { (action, indexPath) -> Void in
             
             let nouille = self.fetchedResultsController.object(at: indexPath)
             
@@ -193,7 +193,7 @@ extension ListeDeNouillesVC {
         })
         toggleOnHandAction.backgroundColor = NoodlesStyleKit.baseGreen
         
-        let deleteNoodleAction = UITableViewRowAction(style: .default, title: "\u{267A}\n Delete", handler: { (action, indexPath) -> Void in
+        let deleteNoodleAction = UITableViewRowAction(style: .default, title: "\u{267A}\n\(.delete)", handler: { (action, indexPath) -> Void in
             
             let nouille = self.fetchedResultsController.object(at: indexPath)
             
