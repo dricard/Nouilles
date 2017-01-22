@@ -20,6 +20,8 @@ class ListeDeNouillesVC: UIViewController {
     // This is a local timer to refresh the display
     var internalTimer = Timer()
     
+    var currentlyEditing = false
+    
     var managedContext: NSManagedObjectContext!
     var fetchedResultsController: NSFetchedResultsController<Nouille>!
     
@@ -96,15 +98,17 @@ class ListeDeNouillesVC: UIViewController {
     // MARK: - Utilities
     
     func updateTimers() {
-        if timers.isNotEmpty() {
-            for (_, noodleTimer) in timers.timersArray {
-                if noodleTimer.isRunning() {
-                    tableView.reloadData()
+        if !currentlyEditing {
+            if timers.isNotEmpty() {
+                for (_, noodleTimer) in timers.timersArray {
+                    if noodleTimer.isRunning() {
+                        tableView.reloadData()
+                    }
                 }
+            } else {
+                internalTimer.invalidate()
+                tableView.reloadData()
             }
-        } else {
-            internalTimer.invalidate()
-            tableView.reloadData()
         }
     }
     
@@ -261,25 +265,19 @@ extension ListeDeNouillesVC {
         return [toggleOnHandAction, deleteNoodleAction]
     }
     
-    // This enables the swipe left to delete gesture on the tableview
-    //   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    //      if editingStyle == UITableViewCellEditingStyle.delete {
-    //
-    //         let nouille = fetchedResultsController.object(at: indexPath)
-    //
-    //         managedContext.delete(nouille)
-    //
-    //         do {
-    //            try managedContext.save()
-    //         } catch let error as NSError {
-    //            print("Could not save context \(error), \(error.userInfo)")
-    //         }
-    //
-    //
-    //      }
-    //   }
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        // This will stop the update of the timers in the listview
+        // while the user is swiping a row to toggle 'on hand' or delete a row
+        currentlyEditing = true
+    }
     
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        // This will restart the update of the timers in the listview
+        // after the user swipied a row to toggle 'on hand' or deleted a row
+        currentlyEditing = false
+    }
 }
+
 // MARK: - Table View Delegate
 
 extension ListeDeNouillesVC: UITableViewDelegate {
