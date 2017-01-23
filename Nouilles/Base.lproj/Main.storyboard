@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NAn-ym-LWb" id="S4x-lE-glt">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="73"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="73.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6w-KQ-nIn">
@@ -367,7 +367,6 @@
                                 <state key="normal" title="Scan barcode"/>
                                 <connections>
                                     <action selector="scanBardoceTapped:" destination="AUZ-8E-KSD" eventType="touchUpInside" id="b78-Dd-pFO"/>
-                                    <segue destination="JdN-JH-SgB" kind="show" identifier="BarCodeVC" id="K3n-mH-Qfz"/>
                                 </connections>
                             </button>
                         </subviews>

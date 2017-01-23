@@ -24,6 +24,7 @@
 		213B05151DEDDA1300A5002A /* NetworkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B05141DEDDA1300A5002A /* NetworkCoordinator.swift */; };
 		21431A911DE3CE1E000CC37A /* NoodlesStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */; };
 		21431A931DE3D3E0000CC37A /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21431A921DE3D3E0000CC37A /* TimerView.swift */; };
+		214B38911E3658E1001E4F34 /* BarCodeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214B38901E3658E1001E4F34 /* BarCodeResult.swift */; };
 		215AB2A71DEC677A00B5AC23 /* DataValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215AB2A61DEC677A00B5AC23 /* DataValidation.swift */; };
 		215CC4E71DEF14B400070019 /* NoodleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CC4E61DEF14B400070019 /* NoodleListTableViewCell.swift */; };
 		21795F2F1DE33EAB00FAC131 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21795F311DE33EAB00FAC131 /* Localizable.strings */; };
@@ -69,6 +70,7 @@
 		213B05141DEDDA1300A5002A /* NetworkCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkCoordinator.swift; sourceTree = "<group>"; };
 		21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoodlesStyleKit.swift; sourceTree = "<group>"; };
 		21431A921DE3D3E0000CC37A /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		214B38901E3658E1001E4F34 /* BarCodeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeResult.swift; sourceTree = "<group>"; };
 		215AB2A61DEC677A00B5AC23 /* DataValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValidation.swift; sourceTree = "<group>"; };
 		215CC4E61DEF14B400070019 /* NoodleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoodleListTableViewCell.swift; sourceTree = "<group>"; };
 		21795F2D1DE339E800FAC131 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				210D7D121DF1BCAD00408E59 /* Filters.swift */,
 				21E325EC1E252BAA001269DE /* Timers.swift */,
 				21F2FEEA1E2683CA003A8017 /* NoodleTimer.swift */,
+				214B38901E3658E1001E4F34 /* BarCodeResult.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				21F2FEEB1E2683CA003A8017 /* NoodleTimer.swift in Sources */,
 				21D30BC41DF5E6D400D077E9 /* FatSecretAPI.swift in Sources */,
 				217B62E71DEB3019005A9F9D /* NutritionAPI.swift in Sources */,
+				214B38911E3658E1001E4F34 /* BarCodeResult.swift in Sources */,
 				210200F61DE791DC00D1F349 /* FoodAPI.swift in Sources */,
 				217D10B41DF213A400262255 /* EditDataVC.swift in Sources */,
 				21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */,

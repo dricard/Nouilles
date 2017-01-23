@@ -15,6 +15,7 @@ class AddNoodleVC: UIViewController {
     
     var managedContext: NSManagedObjectContext?
     var dataSaved: Bool = false
+    var scanResult = BarCodeResult()
     
     // MARK: - Outlets
     
@@ -31,6 +32,12 @@ class AddNoodleVC: UIViewController {
     }
     
     @IBAction func scanBardoceTapped(_ sender: Any) {
+        
+        // segue to scan barcode VC
+        let vc = storyboard?.instantiateViewController(withIdentifier: "BarCodeVC") as! BarCodeVC
+        vc.scanResults = scanResult
+        
+        show(vc, sender: self)
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
@@ -108,7 +115,23 @@ class AddNoodleVC: UIViewController {
                 present(controller, animated: true, completion: nil)
             }
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if scanResult.success {
+            if let name = scanResult.name {
+                nameInput.text = name
+            }
+            if let brand = scanResult.brand {
+                brandInput.text = brand
+            }
+            if let servingSize = scanResult.servingSize {
+                mealServingInput.text = "\(servingSize)"
+            }
+            if let cookingTime = scanResult.cookingTime {
+                cookingTimeInput.text = "\(cookingTime)"
+            }
+        }
     }
     
     // MARK: - Utility

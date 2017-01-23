@@ -56,9 +56,6 @@ class FatSecretAPI {
       var request = URLRequest(url: URL)
       request.httpMethod = httpMethod
 
-      print(URL)
-      print(request)
-      
       // Make the request
       let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
          
@@ -130,12 +127,9 @@ class FatSecretAPI {
       // 0. Create common parameters variables
       
       let timeStamp = Int64(NSDate().timeIntervalSince1970)
-      print("Timestamp is \(timeStamp)")
-      
-//      let nonce = UUID().uuidString
-      let nonce = "iletaitunpetitnavire"
-      print("Nonce is: \(nonce)")
-      
+    
+      let nonce = UUID().uuidString
+    
       let commonParams = [
          ("oauth_consumer_key", NetworkKeys.FSConsumerKey),
          ("oauth_signature_method", "HMAC-SHA1"),
@@ -160,13 +154,9 @@ class FatSecretAPI {
       
       // create the signature base string from all 3 parts
       let signatureBaseString = "\(httpMethodEncoded)&\(requestURLEncoded)&\(normalizedParametersStringEncoded)"
-      
-      print("Signature base string: \(signatureBaseString)")
-      print("after %encoding")
-      
+
       // Encode signature string using HMAC-SAH1
       let signature = FatSecretAPI.signRequest(signatureBaseString)
-      print(signature)
 
       return signature
    }
