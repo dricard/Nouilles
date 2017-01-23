@@ -6,6 +6,11 @@
 //  Copyright © 2016 Hexaedre. All rights reserved.
 //
 
+/*  This is responsible to play sounds for the UI
+    beep is used when a barcode scan was successful
+    ring is played when a cooking timer expires
+*/
+
 import Foundation
 import AVFoundation
 
@@ -30,20 +35,16 @@ class Sound: NSObject {
          print("Could not create audioPlayer \(error), \(error.userInfo)")
       }
       audioEngine = AVAudioEngine()
-      
       super.init()
    }
    
    func playBeep() {
-      
       beepPlayer.play()
       startTimer()
-      
    }
    
    func playRing() {
       ringPlayer.play()
-      
    }
    
    func startTimer() {

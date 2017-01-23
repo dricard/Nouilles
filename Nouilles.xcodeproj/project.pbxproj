@@ -25,6 +25,8 @@
 		21431A911DE3CE1E000CC37A /* NoodlesStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */; };
 		21431A931DE3D3E0000CC37A /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21431A921DE3D3E0000CC37A /* TimerView.swift */; };
 		214B38911E3658E1001E4F34 /* BarCodeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214B38901E3658E1001E4F34 /* BarCodeResult.swift */; };
+		214B38931E36AEBB001E4F34 /* ringSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 214B38921E36AEBB001E4F34 /* ringSound.mp3 */; };
+		214B38951E36B29A001E4F34 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214B38941E36B29A001E4F34 /* AboutVC.swift */; };
 		215AB2A71DEC677A00B5AC23 /* DataValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215AB2A61DEC677A00B5AC23 /* DataValidation.swift */; };
 		215CC4E71DEF14B400070019 /* NoodleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CC4E61DEF14B400070019 /* NoodleListTableViewCell.swift */; };
 		21795F2F1DE33EAB00FAC131 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 21795F311DE33EAB00FAC131 /* Localizable.strings */; };
@@ -46,7 +48,6 @@
 		21B87D301DF32A0600A4AB4E /* ChangeValueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */; };
 		21D30BC41DF5E6D400D077E9 /* FatSecretAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */; };
 		21D5102B1D6CA21B003CB856 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21D510291D6CA21B003CB856 /* Model.xcdatamodeld */; };
-		21D9C0D81E0C6474006361E7 /* ringSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21D9C0D71E0C6474006361E7 /* ringSound.mp3 */; };
 		21E325ED1E252BAA001269DE /* Timers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E325EC1E252BAA001269DE /* Timers.swift */; };
 		21F2FEEB1E2683CA003A8017 /* NoodleTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F2FEEA1E2683CA003A8017 /* NoodleTimer.swift */; };
 		21FDF5301E26D50200B517E2 /* TimerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FDF52F1E26D50200B517E2 /* TimerButton.swift */; };
@@ -71,6 +72,8 @@
 		21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoodlesStyleKit.swift; sourceTree = "<group>"; };
 		21431A921DE3D3E0000CC37A /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		214B38901E3658E1001E4F34 /* BarCodeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeResult.swift; sourceTree = "<group>"; };
+		214B38921E36AEBB001E4F34 /* ringSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ringSound.mp3; path = ../../../Downloads/ringSound.mp3; sourceTree = "<group>"; };
+		214B38941E36B29A001E4F34 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		215AB2A61DEC677A00B5AC23 /* DataValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValidation.swift; sourceTree = "<group>"; };
 		215CC4E61DEF14B400070019 /* NoodleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoodleListTableViewCell.swift; sourceTree = "<group>"; };
 		21795F2D1DE339E800FAC131 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -97,7 +100,6 @@
 		21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeValueVC.swift; sourceTree = "<group>"; };
 		21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatSecretAPI.swift; sourceTree = "<group>"; };
 		21D5102A1D6CA21B003CB856 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		21D9C0D71E0C6474006361E7 /* ringSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ringSound.mp3; sourceTree = "<group>"; };
 		21E325EC1E252BAA001269DE /* Timers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timers.swift; sourceTree = "<group>"; };
 		21F2FEEA1E2683CA003A8017 /* NoodleTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoodleTimer.swift; sourceTree = "<group>"; };
 		21FDF52F1E26D50200B517E2 /* TimerButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerButton.swift; sourceTree = "<group>"; };
@@ -144,7 +146,7 @@
 				21A148DD1D6B841900FA52BA /* Info.plist */,
 				210200FD1DE7C40A00D1F349 /* Sound.swift */,
 				210200FF1DE7CED000D1F349 /* scanBeep.mp3 */,
-				21D9C0D71E0C6474006361E7 /* ringSound.mp3 */,
+				214B38921E36AEBB001E4F34 /* ringSound.mp3 */,
 				21FE64091DF8652D0012B799 /* Nouilles-Bridging-Header.h */,
 			);
 			name = Divers;
@@ -205,6 +207,7 @@
 				210816901DF0C942007497BE /* FilterVC.swift */,
 				217D10B31DF213A400262255 /* EditDataVC.swift */,
 				21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */,
+				214B38941E36B29A001E4F34 /* AboutVC.swift */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -304,7 +307,7 @@
 				210201001DE7CED000D1F349 /* scanBeep.mp3 in Resources */,
 				21795F2F1DE33EAB00FAC131 /* Localizable.strings in Resources */,
 				21A148D91D6B841900FA52BA /* Assets.xcassets in Resources */,
-				21D9C0D81E0C6474006361E7 /* ringSound.mp3 in Resources */,
+				214B38931E36AEBB001E4F34 /* ringSound.mp3 in Resources */,
 				21A148D71D6B841900FA52BA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +325,7 @@
 				21D30BC41DF5E6D400D077E9 /* FatSecretAPI.swift in Sources */,
 				217B62E71DEB3019005A9F9D /* NutritionAPI.swift in Sources */,
 				214B38911E3658E1001E4F34 /* BarCodeResult.swift in Sources */,
+				214B38951E36B29A001E4F34 /* AboutVC.swift in Sources */,
 				210200F61DE791DC00D1F349 /* FoodAPI.swift in Sources */,
 				217D10B41DF213A400262255 /* EditDataVC.swift in Sources */,
 				21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */,
