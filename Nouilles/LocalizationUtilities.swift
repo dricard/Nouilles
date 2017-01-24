@@ -91,4 +91,14 @@ extension String {
     static let g = NSLocalizedString("g")
     static let mg = NSLocalizedString("mg")
 
+    // MARK: - About
+    static let aboutNoodles = NSLocalizedString("About Noodles")
+    static let noodles = NSLocalizedString("Noodles")
+    static let isMadeByLabel = NSLocalizedString("is made by")
+    static let dedicatedToLabel = NSLocalizedString("Noodles is dedicated to")
+    static let dedicationLabel = NSLocalizedString("Dominique, Coralie and Florence — for their patience and their love of noodles!")
+    static let ringCredits = NSLocalizedString("Ring sound provided by Mike Koenig on http://soundbible.com")
+    static let helpButtonLabel = NSLocalizedString("Help")
+    static let supportButtonLabel = NSLocalizedString("Support")
+
 }
