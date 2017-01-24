@@ -23,16 +23,16 @@ class Filters: NSObject {
    let sortSection = 0
    let predicateSection = 1
    
-   let sortTitleText = [ "By Name", "By Brand", "By Rating", "By Cooking Time" ]
-   let predicateTitleText = [ "All", "On-hand" ]
+    let sortTitleText: [String] = [ .byName, .byBrand, .byRating, .byCookingTime ]
+    let predicateTitleText: [String] = [ .all, .onHand ]
 
-   let sortDescriptionText = [
-      "Sort by name",
-      "Sort by Brand, then by name",
-      "Sort by Rating, then by name",
-      "Sort by cooking time, then by name"
+    let sortDescriptionText: [String] = [
+      .sortByName,
+      .sortByBrand,
+      .sortByRating,
+      .sortByTime
    ]
-   let predicateDescriptionText = [ "All noodles", "Only those listed as on-hand" ]
+    let predicateDescriptionText: [String] = [ .allNoodles, .onHandNoodles ]
 
    private var _currentSort: Int
    private var _currentPredicate: Int
@@ -169,9 +169,9 @@ class Filters: NSObject {
    func headerTitle(section: Int) -> String {
       switch sortTypeFromSection(section: section) {
       case .sort:
-         return "Sort"
+         return .sortTitle
       case .predicate:
-         return "Show"
+         return .predicateTitle
       }
    }
    

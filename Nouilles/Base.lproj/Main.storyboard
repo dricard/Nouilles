@@ -1341,6 +1341,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="aboutButton" destination="4G2-QJ-M8o" id="3qP-tD-jx5"/>
                         <outlet property="tableView" destination="nTl-hY-nrB" id="rtm-yE-xsn"/>
                     </connections>
                 </tableViewController>

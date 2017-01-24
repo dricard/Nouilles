@@ -38,7 +38,7 @@ class AboutVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = .aboutNoodles
+        title = .aboutNoodles
         
         titleLabel.text = .noodles
         madeByLabel.text = .isMadeByLabel

@@ -87,3 +87,20 @@
 "Ring sound provided by Mike Koenig on http://soundbible.com" = "Le son de la minuterie est de\nMike Koenig\nsoundbible.com";
 "Help" = "Aide";
 "Support" = "Support";
+"Filters" = "Options";
+"By Name" = "Par nom";
+"By Brand" = "Par marque";
+"By Rating" = "Par appréciation";
+"By Cooking Time" = "Par temps de cuisson";
+"All" = "Toutes";
+"On-hand" = "Disponibles";
+"Sort by name" = "Trier par nom";
+"Sort by Brand, then by name" = "Trier par marque, puis par nom";
+"Sort by Rating, then by name" = "Trier par appréciation, puis par nom";
+"Sort by cooking time, then by name" = "Trier par temps de cuisson, puis par nom";
+"All noodles" = "Toutes les nouilles";
+"Only those listed as available" = "Seulement celles disponibles";
+"Sort" = "Trier";
+"Show" = "Afficher";
+"About" = "À propos";
+

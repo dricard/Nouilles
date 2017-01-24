@@ -101,4 +101,21 @@ extension String {
     static let helpButtonLabel = NSLocalizedString("Help")
     static let supportButtonLabel = NSLocalizedString("Support")
 
+    // MARK: - Filters
+    
+    static let filtersLabel = NSLocalizedString("Filters")
+    static let byName = NSLocalizedString("By Name")
+    static let byBrand = NSLocalizedString("By Brand")
+    static let byRating = NSLocalizedString("By Rating")
+    static let byCookingTime = NSLocalizedString("By Cooking Time")
+    static let all = NSLocalizedString("All")
+    static let sortByName = NSLocalizedString("Sort by name")
+    static let sortByBrand = NSLocalizedString("Sort by Brand, then by name")
+    static let sortByRating = NSLocalizedString("Sort by Rating, then by name")
+    static let sortByTime = NSLocalizedString("Sort by cooking time, then by name")
+    static let allNoodles = NSLocalizedString("All noodles")
+    static let onHandNoodles = NSLocalizedString("Only those listed as available")
+    static let sortTitle = NSLocalizedString("Sort")
+    static let predicateTitle = NSLocalizedString("Show")
+    static let aboutButtonLabel = NSLocalizedString("About")
 }
