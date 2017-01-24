@@ -1414,7 +1414,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2017 Hexaedre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iu-TK-GNm">
-                                <rect key="frame" x="70" y="631.5" width="235" height="21"/>
+                                <rect key="frame" x="70" y="632" width="235" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="uhP-iT-72M"/>
                                 </constraints>
@@ -1447,6 +1447,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ring sound by Mike Koenig" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGu-Uk-nxN">
+                                <rect key="frame" x="10" y="586" width="355" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="zLH-ah-QTg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="12"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1456,9 +1465,11 @@
                             <constraint firstItem="Yv3-yY-Kn3" firstAttribute="top" secondItem="YjQ-RJ-oMF" secondAttribute="bottom" constant="10" id="66E-vP-hci"/>
                             <constraint firstAttribute="trailing" secondItem="6Yw-bT-2eZ" secondAttribute="trailing" constant="10" id="8NH-iu-1qN"/>
                             <constraint firstItem="Z7R-LN-O9o" firstAttribute="leading" secondItem="Dfi-Y1-roC" secondAttribute="leading" constant="10" id="BDk-6n-rGy"/>
+                            <constraint firstItem="PGu-Uk-nxN" firstAttribute="leading" secondItem="Dfi-Y1-roC" secondAttribute="leading" constant="10" id="GHX-ep-zpK"/>
                             <constraint firstItem="IgL-XA-2OK" firstAttribute="leading" secondItem="Z7R-LN-O9o" secondAttribute="trailing" id="J5j-Rf-A9t"/>
                             <constraint firstItem="j5X-k2-Wyh" firstAttribute="leading" secondItem="Dfi-Y1-roC" secondAttribute="leading" constant="15" id="Jwh-eD-Mjf"/>
                             <constraint firstItem="M1r-du-yAv" firstAttribute="centerY" secondItem="Dfi-Y1-roC" secondAttribute="centerY" id="MHs-ty-rGN"/>
+                            <constraint firstItem="awT-0h-NY3" firstAttribute="top" secondItem="PGu-Uk-nxN" secondAttribute="bottom" constant="20" id="MfS-El-QMa"/>
                             <constraint firstItem="6Yw-bT-2eZ" firstAttribute="leading" secondItem="Dfi-Y1-roC" secondAttribute="leading" constant="10" id="NDD-Wo-x7I"/>
                             <constraint firstItem="V5a-rk-R5J" firstAttribute="top" secondItem="IgL-XA-2OK" secondAttribute="bottom" id="Sho-52-vym"/>
                             <constraint firstItem="YjQ-RJ-oMF" firstAttribute="leading" secondItem="Dfi-Y1-roC" secondAttribute="leading" constant="10" id="TeA-lD-wYV"/>
@@ -1474,6 +1485,7 @@
                             <constraint firstItem="V5a-rk-R5J" firstAttribute="leading" secondItem="Dfi-Y1-roC" secondAttribute="leadingMargin" constant="15" id="lqb-v7-45a"/>
                             <constraint firstItem="j5X-k2-Wyh" firstAttribute="top" secondItem="V5a-rk-R5J" secondAttribute="bottom" id="nNc-DF-ywV"/>
                             <constraint firstItem="M1r-du-yAv" firstAttribute="centerX" secondItem="Dfi-Y1-roC" secondAttribute="centerX" id="ofo-E9-bqv"/>
+                            <constraint firstAttribute="trailing" secondItem="PGu-Uk-nxN" secondAttribute="trailing" constant="10" id="opU-6w-si2"/>
                             <constraint firstItem="4iu-TK-GNm" firstAttribute="leading" secondItem="YjQ-RJ-oMF" secondAttribute="trailing" id="w78-7R-d9J"/>
                             <constraint firstItem="6Yw-bT-2eZ" firstAttribute="top" secondItem="Ouk-nY-noe" secondAttribute="bottom" constant="10" id="xGb-Kx-nD4"/>
                         </constraints>
