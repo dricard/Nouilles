@@ -26,6 +26,8 @@ class AddNoodleVC: UIViewController {
     @IBOutlet weak var ratingInput: UITextField!
     @IBOutlet weak var cookingTimeInput: UITextField!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIView!
     // MARK: - Actions
     
     @IBAction func addPictureTapped(_ sender: Any) {
@@ -89,6 +91,16 @@ class AddNoodleVC: UIViewController {
         
         title = .addNoodleTitle
         view.backgroundColor = NoodlesStyleKit.lighterYellow
+        
+        // testing
+        
+        contentView.frame = view.bounds
+        
+        scrollView.frame = view.bounds
+        scrollView.contentSize = contentView.bounds.size
+        scrollView.autoresizingMask = [UIViewAutoresizing.flexibleHeight]
+        
+        // end testing
         
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: .Back, style: .plain, target: self, action: #selector(AddNoodleVC.backButtonTapped))
