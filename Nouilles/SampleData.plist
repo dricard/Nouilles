@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Bows</string>
+		<key>brand</key>
+		<string>Catelli</string>
+		<key>rating</key>
+		<real>0.5</real>
+		<key>serving_meal</key>
+		<real>0.75</real>
+		<key>serving_side</key>
+		<real>0.5</real>
+		<key>cooking_time</key>
+		<real>7.5</real>
+		<key>prefer_meal_size</key>
+		<false/>
+		<key>on_hand</key>
+		<true/>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Fusili</string>
+		<key>brand</key>
+		<string>Catelli</string>
+		<key>rating</key>
+		<real>4.5</real>
+		<key>serving_meal</key>
+		<real>1.25</real>
+		<key>serving_side</key>
+		<real>0.75</real>
+		<key>cooking_time</key>
+		<integer>5</integer>
+		<key>prefer_meal_size</key>
+		<true/>
+		<key>on_hand</key>
+		<false/>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Penne Rigate</string>
+		<key>brand</key>
+		<string>Ronzoni</string>
+		<key>rating</key>
+		<integer>3</integer>
+		<key>serving_meal</key>
+		<real>0.666</real>
+		<key>serving_side</key>
+		<real>0.33</real>
+		<key>cooking_time</key>
+		<integer>8</integer>
+		<key>prefer_meal_size</key>
+		<false/>
+		<key>on_hand</key>
+		<true/>
+	</dict>
+</array>
+</plist>

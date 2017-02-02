@@ -240,7 +240,6 @@ class NouilleDetailVC: UIViewController {
                     // Ask Model to fetch nutritional information
                     Nouille.checkForNutritionalInformation(nouille: nouille, context: managedContext!)
                     
-                    print("No nutritional info, trying to fetch again")
                     didNotTryToFetch = false
                 }
                 return 0

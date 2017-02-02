@@ -19,6 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
+        // Insert sample data (which checks if data already exists)
+        insertSampleData()
+        
+
         // get a reference to the first view controller...
         guard let navController = window?.rootViewController as? UINavigationController, let viewController = navController.topViewController as? ListeDeNouillesVC else { return true }
         
@@ -36,5 +40,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         coreDataStack.saveContext()
     }
     
+    // MARK: - Utilities
+    
+    func insertSampleData() {
+        
+        // check if data exist already
+        let fetch: NSFetchRequest<Nouille> = Nouille.fetchRequest()
+        fetch.predicate = NSPredicate(format: "name != nil")
+        
+        let count = try! coreDataStack.managedContext.count(for: fetch)
+        
+        if count > 0 { return }
+        
+        let path = Bundle.main.path(forResource: "SampleData", ofType: "plist")
+        let sampleDataArray = NSArray(contentsOfFile: path!)! as! [[String:Any]]
+        
+        for dictionary in sampleDataArray {
+            
+            // Create the new noodle
+            let newNoodle = Nouille(context: coreDataStack.managedContext)
+            
+            // user data
+            newNoodle.name = dictionary["name"] as? String
+            newNoodle.brand = dictionary["brand"] as? String
+
+            newNoodle.servingCustom = dictionary["serving_meal"] as? NSNumber
+            newNoodle.servingSideDish = dictionary["serving_side"] as? NSNumber
+            newNoodle.time = dictionary["cooking_time"] as? NSNumber
+            newNoodle.rating = dictionary["rating"] as? NSNumber
+            
+            // default to prefer meal size servings
+            newNoodle.mealSizePrefered = dictionary["prefer_meal_size"] as? NSNumber
+            // default to number of serving of 1
+            newNoodle.numberOfServing = 1
+            // default to onHand
+            newNoodle.onHand = dictionary["on_hand"] as? NSNumber
+            
+            // Save the context / new noodle to coredata
+            do {
+                try coreDataStack.managedContext.save()
+            } catch let error as NSError {
+                print("Could not save context in saveNoodleData() \(error), \(error.userInfo)")
+            }
+            
+        }
+        
+    }
+
 }
 
