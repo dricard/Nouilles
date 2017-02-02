@@ -19,6 +19,8 @@
 		<false/>
 		<key>on_hand</key>
 		<true/>
+		<key>image</key>
+		<string>image_bows.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -37,6 +39,8 @@
 		<true/>
 		<key>on_hand</key>
 		<false/>
+		<key>image</key>
+		<string>image_fusili</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -55,6 +59,8 @@
 		<false/>
 		<key>on_hand</key>
 		<true/>
+		<key>image</key>
+		<string>image_penne</string>
 	</dict>
 </array>
 </plist>

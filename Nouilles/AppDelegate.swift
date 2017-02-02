@@ -75,6 +75,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             newNoodle.numberOfServing = 1
             // default to onHand
             newNoodle.onHand = dictionary["on_hand"] as? NSNumber
+            let imageFile = dictionary["image"] as? String
+            let image = UIImage(named: imageFile!)
+            newNoodle.image = UIImagePNGRepresentation(image!) as NSData?
+            
             
             // Save the context / new noodle to coredata
             do {
