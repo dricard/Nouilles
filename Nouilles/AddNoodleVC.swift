@@ -91,16 +91,7 @@ class AddNoodleVC: UIViewController {
         
         title = .addNoodleTitle
         view.backgroundColor = NoodlesStyleKit.lighterYellow
-        
-        // testing
-        
-        contentView.frame = view.bounds
-        
-        scrollView.frame = view.bounds
-        scrollView.contentSize = contentView.bounds.size
-        scrollView.autoresizingMask = [UIViewAutoresizing.flexibleHeight]
-        
-        // end testing
+        contentView.backgroundColor = NoodlesStyleKit.lighterYellow
         
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: .Back, style: .plain, target: self, action: #selector(AddNoodleVC.backButtonTapped))
