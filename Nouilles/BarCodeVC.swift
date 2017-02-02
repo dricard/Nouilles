@@ -94,6 +94,30 @@ class BarCodeVC: UIViewController {
 
 extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
     
+    enum SuccessState {
+        case successWithData
+        case failureTalkingWithAPI
+        case failureToReturnData
+    }
+    
+    func presentBarCodeResult(for success: Bool, state: SuccessState) {
+        
+        let title = success ? "Success" : "Failed"
+        var scanSuccess: String
+        switch state {
+        case .successWithData:
+            scanSuccess = "Data was returned from server"
+        case .failureToReturnData:
+            scanSuccess = "No data was provided by server"
+        case .failureTalkingWithAPI:
+            scanSuccess = "Unable to communicate successfuly with the server"
+        }
+        let alertVC = UIAlertController(title: title, message: scanSuccess, preferredStyle: .alert)
+        let actionOK = UIAlertAction(title: "ok", style: .default, handler: nil)
+        alertVC.addAction(actionOK)
+        present(alertVC, animated: true, completion: nil)
+    }
+    
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         
         // check if metadata object is not nil and contains at least one object
@@ -154,18 +178,22 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
                     // check for success
                     guard success else {
                         // TODO: - display message to user?
-                        // Note that it can be a success but no useful data is returned
+                        // Success here only means the communication with the API
+                        // was successful, not that any useful information was
+                        // returned
+                        self.presentBarCodeResult(for: false, state: .failureTalkingWithAPI)
                         return
                     }
                     
                     if let result = productInfo {
                         // we have data
-                        
                         // update the success indicator
                         if result["status"] != nil {
                             self.successView?.successState = .failure
+                            self.presentBarCodeResult(for: false, state: .failureToReturnData)
                         } else {
                             self.successView?.successState = .success
+                            self.presentBarCodeResult(for: true, state: .successWithData)
                             
                             // if successful, extract useful information
                             if let scanResults = self.scanResults {
@@ -216,7 +244,6 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
                             }
                         }
                     }
-                    
                 })
             }
         }
