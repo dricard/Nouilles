@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  Nouilles
-
-  Created by Denis Ricard on 2016-11-21.
-  Copyright © 2016 Hexaedre. All rights reserved.
-*/
+/*
+ Localizable.strings
+ Nouilles
+ 
+ Created by Denis Ricard on 2016-11-21.
+ Copyright © 2016 Hexaedre. All rights reserved.
+ */
 
 "Noodle" = "Nouille";
 "Choose from the album or take a picture" = "Choisir à partir de l'album ou prendre une photo";
@@ -12,7 +12,7 @@
 "Time" = "Temps";
 "Minus" = "Moins";
 "Plus" = "Plus";
-"Nutritional value per serving" = "Valeur nutrituve par portion";
+"Nutritional value per serving" = "Valeur nutritive par portion";
 "Rating" = "Appréciation";
 "rating" = "appréciation";
 "Edit" = "Editer";
@@ -28,11 +28,11 @@
 "Name" = "Nom";
 "Brand" = "Marque";
 "Meal serving" = "Portion repas";
-"Side dish serving" = "Portion accompagnement";
+"Side-dish serving" = "Portion accompagnement";
 "Cooking time" = "Temps de cuisson";
 "Add picture" = "Ajouter une image";
 "Add Noodle" = "Ajouter une nouille";
-"Scan barcode" = "Lire code bar";
+"Scan barcode" = "Lire code-bar";
 "Cancel" = "Annuler";
 "Save" = "Sauvegarder";
 "Back" = "Retour";
@@ -47,7 +47,7 @@
 "is invalid" = "n'est pas valide";
 "Field" = "Le champ";
 "Unsaved entry" = "Données non sauvegardées";
-"You have entered some data and have not saved, are you sure you want to discard the data?" = "Vous avez inscrit des données, êtes vous certain de vouloir quitter sans sauvegrader?";
+"You have entered some data and have not saved, are you sure you want to discard the data?" = "Vous avez inscrit des données, êtes vous certain de vouloir quitter sans sauvegarder?";
 "Discard" = "Jetter";
 "Invalid Entry" = "Champ invalide";
 "ok" = "ok";
@@ -56,8 +56,8 @@
 "Start Timer" = "Partir la minuterie";
 "# of people" = "N. de personnes";
 "Meal serving size" = "Qtée pour un repas";
-"Side dish serving size" = "Qtée pour un accompagnement";
-"Usually prefer meal size" = "Qtée pour une repas";
+"Side-dish serving size" = "Qtée pour un accompagnement";
+"Usually prefer meal size" = "Qtée pour un repas";
 "Have noodles on hand" = "Disponibles";
 "Meal size preference" = "Utilisation la plus fréquente";
 "Noodle availability" = "Disponibilité de ces nouilles";
@@ -71,7 +71,7 @@
 "Fibre" = "Fibres";
 "Sugars" = "Sucres";
 "Protein" = "Protéines";
-"mn" = "mn";
+"min" = "min";
 "cups" = "tasses";
 "cp" = "ts";
 "g" = "g";
@@ -93,7 +93,7 @@
 "By Rating" = "Par appréciation";
 "By Cooking Time" = "Par temps de cuisson";
 "All" = "Toutes";
-"On-hand" = "Disponibles";
+"On hand" = "Disponibles";
 "Sort by name" = "Trier par nom";
 "Sort by Brand, then by name" = "Trier par marque, puis par nom";
 "Sort by Rating, then by name" = "Trier par appréciation, puis par nom";
@@ -103,4 +103,8 @@
 "Sort" = "Trier";
 "Show" = "Afficher";
 "About" = "À propos";
-
+"Success" = "Succès";
+"Failed" = "Échec";
+"Data was returned from the server" = "Certaines informations ont été fournies par le serveur";
+"No data was provided by the server" = "Aucune information n'a été retournée par le serveur";
+"Unable to communicate successfully with the server" = "Impossible de communiquer avec le serveur";

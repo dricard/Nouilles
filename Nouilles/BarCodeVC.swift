@@ -102,18 +102,18 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
     
     func presentBarCodeResult(for success: Bool, state: SuccessState) {
         
-        let title = success ? "Success" : "Failed"
+        let title: String = success ? .successful : .failure
         var scanSuccess: String
         switch state {
         case .successWithData:
-            scanSuccess = "Data was returned from server"
+            scanSuccess = .successWithData
         case .failureToReturnData:
-            scanSuccess = "No data was provided by server"
+            scanSuccess = .failureToReturnData
         case .failureTalkingWithAPI:
-            scanSuccess = "Unable to communicate successfuly with the server"
+            scanSuccess = .failureToCommunicateWithAPI
         }
         let alertVC = UIAlertController(title: title, message: scanSuccess, preferredStyle: .alert)
-        let actionOK = UIAlertAction(title: "ok", style: .default, handler: nil)
+        let actionOK = UIAlertAction(title: .ok, style: .default, handler: nil)
         alertVC.addAction(actionOK)
         present(alertVC, animated: true, completion: nil)
     }
@@ -177,10 +177,9 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
                     
                     // check for success
                     guard success else {
-                        // TODO: - display message to user?
-                        // Success here only means the communication with the API
+                        // 'success' here only means the communication with the API
                         // was successful, not that any useful information was
-                        // returned
+                        // returned. If this failed then we present the user with info
                         self.presentBarCodeResult(for: false, state: .failureTalkingWithAPI)
                         return
                     }

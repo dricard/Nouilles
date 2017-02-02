@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  Nouilles
-
-  Created by Denis Ricard on 2016-11-21.
-  Copyright © 2016 Hexaedre. All rights reserved.
-*/
+/*
+ Localizable.strings
+ Nouilles
+ 
+ Created by Denis Ricard on 2016-11-21.
+ Copyright © 2016 Hexaedre. All rights reserved.
+ */
 
 "Noodle" = "Noodle";
 "Choose from the album or take a picture" = "Choose from the album or take a picture";
@@ -28,7 +28,7 @@
 "Name" = "Name";
 "Brand" = "Brand";
 "Meal serving" = "Meal serving";
-"Side dish serving" = "Side dish serving";
+"Side-dish serving" = "Side-dish serving";
 "Cooking time" = "Cooking time";
 "Add picture" = "Add picture";
 "Add Noodle" = "Add Noodle";
@@ -56,7 +56,7 @@
 "Start Timer" = "Start Timer";
 "# of people" = "# of people";
 "Meal serving size" = "Meal serving size";
-"Side dish serving size" = "Side dish serving size";
+"Side-dish serving size" = "Side-dish serving size";
 "Usually prefer meal size" = "Usually prefer meal size";
 "Have noodles on hand" = "Have noodles on hand";
 "Meal size preference" = "Meal size preference";
@@ -71,7 +71,7 @@
 "Fibre" = "Fibre";
 "Sugars" = "Sugars";
 "Protein" = "Protein";
-"mn" = "mn";
+"min" = "min";
 "cups" = "cups";
 "cp" = "cp";
 "g" = "g";
@@ -93,7 +93,7 @@
 "By Rating" = "By Rating";
 "By Cooking Time" = "By Cooking Time";
 "All" = "All";
-"On-hand" = "On-hand";
+"On hand" = "On hand";
 "Sort by name" = "Sort by name";
 "Sort by Brand, then by name" = "Sort by Brand, then by name";
 "Sort by Rating, then by name" = "Sort by Rating, then by name";
@@ -103,3 +103,8 @@
 "Sort" = "Sort";
 "Show" = "Show";
 "About" = "About";
+"Success" = "Success";
+"Failed" = "Failed";
+"Data was returned from the server" = "Data was returned from the server";
+"No data was provided by the server" = "No data was provided by the server";
+"Unable to communicate successfully with the server" = "Unable to communicate successfully with the server";

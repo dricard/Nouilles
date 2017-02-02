@@ -34,7 +34,7 @@ extension String {
     static let name = NSLocalizedString("Name")
     static let brand = NSLocalizedString("Brand")
     static let mealServing = NSLocalizedString("Meal serving")
-    static let sdMealServing = NSLocalizedString("Side dish serving")
+    static let sdMealServing = NSLocalizedString("Side-dish serving")
     static let cookingTime = NSLocalizedString("Cooking time")
     static let ratingCap = NSLocalizedString("Rating")
     
@@ -68,7 +68,7 @@ extension String {
     // MARK: - Edit noodle
     
     static let mealServingSize = NSLocalizedString("Meal serving size")
-    static let sideDishServingSize = NSLocalizedString("Side dish serving size")
+    static let sideDishServingSize = NSLocalizedString("Side-dish serving size")
     static let preferMealSize = NSLocalizedString("Usually prefer meal size")
     static let onHand = NSLocalizedString("Have noodles on hand")
     static let preferMealSizeTitle = NSLocalizedString("Meal size preference")
@@ -85,7 +85,7 @@ extension String {
     static let protein = NSLocalizedString("Protein")
     
     // MARK: - Units
-    static let mn = NSLocalizedString("mn")
+    static let mn = NSLocalizedString("min")
     static let cups = NSLocalizedString("cups")
     static let cp = NSLocalizedString("cp")
     static let g = NSLocalizedString("g")
@@ -118,4 +118,12 @@ extension String {
     static let sortTitle = NSLocalizedString("Sort")
     static let predicateTitle = NSLocalizedString("Show")
     static let aboutButtonLabel = NSLocalizedString("About")
+    
+    // MARK: - Bar Code scanning
+    
+    static let successful = NSLocalizedString("Success")
+    static let failure = NSLocalizedString("Failed")
+    static let successWithData = NSLocalizedString("Data was returned from the server")
+    static let failureToReturnData = NSLocalizedString("No data was provided by the server")
+    static let failureToCommunicateWithAPI = NSLocalizedString("Unable to communicate successfully with the server")
 }
