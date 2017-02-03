@@ -238,8 +238,13 @@ class NouilleDetailVC: UIViewController {
                 
                 if didNotTryToFetch {
                     // Ask Model to fetch nutritional information
-                    Nouille.checkForNutritionalInformation(nouille: nouille, context: managedContext!)
-                    
+                    Nouille.checkForNutritionalInformation(nouille: nouille, context: managedContext!) { success in
+                        if success {
+                            DispatchQueue.main.async {
+                                self.updateInterface()
+                            }
+                        }
+                    }
                     didNotTryToFetch = false
                 }
                 return 0

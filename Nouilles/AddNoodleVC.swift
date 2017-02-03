@@ -300,7 +300,9 @@ class AddNoodleVC: UIViewController {
         }
         
         // Ask Model to fetch nutritional information
-        Nouille.checkForNutritionalInformation(nouille: newNoodle, context: managedContext!)
+        Nouille.checkForNutritionalInformation(nouille: newNoodle, context: managedContext!) { success in
+            // no need for closure in this case
+        }
         
         dataSaved = true
         return (true, nil, nil)

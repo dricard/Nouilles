@@ -39,7 +39,6 @@ class NutritionAPI {
         // Configure the Headers
         
         request.addValue(NetworkKeys.MashapeKey, forHTTPHeaderField: "X-Mashape-Key")
-        //      request.addValue("session=8X6p1kLdydkNF2scPvvInw.TAQXJwNV-o3aTJR2DKIWB-zLzKjLg0e0_ohFvG06bHE.1480259704623.86400000.PM5xLW6ulxfTz7-Okualb6gol8khsGpir4GYClWgENs", forHTTPHeaderField: "Cookie")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
                 
         // Make the request

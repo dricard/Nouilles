@@ -11,7 +11,7 @@ import Foundation
 class FatSecretAPI {
    
    
-   static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void) {
+    static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void) {
       
       // Get the parameters common to all requests
       var normalizedParams = FatSecretAPI.commonParameters()

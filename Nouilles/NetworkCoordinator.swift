@@ -48,17 +48,17 @@ class NetworkCoordinator {
       
    }
    
-   static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void)  {
+    static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void)  {
       
       // for testing purposes I can switch API providers here.
-      // if both are good I might set this as a use defined preferences
+      // if both are good I might set this as a user defined preferences
       let selectedAPI: foodAPIProviders = .nutritionix
 
       switch selectedAPI {
       case .fatSecret:
-         FatSecretAPI.findNutritionInformation(searchString: searchString, completionHandlerForFindNutritionInfoRequest: completionHandlerForFindNutritionInfoRequest)
+        FatSecretAPI.findNutritionInformation(searchString: searchString, completionHandlerForFindNutritionInfoRequest: completionHandlerForFindNutritionInfoRequest)
       case .nutritionix:
-         NutritionAPI.findNutritionInformation(searchString: searchString, completionHandlerForFindNutritionInfoRequest: completionHandlerForFindNutritionInfoRequest)
+        NutritionAPI.findNutritionInformation(searchString: searchString, completionHandlerForFindNutritionInfoRequest: completionHandlerForFindNutritionInfoRequest)
       }
 
    }

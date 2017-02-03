@@ -270,7 +270,7 @@ public class Nouille: NSManagedObject {
     
     // MARK: - Network calling methods
     
-    static func checkForNutritionalInformation(nouille: Nouille?, context: NSManagedObjectContext) {
+    static func checkForNutritionalInformation(nouille: Nouille?, context: NSManagedObjectContext, completionHandlerForCaller: @escaping (_ success: Bool) -> Void) {
         
         /// This checks if we already have nutritional informations
         /// - returns: false if if we already have nutritional information, and true
@@ -325,7 +325,9 @@ public class Nouille: NSManagedObject {
                 } catch let error as NSError {
                     print("Could not save context in checkForNutritionalInformation \(error), \(error.userInfo)")
                 }
-                
+                completionHandlerForCaller(true)
+            } else {
+                completionHandlerForCaller(false)
             }
         })
         
