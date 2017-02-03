@@ -46,6 +46,9 @@ class ListeDeNouillesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.separatorColor = NoodlesStyleKit.baseGreen
+        tableView.backgroundColor = NoodlesStyleKit.mediumYellow
+
         // customize filter button
         filterButton.title = "\u{2630}"
         

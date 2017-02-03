@@ -26,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // get a reference to the first view controller...
         guard let navController = window?.rootViewController as? UINavigationController, let viewController = navController.topViewController as? ListeDeNouillesVC else { return true }
         
+        navController.navigationBar.backgroundColor = NoodlesStyleKit.darkerYellow
         // ... and pass the Core Data Context to it (dependency injection pattern)
         viewController.managedContext = coreDataStack.managedContext
         
