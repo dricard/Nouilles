@@ -39,6 +39,7 @@ class AboutVC: UIViewController {
         super.viewDidLoad()
 
         title = .aboutNoodles
+        view.backgroundColor = NoodlesStyleKit.lighterYellow
         
         titleLabel.text = .noodles
         madeByLabel.text = .isMadeByLabel
