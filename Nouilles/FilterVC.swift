@@ -76,6 +76,9 @@ class FilterVC: UITableViewController {
         
         view.backgroundColor = NoodlesStyleKit.lighterYellow
 
+        tableView.separatorColor = NoodlesStyleKit.baseGreen
+        tableView.backgroundColor = NoodlesStyleKit.mediumYellow
+
         title = .filtersLabel
         aboutButton.title = .aboutButtonLabel
         
@@ -119,6 +122,14 @@ class FilterVC: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionHeaderView = FilterHeaderView()
+        guard let filters = filters else { return nil }
+        let title = filters.headerTitle(section: section)
+        sectionHeaderView.label.text = title
+        return sectionHeaderView
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let filters = filters else { fatalError() }
@@ -128,7 +139,8 @@ class FilterVC: UITableViewController {
         cell.accessoryType = filters.accessoryIndicator(indexPath: indexPath)
         cell.textLabel?.text = filters.title(indexPath: indexPath)
         cell.detailTextLabel?.text = filters.description(indexPath: indexPath)
-        
+        cell.backgroundColor = NoodlesStyleKit.lighterYellow
+
         return cell
     }
     
