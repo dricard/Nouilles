@@ -22,12 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Insert sample data (which checks if data already exists)
         insertSampleData()
         
-
-        // get a reference to the first view controller...
+        // get a reference to the first view controller
         guard let navController = window?.rootViewController as? UINavigationController, let viewController = navController.topViewController as? ListeDeNouillesVC else { return true }
         
+        // set background color to the navigation bar
         navController.navigationBar.backgroundColor = NoodlesStyleKit.darkerYellow
-        // ... and pass the Core Data Context to it (dependency injection pattern)
+        
+        // pass the Core Data Context to it (dependency injection pattern)
         viewController.managedContext = coreDataStack.managedContext
         
         return true
@@ -46,6 +47,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func insertSampleData() {
         
         // check if data exist already
+        // this method will populate with sample data if the app is
+        // launched with no data.
         let fetch: NSFetchRequest<Nouille> = Nouille.fetchRequest()
         fetch.predicate = NSPredicate(format: "name != nil")
         
@@ -61,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Create the new noodle
             let newNoodle = Nouille(context: coreDataStack.managedContext)
             
-            // user data
+            // Noodle data
             newNoodle.name = dictionary["name"] as? String
             newNoodle.brand = dictionary["brand"] as? String
 
@@ -76,21 +79,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             newNoodle.numberOfServing = 1
             // default to onHand
             newNoodle.onHand = dictionary["on_hand"] as? NSNumber
+            
+            // load default image
             let imageFile = dictionary["image"] as? String
             let image = UIImage(named: imageFile!)
             newNoodle.image = UIImagePNGRepresentation(image!) as NSData?
             
-            
-            // Save the context / new noodle to coredata
-            do {
-                try coreDataStack.managedContext.save()
-            } catch let error as NSError {
-                print("Could not save context in saveNoodleData() \(error), \(error.userInfo)")
-            }
-            
         }
         
+        // Save the context / new noodle to coredata
+        do {
+            try coreDataStack.managedContext.save()
+        } catch let error as NSError {
+            print("Could not save context in saveNoodleData() \(error), \(error.userInfo)")
+        }
     }
-
 }
 
