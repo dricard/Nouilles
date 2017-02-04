@@ -93,7 +93,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TY5-tt-PGV">
-                                            <rect key="frame" x="221" y="46" width="793" height="167"/>
+                                            <rect key="frame" x="221" y="46" width="796" height="167"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="TY5-tt-PGV" secondAttribute="height" multiplier="95:20" id="OVs-go-ads"/>
                                             </constraints>
@@ -468,7 +468,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ne3-iJ-Rwa">
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ne3-iJ-Rwa">
                                 <rect key="frame" x="8" y="106" width="144" height="144"/>
                                 <gestureRecognizers/>
                                 <constraints>
