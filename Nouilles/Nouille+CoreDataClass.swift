@@ -216,6 +216,24 @@ public class Nouille: NSManagedObject {
         
     }
     
+    func updateText(newText: String, forDataAt indexPath: IndexPath) {
+        switch indexPath.row {
+        case 0:
+            name = newText
+        case 1:
+            brand = newText
+        default:
+            break
+        }
+        
+        do {
+            try managedObjectContext?.save()
+        } catch let error as NSError {
+            print("Could not save context \(error), \(error.userInfo)")
+        }
+       
+    }
+    
     func updateValue(value: Double, forDataAt indexPath: IndexPath)  {
         
         switch indexPath.row {

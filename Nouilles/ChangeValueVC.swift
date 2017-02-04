@@ -97,10 +97,14 @@ extension ChangeValueVC: UITextFieldDelegate {
         switch validator.validateValue(textField.text!) {
         case .valid:
             if editType == "NumberCell" {
-                // we chan for unwrap since the data was
-                // validated for typecast to Double in the validation
+                // we can force unwrap since the data was
+                // validated for typecast to Double in the validation process
                 let returnValue = Double(textField.text!)!
                 nouille.updateValue(value: returnValue, forDataAt: indexPath)
+            } else if editType == "TextCell"{
+                if let returnedText = textField.text {
+                    nouille.updateText(newText: returnedText, forDataAt: indexPath)
+                }
             }
             return .valid
         case .invalid(let error):
