@@ -74,6 +74,8 @@ class FilterVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = NoodlesStyleKit.lighterYellow
+
         title = .filtersLabel
         aboutButton.title = .aboutButtonLabel
         
