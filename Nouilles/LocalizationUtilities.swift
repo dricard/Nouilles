@@ -8,9 +8,15 @@
 
 import Foundation
 
+// Convinience method to NSLocalizedString without a comment
 fileprivate func NSLocalizedString(_ key: String) -> String {
     return NSLocalizedString(key, comment: "")
 }
+
+/*  This is an extention of String which permits the use of
+    a shorthand (like .save) anywhere a String is required
+    which will return the localized string
+*/
 
 extension String {
     
