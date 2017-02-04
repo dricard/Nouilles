@@ -126,4 +126,10 @@ extension String {
     static let successWithData = NSLocalizedString("Data was returned from the server")
     static let failureToReturnData = NSLocalizedString("No data was provided by the server")
     static let failureToCommunicateWithAPI = NSLocalizedString("Unable to communicate successfully with the server")
+    
+    // MARK: - Take Picture VC
+    
+    static let noCameraOnDevice = NSLocalizedString("Choose an image from the Album \n(no camera on this device)")
+    static let cameraAvailableOnDevice = NSLocalizedString("Choose from the album\nor take a picture")
+    
 }

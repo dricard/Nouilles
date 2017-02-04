@@ -108,3 +108,5 @@
 "Data was returned from the server" = "Certaines informations ont été fournies par le serveur";
 "No data was provided by the server" = "Aucune information n'a été retournée par le serveur";
 "Unable to communicate successfully with the server" = "Impossible de communiquer avec le serveur";
+"Choose an image from the Album \n(no camera on this device)" = "Choisissez une image de l'album photo\n(il n'y a pas de camera sur cet appareil)";
+"Choose from the album\nor take a picture" = "Choisissez une image de l'album photo\nou prenez une photo";
