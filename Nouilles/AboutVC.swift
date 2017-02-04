@@ -28,9 +28,25 @@ class AboutVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func helpButtonTapped(_ sender: Any) {
+        let url = URL(string: "http://hexaedre.com/apps/noodles/")
+        if let url = url {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
     
     @IBAction func supportButtonTapped(_ sender: Any) {
+        let url = URL(string: "mailto:dr@hexaedre.com?subject=Noodle%20App%20support%20request&body=Please%20ask%20your%20quetion%20or%20make%20your%20comment%20here.%20Thank%20you!")
+        if let url = url {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
     }
     
     // MARK: - Lyfe Cycle
