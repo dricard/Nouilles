@@ -110,3 +110,6 @@
 "Unable to communicate successfully with the server" = "Unable to communicate successfully with the server";
 "Choose an image from the Album \n(no camera on this device)" = "Choose an image from the Album \n(no camera on this device)";
 "Choose from the album\nor take a picture" = "Choose from the album\nor take a picture";
+"Only those listed as unavailable" = "Only those listed as unavailable";
+"Available" = "Available";
+"Unavailable" = "Unavailable";

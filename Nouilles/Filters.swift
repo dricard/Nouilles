@@ -24,7 +24,7 @@ class Filters: NSObject {
    let predicateSection = 1
    
     let sortTitleText: [String] = [ .byName, .byBrand, .byRating, .byCookingTime ]
-    let predicateTitleText: [String] = [ .all, .onHand ]
+    let predicateTitleText: [String] = [ .all, .onHandTitleAvailable, .onHandTitleUnavailable ]
 
     let sortDescriptionText: [String] = [
       .sortByName,
@@ -32,7 +32,7 @@ class Filters: NSObject {
       .sortByRating,
       .sortByTime
    ]
-    let predicateDescriptionText: [String] = [ .allNoodles, .onHandNoodles ]
+    let predicateDescriptionText: [String] = [ .allNoodles, .onHandNoodles, .notOnHandNoodles ]
 
    private var _currentSort: Int
    private var _currentPredicate: Int
@@ -67,6 +67,8 @@ class Filters: NSObject {
          return nil
       case 1:
          return onHandPredicate
+      case 2:
+        return notOnHandPredicate
       default:
         return nil
       }
@@ -227,5 +229,8 @@ class Filters: NSObject {
       return NSPredicate(format: "%K == true", #keyPath(Nouille.onHand))
    }()
    
+    lazy var notOnHandPredicate: NSPredicate = {
+        return NSPredicate(format: "%K == false", #keyPath(Nouille.onHand))
+    }()
 
 }
