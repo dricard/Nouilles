@@ -25,6 +25,7 @@ class AddNoodleVC: UIViewController {
     @IBOutlet weak var sideDishServingInput: UITextField!
     @IBOutlet weak var ratingInput: UITextField!
     @IBOutlet weak var cookingTimeInput: UITextField!
+    @IBOutlet weak var scanBarcodeButton: UIButton!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
@@ -90,6 +91,9 @@ class AddNoodleVC: UIViewController {
         title = .addNoodleTitle
         view.backgroundColor = NoodlesStyleKit.lighterYellow
         contentView.backgroundColor = NoodlesStyleKit.lighterYellow
+        
+        // check if camera is available and enable/disable barcode scanning
+        scanBarcodeButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
         
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: .Back, style: .plain, target: self, action: #selector(AddNoodleVC.backButtonTapped))

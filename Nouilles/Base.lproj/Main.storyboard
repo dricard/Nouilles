@@ -429,6 +429,7 @@
                         <outlet property="mealServingInput" destination="4c6-xN-Dg3" id="iNq-Xt-0c5"/>
                         <outlet property="nameInput" destination="udk-U7-KGp" id="MtU-OV-xDJ"/>
                         <outlet property="ratingInput" destination="CzD-wa-xDK" id="kKy-O0-kPY"/>
+                        <outlet property="scanBarcodeButton" destination="OPG-tQ-c4u" id="cdJ-xc-6nZ"/>
                         <outlet property="scrollView" destination="jSI-xq-Rwd" id="IJx-qn-oLT"/>
                         <outlet property="sideDishServingInput" destination="3WV-Wa-BEB" id="erv-gI-pOM"/>
                     </connections>
