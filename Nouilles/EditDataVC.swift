@@ -70,7 +70,9 @@ class EditDataVC: UITableViewController {
       let identifier = nouille?.reuseIdentifier(indexPath: indexPath)
       
       let cell = tableView.dequeueReusableCell(withIdentifier: identifier!, for: indexPath)
-      
+    
+    cell.backgroundColor = NoodlesStyleKit.lighterYellow
+    
       if identifier! == "TextCell" {
          configureTextCell(cell: cell, indexPath: indexPath)
       } else if identifier! == "NumberCell" {
