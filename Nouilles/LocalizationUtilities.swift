@@ -83,6 +83,7 @@ extension String {
     static let fibre = NSLocalizedString("Fibre")
     static let sugars = NSLocalizedString("Sugars")
     static let protein = NSLocalizedString("Protein")
+    static let editTitle = NSLocalizedString("Edit")
     
     // MARK: - Units
     static let mn = NSLocalizedString("min")
@@ -135,4 +136,8 @@ extension String {
     static let noCameraOnDevice = NSLocalizedString("Choose an image from the Album \n(no camera on this device)")
     static let cameraAvailableOnDevice = NSLocalizedString("Choose from the album\nor take a picture")
     
+    // MARK: - Change Value
+    
+    static let currentValueLabel = NSLocalizedString("Current value")
+    static let enterValueLabel = NSLocalizedString("Enter a new value for")
 }

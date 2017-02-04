@@ -58,7 +58,7 @@
 "Meal serving size" = "Meal serving size";
 "Side-dish serving size" = "Side-dish serving size";
 "Usually prefer meal size" = "Usually prefer meal size";
-"Have noodles on hand" = "Have noodles on hand";
+"Have noodles on hand" = "Have noodles on hand?";
 "Meal size preference" = "Meal size preference";
 "Noodle availability" = "Noodle availability";
 "Nutritional info serving size" = "Nutritional info serving size";
@@ -113,3 +113,6 @@
 "Only those listed as unavailable" = "Only those listed as unavailable";
 "Available" = "Available";
 "Unavailable" = "Unavailable";
+"Current value" = "Current value";
+"Edit" = "Edit";
+"Enter a new value for" = "Enter a new value for";

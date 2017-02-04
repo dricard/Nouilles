@@ -20,7 +20,8 @@ class EditDataVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Edit"
+        
+        title = .editTitle
         
     }
     

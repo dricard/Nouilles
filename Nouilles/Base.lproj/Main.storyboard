@@ -1213,8 +1213,9 @@
                     </view>
                     <connections>
                         <outlet property="currentValueLabel" destination="8OZ-dk-pBp" id="hKI-Vc-K1m"/>
+                        <outlet property="currentValueTitleLabel" destination="GgU-DQ-OoT" id="r0q-a7-Jj2"/>
                         <outlet property="explanationLabel" destination="9Px-Nb-yrv" id="Nra-Kf-6DO"/>
-                        <outlet property="promptLabel" destination="52e-Nh-xz3" id="6b4-Wh-PBY"/>
+                        <outlet property="promptLabel" destination="52e-Nh-xz3" id="nGs-No-uCz"/>
                         <outlet property="textField" destination="jPn-ck-xNZ" id="iWL-z5-vw6"/>
                         <outlet property="valueNameLabel" destination="4E9-TA-tX5" id="omq-kt-d6h"/>
                         <outlet property="valueUnitLabel" destination="iSu-qw-ZC6" id="SIc-fA-COW"/>

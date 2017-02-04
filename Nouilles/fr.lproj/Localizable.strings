@@ -58,7 +58,7 @@
 "Meal serving size" = "Qtée pour un repas";
 "Side-dish serving size" = "Qtée pour un accompagnement";
 "Usually prefer meal size" = "Qtée pour un repas";
-"Have noodles on hand" = "Disponibles";
+"Have noodles on hand" = "Disponibles?";
 "Meal size preference" = "Utilisation la plus fréquente";
 "Noodle availability" = "Disponibilité de ces nouilles";
 "Nutritional info serving size" = "Qtée de référence";
@@ -113,3 +113,6 @@
 "Only those listed as unavailable" = "Seulement celles non disponibles";
 "Available" = "Disponibles";
 "Unavailable" = "Non disponibles";
+"Current value" = "Valeur actuelle";
+"Edit" = "Edition";
+"Enter a new value for" = "Choisissez une nouvelle valeur pour";

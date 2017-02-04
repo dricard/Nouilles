@@ -26,6 +26,8 @@ class ChangeValueVC: UIViewController {
     @IBOutlet weak var explanationLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     
+    @IBOutlet weak var currentValueTitleLabel: UILabel!
+
     // MARK: - Actions
     
     func cancelButtonTapped(_ sender: Any) {
@@ -47,10 +49,14 @@ class ChangeValueVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = .editTitle
+        
         view.backgroundColor = NoodlesStyleKit.lighterYellow
+        currentValueTitleLabel.text = .currentValueLabel
+        promptLabel.text = .enterValueLabel
         
         // add cancel button to navigation bar
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(ChangeValueVC.cancelButtonTapped))
+        let cancelButton = UIBarButtonItem(title: .cancel, style: .plain, target: self, action: #selector(ChangeValueVC.cancelButtonTapped))
         self.navigationItem.rightBarButtonItem = cancelButton
         
         // Fill in the data
