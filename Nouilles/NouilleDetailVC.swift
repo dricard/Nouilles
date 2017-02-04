@@ -278,7 +278,7 @@ class NouilleDetailVC: UIViewController {
             if let imageData = nouille.image {
                 image.image = UIImage(data: imageData as Data)
             } else {
-                image.image = NoodlesStyleKit.imageOfNoodlePlaceholderImage¢
+                image.image = NoodlesStyleKit.imageOfNoodlePlaceholderImage
             }
             
             if nouille.onHand as! Bool {

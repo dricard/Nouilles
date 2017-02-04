@@ -45,7 +45,7 @@
 "cannot be negative" = "ne peut pas être négatif";
 "is outside the allowed range of values" = "n'est pas une valeur permise";
 "is invalid" = "n'est pas valide";
-"Field" = "Le champ";
+"Field" = "La valeur dans le champ";
 "Unsaved entry" = "Données non sauvegardées";
 "You have entered some data and have not saved, are you sure you want to discard the data?" = "Vous avez inscrit des données, êtes vous certain de vouloir quitter sans sauvegarder?";
 "Discard" = "Jetter";

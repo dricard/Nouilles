@@ -45,7 +45,7 @@
 "cannot be negative" = "cannot be negative";
 "is outside the allowed range of values" = "is outside the allowed range of values";
 "is invalid" = "is invalid";
-"Field" = "Field";
+"Field" = "Value in field";
 "Unsaved entry" = "Unsaved entry";
 "You have entered some data and have not saved, are you sure you want to discard the data?" = "You have entered some data and have not saved, are you sure you want to discard the data?";
 "Discard" = "Discard";

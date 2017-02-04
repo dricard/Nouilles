@@ -29,7 +29,7 @@ extension String {
     static let rating = NSLocalizedString("rating")
     static let Rating = NSLocalizedString("Rating")
     
-    static let field = NSLocalizedString("field")
+    static let field = NSLocalizedString("Field")
     
     static let name = NSLocalizedString("Name")
     static let brand = NSLocalizedString("Brand")
