@@ -16,7 +16,7 @@ class AddNoodleVC: UIViewController {
     var managedContext: NSManagedObjectContext?
     var dataSaved: Bool = false
     var scanResult = BarCodeResult()
-    
+
     // MARK: - Outlets
     
     @IBOutlet weak var nameInput: UITextField!
@@ -28,10 +28,8 @@ class AddNoodleVC: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
+
     // MARK: - Actions
-    
-    @IBAction func addPictureTapped(_ sender: Any) {
-    }
     
     @IBAction func scanBardoceTapped(_ sender: Any) {
         
