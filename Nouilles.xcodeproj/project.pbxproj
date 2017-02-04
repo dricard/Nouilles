@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		210200F61DE791DC00D1F349 /* FoodAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200F51DE791DC00D1F349 /* FoodAPI.swift */; };
 		210200F81DE792B800D1F349 /* NetworkParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200F71DE792B800D1F349 /* NetworkParameters.swift */; };
 		210200FA1DE7955A00D1F349 /* NetworkKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200F91DE7955A00D1F349 /* NetworkKeys.swift */; };
 		210200FE1DE7C40A00D1F349 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 210200FD1DE7C40A00D1F349 /* Sound.swift */; };
@@ -56,7 +55,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		210200F51DE791DC00D1F349 /* FoodAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodAPI.swift; sourceTree = "<group>"; };
 		210200F71DE792B800D1F349 /* NetworkParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkParameters.swift; sourceTree = "<group>"; };
 		210200F91DE7955A00D1F349 /* NetworkKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkKeys.swift; sourceTree = "<group>"; };
 		210200FD1DE7C40A00D1F349 /* Sound.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
@@ -124,7 +122,6 @@
 		210200F41DE791BC00D1F349 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				210200F51DE791DC00D1F349 /* FoodAPI.swift */,
 				210200F71DE792B800D1F349 /* NetworkParameters.swift */,
 				210200F91DE7955A00D1F349 /* NetworkKeys.swift */,
 				217B62E61DEB3019005A9F9D /* NutritionAPI.swift */,
@@ -334,7 +331,6 @@
 				217B62E71DEB3019005A9F9D /* NutritionAPI.swift in Sources */,
 				214B38911E3658E1001E4F34 /* BarCodeResult.swift in Sources */,
 				214B38951E36B29A001E4F34 /* AboutVC.swift in Sources */,
-				210200F61DE791DC00D1F349 /* FoodAPI.swift in Sources */,
 				217D10B41DF213A400262255 /* EditDataVC.swift in Sources */,
 				21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */,
 				2137A6061DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift in Sources */,

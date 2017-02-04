@@ -149,7 +149,7 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
                 let upc = String(codeValue.characters.dropFirst())
                 
                 // send 'find by UPC' request to network API
-                FoodAPI.sendFindUPCRequest(upc: upc, completionHandlerForUPCRequest: { (productInfo, success, error) in
+                NetworkCoordinator.sendFindUPCRequest(upc: upc, completionHandlerForUPCRequest: { (productInfo, success, error) in
                     
                     // Utility to extract value from a string
                     func valueFromString(text: String) -> Double? {
