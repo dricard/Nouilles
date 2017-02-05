@@ -10,7 +10,8 @@ import Foundation
 
 class FatSecretAPI {
    
-   
+    /// This send a request to FatSecret's API with a search string to find the Noodle's nutritional
+    /// information.
     static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void) {
       
       // Get the parameters common to all requests
@@ -36,7 +37,7 @@ class FatSecretAPI {
 
       let sessionConfig = URLSessionConfiguration.default
       
-      /* Create session, and optionally set a URLSessionDelegate. */
+      // Create the session
       let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
       
       // Build the URL for GET request
