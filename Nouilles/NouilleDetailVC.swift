@@ -23,6 +23,8 @@ class NouilleDetailVC: UIViewController {
     let tapOH = UITapGestureRecognizer()
     let tapTimerButton = UITapGestureRecognizer()
     
+    // This is used to try only once to fetch data from
+    // the network if missing nutritional information
     var didNotTryToFetch = true
     
     // MARK: - Outlets
@@ -86,12 +88,14 @@ class NouilleDetailVC: UIViewController {
             timers.createTimerFor(noodle: nouille)
         }
         
-        // segue to take picture VC
+        // segue to take Timer VC
         
         // instantiate VC
         let controller = storyboard?.instantiateViewController(withIdentifier: "TimerVC") as! TimerVC
         
-        // we pass the timer information along
+        // we pass the timer information along (dependencies injections)
+        // we need both the timer (noodleTimer) and the Timers object
+        // (timers) because some actions require class methods from Timers.
         controller.noodleTimer = timers.timerFor(noodle: nouille)
         controller.timers = timers
         controller.nouille = nouille
@@ -100,9 +104,9 @@ class NouilleDetailVC: UIViewController {
         show(controller, sender: self)
     }
     
+    // toggle the prefered meal size indicator when tapped
     func preferedMealSizeTapped(_ sender: Any) {
         if let nouille = nouille {
-            
             let newState = !(nouille.mealSizePrefered as! Bool)
             nouille.mealSizePrefered = newState as NSNumber
             
@@ -116,6 +120,7 @@ class NouilleDetailVC: UIViewController {
         updateInterface()
     }
     
+    // toggle the 'on hand' indicator when tapped
     func onHandTapped(_ sender: Any) {
         if let nouille = nouille {
             
@@ -132,6 +137,7 @@ class NouilleDetailVC: UIViewController {
         updateInterface()
     }
     
+    // when the image is tapped we segue to the Take picture VC
     func imageTapped() {
         
         // segue to take picture VC
@@ -151,6 +157,7 @@ class NouilleDetailVC: UIViewController {
         
     }
     
+    // segue to edit values VC when 'edit' button tapped
     func editButtonTapped() {
         
         // segue to edit data VC
@@ -170,8 +177,13 @@ class NouilleDetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        // Theme related
         view.backgroundColor = NoodlesStyleKit.lighterYellow
+        
+        // localize
+        numberOfPeopleLabel.text = .numberOfPeopleLabel
+        unitsLabel.text = .cp
+        timeLabel.text = .mn
         
         // add gesture recognizer for tap on image
         // even if no camera is available on device
@@ -196,11 +208,6 @@ class NouilleDetailVC: UIViewController {
         let editButton = UIBarButtonItem(title: .editButtonlabel, style: .plain, target: self, action: #selector(NouilleDetailVC.editButtonTapped))
         self.navigationItem.rightBarButtonItem = editButton
         
-        // localize
-        numberOfPeopleLabel.text = .numberOfPeopleLabel
-        unitsLabel.text = .cp
-        timeLabel.text = .mn
-        
         // add gesture recognizer on timer button so user can start timer
         tapTimerButton.addTarget(self, action: #selector(NouilleDetailVC.startTimerTapped))
         timerButton.addGestureRecognizer(tapTimerButton)
@@ -209,7 +216,7 @@ class NouilleDetailVC: UIViewController {
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        // we might have changed the usual number of servings, save
+        // we might have changed the usual number of servings, so save
         do {
             try managedContext?.save()
         } catch let error as NSError {
@@ -219,6 +226,7 @@ class NouilleDetailVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        // Things may have changed, so
         updateInterface()
     }
     
@@ -229,6 +237,7 @@ class NouilleDetailVC: UIViewController {
         var customServingSize: Double = 0.0
         var referenceServing: Double = 0.0
         
+        // utility function
         func scaleData(qty: Double) -> Double {
             
             if referenceServing != 0 {
@@ -351,7 +360,7 @@ class NouilleDetailVC: UIViewController {
                 protein.text = .noData
             }
             
-            // update modify timer button depending if a timer
+            // update/modify timer button depending if a timer
             // is running or not
             guard let timers = timers else { return }
             if timers.hasTimerFor(noodle: nouille) {
