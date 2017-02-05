@@ -6,6 +6,29 @@
 //  Copyright © 2016 Hexaedre. All rights reserved.
 //
 
+/*
+    This lets user add a new noodle to the list by
+    entering name and brand and user preferences
+    for cooking time, serving size, etc.
+ 
+    Once a new noodle is added, there will be an
+    attempt to fetch nutritional information from
+    a REST API with a search based on name and
+    brand.
+ 
+    There is an option to scan the barcode of the
+    box of noodles. This can work or fail depending
+    on where the noodles are from (it depends on the
+    database of the API provider which is in the US).
+ 
+    Since it doesn't work for the noodles I have here
+    in Canada, I could not test this much but left it
+    in place as an option because it might be useful
+    for others and barcode scanning is an interesting
+    thing to do.
+ 
+*/
+
 import UIKit
 import CoreData
 
@@ -53,6 +76,8 @@ class AddNoodleVC: UIViewController {
         }
     }
     
+    // if the user navigates back we first checked for unsaved changes and offer
+    // options save or discard
     func backButtonTapped() {
         
         if unsavedChanges() {
@@ -88,13 +113,17 @@ class AddNoodleVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = .addNoodleTitle
+        // theme related
         view.backgroundColor = NoodlesStyleKit.lighterYellow
         contentView.backgroundColor = NoodlesStyleKit.lighterYellow
-        
+
+        // localization
+        title = .addNoodleTitle
+
         // check if camera is available and enable/disable barcode scanning
         scanBarcodeButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
         
+        // add a custom navigation button so we can intercept for unsaved changes
         self.navigationItem.hidesBackButton = true
         let newBackButton = UIBarButtonItem(title: .Back, style: .plain, target: self, action: #selector(AddNoodleVC.backButtonTapped))
         self.navigationItem.leftBarButtonItem = newBackButton
@@ -122,6 +151,8 @@ class AddNoodleVC: UIViewController {
         }
     }
     
+    // if we scanned a barcode and data was returned, populate the
+    // input fields with the data
     override func viewWillAppear(_ animated: Bool) {
         if scanResult.success {
             if let name = scanResult.name {
@@ -141,6 +172,8 @@ class AddNoodleVC: UIViewController {
     
     // MARK: - Utility
     
+    // For French localization, which uses commas instead of period
+    // to enter number, we need to translate those internally
     func translateCommaToPeriod(numberString: String) -> String {
         
         return numberString.replacingOccurrences(of: ",", with: ".")
@@ -162,6 +195,10 @@ class AddNoodleVC: UIViewController {
         
     }
     
+    // saving the data on the new noodle means validating a lot of different
+    // information which the VC should not be responsible for, so the
+    // validation is done with a dedicated class which we access through the
+    // singleton pattern (class is DataValidation)
     func saveNoodleData() -> (success: Bool, field: String?, error: Error?) {
         
         // Validation of data properties
@@ -303,7 +340,8 @@ class AddNoodleVC: UIViewController {
         
         // Ask Model to fetch nutritional information
         Nouille.checkForNutritionalInformation(nouille: newNoodle, context: managedContext!) { success in
-            // no need for closure in this case
+            // no need for closure in this case as this information is not displayed
+            // in the current VC (only needed in NouilleDetailVC)
         }
         
         dataSaved = true
@@ -340,7 +378,7 @@ class AddNoodleVC: UIViewController {
 
 extension AddNoodleVC: UITextFieldDelegate {
     
-    // Enable touch outide textfields to end editing
+    // Enable touch outside of textfields to end editing
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
@@ -361,7 +399,6 @@ extension AddNoodleVC: UITextFieldDelegate {
         
         switch reason {
         case .committed:
-            print("In .committed")
             let saveActionResult = saveNoodleData()
             if saveActionResult.success {
                 // save was successful, pop back to root vc
