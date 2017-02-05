@@ -6,6 +6,16 @@
 //  Copyright © 2016 Hexaedre. All rights reserved.
 //
 
+/* 
+    This lets the user take a picture of the noodles to use
+    or select an image/picture from the album.
+ 
+    The take picture button is disabled if the device has
+    no camera (older iPods for instance). In this case
+    the user can only chose from the album.
+ 
+*/
+
 import UIKit
 import CoreData
 
@@ -35,23 +45,19 @@ class TakePictureVC: UIViewController {
         
         // Disable the camera if the device does not have one
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        // change the instruction in that case
+        // change the instructions label depending on presence/absence of camera
         if cameraButton.isEnabled {
             instructionLabel.text = .cameraAvailableOnDevice
         } else {
             instructionLabel.text = .noCameraOnDevice
         }
         
+        // if we had an image passed in, use that, otherwise use default
         if let image = passedImage {
             setUIImage(image: image)
         } else {
             instructionLabel.isHidden = false
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("We're going back, save?")
-        
     }
     
     // MARK: - Actions
