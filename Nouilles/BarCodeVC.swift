@@ -6,7 +6,25 @@
 //  Copyright © 2016 Hexaedre. All rights reserved.
 //
 
-/* THIS IS INSPIRED/ADAPTED BY A TUTORIAL ON IMPLEMENTING BASCODE SCANNING */
+/* THIS IS INSPIRED/ADAPTED FROM A TUTORIAL ON IMPLEMENTING BARCODE SCANNING */
+
+/* 
+    This uses the built-in camera on the device to scan a barcode on the
+    noodle box and try fetching information from a REST API to populate
+    input fields for the user.
+ 
+    There is no need to check if there is a camera available on the device
+    because this has been done upstream in the AddNoodleVC and if that
+    was the case, the button would be disabled and the user could not have
+    gotten here.
+ 
+    Scanning results vary depending on the origin of the noodles. The API
+    provider used is based in the US and I am guessin it would work well
+    with noodles available there. None of those I tested here in Canada
+    provided information. I left this code in here because it might be useful
+    in the US or elsewhere and I think the scanning code is interesting.
+ 
+*/
 
 import UIKit
 import AVFoundation
@@ -26,9 +44,6 @@ class BarCodeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // TODO: - Check for availability of camera on this device, exit gracefully
-        
         
         // initialize a device object
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -62,7 +77,7 @@ class BarCodeVC: UIViewController {
             barCodeFrameView = UIView()
             
             if let barCodeFrameView = barCodeFrameView {
-                barCodeFrameView.layer.borderColor = UIColor.green.cgColor
+                barCodeFrameView.layer.borderColor = NoodlesStyleKit.success.cgColor
                 barCodeFrameView.layer.borderWidth = 2
                 view.addSubview(barCodeFrameView)
                 view.bringSubview(toFront: barCodeFrameView)
