@@ -10,34 +10,32 @@ import Foundation
 
 class NutritionAPI {
     
-    
+    /// This send a request to Nutritionix's API with a search string to find the Noodle's nutritional
+    /// information.
     static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void) {
         
         let sessionConfig = URLSessionConfiguration.default
         
-        /* Create session, and optionally set a URLSessionDelegate. */
+        // Create session
         let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-        
-        /* Example URL for GET request:
-         https://nutritionix-api.p.mashape.com/v1_1/search/bows%20catelli%20noodles
-         */
         
         // Build the URL for GET request
         guard var URL = URL(string: "\(NetworkParams.NutritionAPIBaseURL)\(NetworkParams.FindByStringPath)") else {return}
         
         URL = URL.appendingPathComponent("\(searchString)")
         
-        // Build parameters
+        // Build URL parameters
         let URLParams = [
             NetworkParams.Fields: NetworkParams.FieldsParameters,
             ]
         
         URL = URL.appendingQueryParameters(URLParams)
+        
+        // Create request
         var request = URLRequest(url: URL)
         request.httpMethod = "GET"
         
         // Configure the Headers
-        
         request.addValue(NetworkKeys.MashapeKey, forHTTPHeaderField: "X-Mashape-Key")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
                 
