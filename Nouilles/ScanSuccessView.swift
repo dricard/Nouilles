@@ -8,6 +8,9 @@
 
 import UIKit
 
+/// ScanSuccessView is used to display the scanning success by overriding
+/// the draw method with a call to a PainCode generated draw method
+/// for the appropriate state
 class ScanSuccessView: UIView {
    
    // MARK: - Properties
