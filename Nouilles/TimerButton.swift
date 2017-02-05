@@ -8,6 +8,9 @@
 
 import UIKit
 
+/// TimerButton is a view used to display a custom button which changes
+/// depending on the state of the timer (running or not). It override
+/// the draw method with a PaintCode generated draw method
 class TimerButton: UIView {
 
     // MARK: - Properties
