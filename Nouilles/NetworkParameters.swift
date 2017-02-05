@@ -8,9 +8,10 @@
 
 import Foundation
 
-// Here I use an enum instead of a struct because case-less enum
-// cannot be instantiated. This way prevents unintentional 
+// Here I use an enum instead of a struct because case-less enums
+// cannot be instantiated. This way it prevents unintentional
 // instantiation
+
 enum NetworkParams {
    
    // FOOD API
