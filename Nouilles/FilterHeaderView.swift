@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Custom header view for the FilterVC to customize appearance
 class FilterHeaderView: UIView {
 
     // MARK: - Properties
@@ -30,11 +31,15 @@ class FilterHeaderView: UIView {
 
     func setupSubViews() {
         
+        // set background color of header
         backgroundColor = NoodlesStyleKit.lighterGreen
         
+        // create a label
         let labelFrame = CGRect(x: 20, y: 20, width: 100, height: 20)
         label = UILabel(frame: labelFrame)
         addSubview(label)
+        
+        // set constraints on label
         label.translatesAutoresizingMaskIntoConstraints = false
         label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10).isActive = true
