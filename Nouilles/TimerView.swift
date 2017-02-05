@@ -8,6 +8,10 @@
 
 import UIKit
 
+/// TimerView is used to display the timer progress circle by overriding
+/// the draw method with a call to a PainCode generated draw method
+/// This can be used in views of various size (in the list view, or its
+/// own VC)
 class TimerView: UIView {
    
    // MARK: - Properties
