@@ -26,9 +26,20 @@ class ChangeValueVC: UIViewController {
     @IBOutlet weak var explanationLabel: UILabel!
     @IBOutlet weak var textField: UITextField!
     
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var currentValueTitleLabel: UILabel!
 
     // MARK: - Actions
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        switch validateAndSave() {
+        case .valid:
+            textField.resignFirstResponder()
+//            navigationController!.popViewController(animated: true)
+        case .invalid(_):
+            return
+        }
+    }
     
     func cancelButtonTapped(_ sender: Any) {
         if textField.isFirstResponder {
@@ -49,11 +60,15 @@ class ChangeValueVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = .editTitle
+        // localization
         
+        title = .editTitle
+        saveButton.setTitle(.save, for: .normal)
+        promptLabel.text = .enterValueLabel
+
+        // UI theme
         view.backgroundColor = NoodlesStyleKit.lighterYellow
         currentValueTitleLabel.text = .currentValueLabel
-        promptLabel.text = .enterValueLabel
         
         // add cancel button to navigation bar
         let cancelButton = UIBarButtonItem(title: .cancel, style: .plain, target: self, action: #selector(ChangeValueVC.cancelButtonTapped))
