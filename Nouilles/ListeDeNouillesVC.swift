@@ -6,6 +6,27 @@
 //  Copyright © 2016 Hexaedre. All rights reserved.
 //
 
+/*
+    This presents a list of noodles from the persistant store
+    What is dispayed depends on a user selected predicate and
+    the sort order is also user defined.
+ 
+    The noodles are displayed with a picture if the user added on
+    or a default image of the app logo otherwise.
+ 
+    When a timer is running for one or more noodles, the noodle's
+    image is replaced with the timer animation.
+ 
+    The user can swipe left to either deleted the noodle, or toggle
+    its 'on hand' status.
+ 
+    Selecting a noodle in the list presents a detailed view
+    The user can change the filters/predicates by selecting the
+    filters button (top left) and add new noodle by selecting the
+    add ('+') button (top right)
+ 
+ */
+
 import UIKit
 import CoreData
 
@@ -15,13 +36,17 @@ class ListeDeNouillesVC: UIViewController {
     
     // Create a Timers object that will hold timers for
     // noodles. This will be passed along when needed
-    // Note: not to be confused with Timer class
+    // Note: not to be confused with the Timer class
     var timers = Timers()
+    
     // This is a local timer to refresh the display
     var internalTimer = Timer()
     
+    // this is used to pause an ongoing timer animation
+    // while the user is in edit (swipe left) mode
     var currentlyEditing = false
     
+    // Peristance related
     var managedContext: NSManagedObjectContext!
     var fetchedResultsController: NSFetchedResultsController<Nouille>!
     
@@ -30,6 +55,7 @@ class ListeDeNouillesVC: UIViewController {
     var selectedPredicate: NSPredicate?
     var selectedSortDescriptor: [NSSortDescriptor]?
     
+    // Which filters/predicates to use
     var filters = Filters()
     
     let sortDescriptorIndexKey = "sortDescriptorIndexKey"
@@ -46,6 +72,7 @@ class ListeDeNouillesVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Theme related
         tableView.separatorColor = NoodlesStyleKit.baseGreen
         tableView.backgroundColor = NoodlesStyleKit.mediumYellow
 
@@ -57,11 +84,10 @@ class ListeDeNouillesVC: UIViewController {
         if let sortIndex = UserDefaults.standard.value(forKey: sortDescriptorIndexKey) {
             
             selectedSortDescriptor = filters.sortForIndex(index: sortIndex as! Int)
-            
             selectedPredicate = filters.predicateForIndex(index: UserDefaults.standard.value(forKey: predicateIndexKey) as! Int)
             
         } else {
-            // there are no prefs, use defaults
+            // there are no prefs, so use defaults
             selectedSortDescriptor = filters.sortForIndex(index: 0)
             selectedPredicate = filters.predicateForIndex(index: 0)
             // and save those
@@ -84,7 +110,7 @@ class ListeDeNouillesVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         // update display, if a timer completed while the user was in another
-        // view, there might be a TimerVIew displayed still
+        // view, there might be a TimerView displayed still
         tableView.reloadData()
         // if we have one or more timers running, start a display timer
         if timers.isNotEmpty() {
@@ -95,11 +121,13 @@ class ListeDeNouillesVC: UIViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        // ivalidate any running timer before switching to anoter VC
         internalTimer.invalidate()
     }
     
     // MARK: - Utilities
     
+    // Update any/all timers animations
     func updateTimers() {
         if !currentlyEditing {
             if timers.isNotEmpty() {
@@ -113,13 +141,6 @@ class ListeDeNouillesVC: UIViewController {
                 tableView.reloadData()
             }
         }
-    }
-        
-    // MARK: - Actions
-    
-    @IBAction func addNoodleTapped(_ sender: Any) {
-        
-        
     }
     
     // MARK: - Navigation
@@ -198,33 +219,28 @@ extension ListeDeNouillesVC: UITableViewDataSource {
                 cell.boxImageView?.image = NoodlesStyleKit.imageOfNouille
             }
         }
+        
+        // set rating indicator (number of stars)
         cell.ratingImageView?.image = NoodlesStyleKit.imageOfRatingIndicator(rating: nouille.rating as! CGFloat)
         
+        // set 'on hand' indicator
         if nouille.onHand as! Bool {
             cell.onHandIndicatorView?.image = NoodlesStyleKit.imageOfOnHandIndicator
         } else {
             cell.onHandIndicatorView?.image = NoodlesStyleKit.imageOfOnHandIndicatorEmpty
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         guard let sectionInfo = fetchedResultsController.sections?[section] else { return 0 }
-        
         return sectionInfo.numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: NoodleListTableViewCell.reuseIdentifier, for: indexPath) as! NoodleListTableViewCell
-        
         configure(cell: cell, indexPath: indexPath)
-        
         return cell
     }
-    
-    
 }
 
 // MARK: - Gestures
@@ -232,8 +248,7 @@ extension ListeDeNouillesVC: UITableViewDataSource {
 extension ListeDeNouillesVC {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
-        // toggle onHand setting
+        // add toggle onHand setting action
         let toggleOnHandAction = UITableViewRowAction(style: .normal, title: "\u{2612}\n\(.toggle)\n\(.onHandLabel)", handler: { (action, indexPath) -> Void in
             
             let nouille = self.fetchedResultsController.object(at: indexPath)
@@ -249,6 +264,7 @@ extension ListeDeNouillesVC {
         })
         toggleOnHandAction.backgroundColor = NoodlesStyleKit.baseGreen
         
+        // add delete noodle action
         let deleteNoodleAction = UITableViewRowAction(style: .default, title: "\u{267A}\n\(.delete)", handler: { (action, indexPath) -> Void in
             
             let nouille = self.fetchedResultsController.object(at: indexPath)
@@ -261,7 +277,11 @@ extension ListeDeNouillesVC {
                 print("Could not save context \(error), \(error.userInfo)")
             }
             
-            
+            // if user deleted a noodle and a timer was running, we need to
+            // delete it as well
+            if self.timers.hasTimerFor(noodle: nouille) {
+                self.timers.deleteTimerFor(noodle: nouille)
+            }
         })
         deleteNoodleAction.backgroundColor = NoodlesStyleKit.darkerOrange
         
@@ -290,6 +310,7 @@ extension ListeDeNouillesVC: UITableViewDelegate {
         // a row was selected, prepare the segue
         let nouille = fetchedResultsController.object(at: indexPath)
         let vc = storyboard?.instantiateViewController(withIdentifier: "NouilleDetailVC") as! NouilleDetailVC
+        // dependencies injection
         vc.managedContext = self.managedContext!
         vc.nouille = nouille
         vc.timers = timers
@@ -305,16 +326,18 @@ extension ListeDeNouillesVC: NSFetchedResultsControllerDelegate {
         tableView.reloadData()
     }
     
-    
 }
 
 extension ListeDeNouillesVC: FilterVCDelegate {
     
+    // This is used to return modifications to the sort descriptors and
+    // predicates from the FilterVC (delegate pattern)
     func filterVC(filter: FilterVC) {
         
         selectedPredicate = filters.predicate()
         selectedSortDescriptor = filters.sortDescriptors()
         
+        // remove previous
         fetchRequest.predicate = nil
         fetchRequest.sortDescriptors = nil
         
