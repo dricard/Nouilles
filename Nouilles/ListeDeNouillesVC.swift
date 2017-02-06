@@ -154,8 +154,6 @@ class ListeDeNouillesVC: UIViewController {
             let nc = segue.destination as? UINavigationController
             let vc = nc?.topViewController as! FilterVC
             vc.delegate = self
-            vc.selectedSortDescriptor = selectedSortDescriptor
-            vc.selectedPredicate = selectedPredicate
             vc.filters = filters
         }
         
