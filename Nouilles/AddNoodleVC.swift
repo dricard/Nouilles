@@ -191,7 +191,7 @@ class AddNoodleVC: UIViewController {
         
         let okAction = UIAlertAction(title: .ok, style: UIAlertActionStyle.default, handler: nil)
         controller.addAction(okAction)
-        self.present(controller, animated: true, completion: nil)
+        present(controller, animated: true, completion: nil)
         
     }
     
