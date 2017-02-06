@@ -100,6 +100,10 @@ public class Nouille: NSManagedObject {
     
     // MARK: - Tableview Datasource convinience methods
     
+    // These functions decouple the model from the VC. They provide
+    // the VC with the information required to display information
+    // These are used by the EditDataVC viewController
+    
     func numberOfSection() -> Int {
         return 1
     }
@@ -124,41 +128,105 @@ public class Nouille: NSManagedObject {
         
         switch indexPath.row {
         case 0:
-            return "\(name!)"
+            if let name = name {
+                return "\(name)"
+            } else {
+                return ""
+            }
         case 1:
-            return "\(brand!)"
+            if let brand = brand {
+                return "\(brand)"
+            } else {
+                return ""
+            }
         case 2:
-            return "\(time!)"
+            if let time = time {
+                return "\(time)"
+            } else {
+                return ""
+            }
         case 3:
-            return "\(servingCustom!)"
+            if let servingCustom = servingCustom {
+                return "\(servingCustom)"
+            } else {
+                return ""
+            }
         case 4:
-            return "\(servingSideDish!)"
+            if let servingSideDish = servingSideDish {
+                return "\(servingSideDish)"
+            } else {
+                return ""
+            }
         case 5:
-            return "\(rating!)"
+            if let rating = rating {
+                return "\(rating)"
+            } else {
+                return ""
+            }
         case 6:
             return .preferMealSize
         case 7:
             return .onHand
         case 8:
-            return "\(serving!)"
+            if let serving = serving {
+                return "\(serving)"
+            } else {
+                return ""
+            }
         case 9:
-            return "\(calories!)"
+            if let calories = calories {
+                return "\(calories)"
+            } else {
+                return ""
+            }
         case 10:
-            return "\(fat!)"
+            if let fat = fat {
+                return "\(fat)"
+            } else {
+                return ""
+            }
         case 11:
-            return "\(saturated!)"
+            if let saturated = saturated {
+                return "\(saturated)"
+            } else {
+                return ""
+            }
         case 12:
-            return "\(trans!)"
+            if let trans = trans {
+                return "\(trans)"
+            } else {
+                return ""
+            }
         case 13:
-            return "\(sodium!)"
+            if let sodium = sodium {
+                return "\(sodium)"
+            } else {
+                return ""
+            }
         case 14:
-            return "\(carbs!)"
+            if let carbs = carbs {
+                return "\(carbs)"
+            } else {
+                return ""
+            }
         case 15:
-            return "\(fibre!)"
+            if let fibre = fibre {
+                return "\(fibre)"
+            } else {
+                return ""
+            }
         case 16:
-            return "\(sugar!)"
+            if let sugar = sugar {
+                return "\(sugar)"
+            } else {
+                return ""
+            }
         case 17:
-            return "\(protein!)"
+            if let protein = protein {
+                return "\(protein)"
+            } else {
+                return ""
+            }
         default:
             return ""
         }
@@ -168,9 +236,17 @@ public class Nouille: NSManagedObject {
     func state(indexPath: IndexPath) -> Bool {
         
         if indexPath.row == 6 {
-            return mealSizePrefered! as Bool
+            if let mealSizePrefered = mealSizePrefered {
+                return mealSizePrefered as Bool
+            } else {
+                return true
+            }
         } else if indexPath.row == 7 {
-            return onHand! as Bool
+            if let onHand = onHand {
+                return onHand as Bool
+            } else {
+                return true
+            }
         } else {
             // should not happen
             print("Bad parameter called")
@@ -217,7 +293,7 @@ public class Nouille: NSManagedObject {
         case 17:
             return validatorConfigurator.numberValidator()
         default:
-            return validatorConfigurator.boolValidator()
+            return validatorConfigurator.numberValidator()
         }
         
     }
@@ -362,6 +438,9 @@ public class Nouille: NSManagedObject {
     
     // MARK: - Convinience methods
     
+    /// This method returns the nearest fraction for the value
+    /// Quantities of noodles are measures in fractions of cups
+    /// which do no require a great precision
     static func formatWithFraction(value: Double) -> String {
         
         var integerPart = Int(value)
@@ -374,17 +453,17 @@ public class Nouille: NSManagedObject {
             // drop the fractional part
             break
         case 0.05556...0.11805:
-            returnedString += "\u{2151}"    // 1/9
+            returnedString += "\u{2151}"  // 1/9
         case 0.11806...0.13392:
             returnedString += "\u{215B}"  // 1/8
         case 0.13393...0.15475:
-            returnedString += "\u{2150}" // 1/7
+            returnedString += "\u{2150}"  // 1/7
         case 0.15476...0.18332:
-            returnedString += "\u{2159}" // 1/6
+            returnedString += "\u{2159}"  // 1/6
         case 0.18333...0.22499:
-            returnedString += "\u{2155}" // 1/5
+            returnedString += "\u{2155}"  // 1/5
         case 0.22500...0.29166:
-            returnedString += "\u{00BC}" // 1/4
+            returnedString += "\u{00BC}"  // 1/4
         case 0.29168...0.35416:
             returnedString += "\u{2153}"  // 1/3
         case 0.35417...0.38749:
@@ -421,6 +500,9 @@ public class Nouille: NSManagedObject {
         return returnedString
     }
     
+    /// This is to express cooking time with seconds rounded
+    /// to the nearest multple of 5 secs and with the seconds
+    /// displayed as exponents (indices)
     static func formatWithExponent(value: Double) -> String {
         
         var integerPart = Int(value)
@@ -468,6 +550,8 @@ public class Nouille: NSManagedObject {
         return returnedString
     }
     
+    /// This returns the nutritional information formated as the standard requires and
+    /// with the corresponding units (properly localized)
     static func formatedNutritionalInfo(for nutritionalInfo: String, with scaledValue: Double) -> String {
         
         switch nutritionalInfo {
