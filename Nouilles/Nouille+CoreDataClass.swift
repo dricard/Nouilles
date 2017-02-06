@@ -23,6 +23,12 @@ struct NutritionInfoData {
     var serving: Double?
 }
 
+enum DataCellTypes: String {
+    case textCell = "TextCell"
+    case valueCell = "NumberCell"
+    case boolCell = "BoolCell"
+}
+
 public class Nouille: NSManagedObject {
     
     // MARK: - Properties
@@ -69,25 +75,25 @@ public class Nouille: NSManagedObject {
         .g,
         ]
     
-    let cellTypes = [
-        "TextCell",
-        "TextCell",
-        "NumberCell",
-        "NumberCell",
-        "NumberCell",
-        "NumberCell",
-        "BoolCell",
-        "BoolCell",
-        "NumberCell",
-        "NumberCell",
-        "NumberCell",
-        "NumberCell",
-        "NumberCell",
-        "NumberCell",
-        "NumberCell",
-        "NumberCell",
-        "NumberCell",
-        "NumberCell",
+    let cellTypes: [DataCellTypes] = [
+        .textCell,
+        .textCell,
+        .valueCell,
+        .valueCell,
+        .valueCell,
+        .valueCell,
+        .boolCell,
+        .boolCell,
+        .valueCell,
+        .valueCell,
+        .valueCell,
+        .valueCell,
+        .valueCell,
+        .valueCell,
+        .valueCell,
+        .valueCell,
+        .valueCell,
+        .valueCell,
         ]
     
     let validatorConfigurator = ValidatorConfigurator.sharedInstance
@@ -103,7 +109,7 @@ public class Nouille: NSManagedObject {
     }
     
     func reuseIdentifier(indexPath: IndexPath) -> String {
-        return cellTypes[indexPath.row]
+        return cellTypes[indexPath.row].rawValue
     }
     
     func dataLabel(indexPath: IndexPath) -> String {
