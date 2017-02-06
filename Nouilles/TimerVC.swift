@@ -6,6 +6,16 @@
 //  Copyright © 2016 Hexaedre. All rights reserved.
 //
 
+/*
+ This displays a timer for the noodle. User can pause/restart
+ the timer as well as discard it.
+ 
+ The user can move out of this VC and return, with a timer
+ running.
+ 
+ */
+
+
 import UIKit
 
 class TimerVC: UIViewController {
@@ -33,8 +43,10 @@ class TimerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // theme related
         view.backgroundColor = NoodlesStyleKit.lighterYellow
-
+        timerView.backgroundColor = NoodlesStyleKit.lighterYellow
+        
         // add gesture recognizer on cancelView so user can cancel timer
         cancelTR.addTarget(self, action: #selector(TimerVC.cancelTapped))
         cancelView.addGestureRecognizer(cancelTR)
@@ -43,24 +55,34 @@ class TimerVC: UIViewController {
         pauseTapRec.addTarget(self, action: #selector(TimerVC.pauseTapped))
         pausePlayView.addGestureRecognizer(pauseTapRec)
         
-        // set to pause image (during play)
-        pausePlayView.image = NoodlesStyleKit.imageOfPause
+        // set cancel button image
         cancelView.image = NoodlesStyleKit.imageOfCancel
         
-        // update once in case we return here while a timer is paused
+        // update display depending on state of timer
         if let noodleTimer = noodleTimer {
-            timerView.backgroundColor = NoodlesStyleKit.lighterYellow
+            // set to pause/pause image (depending on state)
+            if noodleTimer.isRunning() {
+                pausePlayView.image = NoodlesStyleKit.imageOfPause
+            } else {
+                pausePlayView.image = NoodlesStyleKit.imageOfPlay
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // update display once to current state on entry
+        if let noodleTimer = noodleTimer {
             minutesTimerLabel.text = noodleTimer.timerMinutesLabel()
             secondsTimerLabel.text = noodleTimer.timerSecondsLabel()
             timerView.progress = noodleTimer.timerRatio()
         }
-        // update the display
+        // start an internal timer which is responsible to update the display
         DispatchQueue.main.async {
             self.internalTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(TimerVC.updateTimerLabel), userInfo: nil, repeats: true)
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         internalTimer.invalidate()
     }
     
@@ -78,18 +100,22 @@ class TimerVC: UIViewController {
     // MARK: - Actions
     
     func cancelTapped(_ sender: Any) {
+        // cancel internal timer which is used to update the display
         internalTimer.invalidate()
         guard let noodleTimer = noodleTimer else { return }
+        // invalidate the noodle timer itself
         noodleTimer.cancelTimer()
+        // stop the ringing sound if playing
         if noodleTimer.isRinging() {
             noodleTimer.stopRing()
         }
-        // remove the timer
+        // remove the timer from the list
         if let timers = timers, let nouille = nouille {
             timers.deleteTimerFor(noodle: nouille)
         }
+        // segue out back to detailed view
         _ = self.navigationController?.popViewController(animated: true)
-
+        
     }
     
     func pauseTapped(_ sender: Any) {
@@ -104,6 +130,4 @@ class TimerVC: UIViewController {
             noodleTimer.stopRing()
         }
     }
-    
-    
 }
