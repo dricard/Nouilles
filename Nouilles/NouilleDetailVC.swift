@@ -214,8 +214,16 @@ class NouilleDetailVC: UIViewController {
         tapTimerButton.addTarget(self, action: #selector(NouilleDetailVC.startTimerTapped))
         timerButton.addGestureRecognizer(tapTimerButton)
         
-        // Hide indicator views
-        activityIndicator.isHidden = true
+        // Add blur to blurView
+        let blurEffect = UIBlurEffect(style: .regular)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.backgroundColor = NoodlesStyleKit.lighterYellow
+        blurEffectView.alpha = 0.6
+        blurEffectView.frame = blurView.bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurView.addSubview(blurEffectView)
+        // Hide indicator views for now
+        activityIndicator.hidesWhenStopped = true
         blurView.alpha = 0.0
         
         updateInterface()
@@ -249,14 +257,19 @@ class NouilleDetailVC: UIViewController {
             if referenceServing != 0 {
                 return customServingSize * qty / referenceServing
             } else {
-                // Downloading data from the food info API probably failed
-                // if we're here, so try again, but only once
+                // Try downloading data from the food info API
                 
                 if didNotTryToFetch {
+                    // change display to advise user that network activity is going on
+                    blurView.alpha = 1.0
+                    activityIndicator.startAnimating()
+                    
                     // Ask Model to fetch nutritional information
                     Nouille.checkForNutritionalInformation(nouille: nouille, context: managedContext!) { success in
                         if success {
                             DispatchQueue.main.async {
+                                self.activityIndicator.stopAnimating()
+                                self.blurView.alpha = 0.0
                                 self.updateInterface()
                             }
                         }

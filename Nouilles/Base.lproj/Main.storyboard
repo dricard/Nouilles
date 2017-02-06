@@ -822,11 +822,10 @@
                                     <constraint firstAttribute="height" constant="75" id="bfm-Va-IWy"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="au9-79-I3c">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="au9-79-I3c">
                                 <rect key="frame" x="8" y="355" width="304" height="98"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SZy-2w-cM7">
+                            <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="SZy-2w-cM7">
                                 <rect key="frame" x="8" y="355" width="304" height="98"/>
                             </activityIndicatorView>
                         </subviews>
