@@ -145,121 +145,122 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
         // get the metadata object
         let metadataObject = metadataObjects.first as! AVMetadataMachineReadableCodeObject
         
-        if metadataObject.type == AVMetadataObjectTypeUPCECode || metadataObject.type == AVMetadataObjectTypeEAN8Code || metadataObject.type == AVMetadataObjectTypeEAN13Code {
+        // make sure we've got a barcode we're interested in
+        guard metadataObject.type == AVMetadataObjectTypeUPCECode || metadataObject.type == AVMetadataObjectTypeEAN8Code || metadataObject.type == AVMetadataObjectTypeEAN13Code else { return }
+        
+        
+        let barCodeObj = videoPreviewLayer?.transformedMetadataObject(for: metadataObject)
+        barCodeFrameView?.frame = barCodeObj!.bounds
+        
+        guard let codeValue = metadataObject.stringValue else { return }
+        
+        // we found a barcode: stop scanning
+        captureSession?.stopRunning()
+        
+        // give audio feedback
+        sound.playBeep()
+        
+        // show the success state view
+        successView?.isHidden = false
+        
+        let upc = String(codeValue.characters.dropFirst())
+        
+        // send 'find by UPC' request to network API
+        NetworkCoordinator.sendFindUPCRequest(upc: upc, completionHandlerForUPCRequest: { (productInfo, success, error) in
             
-            let barCodeObj = videoPreviewLayer?.transformedMetadataObject(for: metadataObject)
-            barCodeFrameView?.frame = barCodeObj!.bounds
+            // Utility to extract value from a string
+            func valueFromString(text: String) -> Double? {
+                var matches = [String]()
+                do {
+                    let regex = try NSRegularExpression(pattern: "[0-9]+.[0-9]+", options: [])
+                    let nsString = text as NSString
+                    let results = regex.matches(in: text, options: [], range: NSMakeRange(0, nsString.length))
+                    matches = results.map { nsString.substring(with: $0.range) }
+                } catch let error as NSError {
+                    print("Could not create valid REGEX \(error), \(error.userInfo)")
+                }
+                if let subString = matches.first {
+                    return Double(subString)
+                }
+                return nil
+            }
             
-            if let codeValue = metadataObject.stringValue {
-                
-                // we found a barcode: stop scanning
-                captureSession?.stopRunning()
-                
-                // give audio feedback
-                sound.playBeep()
-                
-                // show the success state view
-                successView?.isHidden = false
-                
-                let upc = String(codeValue.characters.dropFirst())
-                
-                // send 'find by UPC' request to network API
-                NetworkCoordinator.sendFindUPCRequest(upc: upc, completionHandlerForUPCRequest: { (productInfo, success, error) in
+            // check for error
+            guard error == nil else {
+                // no need to print error, it was taken care in network code
+                self.successView?.successState = .failure
+                return
+            }
+            
+            // check for success
+            guard success else {
+                // 'success' here only means the communication with the API
+                // was successful, not that any useful information was
+                // returned. If this failed then we present the user with info
+                self.presentBarCodeResult(for: false, state: .failureTalkingWithAPI)
+                return
+            }
+            
+            if let result = productInfo {
+                // we have data
+                // update the success indicator
+                if result["status"] != nil {
+                    self.successView?.successState = .failure
+                    self.presentBarCodeResult(for: false, state: .failureToReturnData)
+                } else {
+                    self.successView?.successState = .success
+                    self.presentBarCodeResult(for: true, state: .successWithData)
                     
-                    // Utility to extract value from a string
-                    func valueFromString(text: String) -> Double? {
-                        var matches = [String]()
-                        do {
-                            let regex = try NSRegularExpression(pattern: "[0-9]+.[0-9]+", options: [])
-                            let nsString = text as NSString
-                            let results = regex.matches(in: text, options: [], range: NSMakeRange(0, nsString.length))
-                            matches = results.map { nsString.substring(with: $0.range) }
-                        } catch let error as NSError {
-                            print("Could not create valid REGEX \(error), \(error.userInfo)")
-                        }
-                        if let subString = matches.first {
-                            return Double(subString)
-                        }
-                        return nil
-                    }
-                    
-                    // check for error
-                    guard error == nil else {
-                        // no need to print error, it was taken care in network code
-                        self.successView?.successState = .failure
-                        return
-                    }
-                    
-                    // check for success
-                    guard success else {
-                        // 'success' here only means the communication with the API
-                        // was successful, not that any useful information was
-                        // returned. If this failed then we present the user with info
-                        self.presentBarCodeResult(for: false, state: .failureTalkingWithAPI)
-                        return
-                    }
-                    
-                    if let result = productInfo {
-                        // we have data
-                        // update the success indicator
-                        if result["status"] != nil {
-                            self.successView?.successState = .failure
-                            self.presentBarCodeResult(for: false, state: .failureToReturnData)
-                        } else {
-                            self.successView?.successState = .success
-                            self.presentBarCodeResult(for: true, state: .successWithData)
-                            
-                            // if successful, extract useful information
-                            if let scanResults = self.scanResults {
-                                
-                                // set the success flag to true
-                                scanResults.success = true
-                                
-                                // find useful information in returned data
-                                if let title = result["title"] {
-                                    // the "title" property contains both the brand and the name of
-                                    // the pasta, so we need to do some checking on the words
-                                    // Normally the brand comes first, then the product name
-                                    let wordsInTitle = (title as! String).characters.split(separator: " ").map{ String($0) }
-                                    if wordsInTitle.count == 1 {
-                                        scanResults.brand = wordsInTitle.first
-                                    } else if wordsInTitle.count == 2 {
-                                        scanResults.brand = wordsInTitle[0]
-                                        scanResults.name = wordsInTitle[1]
-                                    } else {
-                                        // TODO: - perhaps offer a choice to the user
-                                        // we have a number of words > 2 that are split between
-                                        // the brand name and the pasta name
-                                        // for now split between the two
-                                        let brandIndex = Int(wordsInTitle.count / 2)
-                                        var brand = ""
-                                        var name = ""
-                                        for index in 0..<brandIndex {
-                                            brand += wordsInTitle[index] + " "
-                                        }
-                                        for index in brandIndex..<wordsInTitle.count {
-                                            name += wordsInTitle[index] + " "
-                                        }
-                                        scanResults.brand = brand
-                                        scanResults.name = name
-                                    }
+                    // if successful, extract useful information
+                    if let scanResults = self.scanResults {
+                        
+                        // set the success flag to true
+                        scanResults.success = true
+                        
+                        // find useful information in returned data
+                        if let title = result["title"] {
+                            // the "title" property contains both the brand and the name of
+                            // the pasta, so we need to do some checking on the words
+                            // Normally the brand comes first, then the product name
+                            let wordsInTitle = (title as! String).characters.split(separator: " ").map{ String($0) }
+                            if wordsInTitle.count == 1 {
+                                scanResults.brand = wordsInTitle.first
+                            } else if wordsInTitle.count == 2 {
+                                scanResults.brand = wordsInTitle[0]
+                                scanResults.name = wordsInTitle[1]
+                            } else {
+                                // TODO: - perhaps offer a choice to the user
+                                // we have a number of words > 2 that are split between
+                                // the brand name and the pasta name
+                                // for now split between the two
+                                let brandIndex = Int(wordsInTitle.count / 2)
+                                var brand = ""
+                                var name = ""
+                                for index in 0..<brandIndex {
+                                    brand += wordsInTitle[index] + " "
                                 }
-                                if let servingSize = result["serving_size"] {
-                                    if let servingSizeValue = valueFromString(text: servingSize as! String) {
-                                        scanResults.servingSize = servingSizeValue
-                                    }
+                                for index in brandIndex..<wordsInTitle.count {
+                                    name += wordsInTitle[index] + " "
                                 }
-                                if let importantBadges = result["important_badges"] as! [String]? {
-                                    // this will be useful in a later version where I will
-                                    // implement allergies badges/predicates in list view
-                                    let glutenFreeBadge = importantBadges.contains(where: { $0 == "gluten_free" })
-                                    scanResults.glutenFree = glutenFreeBadge
-                                }
+                                scanResults.brand = brand
+                                scanResults.name = name
                             }
                         }
+                        if let servingSize = result["serving_size"] {
+                            if let servingSizeValue = valueFromString(text: servingSize as! String) {
+                                scanResults.servingSize = servingSizeValue
+                            }
+                        }
+                        if let importantBadges = result["important_badges"] as! [String]? {
+                            // this will be useful in a later version where I will
+                            // implement allergies badges/predicates in list view
+                            let glutenFreeBadge = importantBadges.contains(where: { $0 == "gluten_free" })
+                            scanResults.glutenFree = glutenFreeBadge
+                        }
                     }
-                })
+                }
             }
-        }
+        })
+        
     }
 }
