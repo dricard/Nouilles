@@ -70,6 +70,12 @@ extension String {
     static let timerStartLabel = NSLocalizedString("Start Timer")
     static let timerShowLabel = NSLocalizedString("Show Timer")
     static let numberOfPeopleLabel = NSLocalizedString("# of people")
+    static let networkError = NSLocalizedString("Network Error")
+    static let codeSendRequestFailed = NSLocalizedString("The server did not respond to the request for nutritional information.")
+    static let codeNoDataReturned = NSLocalizedString("Could not get nutritional information from the server.")
+    static let codeCouldNotParseData = NSLocalizedString("Could not get nutritional information from the server.")
+    static let codeFindByStringRequestFailed = NSLocalizedString("There was an error with the network request. Check your network connection.")
+    static let codeByDefault = NSLocalizedString("There was an error with the network request.")
     
     // MARK: - Edit noodle
     

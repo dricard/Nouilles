@@ -116,3 +116,9 @@
 "Current value" = "Valeur actuelle";
 "Edit" = "Edition";
 "Enter a new value for" = "Choisissez une nouvelle valeur pour";
+"Network Error" = "Erreur de communication";
+"The server did not respond to the request for nutritional information." = "Le serveur n'a pas fourni d'information nutritionnelle.";
+"Could not get nutritional information from the server." = "Impossible d'obtenir des informations nutritionnelles du serveur.";
+"Could not get nutritional information from the server." = "Impossible d'obtenir des informations nutritionnelles du serveur.";
+"There was an error with the network request. Check your network connection." = "Impossible d'accéder au réseau. Vérifiez la connexion au réseau.";
+"There was an error with the network request." = "Une erreur est survenue lors de la communication au réseau.";

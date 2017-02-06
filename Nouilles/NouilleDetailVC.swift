@@ -245,7 +245,19 @@ class NouilleDetailVC: UIViewController {
     }
     
     // MARK: - Utilities
-    
+        
+    func presentNetworkErrorDialog(_ error: NSError) {
+        
+        let controller = UIAlertController()
+        controller.title = .networkError
+        controller.message = "\(NetworkParams.message(error: error.code))"
+        
+        let okAction = UIAlertAction(title: .ok, style: UIAlertActionStyle.default, handler: nil)
+        controller.addAction(okAction)
+        present(controller, animated: true, completion: nil)
+        
+    }
+
     func updateInterface() {
         
         var customServingSize: Double = 0.0
@@ -265,12 +277,18 @@ class NouilleDetailVC: UIViewController {
                     activityIndicator.startAnimating()
                     
                     // Ask Model to fetch nutritional information
-                    Nouille.checkForNutritionalInformation(nouille: nouille, context: managedContext!) { success in
+                    Nouille.checkForNutritionalInformation(nouille: nouille, context: managedContext!) { success, error in
                         if success {
                             DispatchQueue.main.async {
                                 self.activityIndicator.stopAnimating()
                                 self.blurView.alpha = 0.0
                                 self.updateInterface()
+                            }
+                        } else {
+                            self.activityIndicator.stopAnimating()
+                            self.blurView.alpha = 0.0
+                            if let error = error {
+                                self.presentNetworkErrorDialog(error)
                             }
                         }
                     }
