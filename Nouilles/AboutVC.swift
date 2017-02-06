@@ -10,9 +10,6 @@ import UIKit
 
 class AboutVC: UIViewController {
 
-    // MARK: - properties
-    
-    
     // MARK: - Outlets
     
     @IBOutlet weak var versionLabel: UILabel!
@@ -54,8 +51,11 @@ class AboutVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = .aboutNoodles
+        // theme related
         view.backgroundColor = NoodlesStyleKit.lighterYellow
+
+        // localization
+        title = .aboutNoodles
         
         titleLabel.text = .noodles
         madeByLabel.text = .isMadeByLabel
@@ -65,9 +65,12 @@ class AboutVC: UIViewController {
         helpButton.setTitle(.helpButtonLabel, for: .normal)
         supportButton.setTitle(.supportButtonLabel, for: .normal)
         
+        // display current version number
         if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
             versionLabel.text = "v. " + version
         }
+        
+        // display copyright
         let today = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
@@ -75,11 +78,4 @@ class AboutVC: UIViewController {
         copyrightLabel.text = "© \(year) Hexaedre"
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
 }
