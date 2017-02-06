@@ -56,6 +56,8 @@ class NouilleDetailVC: UIViewController {
     @IBOutlet weak var unitsLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var blurView: UIView!
     // MARK: - Actions
     
     @IBAction func segmentedControlTapped(_ sender: Any) {
@@ -211,6 +213,10 @@ class NouilleDetailVC: UIViewController {
         // add gesture recognizer on timer button so user can start timer
         tapTimerButton.addTarget(self, action: #selector(NouilleDetailVC.startTimerTapped))
         timerButton.addGestureRecognizer(tapTimerButton)
+        
+        // Hide indicator views
+        activityIndicator.isHidden = true
+        blurView.alpha = 0.0
         
         updateInterface()
     }
