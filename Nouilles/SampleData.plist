@@ -4,17 +4,17 @@
 <array>
 	<dict>
 		<key>name</key>
-		<string>Bows</string>
+		<string>Bows medium</string>
 		<key>brand</key>
 		<string>Catelli</string>
 		<key>rating</key>
-		<real>1.5</real>
+		<integer>3</integer>
 		<key>serving_meal</key>
-		<real>0.75</real>
+		<real>1.75</real>
 		<key>serving_side</key>
-		<real>0.5</real>
+		<real>0.75</real>
 		<key>cooking_time</key>
-		<real>7.5</real>
+		<integer>10</integer>
 		<key>prefer_meal_size</key>
 		<false/>
 		<key>on_hand</key>
@@ -24,43 +24,383 @@
 	</dict>
 	<dict>
 		<key>name</key>
+		<string>Bows small</string>
+		<key>brand</key>
+		<string>Catelli</string>
+		<key>rating</key>
+		<real>4.5</real>
+		<key>serving_meal</key>
+		<real>0.75</real>
+		<key>serving_side</key>
+		<real>0.5</real>
+		<key>cooking_time</key>
+		<real>7.5</real>
+		<key>prefer_meal_size</key>
+		<false/>
+		<key>on_hand</key>
+		<false/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Ditali</string>
+		<key>brand</key>
+		<string>Barilla</string>
+		<key>rating</key>
+		<integer>4</integer>
+		<key>serving_meal</key>
+		<real>1.333</real>
+		<key>serving_side</key>
+		<real>0.666</real>
+		<key>cooking_time</key>
+		<integer>11</integer>
+		<key>prefer_meal_size</key>
+		<false/>
+		<key>on_hand</key>
+		<false/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Fettucce</string>
+		<key>brand</key>
+		<string>Le Veneziane</string>
+		<key>rating</key>
+		<integer>3</integer>
+		<key>serving_meal</key>
+		<real>1.5</real>
+		<key>serving_side</key>
+		<real>0.75</real>
+		<key>cooking_time</key>
+		<real>6.5</real>
+		<key>prefer_meal_size</key>
+		<false/>
+		<key>on_hand</key>
+		<false/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
 		<string>Fusili</string>
 		<key>brand</key>
 		<string>Catelli</string>
 		<key>rating</key>
 		<real>4.5</real>
 		<key>serving_meal</key>
-		<real>1.25</real>
+		<integer>1</integer>
 		<key>serving_side</key>
 		<real>0.75</real>
 		<key>cooking_time</key>
-		<integer>5</integer>
+		<integer>7</integer>
+		<key>prefer_meal_size</key>
+		<false/>
+		<key>on_hand</key>
+		<true/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Fusili Gluten Free</string>
+		<key>brand</key>
+		<string>President&apos;s Choice</string>
+		<key>rating</key>
+		<integer>4</integer>
+		<key>serving_meal</key>
+		<integer>1</integer>
+		<key>serving_side</key>
+		<real>0.5</real>
+		<key>cooking_time</key>
+		<integer>8</integer>
 		<key>prefer_meal_size</key>
 		<true/>
 		<key>on_hand</key>
 		<false/>
 		<key>image</key>
-		<string>image_fusili</string>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Fusili Smart</string>
+		<key>brand</key>
+		<string>Catelli</string>
+		<key>rating</key>
+		<real>2.5</real>
+		<key>serving_meal</key>
+		<integer>1</integer>
+		<key>serving_side</key>
+		<real>0.5</real>
+		<key>cooking_time</key>
+		<integer>6</integer>
+		<key>prefer_meal_size</key>
+		<true/>
+		<key>on_hand</key>
+		<true/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Gemelli</string>
+		<key>brand</key>
+		<string>Catelli</string>
+		<key>rating</key>
+		<integer>4</integer>
+		<key>serving_meal</key>
+		<integer>1</integer>
+		<key>serving_side</key>
+		<real>0.666</real>
+		<key>cooking_time</key>
+		<integer>9</integer>
+		<key>prefer_meal_size</key>
+		<true/>
+		<key>on_hand</key>
+		<true/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Macaroni</string>
+		<key>brand</key>
+		<string>Catelli</string>
+		<key>rating</key>
+		<real>1.5</real>
+		<key>serving_meal</key>
+		<real>0.75</real>
+		<key>serving_side</key>
+		<real>0.5</real>
+		<key>cooking_time</key>
+		<integer>6</integer>
+		<key>prefer_meal_size</key>
+		<true/>
+		<key>on_hand</key>
+		<false/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Macaroni &amp; Cheese</string>
+		<key>brand</key>
+		<string>Kraft</string>
+		<key>rating</key>
+		<real>4.5</real>
+		<key>serving_meal</key>
+		<integer>1</integer>
+		<key>serving_side</key>
+		<real>0.33</real>
+		<key>cooking_time</key>
+		<real>6.5</real>
+		<key>prefer_meal_size</key>
+		<true/>
+		<key>on_hand</key>
+		<true/>
+		<key>image</key>
+		<string></string>
 	</dict>
 	<dict>
 		<key>name</key>
 		<string>Penne Rigate</string>
 		<key>brand</key>
-		<string>Ronzoni</string>
+		<string>Catelli</string>
 		<key>rating</key>
 		<integer>3</integer>
 		<key>serving_meal</key>
-		<real>0.666</real>
+		<real>0.75</real>
 		<key>serving_side</key>
-		<real>0.33</real>
+		<real>0.25</real>
 		<key>cooking_time</key>
-		<integer>8</integer>
+		<integer>11</integer>
+		<key>prefer_meal_size</key>
+		<true/>
+		<key>on_hand</key>
+		<true/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Rice Pasta</string>
+		<key>brand</key>
+		<string>Rizopia</string>
+		<key>rating</key>
+		<integer>3</integer>
+		<key>serving_meal</key>
+		<integer>1</integer>
+		<key>serving_side</key>
+		<real>0.5</real>
+		<key>cooking_time</key>
+		<integer>7</integer>
+		<key>prefer_meal_size</key>
+		<false/>
+		<key>on_hand</key>
+		<false/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Rings</string>
+		<key>brand</key>
+		<string>Catelli</string>
+		<key>rating</key>
+		<integer>2</integer>
+		<key>serving_meal</key>
+		<integer>1</integer>
+		<key>serving_side</key>
+		<real>0.5</real>
+		<key>cooking_time</key>
+		<integer>7</integer>
 		<key>prefer_meal_size</key>
 		<false/>
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string>image_penne</string>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Rotini</string>
+		<key>brand</key>
+		<string>Barilla</string>
+		<key>rating</key>
+		<integer>4</integer>
+		<key>serving_meal</key>
+		<integer>1</integer>
+		<key>serving_side</key>
+		<real>0.5</real>
+		<key>cooking_time</key>
+		<real>8.5</real>
+		<key>prefer_meal_size</key>
+		<false/>
+		<key>on_hand</key>
+		<true/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Rotini</string>
+		<key>brand</key>
+		<string>Catelli</string>
+		<key>rating</key>
+		<real>3.5</real>
+		<key>serving_meal</key>
+		<real>1.25</real>
+		<key>serving_side</key>
+		<real>0.75</real>
+		<key>cooking_time</key>
+		<integer>13</integer>
+		<key>prefer_meal_size</key>
+		<false/>
+		<key>on_hand</key>
+		<true/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Rotini Gluten Free</string>
+		<key>brand</key>
+		<string>Barilla</string>
+		<key>rating</key>
+		<integer>4</integer>
+		<key>serving_meal</key>
+		<integer>1</integer>
+		<key>serving_side</key>
+		<real>0.5</real>
+		<key>cooking_time</key>
+		<integer>8</integer>
+		<key>prefer_meal_size</key>
+		<false/>
+		<key>on_hand</key>
+		<false/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Rotini Plus</string>
+		<key>brand</key>
+		<string>Barilla</string>
+		<key>rating</key>
+		<integer>2</integer>
+		<key>serving_meal</key>
+		<integer>1</integer>
+		<key>serving_side</key>
+		<real>0.5</real>
+		<key>cooking_time</key>
+		<integer>11</integer>
+		<key>prefer_meal_size</key>
+		<false/>
+		<key>on_hand</key>
+		<true/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Shells large</string>
+		<key>brand</key>
+		<string>Catelli</string>
+		<key>rating</key>
+		<real>4.5</real>
+		<key>serving_meal</key>
+		<integer>1</integer>
+		<key>serving_side</key>
+		<real>0.75</real>
+		<key>cooking_time</key>
+		<integer>9</integer>
+		<key>prefer_meal_size</key>
+		<false/>
+		<key>on_hand</key>
+		<true/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Soup Noodles</string>
+		<key>brand</key>
+		<string>Catelli</string>
+		<key>rating</key>
+		<integer>2</integer>
+		<key>serving_meal</key>
+		<real>0.75</real>
+		<key>serving_side</key>
+		<real>0.333</real>
+		<key>cooking_time</key>
+		<integer>4</integer>
+		<key>prefer_meal_size</key>
+		<true/>
+		<key>on_hand</key>
+		<false/>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Tortiglioni</string>
+		<key>brand</key>
+		<string>Catelli</string>
+		<key>rating</key>
+		<integer>4</integer>
+		<key>serving_meal</key>
+		<real>1.333</real>
+		<key>serving_side</key>
+		<real>0.75</real>
+		<key>cooking_time</key>
+		<integer>7</integer>
+		<key>prefer_meal_size</key>
+		<true/>
+		<key>on_hand</key>
+		<true/>
+		<key>image</key>
+		<string></string>
 	</dict>
 </array>
 </plist>
