@@ -82,9 +82,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // load default image
             let imageFile = dictionary["image"] as? String
-            let image = UIImage(named: imageFile!)
-            newNoodle.image = UIImagePNGRepresentation(image!) as NSData?
-            
+            if let imageFile = imageFile {
+                let image = UIImage(named: imageFile)
+                if let image = image {
+                    newNoodle.image = UIImagePNGRepresentation(image) as NSData?
+                }
+            }
         }
         
         // Save the context / new noodle to coredata
