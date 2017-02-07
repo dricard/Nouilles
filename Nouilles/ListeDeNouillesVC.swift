@@ -257,13 +257,28 @@ extension ListeDeNouillesVC {
             let togglePlayPauseTimerAction = UITableViewRowAction(style: .normal, title: "\u{2016}/\u{25B6}", handler: { (action, indexPath) in
                 let nouille = self.fetchedResultsController.object(at: indexPath)
                 if let noodleTimer = self.timers.timerFor(noodle: nouille) {
-                    noodleTimer.togglePauseTimer()
+                    _ = noodleTimer.togglePauseTimer()
+                    if noodleTimer.isRinging() {
+                        noodleTimer.stopRing()
+                    }
                 }
+                self.tableView.reloadData()
             })
             togglePlayPauseTimerAction.backgroundColor = NoodlesStyleKit.baseGreen
 
             let cancelTimerAction = UITableViewRowAction(style: .normal, title: "\u{25FC}", handler: { (action, indexPath) in
-                print("cancel tapped")
+                // invalidate the noodle timer itself
+                let nouille = self.fetchedResultsController.object(at: indexPath)
+                if let noodleTimer = self.timers.timerFor(noodle: nouille) {
+                    noodleTimer.cancelTimer()
+                    // stop the ringing sound if playing
+                    if noodleTimer.isRinging() {
+                        noodleTimer.stopRing()
+                    }
+                    // remove the timer from the list
+                    self.timers.deleteTimerFor(noodle: nouille)
+                }
+                self.tableView.reloadData()
             })
             cancelTimerAction.backgroundColor = NoodlesStyleKit.warning
 
