@@ -156,7 +156,6 @@ class ListeDeNouillesVC: UIViewController {
             vc.delegate = self
             vc.filters = filters
         }
-        
     }
     
     // MARK: - Fetch Request Methods
@@ -246,6 +245,17 @@ extension ListeDeNouillesVC: UITableViewDataSource {
 extension ListeDeNouillesVC {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        var tableViewRowActions: [UITableViewRowAction]?
+        
+        let nouille = fetchedResultsController.object(at: indexPath)
+
+        // Here we offer different actions if the row has an active timer. In that
+        // case we offer to play/pause the timer or cancel it. Otherwise it's the
+        // normal behavior of offering to delete or toggle the 'on hand' status.
+        if timers.hasTimerFor(noodle: nouille) {
+            print("YEP, that worked")
+        } else {
         // add toggle onHand setting action
         let toggleOnHandAction = UITableViewRowAction(style: .normal, title: "\u{2612}\n\(.toggle)\n\(.onHandLabel)", handler: { (action, indexPath) -> Void in
             
@@ -263,27 +273,29 @@ extension ListeDeNouillesVC {
         toggleOnHandAction.backgroundColor = NoodlesStyleKit.baseGreen
         
         // add delete noodle action
-        let deleteNoodleAction = UITableViewRowAction(style: .default, title: "\u{267A}\n\(.delete)", handler: { (action, indexPath) -> Void in
-            
-            let nouille = self.fetchedResultsController.object(at: indexPath)
-            
-            self.managedContext.delete(nouille)
-            
-            do {
-                try self.managedContext.save()
-            } catch let error as NSError {
-                print("Could not save context \(error), \(error.userInfo)")
-            }
-            
-            // if user deleted a noodle and a timer was running, we need to
-            // delete it as well
-            if self.timers.hasTimerFor(noodle: nouille) {
-                self.timers.deleteTimerFor(noodle: nouille)
-            }
-        })
-        deleteNoodleAction.backgroundColor = NoodlesStyleKit.darkerOrange
+            let deleteNoodleAction = UITableViewRowAction(style: .default, title: "\u{267A}\n\(.delete)", handler: { (action, indexPath) -> Void in
+                
+                let nouille = self.fetchedResultsController.object(at: indexPath)
+                
+                self.managedContext.delete(nouille)
+                
+                do {
+                    try self.managedContext.save()
+                } catch let error as NSError {
+                    print("Could not save context \(error), \(error.userInfo)")
+                }
+                
+                // if user deleted a noodle and a timer was running, we need to
+                // delete it as well
+                if self.timers.hasTimerFor(noodle: nouille) {
+                    self.timers.deleteTimerFor(noodle: nouille)
+                }
+            })
+            deleteNoodleAction.backgroundColor = NoodlesStyleKit.darkerOrange
+            tableViewRowActions = [toggleOnHandAction, deleteNoodleAction]
+        }
         
-        return [toggleOnHandAction, deleteNoodleAction]
+        return tableViewRowActions
     }
     
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
