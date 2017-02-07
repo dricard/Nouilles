@@ -33,7 +33,7 @@ class NoodleTimer: NSObject {
 
     init(cookingTime: Int) {
         // limit to under an hour cooking time. If it takes more than
-        // 60 mn to cook it's not noodles...
+        // 60 mn to cook, it's not noodles...
         if cookingTime > 3600 {
             self.cookingTime = 3600
         } else {
@@ -45,6 +45,8 @@ class NoodleTimer: NSObject {
         // start timer as it's created
         self.startTimer()
     }
+    
+    // MARK: - Convenience methods
     
     func timerMinutesLabel() -> String {
         let spacerM = minutes < 10 ? "0" : ""
