@@ -16,20 +16,23 @@ class Timers: NSObject {
 
     // MARK: - properties
     
+    // we associate timers with the noodle's 'objectID' (specifically its hashvalue)
+    // property, which is unique (and is of type Int)
     var timers = [Int:NoodleTimer]()
     
-    // This array of tuples is used for sequence-type access in list view
+    // This array of tuples is used for sequence-type access in list view. This Int
+    // is also the objectID.hashValue of the noodle
     var timersArray = [(Int, NoodleTimer)]()
     
     // MARK: - methods
     
     // check if a timer is associated with a specific noodle
-    // we associate timers with the noodle 'name' property, which is unique
     
     func hasTimerFor(noodle: Nouille) -> Bool {
         return timers[noodle.objectID.hashValue] != nil
     }
     
+    // do we have any timer in our list?
     func isNotEmpty() -> Bool {
         return !timers.isEmpty
     }
@@ -62,10 +65,18 @@ class Timers: NSObject {
 
 extension Timers: NoodleTimerDelegate {
     
+    // This is a delegate method for removing timers
+    // the difference here is that we do not have a Nouille object
+    // so we find what to remove with the NoodleTimer instead
     func removeTimerFromList(noodleTimer: NoodleTimer) {
         for (objectID, _timer) in timers {
             if _timer == noodleTimer {
                 timers[objectID] = nil
+            }
+            for (index, (arrayID, _)) in timersArray.enumerated() {
+                if objectID == arrayID {
+                    timersArray.remove(at: index)
+                }
             }
         }
     }
