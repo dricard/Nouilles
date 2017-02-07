@@ -16,10 +16,10 @@ class Timers: NSObject {
 
     // MARK: - properties
     
-    var timers = [String:NoodleTimer]()
+    var timers = [Int:NoodleTimer]()
     
     // This array of tuples is used for sequence-type access in list view
-    var timersArray = [(String, NoodleTimer)]()
+    var timersArray = [(Int, NoodleTimer)]()
     
     // MARK: - methods
     
@@ -27,8 +27,7 @@ class Timers: NSObject {
     // we associate timers with the noodle 'name' property, which is unique
     
     func hasTimerFor(noodle: Nouille) -> Bool {
-        guard let name = noodle.name else { return false }
-        return timers[name] != nil
+        return timers[noodle.objectID.hashValue] != nil
     }
     
     func isNotEmpty() -> Bool {
@@ -36,26 +35,24 @@ class Timers: NSObject {
     }
     
     func createTimerFor(noodle: Nouille) {
-        guard let name = noodle.name, let time = noodle.time else { return }
+        guard let time = noodle.time else { return }
         let seconds = Int(Double(time) * 60.0)
         let noodleTimer = NoodleTimer(cookingTime: seconds)
         noodleTimer.delegate = self
-        timers[name] = noodleTimer
+        timers[noodle.objectID.hashValue] = noodleTimer
         // now add it to the array for sequence-type access in list view
-        timersArray.append((name, noodleTimer))
+        timersArray.append((noodle.objectID.hashValue, noodleTimer))
     }
     
     func timerFor(noodle: Nouille) -> NoodleTimer? {
-        guard let name = noodle.name else { return nil }
-        return timers[name]
+        return timers[noodle.objectID.hashValue]
     }
     
     func deleteTimerFor(noodle: Nouille) {
-        guard let name = noodle.name else { return }
-        timers[name] = nil
+        timers[noodle.objectID.hashValue] = nil
         // Now also remove it from the array
-        for (index, (nameAtIndex, _)) in timersArray.enumerated() {
-            if nameAtIndex == name {
+        for (index, (objectID, _)) in timersArray.enumerated() {
+            if objectID == noodle.objectID.hashValue {
                 timersArray.remove(at: index)
             }
         }
@@ -66,9 +63,9 @@ class Timers: NSObject {
 extension Timers: NoodleTimerDelegate {
     
     func removeTimerFromList(noodleTimer: NoodleTimer) {
-        for (name, timer) in timers {
-            if timer == noodleTimer {
-                timers[name] = nil
+        for (objectID, _timer) in timers {
+            if _timer == noodleTimer {
+                timers[objectID] = nil
             }
         }
     }
