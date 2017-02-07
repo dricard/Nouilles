@@ -255,7 +255,10 @@ extension ListeDeNouillesVC {
         // normal behavior of offering to delete or toggle the 'on hand' status.
         if timers.hasTimerFor(noodle: nouille) {
             let togglePlayPauseTimerAction = UITableViewRowAction(style: .normal, title: "\u{2016}/\u{25B6}", handler: { (action, indexPath) in
-                print("play/pause tapped")
+                let nouille = self.fetchedResultsController.object(at: indexPath)
+                if let noodleTimer = self.timers.timerFor(noodle: nouille) {
+                    noodleTimer.togglePauseTimer()
+                }
             })
             togglePlayPauseTimerAction.backgroundColor = NoodlesStyleKit.baseGreen
 
