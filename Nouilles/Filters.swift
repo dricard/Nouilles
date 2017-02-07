@@ -33,7 +33,7 @@ class Filters: NSObject {
     let predicateSection = 1
     
     let sortTitleText: [String] = [ .byName, .byBrand, .byRating, .byCookingTime ]
-    let predicateTitleText: [String] = [ .all, .onHandTitleAvailable, .onHandTitleUnavailable ]
+    let predicateTitleText: [String] = [ .all, .onHandTitleAvailable, .onHandTitleUnavailable, .mealSizeTitle, .sideDishTitle ]
     
     let sortDescriptionText: [String] = [
         .sortByName,
@@ -42,7 +42,7 @@ class Filters: NSObject {
         .sortByTime
     ]
     
-    let predicateDescriptionText: [String] = [ .allNoodles, .onHandNoodles, .notOnHandNoodles ]
+    let predicateDescriptionText: [String] = [ .allNoodles, .onHandNoodles, .notOnHandNoodles, .mealSizeLabel, .sideDishLabel ]
     
     private var _currentSort: Int
     private var _currentPredicate: Int
@@ -81,6 +81,10 @@ class Filters: NSObject {
             return onHandPredicate
         case 2:
             return notOnHandPredicate
+        case 3:
+            return mealPreferredPredicate
+        case 4:
+            return sideDishPreferredPredicate
         default:
             return nil
         }
@@ -240,5 +244,13 @@ class Filters: NSObject {
     lazy var notOnHandPredicate: NSPredicate = {
         return NSPredicate(format: "%K == false", #keyPath(Nouille.onHand))
     }()
+
+    lazy var mealPreferredPredicate: NSPredicate = {
+        return NSPredicate(format: "%K == true", #keyPath(Nouille.mealSizePrefered))
+    }()
     
+    lazy var sideDishPreferredPredicate: NSPredicate = {
+        return NSPredicate(format: "%K == false", #keyPath(Nouille.mealSizePrefered))
+    }()
+
 }

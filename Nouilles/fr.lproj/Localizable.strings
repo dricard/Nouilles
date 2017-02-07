@@ -122,3 +122,7 @@
 "Could not get nutritional information from the server." = "Impossible d'obtenir des informations nutritionnelles du serveur.";
 "There was an error with the network request. Check your network connection." = "Impossible d'accéder au réseau. Vérifiez la connexion au réseau.";
 "There was an error with the network request." = "Une erreur est survenue lors de la communication au réseau.";
+"Main meal" = "Pour un repas";
+"Side Dish" = "Pour un accompagnement";
+"Show noodles used for main meal" = "Seulement celles préférées comme repas principal";
+"Show noodles used as a side dish" = "Seulement celles préférées comme accompagnement";

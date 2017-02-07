@@ -134,6 +134,10 @@ extension String {
     static let sortTitle = NSLocalizedString("Sort")
     static let predicateTitle = NSLocalizedString("Show")
     static let aboutButtonLabel = NSLocalizedString("About")
+    static let mealSizeTitle = NSLocalizedString("Main meal")
+    static let mealSizeLabel = NSLocalizedString("Show noodles used for main meal")
+    static let sideDishTitle = NSLocalizedString("Side Dish")
+    static let sideDishLabel = NSLocalizedString("Show noodles used as a side dish")
     
     // MARK: - Bar Code scanning
     

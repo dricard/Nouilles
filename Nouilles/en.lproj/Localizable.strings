@@ -122,3 +122,7 @@
 "Could not get nutritional information from the server." = "Could not get nutritional information from the server.";
 "There was an error with the network request. Check your network connection." = "There was an error with the network request. Check your network connection.";
 "There was an error with the network request." = "There was an error with the network request.";
+"Main meal" = "Main meal";
+"Side Dish" = "Side Dish";
+"Show noodles used for main meal" = "Show noodles used for main meal";
+"Show noodles used as a side dish" = "Show noodles used as a side dish";
