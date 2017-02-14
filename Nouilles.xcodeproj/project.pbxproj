@@ -25,7 +25,6 @@
 		21431A911DE3CE1E000CC37A /* NoodlesStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */; };
 		21431A931DE3D3E0000CC37A /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21431A921DE3D3E0000CC37A /* TimerView.swift */; };
 		214B38911E3658E1001E4F34 /* BarCodeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214B38901E3658E1001E4F34 /* BarCodeResult.swift */; };
-		214B38931E36AEBB001E4F34 /* ringSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 214B38921E36AEBB001E4F34 /* ringSound.mp3 */; };
 		214B38951E36B29A001E4F34 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 214B38941E36B29A001E4F34 /* AboutVC.swift */; };
 		215AB2A71DEC677A00B5AC23 /* DataValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215AB2A61DEC677A00B5AC23 /* DataValidation.swift */; };
 		215CC4E71DEF14B400070019 /* NoodleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215CC4E61DEF14B400070019 /* NoodleListTableViewCell.swift */; };
@@ -46,6 +45,7 @@
 		21A148D91D6B841900FA52BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A148D81D6B841900FA52BA /* Assets.xcassets */; };
 		21A148DC1D6B841900FA52BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A148DA1D6B841900FA52BA /* LaunchScreen.storyboard */; };
 		21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */; };
+		21ACD84F1E4CF963004D94B0 /* ringSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21ACD84E1E4CF963004D94B0 /* ringSound.mp3 */; };
 		21B87D301DF32A0600A4AB4E /* ChangeValueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */; };
 		21D30BC41DF5E6D400D077E9 /* FatSecretAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */; };
 		21D5102B1D6CA21B003CB856 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21D510291D6CA21B003CB856 /* Model.xcdatamodeld */; };
@@ -73,7 +73,6 @@
 		21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoodlesStyleKit.swift; sourceTree = "<group>"; };
 		21431A921DE3D3E0000CC37A /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		214B38901E3658E1001E4F34 /* BarCodeResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarCodeResult.swift; sourceTree = "<group>"; };
-		214B38921E36AEBB001E4F34 /* ringSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ringSound.mp3; path = ../../../Downloads/ringSound.mp3; sourceTree = "<group>"; };
 		214B38941E36B29A001E4F34 /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		215AB2A61DEC677A00B5AC23 /* DataValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataValidation.swift; sourceTree = "<group>"; };
 		215CC4E61DEF14B400070019 /* NoodleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoodleListTableViewCell.swift; sourceTree = "<group>"; };
@@ -99,6 +98,7 @@
 		21A148DB1D6B841900FA52BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21A148DD1D6B841900FA52BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListeDeNouillesVC.swift; sourceTree = "<group>"; };
+		21ACD84E1E4CF963004D94B0 /* ringSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ringSound.mp3; sourceTree = "<group>"; };
 		21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeValueVC.swift; sourceTree = "<group>"; };
 		21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatSecretAPI.swift; sourceTree = "<group>"; };
 		21D5102A1D6CA21B003CB856 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -146,8 +146,8 @@
 				21A148D81D6B841900FA52BA /* Assets.xcassets */,
 				21A148DD1D6B841900FA52BA /* Info.plist */,
 				210200FD1DE7C40A00D1F349 /* Sound.swift */,
+				21ACD84E1E4CF963004D94B0 /* ringSound.mp3 */,
 				210200FF1DE7CED000D1F349 /* scanBeep.mp3 */,
-				214B38921E36AEBB001E4F34 /* ringSound.mp3 */,
 				21FE64091DF8652D0012B799 /* Nouilles-Bridging-Header.h */,
 			);
 			name = Divers;
@@ -311,8 +311,8 @@
 				2161EFF21E43CFF600A43C24 /* SampleData.plist in Resources */,
 				21795F2F1DE33EAB00FAC131 /* Localizable.strings in Resources */,
 				21A148D91D6B841900FA52BA /* Assets.xcassets in Resources */,
-				214B38931E36AEBB001E4F34 /* ringSound.mp3 in Resources */,
 				21A148D71D6B841900FA52BA /* Main.storyboard in Resources */,
+				21ACD84F1E4CF963004D94B0 /* ringSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
