@@ -8,12 +8,23 @@
 
 import UIKit
 import CoreData
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    // User notifications
+    let center = UNUserNotificationCenter.current()
+    var userGrantedNotificationsPersmission = false
+    let permissionKey = "permissions"
+
+    // Create a Timers object that will hold timers for
+    // noodles. This will be passed along when needed
+    // Note: not to be confused with the Timer class
+    var timers = Timers()
+
     // Instanciate the CoreDataStack
     lazy var coreDataStack = CoreDataStack(modelName: "Model")
     
@@ -21,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Insert sample data (which checks if data already exists)
         insertSampleData()
+        
+        loadPreferences()
         
         // get a reference to the first view controller
         guard let navController = window?.rootViewController as? UINavigationController, let viewController = navController.topViewController as? ListeDeNouillesVC else { return true }
@@ -30,12 +43,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // pass the Core Data Context to it (dependency injection pattern)
         viewController.managedContext = coreDataStack.managedContext
+        viewController.timers = timers
         
         return true
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         coreDataStack.saveContext()
+        convertTimersToNotifications()
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
@@ -96,6 +111,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch let error as NSError {
             print("Could not save context in saveNoodleData() \(error), \(error.userInfo)")
         }
+    }
+    
+    func loadPreferences() {
+        // check if we have a dictionary to unarchive (we saved prefs before)
+        if let _ = UserDefaults.standard.value(forKey: permissionKey) {
+            userGrantedNotificationsPersmission = UserDefaults.standard.bool(forKey: permissionKey)
+        } else {
+            // no preferences found, default to false and ask permissions
+            UserDefaults.standard.set(false, forKey: permissionKey)
+            checkPermissions()
+        }
+    }
+    
+    func checkPermissions() {
+        
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        center.requestAuthorization(options: options) {
+            (granted, error) in
+            guard error == nil else { return }
+            
+            if !granted {
+                print("User denied access to notifications")
+                UserDefaults.standard.set(false, forKey: self.permissionKey)
+            } else {
+                self.userGrantedNotificationsPersmission = true
+                print("User granted notifications permissions")
+                self.userGrantedNotificationsPersmission = true
+                UserDefaults.standard.set(true, forKey: self.permissionKey)
+            }
+        }
+    }
+
+    func convertTimersToNotifications() {
+        
     }
 }
 

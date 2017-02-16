@@ -34,10 +34,8 @@ class ListeDeNouillesVC: UIViewController {
     
     // MARK: - Properties
     
-    // Create a Timers object that will hold timers for
-    // noodles. This will be passed along when needed
     // Note: not to be confused with the Timer class
-    var timers = Timers()
+    var timers: Timers!
     
     // This is a local timer to refresh the display
     var internalTimer = Timer()
