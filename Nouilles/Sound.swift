@@ -67,7 +67,9 @@ class Sound {
     }
     
     func stopRing() {
-        _ = AudioServicesDisposeSystemSoundID(soundID)
+        DispatchQueue.main.async {
+            _ = AudioServicesDisposeSystemSoundID(self.soundID)
+        }
     }
     
 }

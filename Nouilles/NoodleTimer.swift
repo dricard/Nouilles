@@ -116,8 +116,10 @@ class NoodleTimer: NSObject {
     }
     
     private func playSound() {
-        sound.playRing()
-        ringing = true
+        DispatchQueue.main.async {
+            self.sound.playRing()
+            self.ringing = true
+        }
     }
 
     

@@ -131,8 +131,8 @@ class ListeDeNouillesVC: UIViewController {
     func updateTimers() {
         if !currentlyEditing {
             if timers.isNotEmpty() {
-                for (_, noodleTimer) in timers.timersArray {
-                    if noodleTimer.isRunning() {
+                for (_, thisTimer) in timers.timers {
+                    if thisTimer.isRunning() {
                         tableView.reloadData()
                     }
                 }
