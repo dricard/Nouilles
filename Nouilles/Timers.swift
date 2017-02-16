@@ -20,10 +20,6 @@ class Timers {
     // property, which is unique (and is of type Int)
     var timers = [Int:NoodleTimer]()
     
-    // This array of tuples is used for sequence-type access in list view. This Int
-    // is also the objectID.hashValue of the noodle
-    var timersArray = [(Int, NoodleTimer)]()
-    
     // MARK: - methods
     
     // check if a timer is associated with a specific noodle
@@ -43,8 +39,6 @@ class Timers {
         let noodleTimer = NoodleTimer(cookingTime: seconds)
         noodleTimer.delegate = self
         timers[noodle.objectID.hashValue] = noodleTimer
-        // now add it to the array for sequence-type access in list view
-        timersArray.append((noodle.objectID.hashValue, noodleTimer))
     }
     
     func timerFor(noodle: Nouille) -> NoodleTimer? {
@@ -53,12 +47,6 @@ class Timers {
     
     func deleteTimerFor(noodle: Nouille) {
         timers[noodle.objectID.hashValue] = nil
-        // Now also remove it from the array
-        for (index, (objectID, _)) in timersArray.enumerated() {
-            if objectID == noodle.objectID.hashValue {
-                timersArray.remove(at: index)
-            }
-        }
     }
     
 }
@@ -72,11 +60,6 @@ extension Timers: NoodleTimerDelegate {
         for (objectID, _timer) in timers {
             if _timer == noodleTimer {
                 timers[objectID] = nil
-            }
-            for (index, (arrayID, _)) in timersArray.enumerated() {
-                if objectID == arrayID {
-                    timersArray.remove(at: index)
-                }
             }
         }
     }
