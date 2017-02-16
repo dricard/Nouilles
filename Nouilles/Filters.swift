@@ -18,7 +18,7 @@
 import Foundation
 import UIKit
 
-class Filters: NSObject {
+class Filters {
     
     // MARK: - sortTypes enum
     
@@ -48,7 +48,7 @@ class Filters: NSObject {
     private var _currentPredicate: Int
     
     
-    override init() {
+    init() {
         _currentSort = 0
         _currentPredicate = 0
     }

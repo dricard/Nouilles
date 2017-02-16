@@ -10,7 +10,7 @@ import UIKit
 
 // This holds the potential results from the UPC barcode scanning
 
-class BarCodeResult: NSObject {
+class BarCodeResult {
 
     // MARK: - properties
     var success = false

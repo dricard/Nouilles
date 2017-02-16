@@ -13,7 +13,7 @@
 
 import UIKit
 
-public class NoodlesStyleKit : NSObject {
+public class NoodlesStyleKit {
 
     //// Cache
 

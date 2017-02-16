@@ -15,7 +15,7 @@ import Foundation
 import AVFoundation
 import AudioToolbox
 
-class Sound: NSObject {
+class Sound {
     
     // MARK: - Properties
     
@@ -25,7 +25,7 @@ class Sound: NSObject {
     var timer: Timer?
     var soundID: SystemSoundID
     
-    override init() {
+    init() {
         
         // Sound resources urls
         let beepUrl = Bundle.main.url(forResource: "scanBeep", withExtension: "mp3")!
@@ -41,7 +41,6 @@ class Sound: NSObject {
             print("Could not create audioPlayer \(error), \(error.userInfo)")
         }
         audioEngine = AVAudioEngine()
-        super.init()
     }
     
     func playBeep() {
@@ -50,7 +49,9 @@ class Sound: NSObject {
     }
     
     func playRing() {
-        AudioServicesPlaySystemSound(soundID)
+        DispatchQueue.main.async {
+            AudioServicesPlaySystemSound(self.soundID)
+        }
     }
     
     func startTimer() {
@@ -59,7 +60,7 @@ class Sound: NSObject {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(Sound.stopBeep), userInfo: nil, repeats: true)
     }
     
-    func stopBeep() {
+    @objc func stopBeep() {
         beepPlayer.stop()
         audioEngine.stop()
         audioEngine.reset()

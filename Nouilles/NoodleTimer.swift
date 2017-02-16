@@ -15,6 +15,7 @@ import UIKit
 /// This class represents a single timer with its associated data
 /// it is created as the user starts timers for one or more noodles
 /// and the list of running timers is kept in the Timers class
+/// We inherit from NSObject to get the Equatable conformance
 class NoodleTimer: NSObject {
     
     // MARK: - Properties
@@ -88,7 +89,7 @@ class NoodleTimer: NSObject {
     
     // MARK: - Internal methods
     
-    func updateTimer() {
+    @objc func updateTimer() {
         if secondsLeft > 0 {
             // decrement secondsLeft (we'll trigger this every second)
             if !timerPaused {

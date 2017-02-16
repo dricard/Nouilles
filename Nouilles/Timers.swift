@@ -12,7 +12,7 @@ import UIKit
 /// timers that can run simultaneously. The are displayed both
 /// in a dedicated timerVC or as a replacement for the noddle image
 /// in the list view if a timer is running.
-class Timers: NSObject {
+class Timers {
 
     // MARK: - properties
     
