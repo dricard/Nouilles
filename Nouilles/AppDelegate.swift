@@ -45,10 +45,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // get a reference to the first view controller
         guard let navController = window?.rootViewController as? UINavigationController, let viewController = navController.topViewController as? ListeDeNouillesVC else { return true }
         
-        // set background color to the navigation bar
+        // Theme related: set background color to the navigation bar
         navController.navigationBar.backgroundColor = NoodlesStyleKit.darkerYellow
         
-        // pass the Core Data Context to it (dependency injection pattern)
+        // pass the Core Data Context to it as well as the timers object (dependency injection pattern)
         viewController.managedContext = coreDataStack.managedContext
         viewController.timers = timers
         
@@ -77,8 +77,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         for (id, thisTimer) in timers.timers {
             if response.notification.request.identifier == String(id) {
                 thisTimer.secondsLeft = 0
-                thisTimer.cancelTimer()
-                self.timers.timers[id] = nil
             }
         }
         completionHandler()
