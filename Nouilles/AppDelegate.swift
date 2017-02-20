@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     let center = UNUserNotificationCenter.current()
     var userGrantedNotificationsPersmission = false
     let permissionKey = "permissions"
-    var mightHaveNotifications = false
     
     // Create a Timers object that will hold timers for
     // noodles. This will be passed along when needed
@@ -190,7 +189,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         return
                     }
                 }
-                mightHaveNotifications = true
             }
         }
     }
