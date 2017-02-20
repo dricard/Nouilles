@@ -139,10 +139,10 @@ class AddNoodleVC: UIViewController {
                 
                 let controller = UIAlertController(title: .unsavedEntry, message: .areYouSure, preferredStyle: .alert)
                 let discardAction = UIAlertAction(title: .discard, style: .default, handler: { (action) in
-                    print("User chose to discard")
+                    NSLog("User chose to discard")
                 })
                 let saveAction = UIAlertAction(title: .save, style: .default, handler: { (action) in
-                    print("User chose to save")
+                    NSLog("User chose to save")
                 })
                 controller.addAction(discardAction)
                 controller.addAction(saveAction)

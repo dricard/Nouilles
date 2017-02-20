@@ -186,7 +186,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
                 center.add(request) { (error) in
                     if let error = error {
-                        print("Something went wrong with my notification \(error)")
+                        NSLog("Could not convert timer to notification: \(error)")
                         return
                     }
                 }
