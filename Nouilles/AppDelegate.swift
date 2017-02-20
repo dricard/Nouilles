@@ -11,7 +11,7 @@ import CoreData
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     
     var window: UIWindow?
     
@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let center = UNUserNotificationCenter.current()
     var userGrantedNotificationsPersmission = false
     let permissionKey = "permissions"
-
+    var mightHaveNotifications = false
+    
     // Create a Timers object that will hold timers for
     // noodles. This will be passed along when needed
     // Note: not to be confused with the Timer class
@@ -33,7 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Insert sample data (which checks if data already exists)
         insertSampleData()
         
+        // Load preferences
         loadPreferences()
+        
+        // set notifications categories
+        let notificationCategory = UNNotificationCategory(identifier: "com.hexaedre.nouilles", actions: [], intentIdentifiers: [], options: UNNotificationCategoryOptions())
+        center.setNotificationCategories([notificationCategory])
+        
+        center.delegate = self
         
         // get a reference to the first view controller
         guard let navController = window?.rootViewController as? UINavigationController, let viewController = navController.topViewController as? ListeDeNouillesVC else { return true }
@@ -55,6 +63,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         coreDataStack.saveContext()
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        convertNotificationsToTimers()
+    }
+    
+    // Here we take care of timers that aren't in either the 'pending'
+    // or the 'delivered' lists. Those happen when the user tapped the
+    // notification itself to return the app to the foreground. In that
+    // case the notification is cleared so it doesn't appear in the 'delivered'
+    // list. We still need to clean up in those cases.
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        for (id, thisTimer) in timers.timers {
+            if response.notification.request.identifier == String(id) {
+                thisTimer.secondsLeft = 0
+                thisTimer.cancelTimer()
+                self.timers.timers[id] = nil
+            }
+        }
+        completionHandler()
     }
     
     // MARK: - Utilities
@@ -143,8 +171,66 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    // Timers can't run while the app is in the background,
+    // so we convert to notifications set to fire when the
+    // timer would have fired.
     func convertTimersToNotifications() {
-        
+        if timers.isNotEmpty() {
+            for (id, thisTimer) in timers.timers {
+                let content = UNMutableNotificationContent()
+                content.title = .noodleNotificationTitle
+                content.body = .noodleNotificationMessage
+                content.sound = UNNotificationSound.default()
+                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(thisTimer.secondsLeft), repeats: false)
+                let identifier = String(id)
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+                center.add(request) { (error) in
+                    if let error = error {
+                        print("Something went wrong with my notification \(error)")
+                        return
+                    }
+                }
+                mightHaveNotifications = true
+            }
+        }
     }
+    
+    // When becoming active, we might have notifications
+    // from an active timer that was converted to a notification
+    // and that has not completed, so we need to remove the
+    // notification and refresh the timer. Or if the notifications
+    // completed, then we might have timers to reset.
+    func convertNotificationsToTimers() {
+        // first take care of those that have not completed to resume the timers
+        // at the proper time
+        center.getPendingNotificationRequests { requests in
+           for request in requests {
+                for (id, thisTimer) in self.timers.timers {
+                    if request.identifier == String(id) {
+                        if let triggerDate = (request.trigger as! UNTimeIntervalNotificationTrigger).nextTriggerDate() {
+                            let timeRemaining = triggerDate.timeIntervalSinceNow
+                            thisTimer.secondsLeft = Int(timeRemaining)
+                        }
+                        self.center.removePendingNotificationRequests(withIdentifiers: [request.identifier])
+                    }
+                }
+            }
+        }
+        // next clean up those that did complete, and remove the corresponding timers
+        center.getDeliveredNotifications { (delivered) in
+            for notification in delivered {
+                for (id, thisTimer) in self.timers.timers {
+                    if notification.request.identifier == String(id) {
+                        thisTimer.secondsLeft = 0
+                        thisTimer.stopTimer()
+                        self.timers.timers[id] = nil
+                        self.center.removeDeliveredNotifications(withIdentifiers: [notification.request.identifier])
+                    }
+                }
+            }
+        }
+    
+    }
+    
 }
 

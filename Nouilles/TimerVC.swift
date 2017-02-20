@@ -58,6 +58,9 @@ class TimerVC: UIViewController {
         // set cancel button image
         cancelView.image = NoodlesStyleKit.imageOfCancel
         
+        // register for notification observer
+        NotificationCenter.default.addObserver(self, selector: #selector(TimerVC.didBecomeActive), name: .UIApplicationDidBecomeActive, object: nil)
+        
         // update display depending on state of timer
         if let noodleTimer = noodleTimer {
             // set to pause/pause image (depending on state)
@@ -65,6 +68,18 @@ class TimerVC: UIViewController {
                 pausePlayView.image = NoodlesStyleKit.imageOfPause
             } else {
                 pausePlayView.image = NoodlesStyleKit.imageOfPlay
+            }
+        }
+    }
+    
+    // We may have come back to the foreground/active and a notification
+    // for this timer was tapped by the user, in which case the timer is
+    // over and was set to zero in AppDelegate.userNotificationCenter(:didReceive:)
+    // This means the user was alerted, and tapped the notification
+    func didBecomeActive() {
+        if let noodleTimer = noodleTimer {
+            if noodleTimer.secondsLeft == 0 {
+                cancelTapped(self)
             }
         }
     }
@@ -90,6 +105,9 @@ class TimerVC: UIViewController {
     
     func updateTimerLabel() {
         guard let noodleTimer = noodleTimer else { return }
+        if noodleTimer.secondsLeft == 0 {
+            cancelTapped(self)
+        }
         if noodleTimer.isRunning() {
             minutesTimerLabel.text = noodleTimer.timerMinutesLabel()
             secondsTimerLabel.text = noodleTimer.timerSecondsLabel()

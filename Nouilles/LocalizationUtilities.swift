@@ -156,4 +156,9 @@ extension String {
     
     static let currentValueLabel = NSLocalizedString("Current value")
     static let enterValueLabel = NSLocalizedString("Enter a new value for")
+    
+    // MARK: - Notifications
+    
+    static let noodleNotificationTitle = NSLocalizedString("Noodle Alert!")
+    static let noodleNotificationMessage = NSLocalizedString("Your noodles are ready!")
 }

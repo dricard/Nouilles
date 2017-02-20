@@ -84,7 +84,6 @@ class NoodleTimer: NSObject {
         timerPaused = true
         stopTimer()
         // TODO: - need to do something to remove the timer object
-        // TODO: - need to remove it also from the list of timers
     }
     
     // MARK: - Internal methods
@@ -111,7 +110,7 @@ class NoodleTimer: NSObject {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(NoodleTimer.updateTimer), userInfo: nil, repeats: true)
     }
     
-    private func stopTimer() {
+    func stopTimer() {
         timer.invalidate()
     }
     
