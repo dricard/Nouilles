@@ -77,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         for (id, thisTimer) in timers.timers {
             if response.notification.request.identifier == String(id) {
                 thisTimer.secondsLeft = 0
+                thisTimer.shouldRing = false
             }
         }
         completionHandler()
@@ -227,6 +228,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 for (id, thisTimer) in self.timers.timers {
                     if notification.request.identifier == String(id) {
                         thisTimer.secondsLeft = 0
+                        thisTimer.shouldRing = false
 //                        thisTimer.stopTimer()
 //                        self.timers.timers[id] = nil
                         self.center.removeDeliveredNotifications(withIdentifiers: [notification.request.identifier])

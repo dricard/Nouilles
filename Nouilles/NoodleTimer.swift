@@ -27,6 +27,7 @@ class NoodleTimer: NSObject {
     var ringing: Bool = false
     var sound = Sound()
     var triggerDate: Date?
+    var shouldRing = true
 
     weak var delegate: NoodleTimerDelegate?
     
@@ -79,12 +80,12 @@ class NoodleTimer: NSObject {
     
     func stopRing() {
         sound.stopRing()
+        shouldRing = false
     }
     
     func cancelTimer() {
         timerPaused = true
         stopTimer()
-        // TODO: - need to do something to remove the timer object
     }
     
     // MARK: - Internal methods

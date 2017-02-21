@@ -105,7 +105,7 @@ class TimerVC: UIViewController {
     
     func updateTimerLabel() {
         guard let noodleTimer = noodleTimer else { return }
-        if noodleTimer.secondsLeft == 0 {
+        if noodleTimer.secondsLeft == 0 && noodleTimer.shouldRing == false {
             cancelTapped(self)
         }
         if noodleTimer.isRunning() {
