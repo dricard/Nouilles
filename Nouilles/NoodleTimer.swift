@@ -26,6 +26,7 @@ class NoodleTimer: NSObject {
     var timerPaused: Bool = false
     var ringing: Bool = false
     var sound = Sound()
+    var triggerDate: Date?
 
     weak var delegate: NoodleTimerDelegate?
     

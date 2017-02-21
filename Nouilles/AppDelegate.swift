@@ -178,9 +178,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 content.title = .noodleNotificationTitle
                 content.body = .noodleNotificationMessage
                 content.sound = UNNotificationSound.default()
+                // timeInterval works to set the notification to fire at the right time...
                 let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(thisTimer.secondsLeft), repeats: false)
                 let identifier = String(id)
                 let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+                // ...but nextTriggerDate() doesn't work as expected for convertNotificationsToTimers, see this SO thread:
+                // http://stackoverflow.com/questions/40411812/does-untimeintervalnotificationtrigger-nexttriggerdate-give-the-wrong-date
+                // So I'm storing the fire date in a property.
+                thisTimer.triggerDate = trigger.nextTriggerDate()
                 center.add(request) { (error) in
                     if let error = error {
                         NSLog("Could not convert timer to notification: \(error)")
@@ -203,10 +208,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
            for request in requests {
                 for (id, thisTimer) in self.timers.timers {
                     if request.identifier == String(id) {
-                        if let triggerDate = (request.trigger as! UNTimeIntervalNotificationTrigger).nextTriggerDate() {
-                            let timeRemaining = triggerDate.timeIntervalSinceNow
+                        if let timerTrigger = thisTimer.triggerDate {
+                            let timeRemaining = timerTrigger.timeIntervalSinceNow
                             thisTimer.secondsLeft = Int(timeRemaining)
+                        } else {
+                            print("Error: triggerDate not set for timer: \(thisTimer)")
+                            thisTimer.secondsLeft = 0
                         }
+                        thisTimer.triggerDate = nil
                         self.center.removePendingNotificationRequests(withIdentifiers: [request.identifier])
                     }
                 }
@@ -218,8 +227,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 for (id, thisTimer) in self.timers.timers {
                     if notification.request.identifier == String(id) {
                         thisTimer.secondsLeft = 0
-                        thisTimer.stopTimer()
-                        self.timers.timers[id] = nil
+//                        thisTimer.stopTimer()
+//                        self.timers.timers[id] = nil
                         self.center.removeDeliveredNotifications(withIdentifiers: [notification.request.identifier])
                     }
                 }
