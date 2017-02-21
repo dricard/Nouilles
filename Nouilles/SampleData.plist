@@ -20,7 +20,7 @@
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string>image_bows.png</string>
+		<string>catelli_bows_large_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -40,7 +40,7 @@
 		<key>on_hand</key>
 		<false/>
 		<key>image</key>
-		<string></string>
+		<string>catelli_bows_small_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -60,7 +60,7 @@
 		<key>on_hand</key>
 		<false/>
 		<key>image</key>
-		<string></string>
+		<string>barilla_ditali_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -80,7 +80,7 @@
 		<key>on_hand</key>
 		<false/>
 		<key>image</key>
-		<string></string>
+		<string>leveziane_fettucce_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -100,7 +100,7 @@
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string></string>
+		<string>catelli_fusilli_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -120,7 +120,7 @@
 		<key>on_hand</key>
 		<false/>
 		<key>image</key>
-		<string></string>
+		<string>president_choice_fusili_sg_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -140,7 +140,7 @@
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string></string>
+		<string>catelli_fusili_smart_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -160,7 +160,7 @@
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string></string>
+		<string>catelli_gemelli_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -180,7 +180,7 @@
 		<key>on_hand</key>
 		<false/>
 		<key>image</key>
-		<string></string>
+		<string>catelli_macaroni_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -200,7 +200,7 @@
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string></string>
+		<string>kraft_macaroni_cheese_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -220,7 +220,7 @@
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string></string>
+		<string>catelli_penne_rigate_smart_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -240,7 +240,7 @@
 		<key>on_hand</key>
 		<false/>
 		<key>image</key>
-		<string></string>
+		<string>rice_noodles_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -260,7 +260,7 @@
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string></string>
+		<string>catelli_rings_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -280,7 +280,7 @@
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string></string>
+		<string>barilla_rotini_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -300,7 +300,7 @@
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string></string>
+		<string>catelli_rotini_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -320,7 +320,7 @@
 		<key>on_hand</key>
 		<false/>
 		<key>image</key>
-		<string></string>
+		<string>barilla_rotini_sg_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -340,7 +340,7 @@
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string></string>
+		<string>Barilla_rotini_plus_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -360,7 +360,7 @@
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string></string>
+		<string>catelli_shells_large_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -380,7 +380,7 @@
 		<key>on_hand</key>
 		<false/>
 		<key>image</key>
-		<string></string>
+		<string>catelli_soup_noodles_.png</string>
 	</dict>
 	<dict>
 		<key>name</key>
@@ -400,7 +400,7 @@
 		<key>on_hand</key>
 		<true/>
 		<key>image</key>
-		<string></string>
+		<string>catelli_tortiglioni_.png</string>
 	</dict>
 </array>
 </plist>

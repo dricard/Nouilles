@@ -229,7 +229,7 @@ extension BarCodeVC: AVCaptureMetadataOutputObjectsDelegate {
                                 scanResults.brand = wordsInTitle[0]
                                 scanResults.name = wordsInTitle[1]
                             } else {
-                                // TODO: - perhaps offer a choice to the user
+                                // TODO: - perhaps offer a choice to the user in the future
                                 // we have a number of words > 2 that are split between
                                 // the brand name and the pasta name
                                 // for now split between the two
