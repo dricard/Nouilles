@@ -91,7 +91,7 @@
 		217D10B91DF2209900262255 /* BoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolTableViewCell.swift; sourceTree = "<group>"; };
 		2185319A1DDCA5060092B335 /* AddNoodleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoodleVC.swift; sourceTree = "<group>"; };
 		2198B4691DDE413B006C88C2 /* TakePictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePictureVC.swift; sourceTree = "<group>"; };
-		21A148CE1D6B841800FA52BA /* Nouilles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nouilles.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		21A148CE1D6B841800FA52BA /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A148D11D6B841800FA52BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21A148D61D6B841900FA52BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21A148D81D6B841900FA52BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -226,7 +226,7 @@
 		21A148CF1D6B841800FA52BA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				21A148CE1D6B841800FA52BA /* Nouilles.app */,
+				21A148CE1D6B841800FA52BA /* Noodles.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,7 +262,7 @@
 			);
 			name = Nouilles;
 			productName = Nouilles;
-			productReference = 21A148CE1D6B841800FA52BA /* Nouilles.app */;
+			productReference = 21A148CE1D6B841800FA52BA /* Noodles.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -497,8 +497,8 @@
 				DEVELOPMENT_TEAM = 7B656Y9UYB;
 				INFOPLIST_FILE = Nouilles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hexaedre.Nouilles;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hexaedre.Noodles;
+				PRODUCT_NAME = Noodles;
 				SWIFT_OBJC_BRIDGING_HEADER = "Nouilles/Nouilles-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -513,8 +513,8 @@
 				DEVELOPMENT_TEAM = 7B656Y9UYB;
 				INFOPLIST_FILE = Nouilles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hexaedre.Nouilles;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hexaedre.Noodles;
+				PRODUCT_NAME = Noodles;
 				SWIFT_OBJC_BRIDGING_HEADER = "Nouilles/Nouilles-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
