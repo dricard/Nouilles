@@ -394,7 +394,7 @@
 		<key>serving_side</key>
 		<real>0.75</real>
 		<key>cooking_time</key>
-		<integer>7</integer>
+		<integer>9</integer>
 		<key>prefer_meal_size</key>
 		<true/>
 		<key>on_hand</key>

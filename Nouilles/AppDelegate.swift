@@ -24,13 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // noodles. This will be passed along when needed
     // Note: not to be confused with the Timer class
     var timers = Timers()
-
+    
     // Instanciate the CoreDataStack
     lazy var coreDataStack = CoreDataStack(modelName: "Model")
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-        // Insert sample data (which checks if data already exists)
+        // Insert sample data (this method checks if data already exists)
         insertSampleData()
         
         // Load preferences
@@ -39,7 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // set notifications categories
         let notificationCategory = UNNotificationCategory(identifier: "com.hexaedre.nouilles", actions: [], intentIdentifiers: [], options: UNNotificationCategoryOptions())
         center.setNotificationCategories([notificationCategory])
-        
         center.delegate = self
         
         // get a reference to the first view controller
@@ -55,6 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
     
+    // When one or more timers are running and the app goes to the background
+    // we need to convert those timers to timed notifications.
     func applicationDidEnterBackground(_ application: UIApplication) {
         coreDataStack.saveContext()
         convertTimersToNotifications()
@@ -64,12 +65,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         coreDataStack.saveContext()
     }
     
+    // When the app returns from the background, we may have to
+    // convert notifications back to timers or clear delivered notifications
     func applicationDidBecomeActive(_ application: UIApplication) {
         convertNotificationsToTimers()
     }
     
-    // Here we take care of timers that aren't in either the 'pending'
-    // or the 'delivered' lists. Those happen when the user tapped the
+    // Here we take care of notifications that aren't in either the 'pending'
+    // or the 'delivered' lists. This gets called when the user tapped the
     // notification itself to return the app to the foreground. In that
     // case the notification is cleared so it doesn't appear in the 'delivered'
     // list. We still need to clean up in those cases.
@@ -108,7 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             // Noodle data
             newNoodle.name = dictionary["name"] as? String
             newNoodle.brand = dictionary["brand"] as? String
-
+            
             newNoodle.servingCustom = dictionary["serving_meal"] as? NSNumber
             newNoodle.servingSideDish = dictionary["serving_side"] as? NSNumber
             newNoodle.time = dictionary["cooking_time"] as? NSNumber
@@ -150,9 +153,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
     }
     
+    // Ask user for permission to set notifications (timers when app is in the
+    // background).
     func checkPermissions() {
-        
-        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        let options: UNAuthorizationOptions = [.alert, .sound]
         center.requestAuthorization(options: options) {
             (granted, error) in
             guard error == nil else { return }
@@ -160,6 +164,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if !granted {
                 print("User denied access to notifications")
                 UserDefaults.standard.set(false, forKey: self.permissionKey)
+                self.userGrantedNotificationsPersmission = false
             } else {
                 self.userGrantedNotificationsPersmission = true
                 print("User granted notifications permissions")
@@ -168,29 +173,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
-
+    
     // Timers can't run while the app is in the background,
     // so we convert to notifications set to fire when the
     // timer would have fired.
     func convertTimersToNotifications() {
         if timers.isNotEmpty() {
-            for (id, thisTimer) in timers.timers {
-                let content = UNMutableNotificationContent()
-                content.title = .noodleNotificationTitle
-                content.body = .noodleNotificationMessage
-                content.sound = UNNotificationSound.default()
-                // timeInterval works to set the notification to fire at the right time...
-                let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(thisTimer.secondsLeft), repeats: false)
-                let identifier = String(id)
-                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-                // ...but nextTriggerDate() doesn't work as expected for convertNotificationsToTimers, see this SO thread:
-                // http://stackoverflow.com/questions/40411812/does-untimeintervalnotificationtrigger-nexttriggerdate-give-the-wrong-date
-                // So I'm storing the fire date in a property.
-                thisTimer.triggerDate = trigger.nextTriggerDate()
-                center.add(request) { (error) in
-                    if let error = error {
-                        NSLog("Could not convert timer to notification: \(error)")
-                        return
+            if userGrantedNotificationsPersmission {
+                for (id, thisTimer) in timers.timers {
+                    let content = UNMutableNotificationContent()
+                    content.title = .noodleNotificationTitle
+                    content.body = .noodleNotificationMessage
+                    content.sound = UNNotificationSound.default()
+                    let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(thisTimer.secondsLeft), repeats: false)
+                    let identifier = String(id)
+                    let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+                    // timeInterval works to set the notification to fire at the right time...
+                    // ...but nextTriggerDate() doesn't work as expected for convertNotificationsToTimers, see this SO thread:
+                    // http://stackoverflow.com/questions/40411812/does-untimeintervalnotificationtrigger-nexttriggerdate-give-the-wrong-date
+                    // So I'm storing the fire date in a property.
+                    thisTimer.triggerDate = trigger.nextTriggerDate()
+                    center.add(request) { (error) in
+                        if let error = error {
+                            NSLog("Could not convert timer to notification: \(error)")
+                            return
+                        }
                     }
                 }
             }
@@ -206,7 +213,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // first take care of those that have not completed to resume the timers
         // at the proper time
         center.getPendingNotificationRequests { requests in
-           for request in requests {
+            for request in requests {
                 for (id, thisTimer) in self.timers.timers {
                     if request.identifier == String(id) {
                         if let timerTrigger = thisTimer.triggerDate {
@@ -229,14 +236,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     if notification.request.identifier == String(id) {
                         thisTimer.secondsLeft = 0
                         thisTimer.shouldRing = false
-//                        thisTimer.stopTimer()
-//                        self.timers.timers[id] = nil
                         self.center.removeDeliveredNotifications(withIdentifiers: [notification.request.identifier])
                     }
                 }
             }
         }
-    
+        
     }
     
 }

@@ -161,4 +161,6 @@ extension String {
     
     static let noodleNotificationTitle = NSLocalizedString("Noodle Alert!")
     static let noodleNotificationMessage = NSLocalizedString("Your noodles are ready!")
+    static let askForPermissionForTimerTitle = NSLocalizedString("Noodles requires persmissions to set notifications")
+    static let askForPermissionForTimerExplanation = NSLocalizedString("To be able to alert you when your noodles are ready while in the background, Noodles needs you to grant permission in the following dialog, otherwise you won't be notified.")
 }
