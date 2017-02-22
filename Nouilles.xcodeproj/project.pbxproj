@@ -47,7 +47,6 @@
 		21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */; };
 		21ACD84F1E4CF963004D94B0 /* ringSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21ACD84E1E4CF963004D94B0 /* ringSound.mp3 */; };
 		21B87D301DF32A0600A4AB4E /* ChangeValueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */; };
-		21BFF8081E5D258900BEC6AC /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 21BFF8071E5D258900BEC6AC /* README.md */; };
 		21D30BC41DF5E6D400D077E9 /* FatSecretAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */; };
 		21D5102B1D6CA21B003CB856 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21D510291D6CA21B003CB856 /* Model.xcdatamodeld */; };
 		21E325ED1E252BAA001269DE /* Timers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E325EC1E252BAA001269DE /* Timers.swift */; };
@@ -101,7 +100,6 @@
 		21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListeDeNouillesVC.swift; sourceTree = "<group>"; };
 		21ACD84E1E4CF963004D94B0 /* ringSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ringSound.mp3; sourceTree = "<group>"; };
 		21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeValueVC.swift; sourceTree = "<group>"; };
-		21BFF8071E5D258900BEC6AC /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatSecretAPI.swift; sourceTree = "<group>"; };
 		21D5102A1D6CA21B003CB856 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		21E325EC1E252BAA001269DE /* Timers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timers.swift; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 		21A148D01D6B841800FA52BA /* Nouilles */ = {
 			isa = PBXGroup;
 			children = (
-				21BFF8071E5D258900BEC6AC /* README.md */,
 				210200FC1DE7C3A700D1F349 /* Divers */,
 				21795F2A1DE3389D00FAC131 /* Localization */,
 				210200FB1DE7C38A00D1F349 /* Core Data */,
@@ -356,7 +353,6 @@
 				2137A6071DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift in Sources */,
 				21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */,
 				210200FE1DE7C40A00D1F349 /* Sound.swift in Sources */,
-				21BFF8081E5D258900BEC6AC /* README.md in Sources */,
 				2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */,
 				2137A60D1DDB961200C1FC35 /* NouilleDetailVC.swift in Sources */,
 				217D10B61DF2207200262255 /* TextTableViewCell.swift in Sources */,
