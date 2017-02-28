@@ -17,8 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     // User notifications
     let center = UNUserNotificationCenter.current()
-    var userGrantedNotificationsPersmission = false
+    // We'll check if the user granted permissions or not at launch
+    // He might have change the permissions in utilities, either way
+    // so we need to check that each launch. If the user denied permission
+    // we need to ask (politely) for permission because the timers won't work
+    // otherwise. So this is to trigger a more extensive dialog to explain
+    // the reasons for asking prior to have the system request permissions.
+    var userDeniedPermissionOnce = false
     let permissionKey = "permissions"
+    let neverAskAgainKey = "neverAskPermissionsAgain"
     
     // Create a Timers object that will hold timers for
     // noodles. This will be passed along when needed
@@ -50,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // pass the Core Data Context to it as well as the timers object (dependency injection pattern)
         viewController.managedContext = coreDataStack.managedContext
         viewController.timers = timers
+        viewController.shouldRequestPermission = willAskUserForPermission()
         
         return true
     }
@@ -145,12 +153,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func loadPreferences() {
         // check if we have a dictionary to unarchive (we saved prefs before)
         if let _ = UserDefaults.standard.value(forKey: permissionKey) {
-            userGrantedNotificationsPersmission = UserDefaults.standard.bool(forKey: permissionKey)
+            userDeniedPermissionOnce = UserDefaults.standard.bool(forKey: permissionKey)
         } else {
             // no preferences found, default to false and ask permissions
             UserDefaults.standard.set(false, forKey: permissionKey)
-            checkPermissions()
         }
+        checkPermissions()
     }
     
     // Ask user for permission to set notifications (timers when app is in the
@@ -158,28 +166,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func checkPermissions() {
         let options: UNAuthorizationOptions = [.alert, .sound]
         center.requestAuthorization(options: options) {
-            (granted, error) in
+            (userGrantedPermission, error) in
             guard error == nil else { return }
             
-            if !granted {
-                print("User denied access to notifications")
-                UserDefaults.standard.set(false, forKey: self.permissionKey)
-                self.userGrantedNotificationsPersmission = false
-            } else {
-                self.userGrantedNotificationsPersmission = true
+            if userGrantedPermission {
                 print("User granted notifications permissions")
-                self.userGrantedNotificationsPersmission = true
+                self.userDeniedPermissionOnce = false
+                UserDefaults.standard.set(false, forKey: self.permissionKey)
+            } else {
+                print("User denied access to notifications")
                 UserDefaults.standard.set(true, forKey: self.permissionKey)
+                self.userDeniedPermissionOnce = true
             }
         }
     }
+    
+    func willAskUserForPermission() -> Bool {
+        let userDeniedPermission = UserDefaults.standard.bool(forKey: permissionKey)
+        let userAskedNeverToAskForPermissionsAgain = UserDefaults.standard.bool(forKey: neverAskAgainKey)
+        return userDeniedPermission && userAskedNeverToAskForPermissionsAgain == false
+    }
+    
     
     // Timers can't run while the app is in the background,
     // so we convert to notifications set to fire when the
     // timer would have fired.
     func convertTimersToNotifications() {
         if timers.isNotEmpty() {
-            if userGrantedNotificationsPersmission {
+            if userDeniedPermissionOnce {
                 for (id, thisTimer) in timers.timers {
                     let content = UNMutableNotificationContent()
                     content.title = .noodleNotificationTitle
@@ -193,6 +207,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     // http://stackoverflow.com/questions/40411812/does-untimeintervalnotificationtrigger-nexttriggerdate-give-the-wrong-date
                     // So I'm storing the fire date in a property.
                     thisTimer.triggerDate = trigger.nextTriggerDate()
+                    dump(thisTimer.triggerDate)
                     center.add(request) { (error) in
                         if let error = error {
                             NSLog("Could not convert timer to notification: \(error)")
@@ -219,6 +234,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                         if let timerTrigger = thisTimer.triggerDate {
                             let timeRemaining = timerTrigger.timeIntervalSinceNow
                             thisTimer.secondsLeft = Int(timeRemaining)
+                            dump(thisTimer.triggerDate)
                         } else {
                             print("Error: triggerDate not set for timer: \(thisTimer)")
                             thisTimer.secondsLeft = 0

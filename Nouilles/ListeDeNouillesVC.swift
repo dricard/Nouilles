@@ -34,6 +34,10 @@ class ListeDeNouillesVC: UIViewController {
     
     // MARK: - Properties
     
+    // Notifications permissions related
+    var shouldRequestPermission: Bool?
+    let neverAskAgainKey = "neverAskPermissionsAgain"
+    
     // Note: not to be confused with the Timer class
     var timers: Timers!
     
@@ -118,6 +122,26 @@ class ListeDeNouillesVC: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if let shouldRequestPermission = shouldRequestPermission {
+            if shouldRequestPermission {
+                print("Request permissions dialog here")
+                let alertDialog = UIAlertController(title: .askForPermissionForTimerTitle, message: .askForPermissionForTimerExplanation, preferredStyle: .actionSheet)
+                let okAction = UIAlertAction(title: .ok, style: .default, handler: nil)
+                let neverAction = UIAlertAction(title: .neverAskAgain, style: .default, handler: { (action) in
+                    UserDefaults.standard.set(true, forKey: self.neverAskAgainKey)
+                    print("setting pref to never ask again for permissions")
+                })
+                alertDialog.addAction(okAction)
+                alertDialog.addAction(neverAction)
+                present(alertDialog, animated: true, completion: nil)
+            }
+            // we do this only once
+            self.shouldRequestPermission = false
+        }
+
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         // ivalidate any running timer before switching to anoter VC
         internalTimer.invalidate()

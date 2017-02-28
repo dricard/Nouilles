@@ -129,4 +129,5 @@
 "Noodle Alert!" = "Noodle Alert!";
 "Your noodles are ready!" = "Your noodles are ready!";
 "Noodles requires persmissions to set notifications" = "Noodles requires persmissions to set notifications";
-"To be able to alert you when your noodles are ready while in the background, Noodles needs you to grant permission in the following dialog, otherwise you won't be notified." = "To be able to alert you when your noodles are ready while in the background, Noodles needs you to grant permission in the following dialog, otherwise you won't be notified.";
+"To be able to alert you when your noodles are ready while in the background, Noodles needs you to grant permission in the following dialog, otherwise you won't be notified." = "To use timers while Noodles is in the background you need to enable notifications in Settings/Notifications/Noodles.";
+"Never ask me this again" = "Never remind me about this again";
