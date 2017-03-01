@@ -19,6 +19,10 @@ enum Names {
     static let segmentedControlTappedEvent = "detail_segmented_tapped"
     static let pictureTappedEvent = "detail_picture_tapped"
     
+    // MARK: - Add Noodle view
     
+    static let scanBarcodeButtonTapped = "add_barcode_tapped"
+    static let saveNoodleButtonTapped = "add_save_tapped"
+    static let cancelSaveNoodleButtonTapped = "add_cancel_tapped"
     
 }
