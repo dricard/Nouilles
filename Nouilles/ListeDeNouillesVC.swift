@@ -29,6 +29,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class ListeDeNouillesVC: UIViewController {
     
@@ -125,10 +126,15 @@ class ListeDeNouillesVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if let shouldRequestPermission = shouldRequestPermission {
             if shouldRequestPermission {
-                print("Request permissions dialog here")
+
+                FIRAnalytics.logEvent(withName: Names.listPresentNotificationsReminder, parameters: nil)
+                
                 let alertDialog = UIAlertController(title: .askForPermissionForTimerTitle, message: .askForPermissionForTimerExplanation, preferredStyle: .actionSheet)
                 let okAction = UIAlertAction(title: .ok, style: .default, handler: nil)
                 let neverAction = UIAlertAction(title: .neverAskAgain, style: .default, handler: { (action) in
+                    
+                    FIRAnalytics.logEvent(withName: Names.listDoNotRemindEverSelected, parameters: nil)
+                    
                     UserDefaults.standard.set(true, forKey: self.neverAskAgainKey)
                     print("setting pref to never ask again for permissions")
                 })
@@ -277,6 +283,9 @@ extension ListeDeNouillesVC {
         // normal behavior of offering to delete or toggle the 'on hand' status.
         if timers.hasTimerFor(noodle: nouille) {
             let togglePlayPauseTimerAction = UITableViewRowAction(style: .normal, title: "\u{2016}/\u{25B6}", handler: { (action, indexPath) in
+                
+                FIRAnalytics.logEvent(withName: Names.listSwipePausePlay, parameters: nil)
+                
                 let nouille = self.fetchedResultsController.object(at: indexPath)
                 if let noodleTimer = self.timers.timerFor(noodle: nouille) {
                     _ = noodleTimer.togglePauseTimer()
@@ -289,6 +298,9 @@ extension ListeDeNouillesVC {
             togglePlayPauseTimerAction.backgroundColor = NoodlesStyleKit.baseGreen
 
             let cancelTimerAction = UITableViewRowAction(style: .normal, title: "\u{25FC}", handler: { (action, indexPath) in
+                
+                FIRAnalytics.logEvent(withName: Names.listSwipeCancelTimer, parameters: nil)
+                
                 // invalidate the noodle timer itself
                 let nouille = self.fetchedResultsController.object(at: indexPath)
                 if let noodleTimer = self.timers.timerFor(noodle: nouille) {
@@ -309,6 +321,8 @@ extension ListeDeNouillesVC {
         // add toggle onHand setting action
         let toggleOnHandAction = UITableViewRowAction(style: .normal, title: "\u{2612}\n\(.toggle)\n\(.onHandLabel)", handler: { (action, indexPath) -> Void in
             
+            FIRAnalytics.logEvent(withName: Names.listSwipeAvailable, parameters: nil)
+            
             let nouille = self.fetchedResultsController.object(at: indexPath)
             
             let onHand = !(nouille.onHand as! Bool)
@@ -324,6 +338,8 @@ extension ListeDeNouillesVC {
         
         // add delete noodle action
             let deleteNoodleAction = UITableViewRowAction(style: .default, title: "\u{267A}\n\(.delete)", handler: { (action, indexPath) -> Void in
+                
+                FIRAnalytics.logEvent(withName: Names.listSwipeDelete, parameters: nil)
                 
                 let nouille = self.fetchedResultsController.object(at: indexPath)
                 
