@@ -28,6 +28,7 @@ enum Names {
     // MARK: - Filter view
     
     static let selectFilterEvent = "filter_select_section_row"
+    static let filterSelectedKey = "filter_selected"
     
     // MARK: - About VC
     

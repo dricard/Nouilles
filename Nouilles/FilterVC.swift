@@ -108,7 +108,8 @@ class FilterVC: UITableViewController {
         
         let selected = (indexPath.section * 10 + indexPath.row) as NSObject
         
-        FIRAnalytics.logEvent(withName: Names.selectFilterEvent, parameters: ["filter_selected": selected])
+        FIRAnalytics.logEvent(withName: Names.selectFilterEvent, parameters: [Names.filterSelectedKey: selected])
+        
         tableView.reloadData()
     }
 }
