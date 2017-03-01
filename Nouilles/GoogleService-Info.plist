@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>368972688650-dp6rv82ndvj1i9a27f3kmrlq9dt7ohfk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.368972688650-dp6rv82ndvj1i9a27f3kmrlq9dt7ohfk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDjDJCKVfEnimlJjUhEavaKEG2QQ6_t1K8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>368972688650</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.hexaedre.Noodles</string>
+	<key>PROJECT_ID</key>
+	<string>noodles-d0db3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>noodles-d0db3.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:368972688650:ios:dd5d7d42f252fdb1</string>
+	<key>DATABASE_URL</key>
+	<string>https://noodles-d0db3.firebaseio.com</string>
+</dict>
+</plist>
