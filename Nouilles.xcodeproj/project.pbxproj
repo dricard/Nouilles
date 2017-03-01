@@ -158,7 +158,6 @@
 		210200FC1DE7C3A700D1F349 /* Divers */ = {
 			isa = PBXGroup;
 			children = (
-				217BFB911E6651B300E6E588 /* GoogleService-Info.plist */,
 				21A148D11D6B841800FA52BA /* AppDelegate.swift */,
 				21A148D81D6B841900FA52BA /* Assets.xcassets */,
 				21A148DD1D6B841900FA52BA /* Info.plist */,
@@ -166,6 +165,7 @@
 				21ACD84E1E4CF963004D94B0 /* ringSound.mp3 */,
 				210200FF1DE7CED000D1F349 /* scanBeep.mp3 */,
 				21FE64091DF8652D0012B799 /* Nouilles-Bridging-Header.h */,
+				217BFB911E6651B300E6E588 /* GoogleService-Info.plist */,
 			);
 			name = Divers;
 			sourceTree = "<group>";

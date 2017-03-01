@@ -23,8 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // we need to ask (politely) for permission because the timers won't work
     // otherwise. So this is to trigger a more extensive dialog to explain
     // the reasons for asking prior to have the system request permissions.
-    var userDeniedPermissionOnce = false
-    let permissionKey = "permissions"
+    var userDeniedPermission = false
+    let permissionWasDeniedOnceKey = "permissions"
     let neverAskAgainKey = "neverAskPermissionsAgain"
     
     // Create a Timers object that will hold timers for
@@ -152,11 +152,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func loadPreferences() {
         // check if we have a dictionary to unarchive (we saved prefs before)
-        if let _ = UserDefaults.standard.value(forKey: permissionKey) {
-            userDeniedPermissionOnce = UserDefaults.standard.bool(forKey: permissionKey)
+        if let _ = UserDefaults.standard.value(forKey: permissionWasDeniedOnceKey) {
+            userDeniedPermission = UserDefaults.standard.bool(forKey: permissionWasDeniedOnceKey)
         } else {
             // no preferences found, default to false and ask permissions
-            UserDefaults.standard.set(false, forKey: permissionKey)
+            UserDefaults.standard.set(false, forKey: permissionWasDeniedOnceKey)
+            UserDefaults.standard.set(false, forKey: neverAskAgainKey)
         }
         checkPermissions()
     }
@@ -171,20 +172,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
             if userGrantedPermission {
                 print("User granted notifications permissions")
-                self.userDeniedPermissionOnce = false
-                UserDefaults.standard.set(false, forKey: self.permissionKey)
+                self.userDeniedPermission = false
+                // Also reset the userdefaults values
+                UserDefaults.standard.set(false, forKey: self.permissionWasDeniedOnceKey)
+                UserDefaults.standard.set(false, forKey: self.neverAskAgainKey)
             } else {
                 print("User denied access to notifications")
-                UserDefaults.standard.set(true, forKey: self.permissionKey)
-                self.userDeniedPermissionOnce = true
+                UserDefaults.standard.set(true, forKey: self.permissionWasDeniedOnceKey)
+                self.userDeniedPermission = true
             }
         }
     }
     
     func willAskUserForPermission() -> Bool {
-        let userDeniedPermission = UserDefaults.standard.bool(forKey: permissionKey)
-        let userAskedNeverToAskForPermissionsAgain = UserDefaults.standard.bool(forKey: neverAskAgainKey)
-        return userDeniedPermission && userAskedNeverToAskForPermissionsAgain == false
+        if userDeniedPermission {
+            // we only setup to ask permissions if it is currently denied
+            let userDeniedPermissionOnce = UserDefaults.standard.bool(forKey: permissionWasDeniedOnceKey)
+            let userAskedNeverToAskForPermissionsAgain = UserDefaults.standard.bool(forKey: neverAskAgainKey)
+            return userDeniedPermissionOnce && userAskedNeverToAskForPermissionsAgain == false
+        } else {
+            return false
+        }
     }
     
     
@@ -193,7 +201,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // timer would have fired.
     func convertTimersToNotifications() {
         if timers.isNotEmpty() {
-            if userDeniedPermissionOnce {
+            if userDeniedPermission == false {
                 for (id, thisTimer) in timers.timers {
                     let content = UNMutableNotificationContent()
                     content.title = .noodleNotificationTitle
