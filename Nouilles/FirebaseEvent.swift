@@ -46,4 +46,9 @@ enum Names {
     static let saveChangesButtonTapped = "change_save_tapped"
     static let cancelChangesButtonTapped = "change_cancel_tapped"
     
+    // MARK: - Timer view
+    
+    static let timerPausePlayButtonTapped = "timer_pause_play_tapped"
+    static let timerCancelButtonTapped = "timer_cancel_tapped"
+    
 }
