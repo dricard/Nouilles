@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 /*
     This VC lets the user select sort descriptors and predicates.
@@ -104,6 +105,10 @@ class FilterVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let filters = filters else { fatalError() }
         filters.setFilters(indexPath: indexPath)
+        
+        let selected = (indexPath.section * 10 + indexPath.row) as NSObject
+        
+        FIRAnalytics.logEvent(withName: Names.selectFilterEvent, parameters: ["filter_selected": selected])
         tableView.reloadData()
     }
 }

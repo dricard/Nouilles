@@ -25,4 +25,7 @@ enum Names {
     static let saveNoodleButtonTapped = "add_save_tapped"
     static let cancelSaveNoodleButtonTapped = "add_cancel_tapped"
     
+    // MARK: - Filter view
+    
+    static let selectFilterEvent = "filter_select_section_row"
 }
