@@ -60,4 +60,9 @@ enum Names {
     static let listPresentNotificationsReminder = "list_notification_reminder_view"
     static let listDoNotRemindEverSelected = "list_do_not_remind_selected"
     
+    // MARK: - Take Picture view
+    
+    static let pictureCameraTapped = "picture_camera_tapped"
+    static let pictureAlbumTapped = "picture_album_tapped"
+    
 }
