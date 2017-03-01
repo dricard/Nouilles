@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import UserNotifications
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -58,6 +59,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         viewController.managedContext = coreDataStack.managedContext
         viewController.timers = timers
         viewController.shouldRequestPermission = willAskUserForPermission()
+        
+        // Setup Firebase
+        FIRApp.configure()
         
         return true
     }
