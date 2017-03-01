@@ -28,4 +28,11 @@ enum Names {
     // MARK: - Filter view
     
     static let selectFilterEvent = "filter_select_section_row"
+    
+    // MARK: - About VC
+    
+    static let viewAboutPageEvent = "about_view"
+    static let helpButtonTappedEvent = "about_help_tapped"
+    static let supportButtonTappedEvent = "about_support_tappedf"
+    
 }
