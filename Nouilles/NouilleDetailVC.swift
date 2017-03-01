@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class NouilleDetailVC: UIViewController {
     
@@ -61,7 +62,9 @@ class NouilleDetailVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func segmentedControlTapped(_ sender: Any) {
-        
+
+        FIRAnalytics.logEvent(withName: Names.segmentedControlTappedEvent, parameters: nil)
+
         var numberOfServings = nouille?.numberOfServing as! Int16
         
         switch segmentedControl.selectedSegmentIndex {
@@ -83,6 +86,7 @@ class NouilleDetailVC: UIViewController {
     
     func startTimerTapped(_ sender: Any) {
         
+        FIRAnalytics.logEvent(withName: Names.timerStartedEvent, parameters: nil)
         guard let timers = timers, let nouille = nouille else { return }
         // check if a timer is running already for this noodle
         if !timers.hasTimerFor(noodle: nouille) {
@@ -108,6 +112,9 @@ class NouilleDetailVC: UIViewController {
     
     // toggle the prefered meal size indicator when tapped
     func preferedMealSizeTapped(_ sender: Any) {
+        
+        FIRAnalytics.logEvent(withName: Names.mealSizeButtonTappedEvent, parameters: nil)
+
         if let nouille = nouille {
             let newState = !(nouille.mealSizePrefered as! Bool)
             nouille.mealSizePrefered = newState as NSNumber
@@ -124,6 +131,9 @@ class NouilleDetailVC: UIViewController {
     
     // toggle the 'on hand' indicator when tapped
     func onHandTapped(_ sender: Any) {
+        
+        FIRAnalytics.logEvent(withName: Names.availableButtonTappedEvent, parameters: nil)
+
         if let nouille = nouille {
             
             let newState = !(nouille.onHand as! Bool)
@@ -142,6 +152,8 @@ class NouilleDetailVC: UIViewController {
     // when the image is tapped we segue to the Take picture VC
     func imageTapped() {
         
+        FIRAnalytics.logEvent(withName: Names.pictureTappedEvent, parameters: nil)
+
         // segue to take picture VC
         let controller = storyboard?.instantiateViewController(withIdentifier: "TakePictureVC") as! TakePictureVC
         
@@ -162,6 +174,8 @@ class NouilleDetailVC: UIViewController {
     // segue to edit values VC when 'edit' button tapped
     func editButtonTapped() {
         
+        FIRAnalytics.logEvent(withName: Names.editButtonTappedEvent, parameters: nil)
+
         // segue to edit data VC
         let controller = storyboard?.instantiateViewController(withIdentifier: "EditDataVC") as! EditDataVC
         
