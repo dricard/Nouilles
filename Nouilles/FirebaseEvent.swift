@@ -35,4 +35,9 @@ enum Names {
     static let helpButtonTappedEvent = "about_help_tapped"
     static let supportButtonTappedEvent = "about_support_tappedf"
     
+    // MARK: - Edit view
+    
+    static let editParameterSelectedEvent = "edit_parameter_selected"
+    static let parameterSelectedKey = "parameter_selected"
+    
 }
