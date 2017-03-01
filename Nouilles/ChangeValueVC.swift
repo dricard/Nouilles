@@ -16,6 +16,7 @@
  */
 
 import UIKit
+import Firebase
 
 class ChangeValueVC: UIViewController {
     
@@ -41,6 +42,9 @@ class ChangeValueVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        
+        FIRAnalytics.logEvent(withName: Names.saveChangesButtonTapped, parameters: nil)
+        
         switch validateAndSave() {
         case .valid:
             textField.resignFirstResponder()
@@ -51,6 +55,9 @@ class ChangeValueVC: UIViewController {
     }
     
     func cancelButtonTapped(_ sender: Any) {
+        
+        FIRAnalytics.logEvent(withName: Names.cancelChangesButtonTapped, parameters: nil)
+        
         if textField.isFirstResponder {
             textField.resignFirstResponder()
         } else {

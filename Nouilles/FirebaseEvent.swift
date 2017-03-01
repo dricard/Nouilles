@@ -41,4 +41,9 @@ enum Names {
     static let editParameterSelectedEvent = "edit_parameter_selected"
     static let parameterSelectedKey = "parameter_selected"
     
+    // MARK: - Edit value view
+    
+    static let saveChangesButtonTapped = "change_save_tapped"
+    static let cancelChangesButtonTapped = "change_cancel_tapped"
+    
 }
