@@ -66,6 +66,8 @@ public class NoodlesStyleKit : NSObject {
         static var cancelTargets: [AnyObject]?
         static var imageOfCancelSelected: UIImage?
         static var cancelSelectedTargets: [AnyObject]?
+        static var imageOfCancelIconSmall: UIImage?
+        static var cancelIconSmallTargets: [AnyObject]?
         static var imageOfNoodlePlaceholderImage: UIImage?
         static var noodlePlaceholderImageTargets: [AnyObject]?
         static var imageOfStartTimerIcon: UIImage?
@@ -1253,6 +1255,57 @@ public class NoodlesStyleKit : NSObject {
 
     }
 
+    public dynamic class func drawCancelIconSmall(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: ResizingBehavior = .aspectFit) {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()!
+        
+        //// Resize to Target Frame
+        context.saveGState()
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 32, height: 32), target: targetFrame)
+        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
+        context.scaleBy(x: resizedFrame.width / 32, y: resizedFrame.height / 32)
+
+
+        //// Color Declarations
+        let failureCross = NoodlesStyleKit.warning.withBrightness(0.5)
+
+        //// Oval Drawing
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 2.5, y: 2.5, width: 27, height: 27))
+        NoodlesStyleKit.warning.setFill()
+        ovalPath.fill()
+        failureCross.setStroke()
+        ovalPath.lineWidth = 3
+        ovalPath.stroke()
+
+
+        //// Group
+        //// Rectangle Drawing
+        context.saveGState()
+        context.translateBy(x: 16.36, y: 15.64)
+        context.rotate(by: 45 * CGFloat.pi/180)
+
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: -1.5, y: -7.5, width: 3, height: 15), cornerRadius: 1.5)
+        failureCross.setFill()
+        rectanglePath.fill()
+
+        context.restoreGState()
+
+
+        //// Rectangle 2 Drawing
+        context.saveGState()
+        context.translateBy(x: 16.36, y: 15.64)
+        context.rotate(by: -45 * CGFloat.pi/180)
+
+        let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: -1.5, y: -7.5, width: 3, height: 15), cornerRadius: 1.5)
+        failureCross.setFill()
+        rectangle2Path.fill()
+
+        context.restoreGState()
+        
+        context.restoreGState()
+
+    }
+
     public dynamic class func drawTimerButton(frame: CGRect = CGRect(x: 0, y: 0, width: 240, height: 75), timerButtonLabel: String = "Start Timer") {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
@@ -1876,6 +1929,20 @@ public class NoodlesStyleKit : NSObject {
         return Cache.imageOfCancelSelected!
     }
 
+    public dynamic class var imageOfCancelIconSmall: UIImage {
+        if Cache.imageOfCancelIconSmall != nil {
+            return Cache.imageOfCancelIconSmall!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 32, height: 32), false, 0)
+            NoodlesStyleKit.drawCancelIconSmall()
+
+        Cache.imageOfCancelIconSmall = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfCancelIconSmall!
+    }
+
     public dynamic class func imageOfTimerButton(imageSize: CGSize = CGSize(width: 240, height: 75), timerButtonLabel: String = "Start Timer") -> UIImage {
         UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
             NoodlesStyleKit.drawTimerButton(frame: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height), timerButtonLabel: timerButtonLabel)
@@ -2096,6 +2163,16 @@ public class NoodlesStyleKit : NSObject {
             Cache.cancelSelectedTargets = newValue
             for target: AnyObject in newValue {
                 let _ = target.perform(NSSelectorFromString("setSelectedImage:"), with: NoodlesStyleKit.imageOfCancelSelected)
+            }
+        }
+    }
+
+    @IBOutlet dynamic var cancelIconSmallTargets: [AnyObject]! {
+        get { return Cache.cancelIconSmallTargets }
+        set {
+            Cache.cancelIconSmallTargets = newValue
+            for target: AnyObject in newValue {
+                let _ = target.perform(NSSelectorFromString("setSelectedImage:"), with: NoodlesStyleKit.imageOfCancelIconSmall)
             }
         }
     }

@@ -326,7 +326,7 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                     }
                 }
                 
-                let cancelTimerAction = SwipeAction(style: .destructive, title: "\u{25FC}", handler: { (action, indexPath) in
+                let cancelTimerAction = SwipeAction(style: .destructive, title: "", handler: { (action, indexPath) in
                     
                     FIRAnalytics.logEvent(withName: Names.listSwipeCancelTimer, parameters: nil)
                     
@@ -343,7 +343,8 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                     }
                     self.tableView.reloadData()
                 })
-                cancelTimerAction.backgroundColor = NoodlesStyleKit.warning
+                cancelTimerAction.backgroundColor = NoodlesStyleKit.darkerOrange
+                cancelTimerAction.image = NoodlesStyleKit.imageOfCancelIconSmall
                 
                 tableViewRowActions = [ togglePlayPauseTimerAction, cancelTimerAction ]
             } else {
