@@ -340,7 +340,7 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                 
                 tableViewRowActions = [ togglePlayPauseTimerAction, cancelTimerAction ]
             } else {
-                let startTimerAction = SwipeAction(style: .default, title: "\u{2016}/\u{25B6}", handler: { (action, indexPath) in
+                let startTimerAction = SwipeAction(style: .default, title: "", handler: { (action, indexPath) in
                     
                     FIRAnalytics.logEvent(withName: Names.listSwipeStartTimer, parameters: nil)
                     
@@ -351,6 +351,7 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                 })
                 
                 startTimerAction.backgroundColor = NoodlesStyleKit.baseOrange
+                startTimerAction.image = NoodlesStyleKit.imageOfStartTimerIcon
                 
                 tableViewRowActions = [ startTimerAction ]
             }
