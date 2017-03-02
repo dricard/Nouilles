@@ -50,6 +50,10 @@ public class NoodlesStyleKit : NSObject {
         static var onHandIndicatorTargets: [AnyObject]?
         static var imageOfOnHandIndicatorEmpty: UIImage?
         static var onHandIndicatorEmptyTargets: [AnyObject]?
+        static var imageOfOnHandIndicatorLarge: UIImage?
+        static var onHandIndicatorLargeTargets: [AnyObject]?
+        static var imageOfOnHandIndicatorEmptyLarge: UIImage?
+        static var onHandIndicatorEmptyLargeTargets: [AnyObject]?
         static var imageOfPause: UIImage?
         static var pauseTargets: [AnyObject]?
         static var imageOfPlay: UIImage?
@@ -901,6 +905,145 @@ public class NoodlesStyleKit : NSObject {
 
     }
 
+    public dynamic class func drawOnHandIndicatorLarge(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: ResizingBehavior = .aspectFit) {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()!
+        
+        //// Resize to Target Frame
+        context.saveGState()
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 32, height: 32), target: targetFrame)
+        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
+        context.scaleBy(x: resizedFrame.width / 32, y: resizedFrame.height / 32)
+
+
+        //// Color Declarations
+        let successCheck = NoodlesStyleKit.success.shadow(withLevel: 0.6)
+
+        //// Rectangle 5 Drawing
+        let rectangle5Path = UIBezierPath(rect: CGRect(x: 3, y: 3, width: 25, height: 25))
+        NoodlesStyleKit.lighterYellow.setFill()
+        rectangle5Path.fill()
+
+
+        //// Bezier Drawing
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: CGPoint(x: 27.84, y: 4.16))
+        bezierPath.addLine(to: CGPoint(x: 4.16, y: 4.16))
+        bezierPath.addLine(to: CGPoint(x: 4.16, y: 27.84))
+        bezierPath.addLine(to: CGPoint(x: 27.84, y: 27.84))
+        bezierPath.addLine(to: CGPoint(x: 27.84, y: 4.16))
+        bezierPath.close()
+        bezierPath.move(to: CGPoint(x: 31, y: 1.01))
+        bezierPath.addCurve(to: CGPoint(x: 31, y: 31), controlPoint1: CGPoint(x: 31, y: 1), controlPoint2: CGPoint(x: 31, y: 31))
+        bezierPath.addLine(to: CGPoint(x: 1, y: 31))
+        bezierPath.addLine(to: CGPoint(x: 1, y: 1))
+        bezierPath.addLine(to: CGPoint(x: 31, y: 1))
+        bezierPath.addLine(to: CGPoint(x: 31, y: 1.01))
+        bezierPath.close()
+        NoodlesStyleKit.darkerGreen.setFill()
+        bezierPath.fill()
+
+
+        //// Group
+        //// Rectangle Drawing
+        context.saveGState()
+        context.translateBy(x: 13.1, y: 23.15)
+        context.rotate(by: -45 * CGFloat.pi/180)
+
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: -1.13, y: -5.93, width: 2.38, height: 6.68), cornerRadius: 1.19)
+        successCheck.setFill()
+        rectanglePath.fill()
+        successCheck.setStroke()
+        rectanglePath.lineWidth = 1
+        rectanglePath.stroke()
+
+        context.restoreGState()
+
+
+        //// Rectangle 2 Drawing
+        context.saveGState()
+        context.translateBy(x: 18.06, y: 15.38)
+        context.rotate(by: 33.45 * CGFloat.pi/180)
+
+        let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: -1.03, y: -10.12, width: 2.05, height: 20.24), cornerRadius: 1.03)
+        successCheck.setFill()
+        rectangle2Path.fill()
+        successCheck.setStroke()
+        rectangle2Path.lineWidth = 1
+        rectangle2Path.stroke()
+
+        context.restoreGState()
+        
+        context.restoreGState()
+
+    }
+
+    public dynamic class func drawOnHandIndicatorEmptyLarge(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: ResizingBehavior = .aspectFit) {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()!
+        
+        //// Resize to Target Frame
+        context.saveGState()
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 32, height: 32), target: targetFrame)
+        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
+        context.scaleBy(x: resizedFrame.width / 32, y: resizedFrame.height / 32)
+
+
+        //// Color Declarations
+        let failureCross = NoodlesStyleKit.warning.withBrightness(0.5)
+
+        //// Rectangle 5 Drawing
+        let rectangle5Path = UIBezierPath(rect: CGRect(x: 3, y: 3, width: 25, height: 25))
+        NoodlesStyleKit.lighterYellow.setFill()
+        rectangle5Path.fill()
+
+
+        //// Rectangle 4 Drawing
+        context.saveGState()
+        context.translateBy(x: 16.15, y: 15.85)
+        context.rotate(by: 45 * CGFloat.pi/180)
+
+        let rectangle4Path = UIBezierPath(roundedRect: CGRect(x: -14.14, y: -1.2, width: 28.28, height: 2.4), cornerRadius: 1.2)
+        failureCross.setFill()
+        rectangle4Path.fill()
+
+        context.restoreGState()
+
+
+        //// Bezier Drawing
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: CGPoint(x: 27.84, y: 4.16))
+        bezierPath.addLine(to: CGPoint(x: 4.16, y: 4.16))
+        bezierPath.addLine(to: CGPoint(x: 4.16, y: 27.84))
+        bezierPath.addLine(to: CGPoint(x: 27.84, y: 27.84))
+        bezierPath.addLine(to: CGPoint(x: 27.84, y: 4.16))
+        bezierPath.close()
+        bezierPath.move(to: CGPoint(x: 31, y: 1.01))
+        bezierPath.addCurve(to: CGPoint(x: 31, y: 31), controlPoint1: CGPoint(x: 31, y: 1), controlPoint2: CGPoint(x: 31, y: 31))
+        bezierPath.addLine(to: CGPoint(x: 1, y: 31))
+        bezierPath.addLine(to: CGPoint(x: 1, y: 1))
+        bezierPath.addLine(to: CGPoint(x: 31, y: 1))
+        bezierPath.addLine(to: CGPoint(x: 31, y: 1.01))
+        bezierPath.close()
+        NoodlesStyleKit.darkerGreen.setFill()
+        bezierPath.fill()
+
+
+        //// Rectangle Drawing
+        context.saveGState()
+        context.translateBy(x: 16.15, y: 15.85)
+        context.rotate(by: 135 * CGFloat.pi/180)
+
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: -14.14, y: -1.2, width: 28.28, height: 2.4), cornerRadius: 1.2)
+        failureCross.setFill()
+        rectanglePath.fill()
+
+        context.restoreGState()
+        
+        context.restoreGState()
+
+    }
+
     public dynamic class func drawPause(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 75, height: 50), resizing: ResizingBehavior = .aspectFit) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
@@ -1560,6 +1703,34 @@ public class NoodlesStyleKit : NSObject {
         return Cache.imageOfOnHandIndicatorEmpty!
     }
 
+    public dynamic class var imageOfOnHandIndicatorLarge: UIImage {
+        if Cache.imageOfOnHandIndicatorLarge != nil {
+            return Cache.imageOfOnHandIndicatorLarge!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 32, height: 32), false, 0)
+            NoodlesStyleKit.drawOnHandIndicatorLarge()
+
+        Cache.imageOfOnHandIndicatorLarge = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfOnHandIndicatorLarge!
+    }
+
+    public dynamic class var imageOfOnHandIndicatorEmptyLarge: UIImage {
+        if Cache.imageOfOnHandIndicatorEmptyLarge != nil {
+            return Cache.imageOfOnHandIndicatorEmptyLarge!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 32, height: 32), false, 0)
+            NoodlesStyleKit.drawOnHandIndicatorEmptyLarge()
+
+        Cache.imageOfOnHandIndicatorEmptyLarge = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfOnHandIndicatorEmptyLarge!
+    }
+
     public dynamic class var imageOfPause: UIImage {
         if Cache.imageOfPause != nil {
             return Cache.imageOfPause!
@@ -1756,6 +1927,26 @@ public class NoodlesStyleKit : NSObject {
             Cache.onHandIndicatorEmptyTargets = newValue
             for target: AnyObject in newValue {
                 let _ = target.perform(NSSelectorFromString("setImage:"), with: NoodlesStyleKit.imageOfOnHandIndicatorEmpty)
+            }
+        }
+    }
+
+    @IBOutlet dynamic var onHandIndicatorLargeTargets: [AnyObject]! {
+        get { return Cache.onHandIndicatorLargeTargets }
+        set {
+            Cache.onHandIndicatorLargeTargets = newValue
+            for target: AnyObject in newValue {
+                let _ = target.perform(NSSelectorFromString("setSelectedImage:"), with: NoodlesStyleKit.imageOfOnHandIndicatorLarge)
+            }
+        }
+    }
+
+    @IBOutlet dynamic var onHandIndicatorEmptyLargeTargets: [AnyObject]! {
+        get { return Cache.onHandIndicatorEmptyLargeTargets }
+        set {
+            Cache.onHandIndicatorEmptyLargeTargets = newValue
+            for target: AnyObject in newValue {
+                let _ = target.perform(NSSelectorFromString("setImage:"), with: NoodlesStyleKit.imageOfOnHandIndicatorEmptyLarge)
             }
         }
     }

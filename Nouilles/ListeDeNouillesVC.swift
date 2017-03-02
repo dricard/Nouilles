@@ -361,7 +361,7 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
         
         if orientation == .right {
             // add toggle onHand setting action
-            let toggleOnHandAction = SwipeAction(style: .destructive, title: "\(.onHandLabel)", handler: { (action, indexPath) -> Void in
+            let toggleOnHandAction = SwipeAction(style: .destructive, title: "", handler: { (action, indexPath) -> Void in
                 
                 FIRAnalytics.logEvent(withName: Names.listSwipeAvailable, parameters: nil)
                 print("############# Performing toggle on hand action")
@@ -380,9 +380,9 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
             toggleOnHandAction.backgroundColor = NoodlesStyleKit.baseGreen
             if let isCurrentlyOnHand = nouille.onHand {
                 if isCurrentlyOnHand as Bool {
-                    toggleOnHandAction.image = NoodlesStyleKit.imageOfOnHandIndicatorEmpty
+                    toggleOnHandAction.image = NoodlesStyleKit.imageOfOnHandIndicatorEmptyLarge
                 } else {
-                    toggleOnHandAction.image = NoodlesStyleKit.imageOfOnHandIndicator
+                    toggleOnHandAction.image = NoodlesStyleKit.imageOfOnHandIndicatorLarge
                 }
             }
         
