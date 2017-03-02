@@ -1056,13 +1056,13 @@ public class NoodlesStyleKit : NSObject {
 
 
         //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(rect: CGRect(x: 20, y: 6, width: 13, height: 37))
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: 20, y: 6, width: 13, height: 37), cornerRadius: 2)
         NoodlesStyleKit.darkerOrange.setFill()
         rectanglePath.fill()
 
 
         //// Rectangle 2 Drawing
-        let rectangle2Path = UIBezierPath(rect: CGRect(x: 41, y: 6, width: 13, height: 37))
+        let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: 41, y: 6, width: 13, height: 37), cornerRadius: 2)
         NoodlesStyleKit.darkerOrange.setFill()
         rectangle2Path.fill()
         
@@ -1081,20 +1081,20 @@ public class NoodlesStyleKit : NSObject {
         context.scaleBy(x: resizedFrame.width / 75, y: resizedFrame.height / 50)
 
 
-        //// Polygon Drawing
-        context.saveGState()
-        context.translateBy(x: 36, y: 25.5)
-        context.rotate(by: 90 * CGFloat.pi/180)
-
-        let polygonPath = UIBezierPath()
-        polygonPath.move(to: CGPoint(x: 0, y: -26.5))
-        polygonPath.addLine(to: CGPoint(x: 18.62, y: 13.25))
-        polygonPath.addLine(to: CGPoint(x: -18.62, y: 13.25))
-        polygonPath.close()
+        //// Bezier Drawing
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: CGPoint(x: 23, y: 44))
+        bezierPath.addLine(to: CGPoint(x: 63, y: 25))
+        bezierPath.addLine(to: CGPoint(x: 23, y: 7))
+        bezierPath.addLine(to: CGPoint(x: 23, y: 44))
+        bezierPath.close()
         NoodlesStyleKit.darkerOrange.setFill()
-        polygonPath.fill()
-
-        context.restoreGState()
+        bezierPath.fill()
+        NoodlesStyleKit.darkerOrange.setStroke()
+        bezierPath.lineWidth = 3
+        bezierPath.lineCapStyle = .round
+        bezierPath.lineJoinStyle = .round
+        bezierPath.stroke()
         
         context.restoreGState()
 
