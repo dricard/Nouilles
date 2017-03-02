@@ -56,6 +56,7 @@ enum Names {
     static let listSwipeDelete = "list_swipe_delete_action"
     static let listSwipeAvailable = "list_swipe_available_action"
     static let listSwipePausePlay = "list_pause_play_action"
+    static let listSwipeStartTimer = "list_start_timer_action"
     static let listSwipeCancelTimer = "list_cancel_timer_action"
     static let listPresentNotificationsReminder = "list_notification_reminder_view"
     static let listDoNotRemindEverSelected = "list_do_not_remind_selected"

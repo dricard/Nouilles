@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class NoodleListTableViewCell: UITableViewCell {
+class NoodleListTableViewCell: SwipeTableViewCell {
     
     // MARK: - Properties
     static let reuseIdentifier = "Nouille"
