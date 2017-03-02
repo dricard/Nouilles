@@ -7,5 +7,6 @@ target 'Nouilles' do
 
   # Pods for Nouilles
   pod 'Firebase/Core'
-
+  pod 'SwipeCellKit'
+  
 end
