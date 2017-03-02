@@ -62,6 +62,8 @@ public class NoodlesStyleKit : NSObject {
         static var noodlePlaceholderImageTargets: [AnyObject]?
         static var imageOfStartTimerIcon: UIImage?
         static var startTimerIconTargets: [AnyObject]?
+        static var imageOfDeleteItemIcon: UIImage?
+        static var deleteItemIconTargets: [AnyObject]?
     }
 
     //// Colors
@@ -1339,6 +1341,91 @@ public class NoodlesStyleKit : NSObject {
 
     }
 
+    public dynamic class func drawDeleteItemIcon(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: ResizingBehavior = .aspectFit) {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()!
+        
+        //// Resize to Target Frame
+        context.saveGState()
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 32, height: 32), target: targetFrame)
+        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
+        context.scaleBy(x: resizedFrame.width / 32, y: resizedFrame.height / 32)
+
+
+        //// Color Declarations
+        let failureCross = NoodlesStyleKit.warning.withBrightness(0.5)
+
+        //// Oval Drawing
+        let ovalPath = UIBezierPath()
+        ovalPath.move(to: CGPoint(x: 24.5, y: 7.5))
+        ovalPath.addCurve(to: CGPoint(x: 23.5, y: 27.5), controlPoint1: CGPoint(x: 24.5, y: 7.5), controlPoint2: CGPoint(x: 25.5, y: 25.5))
+        ovalPath.addCurve(to: CGPoint(x: 8.5, y: 27.5), controlPoint1: CGPoint(x: 21.5, y: 29.5), controlPoint2: CGPoint(x: 10.5, y: 29.5))
+        ovalPath.addCurve(to: CGPoint(x: 6.5, y: 7.5), controlPoint1: CGPoint(x: 6.46, y: 25.46), controlPoint2: CGPoint(x: 6.5, y: 7.5))
+        ovalPath.addLine(to: CGPoint(x: 24.5, y: 7.5))
+        ovalPath.close()
+        failureCross.setStroke()
+        ovalPath.lineWidth = 3
+        ovalPath.stroke()
+
+
+        //// Bezier Drawing
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: CGPoint(x: 16, y: 12))
+        bezierPath.addLine(to: CGPoint(x: 16, y: 22))
+        failureCross.setStroke()
+        bezierPath.lineWidth = 2
+        bezierPath.lineCapStyle = .round
+        bezierPath.lineJoinStyle = .round
+        bezierPath.stroke()
+
+
+        //// Bezier 2 Drawing
+        let bezier2Path = UIBezierPath()
+        bezier2Path.move(to: CGPoint(x: 13.5, y: 3))
+        bezier2Path.addCurve(to: CGPoint(x: 18, y: 3), controlPoint1: CGPoint(x: 18, y: 3), controlPoint2: CGPoint(x: 18, y: 3))
+        bezier2Path.addLine(to: CGPoint(x: 18, y: 3))
+        failureCross.setStroke()
+        bezier2Path.lineWidth = 2
+        bezier2Path.lineCapStyle = .round
+        bezier2Path.stroke()
+
+
+        //// Bezier 3 Drawing
+        let bezier3Path = UIBezierPath()
+        bezier3Path.move(to: CGPoint(x: 12, y: 12))
+        bezier3Path.addLine(to: CGPoint(x: 12, y: 21))
+        failureCross.setStroke()
+        bezier3Path.lineWidth = 2
+        bezier3Path.lineCapStyle = .round
+        bezier3Path.lineJoinStyle = .round
+        bezier3Path.stroke()
+
+
+        //// Bezier 4 Drawing
+        let bezier4Path = UIBezierPath()
+        bezier4Path.move(to: CGPoint(x: 20, y: 12))
+        bezier4Path.addLine(to: CGPoint(x: 20, y: 21))
+        failureCross.setStroke()
+        bezier4Path.lineWidth = 2
+        bezier4Path.lineCapStyle = .round
+        bezier4Path.lineJoinStyle = .round
+        bezier4Path.stroke()
+
+
+        //// Bezier 5 Drawing
+        let bezier5Path = UIBezierPath()
+        bezier5Path.move(to: CGPoint(x: 5.5, y: 4.5))
+        bezier5Path.addLine(to: CGPoint(x: 25.5, y: 4.5))
+        bezier5Path.addLine(to: CGPoint(x: 25.5, y: 4.5))
+        failureCross.setStroke()
+        bezier5Path.lineWidth = 2
+        bezier5Path.lineCapStyle = .round
+        bezier5Path.stroke()
+        
+        context.restoreGState()
+
+    }
+
     //// Generated Images
 
     public dynamic class func imageOfTimerAnimation(timerRatio: CGFloat = 0) -> UIImage {
@@ -1577,6 +1664,20 @@ public class NoodlesStyleKit : NSObject {
         return Cache.imageOfStartTimerIcon!
     }
 
+    public dynamic class var imageOfDeleteItemIcon: UIImage {
+        if Cache.imageOfDeleteItemIcon != nil {
+            return Cache.imageOfDeleteItemIcon!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 32, height: 32), false, 0)
+            NoodlesStyleKit.drawDeleteItemIcon()
+
+        Cache.imageOfDeleteItemIcon = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfDeleteItemIcon!
+    }
+
     //// Customization Infrastructure
 
     @IBOutlet dynamic var scanFailureTargets: [AnyObject]! {
@@ -1715,6 +1816,16 @@ public class NoodlesStyleKit : NSObject {
             Cache.startTimerIconTargets = newValue
             for target: AnyObject in newValue {
                 let _ = target.perform(NSSelectorFromString("setImage:"), with: NoodlesStyleKit.imageOfStartTimerIcon)
+            }
+        }
+    }
+
+    @IBOutlet dynamic var deleteItemIconTargets: [AnyObject]! {
+        get { return Cache.deleteItemIconTargets }
+        set {
+            Cache.deleteItemIconTargets = newValue
+            for target: AnyObject in newValue {
+                let _ = target.perform(NSSelectorFromString("setImage:"), with: NoodlesStyleKit.imageOfDeleteItemIcon)
             }
         }
     }

@@ -387,7 +387,7 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
             }
         
         // add delete noodle action
-        let deleteNoodleAction = SwipeAction(style: .destructive, title: "\u{267A}\n\(.delete)", handler: { (action, indexPath) -> Void in
+        let deleteNoodleAction = SwipeAction(style: .destructive, title: "", handler: { (action, indexPath) -> Void in
             
             FIRAnalytics.logEvent(withName: Names.listSwipeDelete, parameters: nil)
             
@@ -407,7 +407,9 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                 self.timers.deleteTimerFor(noodle: nouille)
             }
         })
-        deleteNoodleAction.backgroundColor = NoodlesStyleKit.darkerOrange
+        deleteNoodleAction.backgroundColor = NoodlesStyleKit.warning
+        deleteNoodleAction.image = NoodlesStyleKit.imageOfDeleteItemIcon
+
         tableViewRowActions = [toggleOnHandAction, deleteNoodleAction]
     }
     
