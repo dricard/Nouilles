@@ -1173,9 +1173,9 @@ public class NoodlesStyleKit : NSObject {
 
 
         //// Oval Drawing
-        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 2, y: 2, width: 71, height: 71))
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 8.5, y: 6.5, width: 60, height: 60))
         NoodlesStyleKit.darkerOrange.setStroke()
-        ovalPath.lineWidth = 1
+        ovalPath.lineWidth = 3
         ovalPath.stroke()
 
 
@@ -1184,7 +1184,7 @@ public class NoodlesStyleKit : NSObject {
         context.translateBy(x: 38.42, y: 36.99)
         context.rotate(by: 45 * CGFloat.pi/180)
 
-        let rectanglePath = UIBezierPath(rect: CGRect(x: -2.5, y: -23, width: 5, height: 46))
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: -2.5, y: -23, width: 5, height: 46), cornerRadius: 2)
         NoodlesStyleKit.darkerOrange.setFill()
         rectanglePath.fill()
 
@@ -1196,7 +1196,7 @@ public class NoodlesStyleKit : NSObject {
         context.translateBy(x: 38.5, y: 37)
         context.rotate(by: -45 * CGFloat.pi/180)
 
-        let rectangle2Path = UIBezierPath(rect: CGRect(x: -2.5, y: -23, width: 5, height: 46))
+        let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: -2.5, y: -23, width: 5, height: 46), cornerRadius: 2)
         NoodlesStyleKit.darkerOrange.setFill()
         rectangle2Path.fill()
 
@@ -1218,11 +1218,11 @@ public class NoodlesStyleKit : NSObject {
 
 
         //// Oval Drawing
-        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 2, y: 2, width: 71, height: 71))
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 8.5, y: 6.5, width: 60, height: 60))
         NoodlesStyleKit.lighterOrange.setFill()
         ovalPath.fill()
         NoodlesStyleKit.darkerOrange.setStroke()
-        ovalPath.lineWidth = 1
+        ovalPath.lineWidth = 3
         ovalPath.stroke()
 
 
@@ -1231,7 +1231,7 @@ public class NoodlesStyleKit : NSObject {
         context.translateBy(x: 38.42, y: 36.99)
         context.rotate(by: 45 * CGFloat.pi/180)
 
-        let rectanglePath = UIBezierPath(rect: CGRect(x: -2.5, y: -23, width: 5, height: 46))
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: -2.5, y: -23, width: 5, height: 46), cornerRadius: 2)
         NoodlesStyleKit.darkerOrange.setFill()
         rectanglePath.fill()
 
@@ -1243,7 +1243,7 @@ public class NoodlesStyleKit : NSObject {
         context.translateBy(x: 38.5, y: 37)
         context.rotate(by: -45 * CGFloat.pi/180)
 
-        let rectangle2Path = UIBezierPath(rect: CGRect(x: -2.5, y: -23, width: 5, height: 46))
+        let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: -2.5, y: -23, width: 5, height: 46), cornerRadius: 2)
         NoodlesStyleKit.darkerOrange.setFill()
         rectangle2Path.fill()
 
