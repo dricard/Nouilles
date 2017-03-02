@@ -233,6 +233,8 @@ extension ListeDeNouillesVC: UITableViewDataSource {
             if let noodleTimer = timers.timerFor(noodle: nouille) {
                 if noodleTimer.isRunning() {
                     cell.timerView.progress = noodleTimer.timerRatio()
+                    cell.timerView.minutesLabel = noodleTimer.timerMinutesLabel()
+                    cell.timerView.secondsLabel = noodleTimer.timerSecondsLabel()
                 }
             }
         } else {
@@ -280,7 +282,8 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         var options = SwipeTableOptions()
         options.expansionStyle = .selection
-        options.transitionStyle = .border
+        options.transitionStyle = .reveal
+    
         return options
     }
     
@@ -393,130 +396,38 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                     toggleOnHandAction.image = NoodlesStyleKit.imageOfOnHandIndicatorLarge
                 }
             }
+            
+            // add delete noodle action
+            let deleteNoodleAction = SwipeAction(style: .destructive, title: "", handler: { (action, indexPath) -> Void in
+                
+                FIRAnalytics.logEvent(withName: Names.listSwipeDelete, parameters: nil)
+                
+                let nouille = self.fetchedResultsController.object(at: indexPath)
+                
+                self.managedContext.delete(nouille)
+                
+                do {
+                    try self.managedContext.save()
+                } catch let error as NSError {
+                    print("Could not save context \(error), \(error.userInfo)")
+                }
+                
+                // if user deleted a noodle and a timer was running, we need to
+                // delete it as well
+                if self.timers.hasTimerFor(noodle: nouille) {
+                    self.timers.deleteTimerFor(noodle: nouille)
+                }
+            })
+            deleteNoodleAction.backgroundColor = NoodlesStyleKit.warning
+            deleteNoodleAction.image = NoodlesStyleKit.imageOfDeleteItemIcon
+            
+            tableViewRowActions = [toggleOnHandAction, deleteNoodleAction]
+        }
         
-        // add delete noodle action
-        let deleteNoodleAction = SwipeAction(style: .destructive, title: "", handler: { (action, indexPath) -> Void in
-            
-            FIRAnalytics.logEvent(withName: Names.listSwipeDelete, parameters: nil)
-            
-            let nouille = self.fetchedResultsController.object(at: indexPath)
-            
-            self.managedContext.delete(nouille)
-            
-            do {
-                try self.managedContext.save()
-            } catch let error as NSError {
-                print("Could not save context \(error), \(error.userInfo)")
-            }
-            
-            // if user deleted a noodle and a timer was running, we need to
-            // delete it as well
-            if self.timers.hasTimerFor(noodle: nouille) {
-                self.timers.deleteTimerFor(noodle: nouille)
-            }
-        })
-        deleteNoodleAction.backgroundColor = NoodlesStyleKit.warning
-        deleteNoodleAction.image = NoodlesStyleKit.imageOfDeleteItemIcon
-
-        tableViewRowActions = [toggleOnHandAction, deleteNoodleAction]
+        return tableViewRowActions
+        
+        
     }
-    
-    return tableViewRowActions
-    
-}
-
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//
-//        var tableViewRowActions: [UITableViewRowAction]?
-//
-//        let nouille = fetchedResultsController.object(at: indexPath)
-//
-//        // Here we offer different actions if the row has an active timer. In that
-//        // case we offer to play/pause the timer or cancel it. Otherwise it's the
-//        // normal behavior of offering to delete or toggle the 'on hand' status.
-//        if timers.hasTimerFor(noodle: nouille) {
-//            let togglePlayPauseTimerAction = UITableViewRowAction(style: .normal, title: "\u{2016}/\u{25B6}", handler: { (action, indexPath) in
-//
-//                FIRAnalytics.logEvent(withName: Names.listSwipePausePlay, parameters: nil)
-//
-//                let nouille = self.fetchedResultsController.object(at: indexPath)
-//                if let noodleTimer = self.timers.timerFor(noodle: nouille) {
-//                    _ = noodleTimer.togglePauseTimer()
-//                    if noodleTimer.isRinging() {
-//                        noodleTimer.stopRing()
-//                    }
-//                }
-//                self.tableView.reloadData()
-//            })
-//            togglePlayPauseTimerAction.backgroundColor = NoodlesStyleKit.baseGreen
-//
-//            let cancelTimerAction = UITableViewRowAction(style: .normal, title: "\u{25FC}", handler: { (action, indexPath) in
-//
-//                FIRAnalytics.logEvent(withName: Names.listSwipeCancelTimer, parameters: nil)
-//
-//                // invalidate the noodle timer itself
-//                let nouille = self.fetchedResultsController.object(at: indexPath)
-//                if let noodleTimer = self.timers.timerFor(noodle: nouille) {
-//                    noodleTimer.cancelTimer()
-//                    // stop the ringing sound if playing
-//                    if noodleTimer.isRinging() {
-//                        noodleTimer.stopRing()
-//                    }
-//                    // remove the timer from the list
-//                    self.timers.deleteTimerFor(noodle: nouille)
-//                }
-//                self.tableView.reloadData()
-//            })
-//            cancelTimerAction.backgroundColor = NoodlesStyleKit.warning
-//
-//            tableViewRowActions = [ togglePlayPauseTimerAction, cancelTimerAction ]
-//        } else {
-//        // add toggle onHand setting action
-//        let toggleOnHandAction = UITableViewRowAction(style: .normal, title: "\u{2612}\n\(.toggle)\n\(.onHandLabel)", handler: { (action, indexPath) -> Void in
-//
-//            FIRAnalytics.logEvent(withName: Names.listSwipeAvailable, parameters: nil)
-//
-//            let nouille = self.fetchedResultsController.object(at: indexPath)
-//
-//            let onHand = !(nouille.onHand as! Bool)
-//            nouille.onHand = onHand as NSNumber?
-//
-//            do {
-//                try self.managedContext.save()
-//            } catch let error as NSError {
-//                print("Could not save context \(error), \(error.userInfo)")
-//            }
-//        })
-//        toggleOnHandAction.backgroundColor = NoodlesStyleKit.baseGreen
-//
-//        // add delete noodle action
-//            let deleteNoodleAction = UITableViewRowAction(style: .default, title: "\u{267A}\n\(.delete)", handler: { (action, indexPath) -> Void in
-//
-//                FIRAnalytics.logEvent(withName: Names.listSwipeDelete, parameters: nil)
-//
-//                let nouille = self.fetchedResultsController.object(at: indexPath)
-//
-//                self.managedContext.delete(nouille)
-//
-//                do {
-//                    try self.managedContext.save()
-//                } catch let error as NSError {
-//                    print("Could not save context \(error), \(error.userInfo)")
-//                }
-//
-//                // if user deleted a noodle and a timer was running, we need to
-//                // delete it as well
-//                if self.timers.hasTimerFor(noodle: nouille) {
-//                    self.timers.deleteTimerFor(noodle: nouille)
-//                }
-//            })
-//            deleteNoodleAction.backgroundColor = NoodlesStyleKit.darkerOrange
-//            tableViewRowActions = [toggleOnHandAction, deleteNoodleAction]
-//        }
-//
-//        return tableViewRowActions
-//    }
-
 }
 
 // MARK: - Table View Delegate
@@ -536,7 +447,6 @@ extension ListeDeNouillesVC: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
     
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
         // This will stop the update of the timers in the listview

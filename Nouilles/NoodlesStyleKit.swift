@@ -229,6 +229,175 @@ public class NoodlesStyleKit : NSObject {
 
     }
 
+    public dynamic class func drawTimerAnimationWithTime(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 200, height: 200), resizing: ResizingBehavior = .aspectFit, timerRatio: CGFloat = 0, minutes: String = "00", seconds: String = "00") {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()!
+        
+        //// Resize to Target Frame
+        context.saveGState()
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 200, height: 200), target: targetFrame)
+        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
+        context.scaleBy(x: resizedFrame.width / 200, y: resizedFrame.height / 200)
+
+
+
+        //// Variable Declarations
+        let timerDash: CGFloat = 6 + timerRatio * 478
+        let spinArrow: CGFloat = -timerRatio * 360 * 8
+
+        //// Bezier Drawing
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: CGPoint(x: 99.5, y: 32.44))
+        bezierPath.addCurve(to: CGPoint(x: 32.47, y: 100.5), controlPoint1: CGPoint(x: 55.16, y: 32.95), controlPoint2: CGPoint(x: 32.47, y: 68.53))
+        bezierPath.addCurve(to: CGPoint(x: 99.5, y: 169.59), controlPoint1: CGPoint(x: 33.5, y: 135.56), controlPoint2: CGPoint(x: 57.22, y: 169.59))
+        bezierPath.addCurve(to: CGPoint(x: 168.59, y: 100.5), controlPoint1: CGPoint(x: 141.78, y: 169.59), controlPoint2: CGPoint(x: 168.59, y: 132.39))
+        bezierPath.addCurve(to: CGPoint(x: 99.5, y: 32.44), controlPoint1: CGPoint(x: 168.59, y: 68.61), controlPoint2: CGPoint(x: 144.7, y: 32.92))
+        bezierPath.close()
+        bezierPath.move(to: CGPoint(x: 182, y: 100.5))
+        bezierPath.addCurve(to: CGPoint(x: 99.5, y: 183), controlPoint1: CGPoint(x: 182, y: 146.06), controlPoint2: CGPoint(x: 145.06, y: 183))
+        bezierPath.addCurve(to: CGPoint(x: 17, y: 100.5), controlPoint1: CGPoint(x: 53.94, y: 183), controlPoint2: CGPoint(x: 17, y: 146.06))
+        bezierPath.addCurve(to: CGPoint(x: 52.56, y: 32.65), controlPoint1: CGPoint(x: 17, y: 72.38), controlPoint2: CGPoint(x: 31.07, y: 47.54))
+        bezierPath.addCurve(to: CGPoint(x: 99.5, y: 18), controlPoint1: CGPoint(x: 65.88, y: 23.41), controlPoint2: CGPoint(x: 82.06, y: 18))
+        bezierPath.addCurve(to: CGPoint(x: 182, y: 100.5), controlPoint1: CGPoint(x: 145.06, y: 18), controlPoint2: CGPoint(x: 182, y: 54.94))
+        bezierPath.close()
+        context.saveGState()
+        bezierPath.addClip()
+        context.drawLinearGradient(NoodlesStyleKit.timerGradient, start: CGPoint(x: 99.5, y: 18), end: CGPoint(x: 99.5, y: 183), options: [])
+        context.restoreGState()
+
+
+        //// timerMask Drawing
+        context.saveGState()
+        context.translateBy(x: 100, y: 100)
+        context.rotate(by: -90 * CGFloat.pi/180)
+
+        let timerMaskPath = UIBezierPath()
+        timerMaskPath.move(to: CGPoint(x: 75, y: -0.75))
+        timerMaskPath.addCurve(to: CGPoint(x: -0.75, y: 75), controlPoint1: CGPoint(x: 75, y: 41.09), controlPoint2: CGPoint(x: 41.09, y: 75))
+        timerMaskPath.addCurve(to: CGPoint(x: -76.5, y: -0.75), controlPoint1: CGPoint(x: -42.59, y: 75), controlPoint2: CGPoint(x: -76.5, y: 41.09))
+        timerMaskPath.addCurve(to: CGPoint(x: -0.75, y: -76.5), controlPoint1: CGPoint(x: -76.5, y: -42.59), controlPoint2: CGPoint(x: -42.59, y: -76.5))
+        timerMaskPath.addCurve(to: CGPoint(x: 75, y: -0.75), controlPoint1: CGPoint(x: 41.09, y: -76.5), controlPoint2: CGPoint(x: 75, y: -42.59))
+        timerMaskPath.close()
+        UIColor.black.setStroke()
+        timerMaskPath.lineWidth = 27
+        timerMaskPath.lineCapStyle = .round
+        context.saveGState()
+        context.setLineDash(phase: 4, lengths: [timerDash, 478])
+        timerMaskPath.stroke()
+        context.restoreGState()
+
+        context.restoreGState()
+
+
+        //// Oval Drawing
+        let ovalPath = UIBezierPath(ovalIn: CGRect(x: 86.5, y: 11.5, width: 27, height: 27))
+        NoodlesStyleKit.darkerGreen.setFill()
+        ovalPath.fill()
+        UIColor.black.setStroke()
+        ovalPath.lineWidth = 1
+        ovalPath.stroke()
+
+
+        //// Group 2
+        context.saveGState()
+        context.translateBy(x: 100, y: 25)
+        context.rotate(by: -spinArrow * CGFloat.pi/180)
+
+
+
+        //// Rectangle 2 Drawing
+        let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: -6.35, y: -0.25, width: 13, height: 1), cornerRadius: 0.5)
+        NoodlesStyleKit.baseOrange.setStroke()
+        rectangle2Path.lineWidth = 2
+        rectangle2Path.stroke()
+
+
+        //// Rectangle Drawing
+        context.saveGState()
+        context.translateBy(x: 0.15, y: -0.25)
+        context.rotate(by: -45 * CGFloat.pi/180)
+
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: -7, y: -0.02, width: 13, height: 1), cornerRadius: 0.5)
+        NoodlesStyleKit.baseOrange.setStroke()
+        rectanglePath.lineWidth = 2
+        rectanglePath.stroke()
+
+        context.restoreGState()
+
+
+        //// Rectangle 3 Drawing
+        context.saveGState()
+        context.translateBy(x: 0.15, y: -0.25)
+        context.rotate(by: 45 * CGFloat.pi/180)
+
+        let rectangle3Path = UIBezierPath(roundedRect: CGRect(x: -6, y: 0.1, width: 13, height: 1), cornerRadius: 0.5)
+        NoodlesStyleKit.baseOrange.setStroke()
+        rectangle3Path.lineWidth = 2
+        rectangle3Path.stroke()
+
+        context.restoreGState()
+
+
+        //// Rectangle 4 Drawing
+        context.saveGState()
+        context.translateBy(x: -0.35, y: 0.5)
+        context.rotate(by: -90 * CGFloat.pi/180)
+
+        let rectangle4Path = UIBezierPath(roundedRect: CGRect(x: -6, y: -0.15, width: 13, height: 1), cornerRadius: 0.5)
+        NoodlesStyleKit.baseOrange.setStroke()
+        rectangle4Path.lineWidth = 2
+        rectangle4Path.stroke()
+
+        context.restoreGState()
+
+
+
+        context.restoreGState()
+
+
+        //// Text Drawing
+        let textRect = CGRect(x: 41, y: 73, width: 54, height: 53)
+        let textStyle = NSMutableParagraphStyle()
+        textStyle.alignment = .right
+        let textFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 37), NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: textStyle]
+
+        let textTextHeight: CGFloat = minutes.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: textRect)
+        minutes.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
+        context.restoreGState()
+
+
+        //// Text 2 Drawing
+        let text2Rect = CGRect(x: 105, y: 73, width: 54, height: 53)
+        let text2Style = NSMutableParagraphStyle()
+        text2Style.alignment = .left
+        let text2FontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 37), NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: text2Style]
+
+        let text2TextHeight: CGFloat = seconds.boundingRect(with: CGSize(width: text2Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text2FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text2Rect)
+        seconds.draw(in: CGRect(x: text2Rect.minX, y: text2Rect.minY + (text2Rect.height - text2TextHeight) / 2, width: text2Rect.width, height: text2TextHeight), withAttributes: text2FontAttributes)
+        context.restoreGState()
+
+
+        //// Text 3 Drawing
+        let text3Rect = CGRect(x: 95, y: 73, width: 8, height: 53)
+        let text3TextContent = ":"
+        let text3Style = NSMutableParagraphStyle()
+        text3Style.alignment = .center
+        let text3FontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 37), NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: text3Style]
+
+        let text3TextHeight: CGFloat = text3TextContent.boundingRect(with: CGSize(width: text3Rect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: text3FontAttributes, context: nil).height
+        context.saveGState()
+        context.clip(to: text3Rect)
+        text3TextContent.draw(in: CGRect(x: text3Rect.minX, y: text3Rect.minY + (text3Rect.height - text3TextHeight) / 2, width: text3Rect.width, height: text3TextHeight), withAttributes: text3FontAttributes)
+        context.restoreGState()
+        
+        context.restoreGState()
+
+    }
+
     public dynamic class func drawScanFailure(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 75, height: 75), resizing: ResizingBehavior = .aspectFit) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
@@ -1693,6 +1862,16 @@ public class NoodlesStyleKit : NSObject {
         UIGraphicsEndImageContext()
 
         return imageOfTimerAnimation
+    }
+
+    public dynamic class func imageOfTimerAnimationWithTime(timerRatio: CGFloat = 0, minutes: String = "00", seconds: String = "00") -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 200, height: 200), false, 0)
+            NoodlesStyleKit.drawTimerAnimationWithTime(timerRatio: timerRatio, minutes: minutes, seconds: seconds)
+
+        let imageOfTimerAnimationWithTime = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return imageOfTimerAnimationWithTime
     }
 
     public dynamic class var imageOfScanFailure: UIImage {

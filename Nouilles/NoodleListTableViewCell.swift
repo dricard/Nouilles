@@ -26,6 +26,6 @@ class NoodleListTableViewCell: SwipeTableViewCell {
     @IBOutlet weak var ratingImageView: UIImageView!
     @IBOutlet weak var mealSizeView: UIImageView!
     @IBOutlet weak var onHandIndicatorView: UIImageView!
-    @IBOutlet weak var timerView: TimerView!
+    @IBOutlet weak var timerView: TimerViewWithLabels!
     
 }

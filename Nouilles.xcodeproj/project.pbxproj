@@ -20,6 +20,7 @@
 		2137A6071DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6031DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift */; };
 		2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A6081DDB945000C1FC35 /* CoreDataStack.swift */; };
 		2137A60D1DDB961200C1FC35 /* NouilleDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137A60C1DDB961200C1FC35 /* NouilleDetailVC.swift */; };
+		2137BCEF1E689871006D7971 /* TimerViewWithLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2137BCEE1E689871006D7971 /* TimerViewWithLabels.swift */; };
 		213B05151DEDDA1300A5002A /* NetworkCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213B05141DEDDA1300A5002A /* NetworkCoordinator.swift */; };
 		2141BD8E1E46373100619B8E /* FilterHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2141BD8D1E46373100619B8E /* FilterHeaderView.swift */; };
 		21431A911DE3CE1E000CC37A /* NoodlesStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */; };
@@ -72,6 +73,7 @@
 		2137A6031DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Nouille+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2137A6081DDB945000C1FC35 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		2137A60C1DDB961200C1FC35 /* NouilleDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NouilleDetailVC.swift; sourceTree = "<group>"; };
+		2137BCEE1E689871006D7971 /* TimerViewWithLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewWithLabels.swift; sourceTree = "<group>"; };
 		213B05141DEDDA1300A5002A /* NetworkCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkCoordinator.swift; sourceTree = "<group>"; };
 		2141BD8D1E46373100619B8E /* FilterHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterHeaderView.swift; sourceTree = "<group>"; };
 		21431A901DE3CE1E000CC37A /* NoodlesStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoodlesStyleKit.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				21A148D51D6B841900FA52BA /* Main.storyboard */,
 				21A148DA1D6B841900FA52BA /* LaunchScreen.storyboard */,
 				21431A921DE3D3E0000CC37A /* TimerView.swift */,
+				2137BCEE1E689871006D7971 /* TimerViewWithLabels.swift */,
 				21058BA21DE8C3BF007E3C08 /* ScanSuccessView.swift */,
 				215CC4E61DEF14B400070019 /* NoodleListTableViewCell.swift */,
 				217D10B51DF2207200262255 /* TextTableViewCell.swift */,
@@ -436,6 +439,7 @@
 				2137A6071DDB91DB00C1FC35 /* Nouille+CoreDataProperties.swift in Sources */,
 				21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */,
 				210200FE1DE7C40A00D1F349 /* Sound.swift in Sources */,
+				2137BCEF1E689871006D7971 /* TimerViewWithLabels.swift in Sources */,
 				2137A6091DDB945000C1FC35 /* CoreDataStack.swift in Sources */,
 				2137A60D1DDB961200C1FC35 /* NouilleDetailVC.swift in Sources */,
 				217D10B61DF2207200262255 /* TextTableViewCell.swift in Sources */,

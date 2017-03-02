@@ -15,13 +15,13 @@
         <!--Noodles-->
         <scene sceneID="lPA-k5-i2L">
             <objects>
-                <tableViewController id="NMS-6w-XZK" customClass="ListeDeNouillesVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="NMS-6w-XZK" customClass="ListeDeNouillesVC" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="74" sectionHeaderHeight="28" sectionFooterHeight="28" id="iLN-sx-VsF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Nouille" rowHeight="74" id="NAn-ym-LWb" customClass="NoodleListTableViewCell" customModule="Nouilles" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Nouille" rowHeight="74" id="NAn-ym-LWb" customClass="NoodleListTableViewCell" customModule="Noodles" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NAn-ym-LWb" id="S4x-lE-glt">
@@ -112,8 +112,8 @@
                                                 <constraint firstAttribute="width" constant="21" id="sYv-Qf-HjY"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eH1-V2-z7h" customClass="TimerView" customModule="Nouilles" customModuleProvider="target">
-                                            <rect key="frame" x="4" y="4" width="213" height="213.5"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eH1-V2-z7h" customClass="TimerViewWithLabels" customModule="Noodles" customModuleProvider="target">
+                                            <rect key="frame" x="4" y="4" width="213.5" height="213.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="eH1-V2-z7h" secondAttribute="height" multiplier="1:1" id="O79-qw-sP2"/>
@@ -193,12 +193,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0QC-QU-YqU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="420" y="846.9265367316342"/>
+            <point key="canvasLocation" x="420" y="846.12676056338034"/>
         </scene>
         <!--Add NoodleVC-->
         <scene sceneID="3Ea-fi-5o1">
             <objects>
-                <viewController storyboardIdentifier="AddNoodleVC" id="AUZ-8E-KSD" customClass="AddNoodleVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNoodleVC" id="AUZ-8E-KSD" customClass="AddNoodleVC" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RnQ-Rk-4eL"/>
                         <viewControllerLayoutGuide type="bottom" id="Xzd-3C-H2e"/>
@@ -441,7 +441,7 @@
         <!--Bar CodeVC-->
         <scene sceneID="dIa-gR-awV">
             <objects>
-                <viewController storyboardIdentifier="BarCodeVC" id="JdN-JH-SgB" customClass="BarCodeVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BarCodeVC" id="JdN-JH-SgB" customClass="BarCodeVC" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NiL-K2-ZcS"/>
                         <viewControllerLayoutGuide type="bottom" id="9m9-Qz-XPT"/>
@@ -459,7 +459,7 @@
         <!--Nouille DetailVC-->
         <scene sceneID="BGQ-qz-L7o">
             <objects>
-                <viewController storyboardIdentifier="NouilleDetailVC" id="05h-4T-WMG" customClass="NouilleDetailVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NouilleDetailVC" id="05h-4T-WMG" customClass="NouilleDetailVC" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TyU-Ta-mOz"/>
                         <viewControllerLayoutGuide type="bottom" id="sv7-lp-3lx"/>
@@ -815,7 +815,7 @@
                                     <constraint firstAttribute="height" constant="40" id="fib-i5-l3f"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTH-ih-RJ9" customClass="TimerButton" customModule="Nouilles" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XTH-ih-RJ9" customClass="TimerButton" customModule="Noodles" customModuleProvider="target">
                                 <rect key="frame" x="10" y="483" width="300" height="75"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -963,13 +963,13 @@
         <!--Edit DataVC-->
         <scene sceneID="YPN-J0-dt4">
             <objects>
-                <tableViewController storyboardIdentifier="EditDataVC" id="QeC-UX-djF" customClass="EditDataVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EditDataVC" id="QeC-UX-djF" customClass="EditDataVC" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="28" sectionFooterHeight="28" id="HR4-I7-Wkt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="63" id="Xx6-x8-mPh" customClass="TextTableViewCell" customModule="Nouilles" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextCell" rowHeight="63" id="Xx6-x8-mPh" customClass="TextTableViewCell" customModule="Noodles" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="320" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xx6-x8-mPh" id="lo6-mh-Fih">
@@ -1018,7 +1018,7 @@
                                     <outlet property="textField" destination="AeU-fU-HMj" id="w2X-sk-iOb"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NumberCell" rowHeight="63" id="M6j-j9-gCY" customClass="NumberTableViewCell" customModule="Nouilles" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NumberCell" rowHeight="63" id="M6j-j9-gCY" customClass="NumberTableViewCell" customModule="Noodles" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="91" width="320" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M6j-j9-gCY" id="4mn-Qn-Uny">
@@ -1067,7 +1067,7 @@
                                     <outlet property="textField" destination="Fcf-Te-blL" id="t0q-oF-thq"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoolCell" rowHeight="63" id="Cg2-Ec-ebj" customClass="BoolTableViewCell" customModule="Nouilles" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BoolCell" rowHeight="63" id="Cg2-Ec-ebj" customClass="BoolTableViewCell" customModule="Noodles" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="154" width="320" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cg2-Ec-ebj" id="kVp-Qq-7jY">
@@ -1129,7 +1129,7 @@
         <!--Change ValueVC-->
         <scene sceneID="hDq-xF-7B6">
             <objects>
-                <viewController storyboardIdentifier="ChangeValueVC" id="42H-x7-VP6" customClass="ChangeValueVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangeValueVC" id="42H-x7-VP6" customClass="ChangeValueVC" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1up-JB-EaJ"/>
                         <viewControllerLayoutGuide type="bottom" id="dCd-zx-7Gr"/>
@@ -1258,7 +1258,7 @@
         <!--Take PictureVC-->
         <scene sceneID="TxX-gC-Av8">
             <objects>
-                <viewController storyboardIdentifier="TakePictureVC" id="cF2-f5-Uwh" customClass="TakePictureVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TakePictureVC" id="cF2-f5-Uwh" customClass="TakePictureVC" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vKf-37-mNq"/>
                         <viewControllerLayoutGuide type="bottom" id="r7i-iH-7Di"/>
@@ -1345,7 +1345,7 @@
         <!--Filter-->
         <scene sceneID="KeT-Qt-dYr">
             <objects>
-                <tableViewController storyboardIdentifier="FilterVC" title="Filter" clearsSelectionOnViewWillAppear="NO" id="Cwf-gI-Icy" customClass="FilterVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FilterVC" title="Filter" clearsSelectionOnViewWillAppear="NO" id="Cwf-gI-Icy" customClass="FilterVC" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="nTl-hY-nrB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1400,7 +1400,7 @@
         <!--About-->
         <scene sceneID="m0i-7d-ddP">
             <objects>
-                <viewController storyboardIdentifier="AboutVC" title="About" id="D48-m0-LMH" customClass="AboutVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutVC" title="About" id="D48-m0-LMH" customClass="AboutVC" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Ik-g3-78c"/>
                         <viewControllerLayoutGuide type="bottom" id="Yv3-yY-Kn3"/>
@@ -1564,7 +1564,7 @@
         <!--TimerVC-->
         <scene sceneID="hZu-nt-gGj">
             <objects>
-                <viewController storyboardIdentifier="TimerVC" id="dzI-ns-rhe" customClass="TimerVC" customModule="Nouilles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TimerVC" id="dzI-ns-rhe" customClass="TimerVC" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r0j-qB-78J"/>
                         <viewControllerLayoutGuide type="bottom" id="VDk-zd-FlF"/>
@@ -1573,7 +1573,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRI-at-JTh" customClass="TimerView" customModule="Nouilles" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SRI-at-JTh" customClass="TimerView" customModule="Noodles" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="320" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
