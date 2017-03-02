@@ -358,6 +358,12 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                     let nouille = self.fetchedResultsController.object(at: indexPath)
                     self.timers.createTimerFor(noodle: nouille)
                     
+                    // since we didn't do it in viewDidAppear, we need to start
+                    // an internal timer to update the display
+                    DispatchQueue.main.async {
+                        self.internalTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ListeDeNouillesVC.updateTimers), userInfo: nil, repeats: true)
+                    }
+
                     self.tableView.reloadData()
                 })
                 
