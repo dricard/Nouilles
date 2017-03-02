@@ -58,6 +58,10 @@ public class NoodlesStyleKit : NSObject {
         static var pauseTargets: [AnyObject]?
         static var imageOfPlay: UIImage?
         static var playTargets: [AnyObject]?
+        static var imageOfPlaySmall: UIImage?
+        static var playSmallTargets: [AnyObject]?
+        static var imageOfPauseSmall: UIImage?
+        static var pauseSmallTargets: [AnyObject]?
         static var imageOfCancel: UIImage?
         static var cancelTargets: [AnyObject]?
         static var imageOfCancelSelected: UIImage?
@@ -1100,6 +1104,63 @@ public class NoodlesStyleKit : NSObject {
 
     }
 
+    public dynamic class func drawPlaySmall(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: ResizingBehavior = .aspectFit) {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()!
+        
+        //// Resize to Target Frame
+        context.saveGState()
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 32, height: 32), target: targetFrame)
+        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
+        context.scaleBy(x: resizedFrame.width / 32, y: resizedFrame.height / 32)
+
+
+        //// Bezier Drawing
+        let bezierPath = UIBezierPath()
+        bezierPath.move(to: CGPoint(x: 6.5, y: 25.5))
+        bezierPath.addLine(to: CGPoint(x: 28.5, y: 15.49))
+        bezierPath.addLine(to: CGPoint(x: 6.5, y: 6))
+        bezierPath.addLine(to: CGPoint(x: 6.5, y: 25.5))
+        bezierPath.close()
+        NoodlesStyleKit.darkerOrange.setFill()
+        bezierPath.fill()
+        NoodlesStyleKit.darkerOrange.setStroke()
+        bezierPath.lineWidth = 3
+        bezierPath.lineCapStyle = .round
+        bezierPath.lineJoinStyle = .round
+        bezierPath.stroke()
+        
+        context.restoreGState()
+
+    }
+
+    public dynamic class func drawPauseSmall(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 32, height: 32), resizing: ResizingBehavior = .aspectFit) {
+        //// General Declarations
+        let context = UIGraphicsGetCurrentContext()!
+        
+        //// Resize to Target Frame
+        context.saveGState()
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 32, height: 32), target: targetFrame)
+        context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
+        context.scaleBy(x: resizedFrame.width / 32, y: resizedFrame.height / 32)
+
+
+        //// Group
+        //// Rectangle Drawing
+        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: 5, y: 3, width: 9, height: 25), cornerRadius: 2)
+        NoodlesStyleKit.darkerOrange.setFill()
+        rectanglePath.fill()
+
+
+        //// Rectangle 2 Drawing
+        let rectangle2Path = UIBezierPath(roundedRect: CGRect(x: 19, y: 3, width: 9, height: 25), cornerRadius: 2)
+        NoodlesStyleKit.darkerOrange.setFill()
+        rectangle2Path.fill()
+        
+        context.restoreGState()
+
+    }
+
     public dynamic class func drawCancel(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 75, height: 75), resizing: ResizingBehavior = .aspectFit) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
@@ -1759,6 +1820,34 @@ public class NoodlesStyleKit : NSObject {
         return Cache.imageOfPlay!
     }
 
+    public dynamic class var imageOfPlaySmall: UIImage {
+        if Cache.imageOfPlaySmall != nil {
+            return Cache.imageOfPlaySmall!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 32, height: 32), false, 0)
+            NoodlesStyleKit.drawPlaySmall()
+
+        Cache.imageOfPlaySmall = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfPlaySmall!
+    }
+
+    public dynamic class var imageOfPauseSmall: UIImage {
+        if Cache.imageOfPauseSmall != nil {
+            return Cache.imageOfPauseSmall!
+        }
+
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 32, height: 32), false, 0)
+            NoodlesStyleKit.drawPauseSmall()
+
+        Cache.imageOfPauseSmall = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+
+        return Cache.imageOfPauseSmall!
+    }
+
     public dynamic class var imageOfCancel: UIImage {
         if Cache.imageOfCancel != nil {
             return Cache.imageOfCancel!
@@ -1967,6 +2056,26 @@ public class NoodlesStyleKit : NSObject {
             Cache.playTargets = newValue
             for target: AnyObject in newValue {
                 let _ = target.perform(NSSelectorFromString("setSelectedImage:"), with: NoodlesStyleKit.imageOfPlay)
+            }
+        }
+    }
+
+    @IBOutlet dynamic var playSmallTargets: [AnyObject]! {
+        get { return Cache.playSmallTargets }
+        set {
+            Cache.playSmallTargets = newValue
+            for target: AnyObject in newValue {
+                let _ = target.perform(NSSelectorFromString("setSelectedImage:"), with: NoodlesStyleKit.imageOfPlaySmall)
+            }
+        }
+    }
+
+    @IBOutlet dynamic var pauseSmallTargets: [AnyObject]! {
+        get { return Cache.pauseSmallTargets }
+        set {
+            Cache.pauseSmallTargets = newValue
+            for target: AnyObject in newValue {
+                let _ = target.perform(NSSelectorFromString("setImage:"), with: NoodlesStyleKit.imageOfPauseSmall)
             }
         }
     }

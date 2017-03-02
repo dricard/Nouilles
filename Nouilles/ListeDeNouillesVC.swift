@@ -304,7 +304,7 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
         
         if orientation == .left {
             if timers.hasTimerFor(noodle: nouille) {
-                let togglePlayPauseTimerAction = SwipeAction(style: .default, title: "\u{2016}/\u{25B6}", handler: { (action, indexPath) in
+                let togglePlayPauseTimerAction = SwipeAction(style: .default, title: "", handler: { (action, indexPath) in
                     
                     FIRAnalytics.logEvent(withName: Names.listSwipePausePlay, parameters: nil)
                     
@@ -317,7 +317,14 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                     }
                     self.tableView.reloadData()
                 })
-                togglePlayPauseTimerAction.backgroundColor = NoodlesStyleKit.baseGreen
+                togglePlayPauseTimerAction.backgroundColor = NoodlesStyleKit.baseYellow
+                if let noodleTimer = timers.timerFor(noodle: nouille) {
+                    if noodleTimer.isRunning() {
+                        togglePlayPauseTimerAction.image = NoodlesStyleKit.imageOfPlaySmall
+                    } else {
+                        togglePlayPauseTimerAction.image = NoodlesStyleKit.imageOfPauseSmall
+                    }
+                }
                 
                 let cancelTimerAction = SwipeAction(style: .destructive, title: "\u{25FC}", handler: { (action, indexPath) in
                     
