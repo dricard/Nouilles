@@ -3,6 +3,10 @@
 <plist version="1.0">
 <array>
 	<dict>
+		<key>glutenFree</key>
+		<false/>
+		<key>longNoodles</key>
+		<false/>
 		<key>name</key>
 		<string>Bows medium</string>
 		<key>brand</key>
@@ -23,6 +27,10 @@
 		<string>catelli_bows_large_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<false/>
 		<key>name</key>
 		<string>Bows small</string>
 		<key>brand</key>
@@ -43,6 +51,10 @@
 		<string>catelli_bows_small_.png</string>
 	</dict>
 	<dict>
+		<key>glutenFree</key>
+		<false/>
+		<key>longNoodles</key>
+		<false/>
 		<key>name</key>
 		<string>Ditali</string>
 		<key>brand</key>
@@ -63,6 +75,10 @@
 		<string>barilla_ditali_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<true/>
 		<key>name</key>
 		<string>Fettucce</string>
 		<key>brand</key>
@@ -72,17 +88,21 @@
 		<key>serving_meal</key>
 		<real>1.5</real>
 		<key>serving_side</key>
-		<real>0.75</real>
+		<real>0.5</real>
 		<key>cooking_time</key>
 		<real>6.5</real>
 		<key>prefer_meal_size</key>
 		<false/>
 		<key>on_hand</key>
-		<false/>
+		<true/>
 		<key>image</key>
 		<string>leveziane_fettucce_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<false/>
 		<key>name</key>
 		<string>Fusili</string>
 		<key>brand</key>
@@ -103,6 +123,10 @@
 		<string>catelli_fusilli_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<true/>
 		<key>name</key>
 		<string>Fusili Gluten Free</string>
 		<key>brand</key>
@@ -123,6 +147,10 @@
 		<string>president_choice_fusili_sg_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<false/>
 		<key>name</key>
 		<string>Fusili Smart</string>
 		<key>brand</key>
@@ -143,6 +171,10 @@
 		<string>catelli_fusili_smart_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<false/>
 		<key>name</key>
 		<string>Gemelli</string>
 		<key>brand</key>
@@ -163,6 +195,10 @@
 		<string>catelli_gemelli_.png</string>
 	</dict>
 	<dict>
+		<key>glutenFree</key>
+		<false/>
+		<key>longNoodles</key>
+		<false/>
 		<key>name</key>
 		<string>Macaroni</string>
 		<key>brand</key>
@@ -183,6 +219,10 @@
 		<string>catelli_macaroni_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<false/>
 		<key>name</key>
 		<string>Macaroni &amp; Cheese</string>
 		<key>brand</key>
@@ -203,6 +243,10 @@
 		<string>kraft_macaroni_cheese_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<false/>
 		<key>name</key>
 		<string>Penne Rigate</string>
 		<key>brand</key>
@@ -223,6 +267,10 @@
 		<string>catelli_penne_rigate_smart_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<true/>
 		<key>name</key>
 		<string>Rice Pasta</string>
 		<key>brand</key>
@@ -243,6 +291,10 @@
 		<string>rice_noodles_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<false/>
 		<key>name</key>
 		<string>Rings</string>
 		<key>brand</key>
@@ -263,6 +315,10 @@
 		<string>catelli_rings_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<false/>
 		<key>name</key>
 		<string>Rotini</string>
 		<key>brand</key>
@@ -283,6 +339,10 @@
 		<string>barilla_rotini_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<false/>
 		<key>name</key>
 		<string>Rotini</string>
 		<key>brand</key>
@@ -303,6 +363,10 @@
 		<string>catelli_rotini_.png</string>
 	</dict>
 	<dict>
+		<key>glutenFree</key>
+		<true/>
+		<key>longNoodles</key>
+		<false/>
 		<key>name</key>
 		<string>Rotini Gluten Free</string>
 		<key>brand</key>
@@ -323,6 +387,10 @@
 		<string>barilla_rotini_sg_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<false/>
 		<key>name</key>
 		<string>Rotini Plus</string>
 		<key>brand</key>
@@ -343,6 +411,10 @@
 		<string>Barilla_rotini_plus_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<false/>
 		<key>name</key>
 		<string>Shells large</string>
 		<key>brand</key>
@@ -363,6 +435,10 @@
 		<string>catelli_shells_large_.png</string>
 	</dict>
 	<dict>
+		<key>glutenFree</key>
+		<false/>
+		<key>longNoodles</key>
+		<false/>
 		<key>name</key>
 		<string>Soup Noodles</string>
 		<key>brand</key>
@@ -383,6 +459,10 @@
 		<string>catelli_soup_noodles_.png</string>
 	</dict>
 	<dict>
+		<key>longNoodles</key>
+		<false/>
+		<key>glutenFree</key>
+		<false/>
 		<key>name</key>
 		<string>Tortiglioni</string>
 		<key>brand</key>
@@ -395,6 +475,30 @@
 		<real>0.75</real>
 		<key>cooking_time</key>
 		<integer>9</integer>
+		<key>prefer_meal_size</key>
+		<true/>
+		<key>on_hand</key>
+		<true/>
+		<key>image</key>
+		<string>catelli_tortiglioni_.png</string>
+	</dict>
+	<dict>
+		<key>longNoodles</key>
+		<true/>
+		<key>glutenFree</key>
+		<false/>
+		<key>name</key>
+		<string>Spaghettini</string>
+		<key>brand</key>
+		<string>Barilla</string>
+		<key>rating</key>
+		<real>4.5</real>
+		<key>serving_meal</key>
+		<real>1</real>
+		<key>serving_side</key>
+		<real>0.5</real>
+		<key>cooking_time</key>
+		<real>6.5</real>
 		<key>prefer_meal_size</key>
 		<true/>
 		<key>on_hand</key>
