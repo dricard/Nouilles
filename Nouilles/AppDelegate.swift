@@ -128,6 +128,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             newNoodle.servingSideDish = dictionary["serving_side"] as? NSNumber
             newNoodle.time = dictionary["cooking_time"] as? NSNumber
             newNoodle.rating = dictionary["rating"] as? NSNumber
+            newNoodle.glutenFree = dictionary["glutenFree"] as? NSNumber
+            newNoodle.longNoodles = dictionary["longNoodles"] as? NSNumber
             
             // default to prefer meal size servings
             newNoodle.mealSizePrefered = dictionary["prefer_meal_size"] as? NSNumber

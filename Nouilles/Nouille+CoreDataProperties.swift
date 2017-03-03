@@ -2,7 +2,7 @@
 //  Nouille+CoreDataProperties.swift
 //  Nouilles
 //
-//  Created by Denis Ricard on 2017-01-11.
+//  Created by Denis Ricard on 2017-03-03.
 //  Copyright © 2017 Hexaedre. All rights reserved.
 //
 
@@ -37,6 +37,8 @@ extension Nouille {
     @NSManaged public var sugar: NSNumber?
     @NSManaged public var time: NSNumber?
     @NSManaged public var trans: NSNumber?
+    @NSManaged public var glutenFree: NSNumber?
+    @NSManaged public var longNoodles: NSNumber?
     @NSManaged public var userRating: NSSet?
 
 }
