@@ -33,10 +33,10 @@ class Timers {
         return !timers.isEmpty
     }
     
-    func createTimerFor(noodle: Nouille) {
+    func createTimerFor(noodle: Nouille, indexPath: IndexPath) {
         guard let time = noodle.time else { return }
         let seconds = Int(Double(time) * 60.0)
-        let noodleTimer = NoodleTimer(cookingTime: seconds)
+        let noodleTimer = NoodleTimer(cookingTime: seconds, indexPath: indexPath)
         noodleTimer.delegate = self
         timers[noodle.objectID.hashValue] = noodleTimer
     }

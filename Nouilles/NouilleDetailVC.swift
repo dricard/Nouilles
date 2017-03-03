@@ -17,6 +17,7 @@ class NouilleDetailVC: UIViewController {
     var managedContext: NSManagedObjectContext?
     var nouille: Nouille?
     var timers: Timers?
+    var indexPath: IndexPath?
     
     let tapRec = UITapGestureRecognizer()
     let tapMS = UITapGestureRecognizer()
@@ -91,7 +92,11 @@ class NouilleDetailVC: UIViewController {
         // check if a timer is running already for this noodle
         if !timers.hasTimerFor(noodle: nouille) {
             // no current timer for this noodle, so we create a new one
-            timers.createTimerFor(noodle: nouille)
+            if let indexPath = indexPath {
+                timers.createTimerFor(noodle: nouille, indexPath: indexPath)
+            } else {
+                fatalError("No indexPath in NouilleDetailVC/startTimerTapped")
+            }
         }
         
         // segue to take Timer VC

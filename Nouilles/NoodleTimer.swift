@@ -28,13 +28,14 @@ class NoodleTimer: NSObject {
     var sound = Sound()
     var triggerDate: Date?
     var shouldRing = true
+    var indexPath: IndexPath
 
     weak var delegate: NoodleTimerDelegate?
     
     private var minutes = 0
     private var seconds = 0
 
-    init(cookingTime: Int) {
+    init(cookingTime: Int, indexPath: IndexPath) {
         // limit to under an hour cooking time. If it takes more than
         // 60 mn to cook, it's not noodles...
         if cookingTime > 3600 {
@@ -44,6 +45,7 @@ class NoodleTimer: NSObject {
         }
         self.secondsLeft = self.cookingTime
         self.timer = Timer()
+        self.indexPath = indexPath
         super.init()
         // start timer as it's created
         self.startTimer()

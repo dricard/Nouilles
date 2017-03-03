@@ -65,6 +65,8 @@ class ListeDeNouillesVC: UIViewController {
     let sortDescriptorIndexKey = "sortDescriptorIndexKey"
     let predicateIndexKey = "predicateIndexKey"
     
+    let timeIntervalForUpdates = 0.3
+    
     // MARK: - Outlets
     
     @IBOutlet var tableView: UITableView!
@@ -119,7 +121,7 @@ class ListeDeNouillesVC: UIViewController {
         // if we have one or more timers running, start a display timer
         if timers.isNotEmpty() {
             DispatchQueue.main.async {
-                self.internalTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ListeDeNouillesVC.updateTimers), userInfo: nil, repeats: true)
+                self.internalTimer = Timer.scheduledTimer(timeInterval: self.timeIntervalForUpdates, target: self, selector: #selector(ListeDeNouillesVC.updateTimers), userInfo: nil, repeats: true)
             }
         }
     }
@@ -158,13 +160,15 @@ class ListeDeNouillesVC: UIViewController {
     
     // Update any/all timers animations
     func updateTimers() {
+        var rowsToUpdate = [IndexPath]()
         if !currentlyEditing {
             if timers.isNotEmpty() {
                 for (_, thisTimer) in timers.timers {
                     if thisTimer.isRunning() {
-                        tableView.reloadData()
+                        rowsToUpdate.append(thisTimer.indexPath)
                     }
                 }
+                tableView.reloadRows(at: rowsToUpdate, with: .none)
             } else {
                 internalTimer.invalidate()
                 tableView.reloadData()
@@ -279,6 +283,20 @@ extension ListeDeNouillesVC: UITableViewDataSource {
 
 extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
     
+    
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        // This will stop the update of the timers in the listview
+        // while the user is swiping a row to toggle 'on hand' or delete a row
+        print("######### Began Editing ############")
+        currentlyEditing = true
+    }
+    
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        // This will restart the update of the timers in the listview
+        // after the user swipied a row to toggle 'on hand' or deleted a row
+        currentlyEditing = false
+    }
+    
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         var options = SwipeTableOptions()
         options.expansionStyle = .selection
@@ -356,12 +374,12 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                     FIRAnalytics.logEvent(withName: Names.listSwipeStartTimer, parameters: nil)
                     
                     let nouille = self.fetchedResultsController.object(at: indexPath)
-                    self.timers.createTimerFor(noodle: nouille)
+                    self.timers.createTimerFor(noodle: nouille, indexPath: indexPath)
                     
                     // since we didn't do it in viewDidAppear, we need to start
                     // an internal timer to update the display
                     DispatchQueue.main.async {
-                        self.internalTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ListeDeNouillesVC.updateTimers), userInfo: nil, repeats: true)
+                        self.internalTimer = Timer.scheduledTimer(timeInterval: self.timeIntervalForUpdates, target: self, selector: #selector(ListeDeNouillesVC.updateTimers), userInfo: nil, repeats: true)
                     }
 
                     self.tableView.reloadData()
@@ -449,23 +467,11 @@ extension ListeDeNouillesVC: UITableViewDelegate {
         vc.managedContext = self.managedContext!
         vc.nouille = nouille
         vc.timers = timers
+        vc.indexPath = indexPath
         show(vc, sender: self)
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
-        // This will stop the update of the timers in the listview
-        // while the user is swiping a row to toggle 'on hand' or delete a row
-        currentlyEditing = true
-    }
-    
-    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
-        // This will restart the update of the timers in the listview
-        // after the user swipied a row to toggle 'on hand' or deleted a row
-        currentlyEditing = false
-    }
-    
 }
 
 extension ListeDeNouillesVC: NSFetchedResultsControllerDelegate {
