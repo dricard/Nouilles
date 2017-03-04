@@ -155,6 +155,12 @@
 /* Class = "UILabel"; text = "Rating"; ObjectID = "vLO-kr-rC7"; */
 "vLO-kr-rC7.text" = "Appréciation";
 
+/* Class = "UILabel"; text = "Long Noodles"; ObjectID = "nLu-XA-rMp"; */
+"nLu-XA-rMp.text" = "Nouilles longues";
+
+/* Class = "UILabel"; text = "Gluten Free"; ObjectID = "9oq-2D-H8I"; */
+"9oq-2D-H8I.text" = "Sans gluten";
+
 /* Class = "UILabel"; text = "Calories"; ObjectID = "w6V-4P-t89"; */
 "w6V-4P-t89.text" = "Calories";
 

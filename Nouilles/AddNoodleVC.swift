@@ -50,6 +50,8 @@ class AddNoodleVC: UIViewController {
     @IBOutlet weak var ratingInput: UITextField!
     @IBOutlet weak var cookingTimeInput: UITextField!
     @IBOutlet weak var scanBarcodeButton: UIButton!
+    @IBOutlet weak var longNoodlesSwitch: UISwitch!
+    @IBOutlet weak var glutenFreeSwitch: UISwitch!
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentView: UIView!
@@ -129,6 +131,10 @@ class AddNoodleVC: UIViewController {
         // localization
         title = .addNoodleTitle
 
+        // default to short noodles with gluten
+        longNoodlesSwitch.isOn = false
+        glutenFreeSwitch.isOn = false
+        
         // check if camera is available and enable/disable barcode scanning
         scanBarcodeButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)
         
@@ -339,6 +345,9 @@ class AddNoodleVC: UIViewController {
         newNoodle.numberOfServing = 1
         // default to onHand
         newNoodle.onHand = true
+        
+        newNoodle.longNoodles = longNoodlesSwitch.isOn as NSNumber
+        newNoodle.glutenFree = glutenFreeSwitch.isOn as NSNumber
         
         // Save the context / new noodle to coredata
         do {
