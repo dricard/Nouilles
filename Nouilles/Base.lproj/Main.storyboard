@@ -96,14 +96,14 @@
                                             <rect key="frame" x="4" y="4" width="76" height="75.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FXt-UQ-A1W">
-                                            <rect key="frame" x="230" y="28" width="42" height="21"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FXt-UQ-A1W">
+                                            <rect key="frame" x="230" y="28" width="42" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="42" id="E9H-Bp-OCF"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dNR-lS-2hY">
-                                            <rect key="frame" x="274" y="28" width="42" height="21"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dNR-lS-2hY">
+                                            <rect key="frame" x="274" y="28" width="42" height="18"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59J-3y-AMh">
                                             <rect key="frame" x="84" y="4" width="186" height="21"/>
@@ -163,6 +163,8 @@
                                 <connections>
                                     <outlet property="boxImageView" destination="V6w-KQ-nIn" id="6Oe-iZ-jeO"/>
                                     <outlet property="brandLabel" destination="l3n-Le-VTf" id="S5x-zE-YTO"/>
+                                    <outlet property="glutenFreeView" destination="FXt-UQ-A1W" id="R1h-1f-1na"/>
+                                    <outlet property="longNoodlesView" destination="dNR-lS-2hY" id="oLP-gE-kFl"/>
                                     <outlet property="mealSizeView" destination="nAx-m1-6iu" id="l8V-lw-7mR"/>
                                     <outlet property="nameLabel" destination="59J-3y-AMh" id="6f6-lV-BsZ"/>
                                     <outlet property="onHandIndicatorView" destination="Adc-qS-GU1" id="HXS-gC-RFO"/>

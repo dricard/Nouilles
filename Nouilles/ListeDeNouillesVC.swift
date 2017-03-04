@@ -228,6 +228,7 @@ extension ListeDeNouillesVC: UITableViewDataSource {
             cell.qtyLabel?.text = Nouille.formatWithFraction(value: Double(nouille.servingSideDish!))
             cell.mealSizeView?.image = NoodlesStyleKit.imageOfMealSizeIndicatorSD
         }
+        
         cell.timeLabel?.text = Nouille.formatWithExponent(value: Double(nouille.time!))
         
         // Set image of noodle or timer if one is running
@@ -260,6 +261,20 @@ extension ListeDeNouillesVC: UITableViewDataSource {
             cell.onHandIndicatorView?.image = NoodlesStyleKit.imageOfOnHandIndicator
         } else {
             cell.onHandIndicatorView?.image = NoodlesStyleKit.imageOfOnHandIndicatorEmpty
+        }
+        
+        // set gluten free badge
+        if nouille.glutenFree as! Bool {
+            cell.glutenFreeView.image = NoodlesStyleKit.imageOfGlutenFreeBadge
+        } else {
+            cell.glutenFreeView.image = nil
+        }
+        
+        // set long noodles badge
+        if nouille.longNoodles as! Bool {
+            cell.longNoodlesView.image = NoodlesStyleKit.imageOfLongNoodles
+        } else {
+            cell.longNoodlesView.image = nil
         }
         
         // SwipeTableViewCell

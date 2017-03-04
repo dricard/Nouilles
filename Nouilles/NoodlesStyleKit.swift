@@ -33,7 +33,7 @@ public class NoodlesStyleKit : NSObject {
         static let lighterOrange: UIColor = NoodlesStyleKit.baseOrange.highlight(withLevel: 0.3)
         static let darkerOrange: UIColor = NoodlesStyleKit.baseOrange.shadow(withLevel: 0.3)
         static let mediumYellow: UIColor = NoodlesStyleKit.baseYellow.withSaturation(0.2)
-        static let glutenFreeColor: UIColor = UIColor(red: 0.000, green: 1.000, blue: 0.954, alpha: 1.000)
+        static let glutenFreeColor: UIColor = UIColor(red: 0.000, green: 1.000, blue: 0.461, alpha: 1.000)
         static let glutenFreeAccentColor: UIColor = NoodlesStyleKit.glutenFreeColor.withBrightness(0.4)
         static let timerGradient: CGGradient = CGGradient(colorsSpace: nil, colors: [NoodlesStyleKit.timer1.cgColor, NoodlesStyleKit.timerBkg.cgColor] as CFArray, locations: [0, 1])!
         static var imageOfScanFailure: UIImage?
@@ -1860,325 +1860,88 @@ public class NoodlesStyleKit : NSObject {
 
     }
 
-    public dynamic class func drawGlutenFreeBadge(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 42, height: 21), resizing: ResizingBehavior = .aspectFit) {
+    public dynamic class func drawGlutenFreeBadge(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 42, height: 18), resizing: ResizingBehavior = .aspectFit) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         
         //// Resize to Target Frame
         context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 42, height: 21), target: targetFrame)
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 42, height: 18), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 42, y: resizedFrame.height / 21)
+        context.scaleBy(x: resizedFrame.width / 42, y: resizedFrame.height / 18)
 
 
-        //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: -0.5, y: 0.5, width: 42, height: 21), cornerRadius: 3)
-        NoodlesStyleKit.lighterYellow.setFill()
-        rectanglePath.fill()
-        NoodlesStyleKit.glutenFreeAccentColor.setStroke()
-        rectanglePath.lineWidth = 5
-        rectanglePath.stroke()
-
-
-        //// Group
         //// Bezier Drawing
-        context.saveGState()
-        context.translateBy(x: 11.23, y: 12.51)
-        context.rotate(by: -20.79 * CGFloat.pi/180)
-
         let bezierPath = UIBezierPath()
-        bezierPath.move(to: CGPoint(x: 3.87, y: 4.66))
-        bezierPath.addCurve(to: CGPoint(x: 1.78, y: 1.73), controlPoint1: CGPoint(x: 3.87, y: 4.66), controlPoint2: CGPoint(x: 2.28, y: 3.57))
-        bezierPath.addCurve(to: CGPoint(x: 1.55, y: -0.5), controlPoint1: CGPoint(x: 1.54, y: 0.87), controlPoint2: CGPoint(x: 1.87, y: 0.25))
-        bezierPath.addCurve(to: CGPoint(x: -1.04, y: -1.53), controlPoint1: CGPoint(x: 1.19, y: -1.34), controlPoint2: CGPoint(x: 0.13, y: -2.22))
-        bezierPath.addCurve(to: CGPoint(x: 3.87, y: 4.66), controlPoint1: CGPoint(x: -5.48, y: 1.11), controlPoint2: CGPoint(x: 3.87, y: 4.66))
-        bezierPath.close()
+        bezierPath.move(to: CGPoint(x: 1.5, y: 1.5))
+        bezierPath.addLine(to: CGPoint(x: 40.5, y: 1.5))
+        bezierPath.addLine(to: CGPoint(x: 40.5, y: 16))
+        bezierPath.addLine(to: CGPoint(x: 1.5, y: 16))
+        bezierPath.addLine(to: CGPoint(x: 1.5, y: 1.5))
         NoodlesStyleKit.glutenFreeColor.setFill()
         bezierPath.fill()
         NoodlesStyleKit.glutenFreeAccentColor.setStroke()
-        bezierPath.lineWidth = 1
+        bezierPath.lineWidth = 2
         bezierPath.lineCapStyle = .round
         bezierPath.lineJoinStyle = .round
         bezierPath.stroke()
 
-        context.restoreGState()
 
+        //// Text Drawing
+        let textRect = CGRect(x: 3, y: 2.5, width: 36, height: 12)
+        let textTextContent = "GF/SG"
+        let textStyle = NSMutableParagraphStyle()
+        textStyle.alignment = .center
+        let textFontAttributes = [NSFontAttributeName: UIFont.systemFont(ofSize: 11, weight: UIFontWeightHeavy), NSForegroundColorAttributeName: UIColor.black, NSParagraphStyleAttributeName: textStyle]
 
-        //// Bezier 2 Drawing
+        let textTextHeight: CGFloat = textTextContent.boundingRect(with: CGSize(width: textRect.width, height: CGFloat.infinity), options: .usesLineFragmentOrigin, attributes: textFontAttributes, context: nil).height
         context.saveGState()
-        context.translateBy(x: 15.73, y: 12.01)
-        context.rotate(by: -12.32 * CGFloat.pi/180)
-
-        let bezier2Path = UIBezierPath()
-        bezier2Path.move(to: CGPoint(x: 3.87, y: 4.66))
-        bezier2Path.addCurve(to: CGPoint(x: 1.78, y: 1.73), controlPoint1: CGPoint(x: 3.87, y: 4.66), controlPoint2: CGPoint(x: 2.28, y: 3.57))
-        bezier2Path.addCurve(to: CGPoint(x: 1.55, y: -0.5), controlPoint1: CGPoint(x: 1.54, y: 0.87), controlPoint2: CGPoint(x: 1.87, y: 0.25))
-        bezier2Path.addCurve(to: CGPoint(x: -1.04, y: -1.53), controlPoint1: CGPoint(x: 1.19, y: -1.34), controlPoint2: CGPoint(x: 0.13, y: -2.22))
-        bezier2Path.addCurve(to: CGPoint(x: 3.87, y: 4.66), controlPoint1: CGPoint(x: -5.48, y: 1.11), controlPoint2: CGPoint(x: 3.87, y: 4.66))
-        bezier2Path.close()
-        NoodlesStyleKit.glutenFreeColor.setFill()
-        bezier2Path.fill()
-        NoodlesStyleKit.glutenFreeAccentColor.setStroke()
-        bezier2Path.lineWidth = 1
-        bezier2Path.lineCapStyle = .round
-        bezier2Path.lineJoinStyle = .round
-        bezier2Path.stroke()
-
+        context.clip(to: textRect)
+        textTextContent.draw(in: CGRect(x: textRect.minX, y: textRect.minY + (textRect.height - textTextHeight) / 2, width: textRect.width, height: textTextHeight), withAttributes: textFontAttributes)
         context.restoreGState()
-
-
-        //// Bezier 4 Drawing
-        context.saveGState()
-        context.translateBy(x: 20.73, y: 12.01)
-        context.rotate(by: -12 * CGFloat.pi/180)
-
-        let bezier4Path = UIBezierPath()
-        bezier4Path.move(to: CGPoint(x: 3.87, y: 4.66))
-        bezier4Path.addCurve(to: CGPoint(x: 1.78, y: 1.73), controlPoint1: CGPoint(x: 3.87, y: 4.66), controlPoint2: CGPoint(x: 2.28, y: 3.57))
-        bezier4Path.addCurve(to: CGPoint(x: 1.55, y: -0.5), controlPoint1: CGPoint(x: 1.54, y: 0.87), controlPoint2: CGPoint(x: 1.87, y: 0.25))
-        bezier4Path.addCurve(to: CGPoint(x: -1.04, y: -1.53), controlPoint1: CGPoint(x: 1.19, y: -1.34), controlPoint2: CGPoint(x: 0.13, y: -2.22))
-        bezier4Path.addCurve(to: CGPoint(x: 3.87, y: 4.66), controlPoint1: CGPoint(x: -5.48, y: 1.11), controlPoint2: CGPoint(x: 3.87, y: 4.66))
-        bezier4Path.close()
-        NoodlesStyleKit.glutenFreeColor.setFill()
-        bezier4Path.fill()
-        NoodlesStyleKit.glutenFreeAccentColor.setStroke()
-        bezier4Path.lineWidth = 1
-        bezier4Path.lineCapStyle = .round
-        bezier4Path.lineJoinStyle = .round
-        bezier4Path.stroke()
-
-        context.restoreGState()
-
-
-        //// Bezier 5 Drawing
-        context.saveGState()
-        context.translateBy(x: 25.23, y: 12.01)
-        context.rotate(by: -20.79 * CGFloat.pi/180)
-
-        let bezier5Path = UIBezierPath()
-        bezier5Path.move(to: CGPoint(x: 3.87, y: 4.66))
-        bezier5Path.addCurve(to: CGPoint(x: 1.78, y: 1.73), controlPoint1: CGPoint(x: 3.87, y: 4.66), controlPoint2: CGPoint(x: 2.28, y: 3.57))
-        bezier5Path.addCurve(to: CGPoint(x: 1.55, y: -0.5), controlPoint1: CGPoint(x: 1.54, y: 0.87), controlPoint2: CGPoint(x: 1.87, y: 0.25))
-        bezier5Path.addCurve(to: CGPoint(x: -1.04, y: -1.53), controlPoint1: CGPoint(x: 1.19, y: -1.34), controlPoint2: CGPoint(x: 0.13, y: -2.22))
-        bezier5Path.addCurve(to: CGPoint(x: 3.87, y: 4.66), controlPoint1: CGPoint(x: -5.48, y: 1.11), controlPoint2: CGPoint(x: 3.87, y: 4.66))
-        bezier5Path.close()
-        NoodlesStyleKit.glutenFreeColor.setFill()
-        bezier5Path.fill()
-        NoodlesStyleKit.glutenFreeAccentColor.setStroke()
-        bezier5Path.lineWidth = 1
-        bezier5Path.lineCapStyle = .round
-        bezier5Path.lineJoinStyle = .round
-        bezier5Path.stroke()
-
-        context.restoreGState()
-
-
-        //// Bezier 6 Drawing
-        context.saveGState()
-        context.translateBy(x: 13.23, y: 6.54)
-        context.rotate(by: 12.32 * CGFloat.pi/180)
-
-        let bezier6Path = UIBezierPath()
-        bezier6Path.move(to: CGPoint(x: 4.4, y: -2.25))
-        bezier6Path.addCurve(to: CGPoint(x: 2.3, y: 0.68), controlPoint1: CGPoint(x: 4.4, y: -2.25), controlPoint2: CGPoint(x: 2.81, y: -1.16))
-        bezier6Path.addCurve(to: CGPoint(x: 2.08, y: 2.91), controlPoint1: CGPoint(x: 2.07, y: 1.55), controlPoint2: CGPoint(x: 2.4, y: 2.16))
-        bezier6Path.addCurve(to: CGPoint(x: -0.51, y: 3.94), controlPoint1: CGPoint(x: 1.72, y: 3.75), controlPoint2: CGPoint(x: 0.66, y: 4.64))
-        bezier6Path.addCurve(to: CGPoint(x: 4.4, y: -2.25), controlPoint1: CGPoint(x: -4.95, y: 1.3), controlPoint2: CGPoint(x: 4.4, y: -2.25))
-        bezier6Path.close()
-        NoodlesStyleKit.glutenFreeColor.setFill()
-        bezier6Path.fill()
-        NoodlesStyleKit.glutenFreeAccentColor.setStroke()
-        bezier6Path.lineWidth = 1
-        bezier6Path.lineCapStyle = .round
-        bezier6Path.lineJoinStyle = .round
-        bezier6Path.stroke()
-
-        context.restoreGState()
-
-
-        //// Bezier 7 Drawing
-        context.saveGState()
-        context.translateBy(x: 22.73, y: 6.54)
-        context.rotate(by: 20.79 * CGFloat.pi/180)
-
-        let bezier7Path = UIBezierPath()
-        bezier7Path.move(to: CGPoint(x: 4.62, y: -2.68))
-        bezier7Path.addCurve(to: CGPoint(x: 2.53, y: 0.25), controlPoint1: CGPoint(x: 4.62, y: -2.68), controlPoint2: CGPoint(x: 3.03, y: -1.59))
-        bezier7Path.addCurve(to: CGPoint(x: 2.3, y: 2.48), controlPoint1: CGPoint(x: 2.29, y: 1.11), controlPoint2: CGPoint(x: 2.62, y: 1.73))
-        bezier7Path.addCurve(to: CGPoint(x: -0.29, y: 3.51), controlPoint1: CGPoint(x: 1.94, y: 3.32), controlPoint2: CGPoint(x: 0.88, y: 4.2))
-        bezier7Path.addCurve(to: CGPoint(x: 4.62, y: -2.68), controlPoint1: CGPoint(x: -4.73, y: 0.87), controlPoint2: CGPoint(x: 4.62, y: -2.68))
-        bezier7Path.close()
-        NoodlesStyleKit.glutenFreeColor.setFill()
-        bezier7Path.fill()
-        NoodlesStyleKit.glutenFreeAccentColor.setStroke()
-        bezier7Path.lineWidth = 1
-        bezier7Path.lineCapStyle = .round
-        bezier7Path.lineJoinStyle = .round
-        bezier7Path.stroke()
-
-        context.restoreGState()
-
-
-        //// Bezier 8 Drawing
-        context.saveGState()
-        context.translateBy(x: 18.23, y: 6.54)
-        context.rotate(by: 12 * CGFloat.pi/180)
-
-        let bezier8Path = UIBezierPath()
-        bezier8Path.move(to: CGPoint(x: 4.39, y: -2.23))
-        bezier8Path.addCurve(to: CGPoint(x: 2.29, y: 0.7), controlPoint1: CGPoint(x: 4.39, y: -2.23), controlPoint2: CGPoint(x: 2.8, y: -1.14))
-        bezier8Path.addCurve(to: CGPoint(x: 2.07, y: 2.92), controlPoint1: CGPoint(x: 2.06, y: 1.56), controlPoint2: CGPoint(x: 2.39, y: 2.18))
-        bezier8Path.addCurve(to: CGPoint(x: -0.52, y: 3.95), controlPoint1: CGPoint(x: 1.71, y: 3.76), controlPoint2: CGPoint(x: 0.65, y: 4.65))
-        bezier8Path.addCurve(to: CGPoint(x: 4.39, y: -2.23), controlPoint1: CGPoint(x: -4.96, y: 1.31), controlPoint2: CGPoint(x: 4.39, y: -2.23))
-        bezier8Path.close()
-        NoodlesStyleKit.glutenFreeColor.setFill()
-        bezier8Path.fill()
-        NoodlesStyleKit.glutenFreeAccentColor.setStroke()
-        bezier8Path.lineWidth = 1
-        bezier8Path.lineCapStyle = .round
-        bezier8Path.lineJoinStyle = .round
-        bezier8Path.stroke()
-
-        context.restoreGState()
-
-
-        //// Bezier 10 Drawing
-        context.saveGState()
-        context.translateBy(x: 8.68, y: 8.59)
-        context.rotate(by: 10.32 * CGFloat.pi/180)
-
-        let bezier10Path = UIBezierPath()
-        bezier10Path.move(to: CGPoint(x: 4.12, y: -4.15))
-        bezier10Path.addCurve(to: CGPoint(x: 2.02, y: -1.21), controlPoint1: CGPoint(x: 4.12, y: -4.15), controlPoint2: CGPoint(x: 2.53, y: -3.06))
-        bezier10Path.addCurve(to: CGPoint(x: 1.8, y: 1.01), controlPoint1: CGPoint(x: 1.79, y: -0.35), controlPoint2: CGPoint(x: 2.12, y: 0.27))
-        bezier10Path.addCurve(to: CGPoint(x: -0.79, y: 2.04), controlPoint1: CGPoint(x: 1.44, y: 1.85), controlPoint2: CGPoint(x: 0.38, y: 2.74))
-        bezier10Path.addCurve(to: CGPoint(x: 4.12, y: -4.15), controlPoint1: CGPoint(x: -5.23, y: -0.6), controlPoint2: CGPoint(x: 4.12, y: -4.15))
-        bezier10Path.close()
-        NoodlesStyleKit.glutenFreeColor.setFill()
-        bezier10Path.fill()
-        NoodlesStyleKit.glutenFreeAccentColor.setStroke()
-        bezier10Path.lineWidth = 1
-        bezier10Path.lineCapStyle = .round
-        bezier10Path.lineJoinStyle = .round
-        bezier10Path.stroke()
-
-        context.restoreGState()
-
-
-        //// Bezier 11 Drawing
-        context.saveGState()
-        context.translateBy(x: 28.35, y: 8.36)
-        context.rotate(by: 55.85 * CGFloat.pi/180)
-
-        let bezier11Path = UIBezierPath()
-        bezier11Path.move(to: CGPoint(x: 4.04, y: -3.87))
-        bezier11Path.addCurve(to: CGPoint(x: 1.95, y: -0.93), controlPoint1: CGPoint(x: 4.04, y: -3.87), controlPoint2: CGPoint(x: 2.45, y: -2.78))
-        bezier11Path.addCurve(to: CGPoint(x: 1.72, y: 1.29), controlPoint1: CGPoint(x: 1.71, y: -0.07), controlPoint2: CGPoint(x: 2.04, y: 0.54))
-        bezier11Path.addCurve(to: CGPoint(x: -0.87, y: 2.32), controlPoint1: CGPoint(x: 1.36, y: 2.13), controlPoint2: CGPoint(x: 0.3, y: 3.02))
-        bezier11Path.addCurve(to: CGPoint(x: 4.04, y: -3.87), controlPoint1: CGPoint(x: -5.31, y: -0.32), controlPoint2: CGPoint(x: 4.04, y: -3.87))
-        bezier11Path.close()
-        NoodlesStyleKit.glutenFreeColor.setFill()
-        bezier11Path.fill()
-        NoodlesStyleKit.glutenFreeAccentColor.setStroke()
-        bezier11Path.lineWidth = 1
-        bezier11Path.lineCapStyle = .round
-        bezier11Path.lineJoinStyle = .round
-        bezier11Path.stroke()
-
-        context.restoreGState()
-
-
-        //// Bezier 12 Drawing
-        context.saveGState()
-        context.translateBy(x: 30.23, y: 12.01)
-        context.rotate(by: -74.48 * CGFloat.pi/180)
-
-        let bezier12Path = UIBezierPath()
-        bezier12Path.move(to: CGPoint(x: 3.87, y: 4.66))
-        bezier12Path.addCurve(to: CGPoint(x: 1.78, y: 1.73), controlPoint1: CGPoint(x: 3.87, y: 4.66), controlPoint2: CGPoint(x: 2.28, y: 3.57))
-        bezier12Path.addCurve(to: CGPoint(x: 1.55, y: -0.5), controlPoint1: CGPoint(x: 1.54, y: 0.87), controlPoint2: CGPoint(x: 1.87, y: 0.25))
-        bezier12Path.addCurve(to: CGPoint(x: -1.04, y: -1.53), controlPoint1: CGPoint(x: 1.19, y: -1.34), controlPoint2: CGPoint(x: 0.13, y: -2.22))
-        bezier12Path.addCurve(to: CGPoint(x: 3.87, y: 4.66), controlPoint1: CGPoint(x: -5.48, y: 1.11), controlPoint2: CGPoint(x: 3.87, y: 4.66))
-        bezier12Path.close()
-        NoodlesStyleKit.glutenFreeColor.setFill()
-        bezier12Path.fill()
-        NoodlesStyleKit.glutenFreeAccentColor.setStroke()
-        bezier12Path.lineWidth = 1
-        bezier12Path.lineCapStyle = .round
-        bezier12Path.lineJoinStyle = .round
-        bezier12Path.stroke()
-
-        context.restoreGState()
-
-
-        //// Bezier 13 Drawing
-        let bezier13Path = UIBezierPath()
-        bezier13Path.move(to: CGPoint(x: 8.5, y: 11.5))
-        bezier13Path.addLine(to: CGPoint(x: 5.5, y: 13))
-        NoodlesStyleKit.glutenFreeAccentColor.setStroke()
-        bezier13Path.lineWidth = 1
-        bezier13Path.lineCapStyle = .round
-        bezier13Path.stroke()
-
-
-
-
-        //// Bezier 3 Drawing
-        let bezier3Path = UIBezierPath()
-        bezier3Path.move(to: CGPoint(x: 11, y: -2))
-        bezier3Path.addCurve(to: CGPoint(x: 32, y: 24), controlPoint1: CGPoint(x: 32, y: 24), controlPoint2: CGPoint(x: 32, y: 24))
-        NoodlesStyleKit.lighterYellow.setFill()
-        bezier3Path.fill()
-        NoodlesStyleKit.success.setStroke()
-        bezier3Path.lineWidth = 5
-        bezier3Path.stroke()
         
         context.restoreGState()
 
     }
 
-    public dynamic class func drawLongNoodles(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 42, height: 21), resizing: ResizingBehavior = .aspectFit) {
+    public dynamic class func drawLongNoodles(frame targetFrame: CGRect = CGRect(x: 0, y: 0, width: 42, height: 18), resizing: ResizingBehavior = .aspectFit) {
         //// General Declarations
         let context = UIGraphicsGetCurrentContext()!
         
         //// Resize to Target Frame
         context.saveGState()
-        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 42, height: 21), target: targetFrame)
+        let resizedFrame: CGRect = resizing.apply(rect: CGRect(x: 0, y: 0, width: 42, height: 18), target: targetFrame)
         context.translateBy(x: resizedFrame.minX, y: resizedFrame.minY)
-        context.scaleBy(x: resizedFrame.width / 42, y: resizedFrame.height / 21)
+        context.scaleBy(x: resizedFrame.width / 42, y: resizedFrame.height / 18)
 
 
-        //// Rectangle Drawing
-        let rectanglePath = UIBezierPath(roundedRect: CGRect(x: 0, y: 0, width: 42, height: 21), cornerRadius: 3)
-        NoodlesStyleKit.lighterYellow.setFill()
-        rectanglePath.fill()
-        NoodlesStyleKit.lighterGreen.setStroke()
-        rectanglePath.lineWidth = 3
-        rectanglePath.lineCapStyle = .round
-        rectanglePath.lineJoinStyle = .bevel
-        rectanglePath.stroke()
+        //// Color Declarations
+        let successCheck = NoodlesStyleKit.success.shadow(withLevel: 0.6)
+        let color2 = UIColor(red: 0.000, green: 0.000, blue: 0.000, alpha: 1.000)
 
-
-        //// Group
-        //// Bezier Drawing
-        let bezierPath = UIBezierPath()
-        bezierPath.move(to: CGPoint(x: 3.5, y: 4.5))
-        bezierPath.addLine(to: CGPoint(x: 38.5, y: 4.5))
-        NoodlesStyleKit.lighterYellow.setFill()
-        bezierPath.fill()
-        NoodlesStyleKit.darkerGreen.setStroke()
-        bezierPath.lineWidth = 2
-        bezierPath.lineCapStyle = .round
-        bezierPath.stroke()
+        //// Bezier 6 Drawing
+        let bezier6Path = UIBezierPath()
+        bezier6Path.move(to: CGPoint(x: 2, y: 2))
+        bezier6Path.addLine(to: CGPoint(x: 40, y: 2))
+        bezier6Path.addLine(to: CGPoint(x: 40, y: 16))
+        bezier6Path.addLine(to: CGPoint(x: 2, y: 16))
+        bezier6Path.addLine(to: CGPoint(x: 2, y: 2))
+        NoodlesStyleKit.lighterGreen.setFill()
+        bezier6Path.fill()
+        successCheck.setStroke()
+        bezier6Path.lineWidth = 2
+        bezier6Path.lineCapStyle = .round
+        bezier6Path.lineJoinStyle = .round
+        bezier6Path.stroke()
 
 
         //// Bezier 2 Drawing
         let bezier2Path = UIBezierPath()
-        bezier2Path.move(to: CGPoint(x: 3.5, y: 7.5))
-        bezier2Path.addLine(to: CGPoint(x: 38.5, y: 7.5))
+        bezier2Path.move(to: CGPoint(x: 5.5, y: 6))
+        bezier2Path.addLine(to: CGPoint(x: 36.5, y: 6))
         NoodlesStyleKit.lighterYellow.setFill()
         bezier2Path.fill()
-        NoodlesStyleKit.darkerGreen.setStroke()
+        color2.setStroke()
         bezier2Path.lineWidth = 2
         bezier2Path.lineCapStyle = .round
         bezier2Path.stroke()
@@ -2186,11 +1949,11 @@ public class NoodlesStyleKit : NSObject {
 
         //// Bezier 3 Drawing
         let bezier3Path = UIBezierPath()
-        bezier3Path.move(to: CGPoint(x: 3.5, y: 10.5))
-        bezier3Path.addLine(to: CGPoint(x: 38.5, y: 10.5))
+        bezier3Path.move(to: CGPoint(x: 5.5, y: 9))
+        bezier3Path.addLine(to: CGPoint(x: 36.5, y: 9))
         NoodlesStyleKit.lighterYellow.setFill()
         bezier3Path.fill()
-        NoodlesStyleKit.darkerGreen.setStroke()
+        color2.setStroke()
         bezier3Path.lineWidth = 2
         bezier3Path.lineCapStyle = .round
         bezier3Path.stroke()
@@ -2198,26 +1961,14 @@ public class NoodlesStyleKit : NSObject {
 
         //// Bezier 4 Drawing
         let bezier4Path = UIBezierPath()
-        bezier4Path.move(to: CGPoint(x: 3.5, y: 13.5))
-        bezier4Path.addLine(to: CGPoint(x: 38.5, y: 13.5))
+        bezier4Path.move(to: CGPoint(x: 5.5, y: 12))
+        bezier4Path.addLine(to: CGPoint(x: 36.5, y: 12))
         NoodlesStyleKit.lighterYellow.setFill()
         bezier4Path.fill()
-        NoodlesStyleKit.darkerGreen.setStroke()
+        color2.setStroke()
         bezier4Path.lineWidth = 2
         bezier4Path.lineCapStyle = .round
         bezier4Path.stroke()
-
-
-        //// Bezier 5 Drawing
-        let bezier5Path = UIBezierPath()
-        bezier5Path.move(to: CGPoint(x: 3.5, y: 16.5))
-        bezier5Path.addLine(to: CGPoint(x: 38.5, y: 16.5))
-        NoodlesStyleKit.lighterYellow.setFill()
-        bezier5Path.fill()
-        NoodlesStyleKit.darkerGreen.setStroke()
-        bezier5Path.lineWidth = 2
-        bezier5Path.lineCapStyle = .round
-        bezier5Path.stroke()
         
         context.restoreGState()
 
@@ -2560,7 +2311,7 @@ public class NoodlesStyleKit : NSObject {
             return Cache.imageOfGlutenFreeBadge!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 42, height: 21), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 42, height: 18), false, 0)
             NoodlesStyleKit.drawGlutenFreeBadge()
 
         Cache.imageOfGlutenFreeBadge = UIGraphicsGetImageFromCurrentImageContext()!
@@ -2574,7 +2325,7 @@ public class NoodlesStyleKit : NSObject {
             return Cache.imageOfLongNoodles!
         }
 
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 42, height: 21), false, 0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 42, height: 18), false, 0)
             NoodlesStyleKit.drawLongNoodles()
 
         Cache.imageOfLongNoodles = UIGraphicsGetImageFromCurrentImageContext()!
