@@ -91,7 +91,7 @@ class FatSecretAPI {
          let parsedResult = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:AnyObject]
          
          // GUARD: make sure we could parse the data
-         guard let result = parsedResult??["hits"] as? [[String:AnyObject]] else {
+         guard let _ = parsedResult??["hits"] as? [[String:AnyObject]] else {
             sendError("Could not parse the data", code: NetworkParams.CodeCouldNotParseData)
             return
          }

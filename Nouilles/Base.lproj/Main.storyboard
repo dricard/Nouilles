@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NAn-ym-LWb" id="S4x-lE-glt">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="83.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6w-KQ-nIn">
@@ -96,13 +96,13 @@
                                             <rect key="frame" x="4" y="4" width="76" height="75.5"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FXt-UQ-A1W">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FXt-UQ-A1W">
                                             <rect key="frame" x="230" y="28" width="42" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="42" id="E9H-Bp-OCF"/>
                                             </constraints>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dNR-lS-2hY">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dNR-lS-2hY">
                                             <rect key="frame" x="274" y="28" width="42" height="18"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59J-3y-AMh">
@@ -128,7 +128,7 @@
                                         <constraint firstItem="59J-3y-AMh" firstAttribute="bottom" secondItem="nAx-m1-6iu" secondAttribute="bottom" id="JWJ-kD-UNA"/>
                                         <constraint firstItem="FXt-UQ-A1W" firstAttribute="leading" secondItem="l3n-Le-VTf" secondAttribute="trailing" constant="6" id="KLL-tf-RFl"/>
                                         <constraint firstItem="nAx-m1-6iu" firstAttribute="top" secondItem="Adc-qS-GU1" secondAttribute="top" id="MON-Lw-pjH"/>
-                                        <constraint firstItem="WJe-TO-b5c" firstAttribute="top" secondItem="FXt-UQ-A1W" secondAttribute="bottom" constant="5" id="NrR-UP-uyb"/>
+                                        <constraint firstItem="WJe-TO-b5c" firstAttribute="top" secondItem="FXt-UQ-A1W" secondAttribute="bottom" constant="8" id="NrR-UP-uyb"/>
                                         <constraint firstItem="WJe-TO-b5c" firstAttribute="baseline" secondItem="O6r-cv-XVb" secondAttribute="baseline" id="Okd-GH-gjl"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Adc-qS-GU1" secondAttribute="trailing" constant="-4" id="T3L-fh-FkU"/>
                                         <constraint firstItem="59J-3y-AMh" firstAttribute="top" secondItem="nAx-m1-6iu" secondAttribute="top" id="UNB-OD-Hdx"/>

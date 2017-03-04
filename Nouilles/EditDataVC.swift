@@ -16,6 +16,13 @@
 import UIKit
 import Firebase
 
+@objc protocol SwitchValueTarget {
+    @objc func mealSizeSwitchDidChange(_ sender: UISwitch)
+    @objc func onHandSwitchDidChange(_ sender: UISwitch)
+    @objc func glutenFreeSwitchDidChange(_ sender: UISwitch)
+    @objc func longNoodlesSwitchDidChange(_ sender: UISwitch)
+}
+
 class EditDataVC: UITableViewController {
     
     // MARK: - Properties
@@ -35,7 +42,7 @@ class EditDataVC: UITableViewController {
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-    
+        
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,6 +75,11 @@ class EditDataVC: UITableViewController {
         boolCell.dataLabel.text = nouille.dataLabel(indexPath: indexPath)
         boolCell.label.text = nouille.data(indexPath: indexPath)
         boolCell.boolStateSwitch.isOn = nouille.state(indexPath: indexPath)
+
+        let selector: Selector? = nouille.selector(indexPath: indexPath)
+        if let selector = selector {
+            boolCell.boolStateSwitch.addTarget(self, action: selector, for: .valueChanged)
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -104,7 +116,33 @@ class EditDataVC: UITableViewController {
             controller.indexPath = indexPath
             
             show(controller, sender: self)
+        } else {
+            print("Bool value!!")
         }
     }
     
+}
+
+extension EditDataVC: SwitchValueTarget {
+    
+    func mealSizeSwitchDidChange(_ sender: UISwitch) {
+        guard let nouille = nouille else { return }
+        nouille.updateMealSizeBool(newState: sender.isOn)
+    }
+
+    func onHandSwitchDidChange(_ sender: UISwitch) {
+        guard let nouille = nouille else { return }
+        nouille.updateOnHandBool(newState: sender.isOn)
+    }
+
+    func glutenFreeSwitchDidChange(_ sender: UISwitch) {
+        guard let nouille = nouille else { return }
+        nouille.updateGlutenFreeBool(newState: sender.isOn)
+    }
+
+    func longNoodlesSwitchDidChange(_ sender: UISwitch) {
+        guard let nouille = nouille else { return }
+        nouille.updateLongNoodlesBool(newState: sender.isOn)
+    }
+
 }

@@ -43,6 +43,8 @@ public class Nouille: NSManagedObject {
         .preferMealSizeTitle,
         .onHandTitle,
         .referenceServingSize,
+        .glutenFree,
+        .longNoodles,
         .calories,
         .fat,
         .saturated,
@@ -65,6 +67,8 @@ public class Nouille: NSManagedObject {
         "",
         .cups,
         "",
+        "",
+        "",
         .g,
         .g,
         .g,
@@ -85,6 +89,8 @@ public class Nouille: NSManagedObject {
         .boolCell,
         .boolCell,
         .valueCell,
+        .boolCell,
+        .boolCell,
         .valueCell,
         .valueCell,
         .valueCell,
@@ -174,54 +180,58 @@ public class Nouille: NSManagedObject {
                 return ""
             }
         case 9:
+            return .glutenFree
+        case 10:
+            return .longNoodles
+        case 11:
             if let calories = calories {
                 return "\(calories)"
             } else {
                 return ""
             }
-        case 10:
+        case 12:
             if let fat = fat {
                 return "\(fat)"
             } else {
                 return ""
             }
-        case 11:
+        case 13:
             if let saturated = saturated {
                 return "\(saturated)"
             } else {
                 return ""
             }
-        case 12:
+        case 14:
             if let trans = trans {
                 return "\(trans)"
             } else {
                 return ""
             }
-        case 13:
+        case 15:
             if let sodium = sodium {
                 return "\(sodium)"
             } else {
                 return ""
             }
-        case 14:
+        case 16:
             if let carbs = carbs {
                 return "\(carbs)"
             } else {
                 return ""
             }
-        case 15:
+        case 17:
             if let fibre = fibre {
                 return "\(fibre)"
             } else {
                 return ""
             }
-        case 16:
+        case 18:
             if let sugar = sugar {
                 return "\(sugar)"
             } else {
                 return ""
             }
-        case 17:
+        case 19:
             if let protein = protein {
                 return "\(protein)"
             } else {
@@ -229,6 +239,21 @@ public class Nouille: NSManagedObject {
             }
         default:
             return ""
+        }
+        
+    }
+    
+    func selector(indexPath: IndexPath) -> Selector? {
+        if indexPath.row == 6 {
+            return #selector(EditDataVC.mealSizeSwitchDidChange(_:))
+        } else if indexPath.row == 7 {
+            return #selector(EditDataVC.onHandSwitchDidChange(_:))
+        } else if indexPath.row == 9 {
+            return #selector(EditDataVC.glutenFreeSwitchDidChange(_:))
+        } else if indexPath.row == 10 {
+            return #selector(EditDataVC.longNoodlesSwitchDidChange(_:))
+        } else {
+            return nil
         }
         
     }
@@ -246,6 +271,18 @@ public class Nouille: NSManagedObject {
                 return onHand as Bool
             } else {
                 return true
+            }
+        } else if indexPath.row == 9 {
+            if let glutenFree = glutenFree {
+                return glutenFree as Bool
+            } else {
+                return false
+            }
+        } else if indexPath.row == 10 {
+            if let longNoodles = longNoodles {
+                return longNoodles as Bool
+            } else {
+                return false
             }
         } else {
             // should not happen
@@ -275,9 +312,9 @@ public class Nouille: NSManagedObject {
         case 8:
             return validatorConfigurator.numberValidator()
         case 9:
-            return validatorConfigurator.numberValidator()
+            return validatorConfigurator.boolValidator()
         case 10:
-            return validatorConfigurator.numberValidator()
+            return validatorConfigurator.boolValidator()
         case 11:
             return validatorConfigurator.numberValidator()
         case 12:
@@ -291,6 +328,10 @@ public class Nouille: NSManagedObject {
         case 16:
             return validatorConfigurator.numberValidator()
         case 17:
+            return validatorConfigurator.numberValidator()
+        case 18:
+            return validatorConfigurator.numberValidator()
+        case 19:
             return validatorConfigurator.numberValidator()
         default:
             return validatorConfigurator.numberValidator()
@@ -316,6 +357,42 @@ public class Nouille: NSManagedObject {
        
     }
     
+    func updateMealSizeBool(newState: Bool) {
+        mealSizePrefered = newState as NSNumber?
+        do {
+            try managedObjectContext?.save()
+        } catch let error as NSError {
+            print("Could not save context \(error), \(error.userInfo)")
+        }
+    }
+
+    func updateOnHandBool(newState: Bool) {
+        onHand = newState as NSNumber?
+        do {
+            try managedObjectContext?.save()
+        } catch let error as NSError {
+            print("Could not save context \(error), \(error.userInfo)")
+        }
+    }
+
+    func updateGlutenFreeBool(newState: Bool) {
+        glutenFree = newState as NSNumber?
+        do {
+            try managedObjectContext?.save()
+        } catch let error as NSError {
+            print("Could not save context \(error), \(error.userInfo)")
+        }
+    }
+
+    func updateLongNoodlesBool(newState: Bool) {
+        longNoodles = newState as NSNumber?
+        do {
+            try managedObjectContext?.save()
+        } catch let error as NSError {
+            print("Could not save context \(error), \(error.userInfo)")
+        }
+    }
+
     func updateValue(value: Double, forDataAt indexPath: IndexPath)  {
         
         switch indexPath.row {
@@ -338,22 +415,26 @@ public class Nouille: NSManagedObject {
         case 8:
             serving = value as NSNumber?
         case 9:
-            calories = value as NSNumber?
+            break
         case 10:
-            fat = value as NSNumber?
+            break
         case 11:
-            saturated = value as NSNumber?
+            calories = value as NSNumber?
         case 12:
-            trans = value as NSNumber?
+            fat = value as NSNumber?
         case 13:
-            sodium = value as NSNumber?
+            saturated = value as NSNumber?
         case 14:
-            carbs = value as NSNumber?
+            trans = value as NSNumber?
         case 15:
-            fibre = value as NSNumber?
+            sodium = value as NSNumber?
         case 16:
-            sugar = value as NSNumber?
+            carbs = value as NSNumber?
         case 17:
+            fibre = value as NSNumber?
+        case 18:
+            sugar = value as NSNumber?
+        case 19:
             protein = value as NSNumber?
         default:
             break

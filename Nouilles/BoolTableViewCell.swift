@@ -9,11 +9,11 @@
 import UIKit
 
 class BoolTableViewCell: UITableViewCell {
-
-   // MARK: - Outlets
-   
-   @IBOutlet weak var dataLabel: UILabel!
-   @IBOutlet weak var label: UILabel!
-   @IBOutlet weak var boolStateSwitch: UISwitch!
-   
+        
+    // MARK: - Outlets
+    
+    @IBOutlet weak var dataLabel: UILabel!
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var boolStateSwitch: UISwitch!
+    
 }

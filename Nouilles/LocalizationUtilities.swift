@@ -96,6 +96,8 @@ extension String {
     static let sugars = NSLocalizedString("Sugars")
     static let protein = NSLocalizedString("Protein")
     static let editTitle = NSLocalizedString("Edit")
+    static let glutenFree = NSLocalizedString("Gluten free")
+    static let longNoodles = NSLocalizedString("Long noodles")
     
     // MARK: - Units
     static let mn = NSLocalizedString("min")
