@@ -103,6 +103,7 @@ extension String {
     static let mn = NSLocalizedString("min")
     static let cups = NSLocalizedString("cups")
     static let cp = NSLocalizedString("cp")
+    static let po = NSLocalizedString("po")
     static let g = NSLocalizedString("g")
     static let mg = NSLocalizedString("mg")
 

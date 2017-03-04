@@ -218,7 +218,11 @@ extension ListeDeNouillesVC: UITableViewDataSource {
         
         cell.nameLabel?.text = nouille.name!
         cell.brandLabel?.text = nouille.brand!
-        cell.qtyUnitLabel.text = .cp
+        if nouille.longNoodles as! Bool {
+            cell.qtyUnitLabel.text = .po
+        } else {
+            cell.qtyUnitLabel.text = .cp
+        }
         cell.timeUnitLabel.text = .mn
         
         if nouille.mealSizePrefered! as Bool {

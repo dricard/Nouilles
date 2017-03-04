@@ -207,7 +207,14 @@ class NouilleDetailVC: UIViewController {
         
         // localize
         numberOfPeopleLabel.text = .numberOfPeopleLabel
-        unitsLabel.text = .cp
+        if let nouille = nouille {
+            if nouille.longNoodles as! Bool {
+                unitsLabel.text = .po
+            } else {
+                unitsLabel.text = .cp
+            }
+        }
+        
         timeLabel.text = .mn
         
         // add gesture recognizer for tap on image
