@@ -140,6 +140,11 @@ extension String {
     static let mealSizeLabel = NSLocalizedString("Show noodles used for main meal")
     static let sideDishTitle = NSLocalizedString("Side Dish")
     static let sideDishLabel = NSLocalizedString("Show noodles used as a side dish")
+    static let glutenFreeTitle = NSLocalizedString("Gluten Free")
+    static let glutenFreeLabel = NSLocalizedString("Show only noodles that are gluten free")
+    static let longNoodlesTitle = NSLocalizedString("Long Noodles")
+    static let longNoodlesLabel = NSLocalizedString("Show only long noodles")
+
     
     // MARK: - Bar Code scanning
     
