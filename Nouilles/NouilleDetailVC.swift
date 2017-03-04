@@ -60,6 +60,10 @@ class NouilleDetailVC: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var blurView: UIView!
+    @IBOutlet weak var longNoodlesView: UIImageView!
+    @IBOutlet weak var glutenFreeView: UIImageView!
+    
+    
     // MARK: - Actions
     
     @IBAction func segmentedControlTapped(_ sender: Any) {
@@ -351,6 +355,19 @@ class NouilleDetailVC: UIViewController {
             } else {
                 onHandIndicatorView?.image = NoodlesStyleKit.imageOfOnHandIndicatorEmpty
             }
+            
+            if nouille.glutenFree as! Bool {
+                glutenFreeView.image = NoodlesStyleKit.imageOfGlutenFreeBadge
+            } else {
+                glutenFreeView.image = nil
+            }
+            
+            if nouille.longNoodles as! Bool {
+                longNoodlesView.image = NoodlesStyleKit.imageOfLongNoodles
+            } else {
+                longNoodlesView.image = nil
+            }
+            
             // nutritional information
             
             if let nb_serving = nouille.serving {
