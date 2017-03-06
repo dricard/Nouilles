@@ -25,7 +25,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NAn-ym-LWb" id="S4x-lE-glt">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6w-KQ-nIn">
@@ -100,7 +100,7 @@
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dNR-lS-2hY">
-                                            <rect key="frame" x="272" y="29" width="44" height="18"/>
+                                            <rect key="frame" x="272" y="32" width="44" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="44" id="B5y-MC-1r7"/>
                                                 <constraint firstAttribute="height" constant="18" id="GlP-b0-tvO"/>
@@ -127,7 +127,7 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="dNR-lS-2hY" firstAttribute="top" secondItem="Adc-qS-GU1" secondAttribute="bottom" constant="3" id="0ed-1R-JRB"/>
+                                        <constraint firstItem="dNR-lS-2hY" firstAttribute="top" secondItem="Adc-qS-GU1" secondAttribute="bottom" constant="6" id="0ed-1R-JRB"/>
                                         <constraint firstItem="O6r-cv-XVb" firstAttribute="baseline" secondItem="bYp-pi-kHQ" secondAttribute="baseline" id="38T-f9-Dx4"/>
                                         <constraint firstItem="O6r-cv-XVb" firstAttribute="leading" secondItem="WJe-TO-b5c" secondAttribute="trailing" constant="5" id="6j1-RU-jCv"/>
                                         <constraint firstItem="nAx-m1-6iu" firstAttribute="leading" secondItem="59J-3y-AMh" secondAttribute="trailing" constant="4" id="7cg-2A-s5f"/>
