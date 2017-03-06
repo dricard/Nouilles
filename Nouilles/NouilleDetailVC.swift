@@ -198,6 +198,26 @@ class NouilleDetailVC: UIViewController {
     }
     
     @IBAction func longNoodlesPortionTapped(_ sender: Any) {
+        FIRAnalytics.logEvent(withName: Names.longNoodlesUnitsButtonTappedEvent, parameters: nil)
+        
+        var totalServing: Double
+        
+        // segue to edit data VC
+        let controller = storyboard?.instantiateViewController(withIdentifier: "LongNoodlesPortionVC") as! LongNoodlesPortionVC
+        
+        if let nouille = nouille {
+            let numberOfServings = nouille.numberOfServing as! Int
+            if nouille.mealSizePrefered! as Bool {
+                let customServingSize = Double(nouille.servingCustom!)
+                totalServing = Double(numberOfServings) * customServingSize
+            } else {
+                let customServingSize = Double(nouille.servingSideDish!)
+                totalServing = Double(numberOfServings) * customServingSize
+            }
+            controller.portion = totalServing
+        }
+        
+        show(controller, sender: self)
     }
     
     // MARK: - Life Cycle

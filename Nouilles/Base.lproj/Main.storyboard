@@ -1412,6 +1412,54 @@
             </objects>
             <point key="canvasLocation" x="2542" y="1613"/>
         </scene>
+        <!--Long Noodles PortionVC-->
+        <scene sceneID="NfT-M8-TTg">
+            <objects>
+                <viewController storyboardIdentifier="LongNoodlesPortionVC" id="r4Y-5k-Ty0" customClass="LongNoodlesPortionVC" customModule="Noodles" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fzc-he-ksp"/>
+                        <viewControllerLayoutGuide type="bottom" id="9g9-ZK-Iqa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JMf-tc-XEh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="portion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cux-7W-VMb">
+                                <rect key="frame" x="10" y="539" width="300" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="BQq-pw-lP6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fz6-kS-6Dh">
+                                <rect key="frame" x="0.0" y="124" width="320" height="320"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fz6-kS-6Dh" secondAttribute="height" multiplier="1:1" id="Uvo-WU-Lud"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fz6-kS-6Dh" firstAttribute="width" secondItem="JMf-tc-XEh" secondAttribute="width" id="JNj-e5-1O1"/>
+                            <constraint firstItem="cux-7W-VMb" firstAttribute="leading" secondItem="JMf-tc-XEh" secondAttribute="leading" constant="10" id="X0x-c9-HIP"/>
+                            <constraint firstItem="fz6-kS-6Dh" firstAttribute="centerX" secondItem="JMf-tc-XEh" secondAttribute="centerX" id="bpX-tI-tml"/>
+                            <constraint firstAttribute="trailing" secondItem="cux-7W-VMb" secondAttribute="trailing" constant="10" id="hrb-EO-qDA"/>
+                            <constraint firstItem="fz6-kS-6Dh" firstAttribute="centerY" secondItem="JMf-tc-XEh" secondAttribute="centerY" id="tGn-01-dfj"/>
+                            <constraint firstItem="9g9-ZK-Iqa" firstAttribute="top" secondItem="cux-7W-VMb" secondAttribute="bottom" constant="5" id="udQ-eo-pra"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="portionLabel" destination="cux-7W-VMb" id="AJm-jq-sZ0"/>
+                        <outlet property="portionView" destination="fz6-kS-6Dh" id="yEd-7z-xS4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ODQ-tn-X3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2551.875" y="2339.7887323943664"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="QlZ-1f-dxD">
             <objects>

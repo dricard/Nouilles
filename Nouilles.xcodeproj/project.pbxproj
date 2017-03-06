@@ -49,6 +49,7 @@
 		21A148DC1D6B841900FA52BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A148DA1D6B841900FA52BA /* LaunchScreen.storyboard */; };
 		21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */; };
 		21ACD84F1E4CF963004D94B0 /* ringSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21ACD84E1E4CF963004D94B0 /* ringSound.mp3 */; };
+		21B03E8C1E6CEDC900911773 /* LongNoodlesPortionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B03E8B1E6CEDC900911773 /* LongNoodlesPortionVC.swift */; };
 		21B87D301DF32A0600A4AB4E /* ChangeValueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */; };
 		21D30BC41DF5E6D400D077E9 /* FatSecretAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */; };
 		21D5102B1D6CA21B003CB856 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21D510291D6CA21B003CB856 /* Model.xcdatamodeld */; };
@@ -107,6 +108,7 @@
 		21A148DD1D6B841900FA52BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListeDeNouillesVC.swift; sourceTree = "<group>"; };
 		21ACD84E1E4CF963004D94B0 /* ringSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ringSound.mp3; sourceTree = "<group>"; };
+		21B03E8B1E6CEDC900911773 /* LongNoodlesPortionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongNoodlesPortionVC.swift; sourceTree = "<group>"; };
 		21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeValueVC.swift; sourceTree = "<group>"; };
 		21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatSecretAPI.swift; sourceTree = "<group>"; };
 		21D5102A1D6CA21B003CB856 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 				217D10B31DF213A400262255 /* EditDataVC.swift */,
 				21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */,
 				214B38941E36B29A001E4F34 /* AboutVC.swift */,
+				21B03E8B1E6CEDC900911773 /* LongNoodlesPortionVC.swift */,
 			);
 			name = VC;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				214B38951E36B29A001E4F34 /* AboutVC.swift in Sources */,
 				217D10B41DF213A400262255 /* EditDataVC.swift in Sources */,
 				21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */,
+				21B03E8C1E6CEDC900911773 /* LongNoodlesPortionVC.swift in Sources */,
 				2137A6061DDB91DB00C1FC35 /* Nouille+CoreDataClass.swift in Sources */,
 				210D7D131DF1BCAD00408E59 /* Filters.swift in Sources */,
 				210816911DF0C942007497BE /* FilterVC.swift in Sources */,
