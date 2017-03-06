@@ -893,6 +893,18 @@
                                     <constraint firstAttribute="height" constant="15" id="hED-OP-PRb"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsW-cZ-SSA">
+                                <rect key="frame" x="135" y="259" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="ChK-yY-RPM"/>
+                                    <constraint firstAttribute="height" constant="50" id="vMX-3O-e0V"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="po"/>
+                                <connections>
+                                    <action selector="longNoodlesPortionTapped:" destination="05h-4T-WMG" eventType="touchUpInside" id="VX0-SI-PgC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -903,6 +915,7 @@
                             <constraint firstItem="au9-79-I3c" firstAttribute="top" secondItem="ppn-sR-Uc4" secondAttribute="bottom" id="2sg-gw-XRO"/>
                             <constraint firstItem="ppn-sR-Uc4" firstAttribute="top" secondItem="8vP-mE-DSz" secondAttribute="bottom" constant="5" id="4rM-LU-che"/>
                             <constraint firstItem="UoX-E1-x1q" firstAttribute="width" secondItem="OCo-mc-tqr" secondAttribute="width" id="60E-H2-vj8"/>
+                            <constraint firstItem="gsW-cZ-SSA" firstAttribute="centerY" secondItem="uw0-84-Buh" secondAttribute="centerY" id="6Cb-Rk-UVQ"/>
                             <constraint firstItem="FAf-oY-UzW" firstAttribute="top" secondItem="wLP-Ab-EG8" secondAttribute="bottom" constant="5" id="6nD-0b-Rcv"/>
                             <constraint firstAttribute="trailing" secondItem="ppn-sR-Uc4" secondAttribute="trailing" constant="8" id="7lt-th-55k"/>
                             <constraint firstItem="Iex-uQ-ViP" firstAttribute="leading" secondItem="uTE-lt-KLN" secondAttribute="trailing" constant="2" id="8Gj-js-HYd"/>
@@ -915,6 +928,7 @@
                             <constraint firstItem="ne3-iJ-Rwa" firstAttribute="width" secondItem="uw0-84-Buh" secondAttribute="width" multiplier="0.5" constant="-16" id="AVK-te-XXI"/>
                             <constraint firstItem="HIq-M7-64Y" firstAttribute="centerY" secondItem="UqJ-bZ-hAN" secondAttribute="centerY" id="BRU-WW-fxU"/>
                             <constraint firstItem="FAf-oY-UzW" firstAttribute="centerX" secondItem="s62-Ol-2dD" secondAttribute="centerX" id="DIa-sJ-xem"/>
+                            <constraint firstItem="gsW-cZ-SSA" firstAttribute="centerX" secondItem="uw0-84-Buh" secondAttribute="centerX" id="G8t-Qz-LUH"/>
                             <constraint firstAttribute="trailing" secondItem="au9-79-I3c" secondAttribute="trailing" constant="8" id="GDa-sn-QiL"/>
                             <constraint firstItem="SZy-2w-cM7" firstAttribute="leading" secondItem="au9-79-I3c" secondAttribute="leading" id="GIn-7e-IhV"/>
                             <constraint firstItem="wHW-mq-LYa" firstAttribute="top" secondItem="LnS-wU-N0e" secondAttribute="bottom" constant="2" id="GlB-po-fTS"/>
@@ -1006,6 +1020,7 @@
                         <outlet property="fibres" destination="wHW-mq-LYa" id="Xm4-6l-uqq"/>
                         <outlet property="glutenFreeView" destination="VDk-qI-kV1" id="9bI-Fe-eO4"/>
                         <outlet property="image" destination="ne3-iJ-Rwa" id="eIL-RG-zpo"/>
+                        <outlet property="longNoodlesPortionButton" destination="gsW-cZ-SSA" id="8MB-VG-k3D"/>
                         <outlet property="longNoodlesView" destination="ywZ-uP-L5I" id="Eue-TH-zA6"/>
                         <outlet property="mealPreferedSizeIndicator" destination="70B-m2-J6T" id="hME-fd-3h7"/>
                         <outlet property="name" destination="Hq8-9P-8BV" id="3uU-pb-bq1"/>

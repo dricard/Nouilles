@@ -62,6 +62,7 @@ class NouilleDetailVC: UIViewController {
     @IBOutlet weak var blurView: UIView!
     @IBOutlet weak var longNoodlesView: UIImageView!
     @IBOutlet weak var glutenFreeView: UIImageView!
+    @IBOutlet weak var longNoodlesPortionButton: UIButton!
     
     
     // MARK: - Actions
@@ -196,6 +197,8 @@ class NouilleDetailVC: UIViewController {
         show(controller, sender: self)
     }
     
+    @IBAction func longNoodlesPortionTapped(_ sender: Any) {
+    }
     
     // MARK: - Life Cycle
     
@@ -207,13 +210,10 @@ class NouilleDetailVC: UIViewController {
         
         // localize
         numberOfPeopleLabel.text = .numberOfPeopleLabel
-        if let nouille = nouille {
-            if nouille.longNoodles as! Bool {
-                unitsLabel.text = .po
-            } else {
-                unitsLabel.text = .cp
-            }
-        }
+
+        longNoodlesPortionButton.layer.cornerRadius = 25
+        longNoodlesPortionButton.layer.borderWidth = 2
+        longNoodlesPortionButton.layer.borderColor = NoodlesStyleKit.darkerGreen.cgColor
         
         timeLabel.text = .mn
         
@@ -440,6 +440,19 @@ class NouilleDetailVC: UIViewController {
                 protein.text = .noData
             }
             
+            // change quantity units and enable portion button if longnoodles
+            if nouille.longNoodles as! Bool {
+                unitsLabel.text = ""
+                unitsLabel.isHidden = true
+                longNoodlesPortionButton.setTitle(.po, for: .normal)
+                longNoodlesPortionButton.isHidden = false
+                longNoodlesPortionButton.backgroundColor = NoodlesStyleKit.baseGreen
+            } else {
+                unitsLabel.text = .cp
+                unitsLabel.isHidden = false
+                longNoodlesPortionButton.isHidden = true
+            }
+
             // update/modify timer button depending if a timer
             // is running or not
             guard let timers = timers else { return }
