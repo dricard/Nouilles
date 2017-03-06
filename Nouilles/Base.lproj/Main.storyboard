@@ -880,17 +880,17 @@
                                 <rect key="frame" x="8" y="355" width="304" height="98"/>
                             </activityIndicatorView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ywZ-uP-L5I">
-                                <rect key="frame" x="157" y="148" width="40" height="18"/>
+                                <rect key="frame" x="157" y="152" width="44" height="18"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="8ie-Mq-090"/>
+                                    <constraint firstAttribute="width" constant="44" id="8ie-Mq-090"/>
                                     <constraint firstAttribute="height" constant="18" id="SMh-Nl-XYK"/>
                                 </constraints>
                             </imageView>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VDk-qI-kV1">
-                                <rect key="frame" x="157" y="169" width="40" height="18"/>
+                                <rect key="frame" x="158" y="174" width="42" height="15"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="S2H-Su-pui"/>
-                                    <constraint firstAttribute="height" constant="18" id="hED-OP-PRb"/>
+                                    <constraint firstAttribute="width" constant="42" id="S2H-Su-pui"/>
+                                    <constraint firstAttribute="height" constant="15" id="hED-OP-PRb"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -898,7 +898,7 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="rwZ-JB-gny" firstAttribute="centerY" secondItem="52V-FQ-Isd" secondAttribute="centerY" id="1E2-KB-3FJ"/>
-                            <constraint firstItem="VDk-qI-kV1" firstAttribute="top" secondItem="ywZ-uP-L5I" secondAttribute="bottom" constant="3" id="1Hx-ml-7sa"/>
+                            <constraint firstItem="VDk-qI-kV1" firstAttribute="top" secondItem="ywZ-uP-L5I" secondAttribute="bottom" constant="4" id="1Hx-ml-7sa"/>
                             <constraint firstItem="7eg-Kw-1Cd" firstAttribute="leading" secondItem="OCo-mc-tqr" secondAttribute="trailing" constant="4" id="1oD-i4-0nP"/>
                             <constraint firstItem="au9-79-I3c" firstAttribute="top" secondItem="ppn-sR-Uc4" secondAttribute="bottom" id="2sg-gw-XRO"/>
                             <constraint firstItem="ppn-sR-Uc4" firstAttribute="top" secondItem="8vP-mE-DSz" secondAttribute="bottom" constant="5" id="4rM-LU-che"/>
@@ -937,9 +937,9 @@
                             <constraint firstItem="jOY-SR-6PL" firstAttribute="leading" secondItem="uw0-84-Buh" secondAttribute="leading" constant="8" id="MCK-YS-KYV"/>
                             <constraint firstItem="Ux9-1O-zFJ" firstAttribute="leading" secondItem="ne3-iJ-Rwa" secondAttribute="trailing" constant="5" id="MVI-g8-Rl5"/>
                             <constraint firstAttribute="trailing" secondItem="7eg-Kw-1Cd" secondAttribute="trailing" constant="8" id="Mb1-RD-1P9"/>
-                            <constraint firstItem="ywZ-uP-L5I" firstAttribute="top" secondItem="Ux9-1O-zFJ" secondAttribute="bottom" constant="2" id="Mwy-GC-i1b"/>
+                            <constraint firstItem="ywZ-uP-L5I" firstAttribute="top" secondItem="Ux9-1O-zFJ" secondAttribute="bottom" constant="6" id="Mwy-GC-i1b"/>
                             <constraint firstItem="wLP-Ab-EG8" firstAttribute="leading" secondItem="ne3-iJ-Rwa" secondAttribute="trailing" constant="5" id="OLP-PL-B9u"/>
-                            <constraint firstItem="VDk-qI-kV1" firstAttribute="leading" secondItem="ne3-iJ-Rwa" secondAttribute="trailing" constant="5" id="OVO-2x-Qz3"/>
+                            <constraint firstItem="VDk-qI-kV1" firstAttribute="leading" secondItem="ne3-iJ-Rwa" secondAttribute="trailing" constant="6" id="OVO-2x-Qz3"/>
                             <constraint firstItem="w6V-4P-t89" firstAttribute="top" secondItem="uTE-lt-KLN" secondAttribute="bottom" constant="2" id="Q5K-Gq-7Mg"/>
                             <constraint firstItem="hHz-Sg-tKn" firstAttribute="leading" secondItem="jOY-SR-6PL" secondAttribute="trailing" constant="2" id="RiU-V7-wuO"/>
                             <constraint firstAttribute="trailing" secondItem="XTH-ih-RJ9" secondAttribute="trailing" constant="10" id="VFV-pE-liM"/>
