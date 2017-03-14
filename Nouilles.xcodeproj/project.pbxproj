@@ -41,6 +41,8 @@
 		217D10B81DF2208900262255 /* NumberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D10B71DF2208900262255 /* NumberTableViewCell.swift */; };
 		217D10BA1DF2209900262255 /* BoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D10B91DF2209900262255 /* BoolTableViewCell.swift */; };
 		2185319B1DDCA5060092B335 /* AddNoodleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2185319A1DDCA5060092B335 /* AddNoodleVC.swift */; };
+		218BA7A51E71DB36003DD59B /* ringSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 218BA7A41E71DB36003DD59B /* ringSound.m4a */; };
+		218BA7A71E71E0AB003DD59B /* ringSound2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 218BA7A61E71E0AB003DD59B /* ringSound2.m4a */; };
 		2192EE2F1E67019700B273DA /* FirebaseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2192EE2E1E67019700B273DA /* FirebaseEvent.swift */; };
 		2198B46A1DDE413B006C88C2 /* TakePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198B4691DDE413B006C88C2 /* TakePictureVC.swift */; };
 		21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148D11D6B841800FA52BA /* AppDelegate.swift */; };
@@ -48,7 +50,6 @@
 		21A148D91D6B841900FA52BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21A148D81D6B841900FA52BA /* Assets.xcassets */; };
 		21A148DC1D6B841900FA52BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A148DA1D6B841900FA52BA /* LaunchScreen.storyboard */; };
 		21A148E41D6B84BC00FA52BA /* ListeDeNouillesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */; };
-		21ACD84F1E4CF963004D94B0 /* ringSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21ACD84E1E4CF963004D94B0 /* ringSound.mp3 */; };
 		21B03E8C1E6CEDC900911773 /* LongNoodlesPortionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B03E8B1E6CEDC900911773 /* LongNoodlesPortionVC.swift */; };
 		21B87D301DF32A0600A4AB4E /* ChangeValueVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */; };
 		21D30BC41DF5E6D400D077E9 /* FatSecretAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */; };
@@ -98,6 +99,8 @@
 		217D10B71DF2208900262255 /* NumberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumberTableViewCell.swift; sourceTree = "<group>"; };
 		217D10B91DF2209900262255 /* BoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolTableViewCell.swift; sourceTree = "<group>"; };
 		2185319A1DDCA5060092B335 /* AddNoodleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoodleVC.swift; sourceTree = "<group>"; };
+		218BA7A41E71DB36003DD59B /* ringSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ringSound.m4a; sourceTree = "<group>"; };
+		218BA7A61E71E0AB003DD59B /* ringSound2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ringSound2.m4a; sourceTree = "<group>"; };
 		2192EE2E1E67019700B273DA /* FirebaseEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseEvent.swift; sourceTree = "<group>"; };
 		2198B4691DDE413B006C88C2 /* TakePictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePictureVC.swift; sourceTree = "<group>"; };
 		21A148CE1D6B841800FA52BA /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,7 +110,6 @@
 		21A148DB1D6B841900FA52BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		21A148DD1D6B841900FA52BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		21A148E31D6B84BC00FA52BA /* ListeDeNouillesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListeDeNouillesVC.swift; sourceTree = "<group>"; };
-		21ACD84E1E4CF963004D94B0 /* ringSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ringSound.mp3; sourceTree = "<group>"; };
 		21B03E8B1E6CEDC900911773 /* LongNoodlesPortionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongNoodlesPortionVC.swift; sourceTree = "<group>"; };
 		21B87D2F1DF32A0600A4AB4E /* ChangeValueVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeValueVC.swift; sourceTree = "<group>"; };
 		21D30BC31DF5E6D400D077E9 /* FatSecretAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FatSecretAPI.swift; sourceTree = "<group>"; };
@@ -168,7 +170,8 @@
 				21A148D81D6B841900FA52BA /* Assets.xcassets */,
 				21A148DD1D6B841900FA52BA /* Info.plist */,
 				210200FD1DE7C40A00D1F349 /* Sound.swift */,
-				21ACD84E1E4CF963004D94B0 /* ringSound.mp3 */,
+				218BA7A41E71DB36003DD59B /* ringSound.m4a */,
+				218BA7A61E71E0AB003DD59B /* ringSound2.m4a */,
 				210200FF1DE7CED000D1F349 /* scanBeep.mp3 */,
 				21FE64091DF8652D0012B799 /* Nouilles-Bridging-Header.h */,
 				217BFB911E6651B300E6E588 /* GoogleService-Info.plist */,
@@ -349,10 +352,11 @@
 				217BFB921E6651B300E6E588 /* GoogleService-Info.plist in Resources */,
 				210201001DE7CED000D1F349 /* scanBeep.mp3 in Resources */,
 				2161EFF21E43CFF600A43C24 /* SampleData.plist in Resources */,
+				218BA7A51E71DB36003DD59B /* ringSound.m4a in Resources */,
 				21795F2F1DE33EAB00FAC131 /* Localizable.strings in Resources */,
 				21A148D91D6B841900FA52BA /* Assets.xcassets in Resources */,
+				218BA7A71E71E0AB003DD59B /* ringSound2.m4a in Resources */,
 				21A148D71D6B841900FA52BA /* Main.storyboard in Resources */,
-				21ACD84F1E4CF963004D94B0 /* ringSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

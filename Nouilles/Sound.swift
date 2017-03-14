@@ -29,7 +29,7 @@ class Sound {
         
         // Sound resources urls
         let beepUrl = Bundle.main.url(forResource: "scanBeep", withExtension: "mp3")!
-        let ringUrl = Bundle.main.url(forResource: "ringSound", withExtension: "mp3")!
+        let ringUrl = Bundle.main.url(forResource: "ringSound2", withExtension: "m4a")!
         
         // for the timer ring we use system sound so it can play from any VC
         soundID = SystemSoundID(Int64(NSDate().timeIntervalSince1970))
