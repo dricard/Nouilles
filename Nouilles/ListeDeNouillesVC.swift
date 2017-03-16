@@ -296,6 +296,11 @@ extension ListeDeNouillesVC: UITableViewDataSource {
         configure(cell: cell, indexPath: indexPath)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
+    }
 }
 
 // MARK: - Gestures
