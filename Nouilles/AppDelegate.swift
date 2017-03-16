@@ -212,7 +212,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                     let content = UNMutableNotificationContent()
                     content.title = .noodleNotificationTitle
                     content.body = .noodleNotificationMessage
-                    content.sound = UNNotificationSound.default()
+                    content.sound = UNNotificationSound(named: "ringSound2.m4a")
                     let trigger = UNTimeIntervalNotificationTrigger(timeInterval: TimeInterval(thisTimer.secondsLeft), repeats: false)
                     let identifier = String(id)
                     let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
