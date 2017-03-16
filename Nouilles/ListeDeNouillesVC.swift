@@ -331,7 +331,7 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
         
         if orientation == .left {
             if timers.hasTimerFor(noodle: nouille) {
-                let togglePlayPauseTimerAction = SwipeAction(style: .default, title: "", handler: { (action, indexPath) in
+                let togglePlayPauseTimerAction = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
                     
                     FIRAnalytics.logEvent(withName: Names.listSwipePausePlay, parameters: nil)
                     
@@ -344,16 +344,16 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                     }
                     self.tableView.reloadData()
                 })
-                togglePlayPauseTimerAction.backgroundColor = NoodlesStyleKit.baseYellow
+                togglePlayPauseTimerAction.backgroundColor = NoodlesStyleKit.baseOrange
                 if let noodleTimer = timers.timerFor(noodle: nouille) {
                     if noodleTimer.isRunning() {
-                        togglePlayPauseTimerAction.image = NoodlesStyleKit.imageOfPlaySmall
-                    } else {
                         togglePlayPauseTimerAction.image = NoodlesStyleKit.imageOfPauseSmall
+                    } else {
+                        togglePlayPauseTimerAction.image = NoodlesStyleKit.imageOfPlaySmall
                     }
                 }
-                
-                let cancelTimerAction = SwipeAction(style: .destructive, title: "", handler: { (action, indexPath) in
+
+                let cancelTimerAction = SwipeAction(style: .destructive, title: nil, handler: { (action, indexPath) in
                     
                     FIRAnalytics.logEvent(withName: Names.listSwipeCancelTimer, parameters: nil)
                     
@@ -370,12 +370,12 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                     }
                     self.tableView.reloadData()
                 })
-                cancelTimerAction.backgroundColor = NoodlesStyleKit.darkerOrange
+                cancelTimerAction.backgroundColor = NoodlesStyleKit.warning
                 cancelTimerAction.image = NoodlesStyleKit.imageOfCancelIconSmall
                 
                 tableViewRowActions = [ togglePlayPauseTimerAction, cancelTimerAction ]
             } else {
-                let startTimerAction = SwipeAction(style: .default, title: "", handler: { (action, indexPath) in
+                let startTimerAction = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
                     
                     FIRAnalytics.logEvent(withName: Names.listSwipeStartTimer, parameters: nil)
                     
@@ -402,7 +402,7 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
         
         if orientation == .right {
             // add toggle onHand setting action
-            let toggleOnHandAction = SwipeAction(style: .destructive, title: "", handler: { (action, indexPath) -> Void in
+            let toggleOnHandAction = SwipeAction(style: .destructive, title: nil, handler: { (action, indexPath) -> Void in
                 
                 FIRAnalytics.logEvent(withName: Names.listSwipeAvailable, parameters: nil)
                 print("############# Performing toggle on hand action")
@@ -428,7 +428,7 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
             }
             
             // add delete noodle action
-            let deleteNoodleAction = SwipeAction(style: .destructive, title: "", handler: { (action, indexPath) -> Void in
+            let deleteNoodleAction = SwipeAction(style: .destructive, title: nil, handler: { (action, indexPath) -> Void in
                 
                 FIRAnalytics.logEvent(withName: Names.listSwipeDelete, parameters: nil)
                 
@@ -482,14 +482,12 @@ extension ListeDeNouillesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
         // This will stop the update of the timers in the listview
         // while the user is swiping a row to toggle 'on hand' or delete a row
-        print("######### Began Editing ############")
         currentlyEditing = true
     }
     
     func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
         // This will restart the update of the timers in the listview
         // after the user swipied a row to toggle 'on hand' or deleted a row
-        print("######### Ended Editing ############")
         currentlyEditing = false
     }
     
