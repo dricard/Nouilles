@@ -410,7 +410,6 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
             let toggleOnHandAction = SwipeAction(style: .destructive, title: nil, handler: { (action, indexPath) -> Void in
                 
                 FIRAnalytics.logEvent(withName: Names.listSwipeAvailable, parameters: nil)
-                print("############# Performing toggle on hand action")
                 
                 let nouille = self.fetchedResultsController.object(at: indexPath)
                 
