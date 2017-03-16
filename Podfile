@@ -7,6 +7,6 @@ target 'Nouilles' do
 
   # Pods for Nouilles
   pod 'Firebase/Core'
-  pod 'SwipeCellKit'
+  pod 'SwipeCellKit', :git => 'https://github.com/jerkoch/SwipeCellKit.git', :branch => 'develop'
   
 end

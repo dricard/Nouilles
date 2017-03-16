@@ -303,19 +303,6 @@ extension ListeDeNouillesVC: UITableViewDataSource {
 extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
     
     
-    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
-        // This will stop the update of the timers in the listview
-        // while the user is swiping a row to toggle 'on hand' or delete a row
-        print("######### Began Editing ############")
-        currentlyEditing = true
-    }
-    
-    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
-        // This will restart the update of the timers in the listview
-        // after the user swipied a row to toggle 'on hand' or deleted a row
-        currentlyEditing = false
-    }
-    
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
         var options = SwipeTableOptions()
         options.expansionStyle = .selection
@@ -491,6 +478,22 @@ extension ListeDeNouillesVC: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+        // This will stop the update of the timers in the listview
+        // while the user is swiping a row to toggle 'on hand' or delete a row
+        print("######### Began Editing ############")
+        currentlyEditing = true
+    }
+    
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        // This will restart the update of the timers in the listview
+        // after the user swipied a row to toggle 'on hand' or deleted a row
+        print("######### Ended Editing ############")
+        currentlyEditing = false
+    }
+    
+
 }
 
 extension ListeDeNouillesVC: NSFetchedResultsControllerDelegate {

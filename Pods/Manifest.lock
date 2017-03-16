@@ -12,11 +12,21 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
-  - SwipeCellKit (1.3.0)
+  - SwipeCellKit (1.5.0)
 
 DEPENDENCIES:
   - Firebase/Core
-  - SwipeCellKit
+  - SwipeCellKit (from `https://github.com/jerkoch/SwipeCellKit.git`, branch `develop`)
+
+EXTERNAL SOURCES:
+  SwipeCellKit:
+    :branch: develop
+    :git: https://github.com/jerkoch/SwipeCellKit.git
+
+CHECKOUT OPTIONS:
+  SwipeCellKit:
+    :commit: 36b8487c3b40c6a402eb267149db5126e66d6a3c
+    :git: https://github.com/jerkoch/SwipeCellKit.git
 
 SPEC CHECKSUMS:
   Firebase: 85a581fb04e44f63ae9f4fbc8d6dabf4a4c18653
@@ -24,8 +34,8 @@ SPEC CHECKSUMS:
   FirebaseCore: 225d40532489835a034b8f4e2c9c87fbf4f615a2
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
-  SwipeCellKit: 153abf7c9837ed70b8bca0d0e74dbad17cf6ed49
+  SwipeCellKit: 4e1aecbd426c9aa26b002329adb60e9662b1b042
 
-PODFILE CHECKSUM: 6b479863d82a13064813deb89aa07f6f5d58df19
+PODFILE CHECKSUM: ac4a20740649e904eb707575c78574f64ae94d88
 
 COCOAPODS: 1.2.0
