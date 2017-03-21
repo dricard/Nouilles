@@ -483,19 +483,17 @@ extension ListeDeNouillesVC: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, willBeginEditingRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) {
         // This will stop the update of the timers in the listview
         // while the user is swiping a row to toggle 'on hand' or delete a row
         currentlyEditing = true
     }
     
-    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?, for orientation: SwipeActionsOrientation) {
         // This will restart the update of the timers in the listview
         // after the user swipied a row to toggle 'on hand' or deleted a row
         currentlyEditing = false
     }
-    
-
 }
 
 extension ListeDeNouillesVC: NSFetchedResultsControllerDelegate {
