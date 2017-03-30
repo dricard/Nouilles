@@ -14,7 +14,6 @@
 */
 
 import UIKit
-import Firebase
 
 @objc protocol SwitchValueTarget {
     @objc func mealSizeSwitchDidChange(_ sender: UISwitch)
@@ -104,8 +103,6 @@ class EditDataVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let value = indexPath.row as NSObject
-        
-        FIRAnalytics.logEvent(withName: Names.editParameterSelectedEvent, parameters: [Names.parameterSelectedKey: value])
         
         guard let nouille = nouille else { return }
         // bool types are edited in place, otherwise segue to changeValueVC

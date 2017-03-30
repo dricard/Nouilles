@@ -31,7 +31,6 @@
 
 import UIKit
 import CoreData
-import Firebase
 
 class AddNoodleVC: UIViewController {
     
@@ -60,8 +59,6 @@ class AddNoodleVC: UIViewController {
     
     @IBAction func scanBardoceTapped(_ sender: Any) {
         
-        FIRAnalytics.logEvent(withName: Names.scanBarcodeButtonTapped, parameters: nil)
-        
         // segue to scan barcode VC
         let vc = storyboard?.instantiateViewController(withIdentifier: "BarCodeVC") as! BarCodeVC
         vc.scanResults = scanResult
@@ -70,16 +67,11 @@ class AddNoodleVC: UIViewController {
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
-
-        FIRAnalytics.logEvent(withName: Names.cancelSaveNoodleButtonTapped, parameters: nil)
-
         navigationController!.popViewController(animated: true)
     }
     
     @IBAction func saveTapped(_ sender: Any) {
         
-        FIRAnalytics.logEvent(withName: Names.saveNoodleButtonTapped, parameters: nil)
-
         let saveActionResult = saveNoodleData()
         if saveActionResult.success {
             // save was successful, pop back to root vc
@@ -202,7 +194,7 @@ class AddNoodleVC: UIViewController {
         let controller = UIAlertController()
         controller.title = .invalidEntry
         let errorType = "\(error)"
-        controller.message = "\(.field) '\(field)' \(ErrorCode.message(rawValue: errorType))"
+        controller.message = "\(String.field) '\(field)' \(ErrorCode.message(rawValue: errorType))"
         
         let okAction = UIAlertAction(title: .ok, style: UIAlertActionStyle.default, handler: nil)
         controller.addAction(okAction)

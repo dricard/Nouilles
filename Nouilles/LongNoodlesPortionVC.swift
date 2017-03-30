@@ -55,7 +55,7 @@ class LongNoodlesPortionVC: UIViewController {
     private func drawRingFittingInsideView(rect: CGRect) {
         
         let lineWidth: CGFloat = 4
-        let halfWidth = lineWidth / 2
+        _ = lineWidth / 2
         
 //        let insetRect = UIEdgeInsetsInsetRect(rect, UIEdgeInsetsMake(halfWidth, halfWidth, halfWidth, halfWidth))
 //        let circlePath = UIBezierPath(ovalIn: insetRect)

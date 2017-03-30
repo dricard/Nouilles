@@ -52,14 +52,14 @@ class NutritionAPI {
             
             // GUARD: Was there an error returned by the URL request?
             guard error == nil else {
-                sendError("findNutritionInformation returned and error: \(error)", code: NetworkParams.CodeFindByStringRequestFailed)
+                sendError("findNutritionInformation returned and error: \(String(describing: error))", code: NetworkParams.CodeFindByStringRequestFailed)
                 return
             }
             
             // GUARD: did we get a successful 2XX response?
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 let theStatusCode = (response as? HTTPURLResponse)?.statusCode
-                sendError("Network returned a status code outside the success range: \(theStatusCode)", code: NetworkParams.CodeSendRequestFailed)
+                sendError("Network returned a status code outside the success range: \(String(describing: theStatusCode))", code: NetworkParams.CodeSendRequestFailed)
                 return
             }
             

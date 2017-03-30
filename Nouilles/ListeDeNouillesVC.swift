@@ -29,7 +29,6 @@
 
 import UIKit
 import CoreData
-import Firebase
 import SwipeCellKit
 
 class ListeDeNouillesVC: UIViewController {
@@ -130,13 +129,9 @@ class ListeDeNouillesVC: UIViewController {
         if let shouldRequestPermission = shouldRequestPermission {
             if shouldRequestPermission {
                 
-                FIRAnalytics.logEvent(withName: Names.listPresentNotificationsReminder, parameters: nil)
-                
                 let alertDialog = UIAlertController(title: .askForPermissionForTimerTitle, message: .askForPermissionForTimerExplanation, preferredStyle: .actionSheet)
                 let okAction = UIAlertAction(title: .ok, style: .default, handler: nil)
                 let neverAction = UIAlertAction(title: .neverAskAgain, style: .default, handler: { (action) in
-                    
-                    FIRAnalytics.logEvent(withName: Names.listDoNotRemindEverSelected, parameters: nil)
                     
                     UserDefaults.standard.set(true, forKey: self.neverAskAgainKey)
                     print("setting pref to never ask again for permissions")
@@ -225,7 +220,7 @@ extension ListeDeNouillesVC: UITableViewDataSource {
         }
         cell.timeUnitLabel.text = .mn
         
-        if nouille.mealSizePrefered! as Bool {
+        if nouille.mealSizePrefered! as! Bool {
             cell.qtyLabel?.text = Nouille.formatWithFraction(value: Double(nouille.servingCustom!))
             cell.mealSizeView?.image = NoodlesStyleKit.imageOfMealSizeIndicator
         } else {
@@ -248,7 +243,7 @@ extension ListeDeNouillesVC: UITableViewDataSource {
             }
         } else {
             cell.timerView.isHidden = true
-            if let imageData = nouille.image as? Data {
+            if let imageData = nouille.image as Data? {
                 let boxImage = UIImage(data: imageData)
                 cell.boxImageView?.image = boxImage
             } else {
@@ -338,8 +333,6 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
             if timers.hasTimerFor(noodle: nouille) {
                 let togglePlayPauseTimerAction = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
                     
-                    FIRAnalytics.logEvent(withName: Names.listSwipePausePlay, parameters: nil)
-                    
                     let nouille = self.fetchedResultsController.object(at: indexPath)
                     if let noodleTimer = self.timers.timerFor(noodle: nouille) {
                         _ = noodleTimer.togglePauseTimer()
@@ -360,8 +353,6 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
 
                 let cancelTimerAction = SwipeAction(style: .destructive, title: nil, handler: { (action, indexPath) in
                     
-                    FIRAnalytics.logEvent(withName: Names.listSwipeCancelTimer, parameters: nil)
-                    
                     // invalidate the noodle timer itself
                     let nouille = self.fetchedResultsController.object(at: indexPath)
                     if let noodleTimer = self.timers.timerFor(noodle: nouille) {
@@ -381,8 +372,6 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                 tableViewRowActions = [ togglePlayPauseTimerAction, cancelTimerAction ]
             } else {
                 let startTimerAction = SwipeAction(style: .default, title: nil, handler: { (action, indexPath) in
-                    
-                    FIRAnalytics.logEvent(withName: Names.listSwipeStartTimer, parameters: nil)
                     
                     let nouille = self.fetchedResultsController.object(at: indexPath)
                     self.timers.createTimerFor(noodle: nouille, indexPath: indexPath)
@@ -409,8 +398,6 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
             // add toggle onHand setting action
             let toggleOnHandAction = SwipeAction(style: .destructive, title: nil, handler: { (action, indexPath) -> Void in
                 
-                FIRAnalytics.logEvent(withName: Names.listSwipeAvailable, parameters: nil)
-                
                 let nouille = self.fetchedResultsController.object(at: indexPath)
                 
                 let onHand = !(nouille.onHand as! Bool)
@@ -424,7 +411,7 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
             })
             toggleOnHandAction.backgroundColor = NoodlesStyleKit.baseGreen
             if let isCurrentlyOnHand = nouille.onHand {
-                if isCurrentlyOnHand as Bool {
+                if isCurrentlyOnHand as! Bool {
                     toggleOnHandAction.image = NoodlesStyleKit.imageOfOnHandIndicatorEmptyLarge
                 } else {
                     toggleOnHandAction.image = NoodlesStyleKit.imageOfOnHandIndicatorLarge
@@ -433,8 +420,6 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
             
             // add delete noodle action
             let deleteNoodleAction = SwipeAction(style: .destructive, title: nil, handler: { (action, indexPath) -> Void in
-                
-                FIRAnalytics.logEvent(withName: Names.listSwipeDelete, parameters: nil)
                 
                 let nouille = self.fetchedResultsController.object(at: indexPath)
                 

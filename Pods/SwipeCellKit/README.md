@@ -47,6 +47,10 @@ The transition style describes how the action buttons are exposed during the swi
 
 <p align="center"><img src="https://raw.githubusercontent.com/jerkoch/SwipeCellKit/develop/Screenshots/Transition-Reveal.gif" /></p>
 
+#### Customized
+
+<p align="center"><img src="https://raw.githubusercontent.com/jerkoch/SwipeCellKit/develop/Screenshots/Transition-Delegate.gif" /></p>
+
 ### Expansion Styles
 
 The expansion style describes the behavior when the cell is swiped past a defined threshold.
@@ -62,6 +66,10 @@ The expansion style describes the behavior when the cell is swiped past a define
 #### Destructive
 
 <p align="center"><img src="https://raw.githubusercontent.com/jerkoch/SwipeCellKit/develop/Screenshots/Expansion-Destructive.gif" /></p>
+
+#### Customized
+
+<p align="center"><img src="https://raw.githubusercontent.com/jerkoch/SwipeCellKit/develop/Screenshots/Expansion-Delegate.gif" /></p>
 
 ## Requirements
 
@@ -132,44 +140,62 @@ func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: I
     return options
 }
 ````
+### Transitions
 
-### Customizing Transitions
+Three built-in transition styles are provided by `SwipeTransitionStyle`:  
 
-You can customize the transition behavior of individual actions by assigning a `transitionDelegate` to the `SwipeAction` type. 
+* .border: The visible action area is equally divide between all action buttons.
+* .drag: The visible action area is dragged, pinned to the cell, with each action button fully sized as it is exposed.
+* .reveal: The visible action area sits behind the cell, pinned to the edge of the table view, and is revealed as the cell is dragged aside.
 
-The provided `ScaleTransition` type monitors the action button's visibility as it crosses the `threshold`, and animates between `initialScale` and `identity`.  This provides a "pop-like" effect as the action buttons are exposed more than 50% of their target width. 
+See [Customizing Transitions](https://github.com/jerkoch/SwipeCellKit/blob/develop/Guides/Advanced.md) for more details on customizing button appearance as the swipe is performed.
 
-<p align="center"><img src="https://raw.githubusercontent.com/jerkoch/SwipeCellKit/develop/Screenshots/Transition-Delegate.gif" /></p>
+### Expansion
 
-````swift
-let action = SwipeAction(style: .default, title: "More") { action, indexPath in return }
-action.transitionDelegate = ScaleTransition.default
-````
+Four built-in expansion styles are provided by `SwipeExpansionStyle`:  
 
-The `ScaleTransition` type provides a static `default` configuration, but it can also be initiantiated with custom parameters to suit your needs.
+* .selection
+* .destructive (like Mail.app)
+* .destructiveAfterFill (like Mailbox/Tweetbot)
+* .fill
 
-You can also easily provide your own completely custom transition behavior by adopting the `SwipeActionTransitioning` protocol.  The supplied `SwipeActionTransitioningContext` to the delegate methods reflect the current swipe state as the gesture is performed.
+Much effort has gone into making `SwipeExpansionStyle` extremely customizable. If these built-in styles do not meet your needs, see [Customizing Expansion](https://github.com/jerkoch/SwipeCellKit/blob/develop/Guides/Advanced.md) for more details on creating custom styles.
 
-### Customizing Expansion
+The built-in `.fill` expansion style requires manual action fulfillment. This means your action handler must call `SwipeAction.fulfill(style:)` at some point during or after invocation to resolve the fill expansion. The supplied `ExpansionFulfillmentStyle` allows you to delete or reset the cell at some later point (possibly after further user interaction).
 
-It is also possible to customize the expansion behavior by assigning a `expansionDelegate` to the `SwipeTableOptions` type. The delegate is invoked during the (un)expansion process and allows you to customize the display of the action being expanded, as well as the other actions in the view. 
-
-The provided `ScaleAndAlphaExpansion` type is useful for actions with clear backgrounds. When expansion occurs, the `ScaleAndAlphaExpansion` type automatically scales and fades the remaining actions in and out of the view. By default, if the expanded action has a clear background, the default `ScaleAndAlphaExpansion` will be automatically applied by the system.
-
-<p align="center"><img src="https://raw.githubusercontent.com/jerkoch/SwipeCellKit/develop/Screenshots/Expansion-Delegate.gif" /></p>
+The built-in `.destructive`, and `.destructiveAfterFill` expansion styles are configured to automatically perform row deletion when the action handler is invoked (automatic fulfillment).  Your deletion behavior may require coordination with other row animations (eg. inside `beginUpdates` and `endUpdates`). In this case, you can easily create a custom `SwipeExpansionStyle` which requires manual fulfillment to trigger deletion:
 
 ````swift
 var options = SwipeTableOptions()
-options.expansionDelegate = ScaleAndAlphaExpansion.default
+options.expansionStyle = .destructive(automaticallyDelete: false)
 ````
 
-The `ScaleAndAlphaExpansion` type provides a static `default` configuration, but it can also be instantiated with custom parameters to suit your needs.
+> **NOTE**: You must call `SwipeAction.fulfill(with style:)` at some point while/after your action handler is invoked to trigger deletion. Do not call `deleteRows` directly.
 
-You can also provide your own completely custom expansion behavior by adopting the `SwipeExpanding` protocol. The protocol allows you to customize the animation timing parameters prior to initiating the (un)expansion animation, as well as customizing the action during (un)expansion.
+````swift
+let delete = SwipeAction(style: .destructive, title: nil) { action, indexPath in
+    // Update model
+    self.emails.remove(at: indexPath.row)
+
+    // Coordinate table view update animations
+    self.tableView.beginUpdates()
+    self.tableView.insertRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
+    action.fulfill(with: .delete)
+    self.tableView.endUpdates()
+}
+````
+
+## Advanced 
+
+See the [Advanced Guide](https://github.com/jerkoch/SwipeCellKit/blob/develop/Guides/Advanced.md) for more details on customization.
 
 ## Credits
 
 Created and maintained by [**@jerkoch**](https://twitter.com/jerkoch).
+
+## Showcase
+
+We're interested in knowing [who's using *SwipeCellKit*](https://github.com/jerkoch/SwipeCellKit/blob/develop/SHOWCASE.md) in their app. Please submit a pull request to add your app! 
 
 ## License
 

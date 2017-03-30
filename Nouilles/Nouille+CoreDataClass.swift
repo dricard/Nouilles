@@ -262,25 +262,25 @@ public class Nouille: NSManagedObject {
         
         if indexPath.row == 6 {
             if let mealSizePrefered = mealSizePrefered {
-                return mealSizePrefered as Bool
+                return mealSizePrefered as! Bool
             } else {
                 return true
             }
         } else if indexPath.row == 7 {
             if let onHand = onHand {
-                return onHand as Bool
+                return onHand as! Bool
             } else {
                 return true
             }
         } else if indexPath.row == 9 {
             if let glutenFree = glutenFree {
-                return glutenFree as Bool
+                return glutenFree as! Bool
             } else {
                 return false
             }
         } else if indexPath.row == 10 {
             if let longNoodles = longNoodles {
-                return longNoodles as Bool
+                return longNoodles as! Bool
             } else {
                 return false
             }

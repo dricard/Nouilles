@@ -7,159 +7,105 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		26ABD7347582291F7E2D5F00169A5880 /* SwipeCellKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 35961B220D1551B48BFECA74010BF488 /* SwipeCellKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3159D7CAFD56B809F40CA3330DA10889 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		32CE2347D61C0F9ED43D1CA919A0000D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6787D09ACA9FAB1DC3290634B60334D8 /* Extensions.swift */; };
-		376FEBA6D5DBE1E050EF18630990FBB9 /* SwipeTableOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E2E5AEB2493A5B0F66EF4A3A62BDD0 /* SwipeTableOptions.swift */; };
-		541C5362289CC44D4F067D097F231250 /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E38B74145180801F0DE5FF01EDA4248 /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5AA814EA51F48241B0C3CEDE55B4AEE2 /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212B0C82058D90EAF29DB2B94959D8A5 /* SwipeAction.swift */; };
-		5DB2C4F37E98584B0BF5ECCD7CA25350 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		6767DBBCABE908EBC462231AA16B309A /* SwipeCellKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DB5C7BB4B1D62D61C8F694A064B27B0 /* SwipeCellKit-dummy.m */; };
-		6BB70A34DC1CD880CE7CBA1AB426DAFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		6F0535E165D55A0FBC5E7FC494D2C186 /* SwipeActionTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA62DB9BB7F9802B317287F5437EDF0 /* SwipeActionTransitioning.swift */; };
-		81E4B6988FF26F9249B79C6C8CC667B4 /* GoogleToolboxForMac-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AD3A2A32A4B976BEBE7120B2B7AC1787 /* GoogleToolboxForMac-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9243045D2613A20F9D0F5C05BCC9F1D1 /* SwipeTransitionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAD878FD1B86A231356022B667701E56 /* SwipeTransitionLayout.swift */; };
-		97CA14C61E020A66F7292C3E520BC246 /* Pods-Nouilles-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E89FBCCE3DF2287A568F90EF77B04EE /* Pods-Nouilles-dummy.m */; };
-		A189ACF163C56EACE334F0DD4A5679DA /* SwipeTableViewCell+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B55055ADB0D767F73995C42F67F5D9 /* SwipeTableViewCell+Accessibility.swift */; };
-		ADD1E234832460E791A1232E9B02FA36 /* Pods-Nouilles-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A15D5FF90D85ACC977D56848606FA099 /* Pods-Nouilles-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B4B3CF32455992E285F4AF4276F4056B /* SwipeTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AD8BD61B3C7DB3593F292E04292AE2 /* SwipeTableViewCellDelegate.swift */; };
-		BB1090A1B2990F816C6D98E2A0A113B0 /* SwipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C22E47DBC35C558A2B55A1713A84D7E7 /* SwipeTableViewCell.swift */; };
-		C2B5FDA842CE66ED8F8C72A127FEE83F /* SwipeActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0DFD34A4061DB32E5C7FBB5FE51B34 /* SwipeActionButton.swift */; };
-		D5220C9E27439455B1341A6735EF695A /* SwipeExpanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF8A70BB9F23A02A5553CD68CC55C24 /* SwipeExpanding.swift */; };
-		DBFECCB0BBE3F11CC41A3C1A8C4879D3 /* GTMNSData+zlib.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B6B805EB8E05EBC8E3C81D38C3E1AF5 /* GTMNSData+zlib.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F7D889906DECB078EAAECB9D4A320E9C /* GTMNSData+zlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABE4E85DB6D3E5DECEF7B308696F9ED /* GTMNSData+zlib.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		FA4A03E94B6D4807505862EFB7E28291 /* SwipeActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1A66F14464FC7A723AFE90D8C281E3 /* SwipeActionsView.swift */; };
-		FAC3F3CAABA60EF76069431C5BB5032A /* GoogleToolboxForMac-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE16E779E46B93903DC282D6F7B9AD9 /* GoogleToolboxForMac-dummy.m */; };
+		1DC094F8FB3DACF87F82BE86D0B93042 /* SwipeExpansionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 295F7187FC792F37260D7D2BC58C0BA0 /* SwipeExpansionStyle.swift */; };
+		20187D8E9FBCB286CB2B5A02A34AFB38 /* SwipeCellKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 116213BC8475EBE13DF6937015D2065D /* SwipeCellKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		269335EBFC301D21D9CB56C009C5FD09 /* SwipeTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601C9863DE054F83A5373A057D7C7425 /* SwipeTableViewCellDelegate.swift */; };
+		2CAD105D4CBD1A774261C2913CD70D86 /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1500B143A3B2BA9AB7EE0CF702FFAF7 /* SwipeAction.swift */; };
+		2D423CD19A9129E2D2B52B60DCE25177 /* SwipeActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36017C7C7EFA4E210C6DE7C2A47943CA /* SwipeActionsView.swift */; };
+		54DE1F6B0C50D3B623043CBD939D5F92 /* SwipeActionTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FF3D1299AB09654F9B133E15A2628F /* SwipeActionTransitioning.swift */; };
+		612CD7FE7F32CFDA5ED8532248578F78 /* Pods-Nouilles-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E89FBCCE3DF2287A568F90EF77B04EE /* Pods-Nouilles-dummy.m */; };
+		67D08408C5227219C20219786605BF1E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		8841677A5DC3090EE8E31E47E0D6B0C3 /* SwipeCellKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DA020C508F5683A311AAEFABAE1F2F1 /* SwipeCellKit-dummy.m */; };
+		983F36ADDC7BBE16BE0EB8160CEA8C58 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF07AB1B0B92B6989A992734F40136F /* Extensions.swift */; };
+		986725B6E3B8C6F4E67C9605A5AB6590 /* Swipeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570168D278B049F4329F4065F184D751 /* Swipeable.swift */; };
+		B470151B2398F7A14E6381624D59A2AD /* SwipeActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142E23C67AA74502B3A2A8D4D052594 /* SwipeActionButton.swift */; };
+		B8A025649051C8797944B7F168B89B35 /* SwipeTableViewCell+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA083047155CFC8CC98C2C34709ED10A /* SwipeTableViewCell+Accessibility.swift */; };
+		C44558D51EE585190C4923AF8970AAD8 /* Pods-Nouilles-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A15D5FF90D85ACC977D56848606FA099 /* Pods-Nouilles-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D2406BF7BA84F4F49E9414682028DA9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		D2A2AA1EB6B5E76ABF6333591A9D871D /* SwipeTableOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C67161839A3A88BAF5FD861FF821526A /* SwipeTableOptions.swift */; };
+		DB8DBCC060FABA091C7750FCAF2B34C2 /* SwipeTransitionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544157FBF06019A0139E986871A7B11F /* SwipeTransitionLayout.swift */; };
+		E29BD721343B2CB0C8F0DB62D3BDF10B /* SwipeExpanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB893C95621C442E376DEBCFB17E38B9 /* SwipeExpanding.swift */; };
+		FA735FEC2A2A5EDB8F6581AC5C41C5C1 /* SwipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D098AAA133B132E2622CCF8F90F58C6B /* SwipeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		45C57B87261AE3252B0F91027C7E4DC5 /* PBXContainerItemProxy */ = {
+		F63560CD50AC22142B94814491E9B57A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 5CB61E73CA81498B6F448F4E9A910759;
+			remoteGlobalIDString = 95F542D693EE8F497475E404AC06ADF0;
 			remoteInfo = SwipeCellKit;
-		};
-		DA2AC40607582520FA9622C7E87BA8FD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 00103D6C821BE85971C563025527BA5D;
-			remoteInfo = GoogleToolboxForMac;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		06B55055ADB0D767F73995C42F67F5D9 /* SwipeTableViewCell+Accessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwipeTableViewCell+Accessibility.swift"; path = "Source/SwipeTableViewCell+Accessibility.swift"; sourceTree = "<group>"; };
-		078B4289A9E46D63C87F39CF55DE7BD7 /* SwipeCellKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwipeCellKit-prefix.pch"; sourceTree = "<group>"; };
-		0B0DFD34A4061DB32E5C7FBB5FE51B34 /* SwipeActionButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeActionButton.swift; path = Source/SwipeActionButton.swift; sourceTree = "<group>"; };
 		0CB6E97F37C87AE04F371D56A750876A /* Pods-Nouilles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Nouilles.release.xcconfig"; sourceTree = "<group>"; };
-		0D82D71BB9585820BEB1215CC06DDACC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E38B74145180801F0DE5FF01EDA4248 /* GTMDefines.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		1DB5C7BB4B1D62D61C8F694A064B27B0 /* SwipeCellKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwipeCellKit-dummy.m"; sourceTree = "<group>"; };
-		1FA771C1147D84031B33930B51C8C7C4 /* FirebaseCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseCore.framework; path = Frameworks/FirebaseCore.framework; sourceTree = "<group>"; };
-		212B0C82058D90EAF29DB2B94959D8A5 /* SwipeAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeAction.swift; path = Source/SwipeAction.swift; sourceTree = "<group>"; };
-		2ABE4E85DB6D3E5DECEF7B308696F9ED /* GTMNSData+zlib.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "GTMNSData+zlib.m"; path = "Foundation/GTMNSData+zlib.m"; sourceTree = "<group>"; };
-		35961B220D1551B48BFECA74010BF488 /* SwipeCellKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwipeCellKit-umbrella.h"; sourceTree = "<group>"; };
-		3B6B805EB8E05EBC8E3C81D38C3E1AF5 /* GTMNSData+zlib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSData+zlib.h"; path = "Foundation/GTMNSData+zlib.h"; sourceTree = "<group>"; };
-		3D1A66F14464FC7A723AFE90D8C281E3 /* SwipeActionsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeActionsView.swift; path = Source/SwipeActionsView.swift; sourceTree = "<group>"; };
-		43F7ECBB2C2B3A51F08171DB0C724240 /* GoogleToolboxForMac.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = GoogleToolboxForMac.modulemap; sourceTree = "<group>"; };
+		116213BC8475EBE13DF6937015D2065D /* SwipeCellKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwipeCellKit-umbrella.h"; sourceTree = "<group>"; };
+		13FF3D1299AB09654F9B133E15A2628F /* SwipeActionTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeActionTransitioning.swift; path = Source/SwipeActionTransitioning.swift; sourceTree = "<group>"; };
+		2042EF07C56C8E4AFEBDCF099B61E1FE /* SwipeCellKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwipeCellKit.framework; path = SwipeCellKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		295F7187FC792F37260D7D2BC58C0BA0 /* SwipeExpansionStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeExpansionStyle.swift; path = Source/SwipeExpansionStyle.swift; sourceTree = "<group>"; };
+		2AB49368D7453EC428CCBFA7C17E5615 /* SwipeCellKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwipeCellKit-prefix.pch"; sourceTree = "<group>"; };
+		36017C7C7EFA4E210C6DE7C2A47943CA /* SwipeActionsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeActionsView.swift; path = Source/SwipeActionsView.swift; sourceTree = "<group>"; };
+		3C267C44E25CAB258759E3F82211FCE7 /* Pods_Nouilles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Nouilles.framework; path = "Pods-Nouilles.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44D2D34D001FFA633A91E5EB4DF4435D /* Pods-Nouilles-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Nouilles-frameworks.sh"; sourceTree = "<group>"; };
-		4C62602548BBA7296E773F541E6FB0DA /* GoogleToolboxForMac.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GoogleToolboxForMac.xcconfig; sourceTree = "<group>"; };
-		4DAC58D3EA7F4CA92FED18BCF7253CED /* GoogleToolboxForMac.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = GoogleToolboxForMac.framework; path = GoogleToolboxForMac.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4E58D0F6EE94D6F621C8B5CD7FB4B45E /* SwipeCellKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwipeCellKit.xcconfig; sourceTree = "<group>"; };
-		5C6392A1EA1134D3FD8A225875B08D03 /* FirebaseInstanceID.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseInstanceID.framework; path = Frameworks/FirebaseInstanceID.framework; sourceTree = "<group>"; };
+		5158E2291256B0C2D4A6D9B5828CAA89 /* SwipeCellKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwipeCellKit.xcconfig; sourceTree = "<group>"; };
+		544157FBF06019A0139E986871A7B11F /* SwipeTransitionLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTransitionLayout.swift; path = Source/SwipeTransitionLayout.swift; sourceTree = "<group>"; };
+		570168D278B049F4329F4065F184D751 /* Swipeable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Swipeable.swift; path = Source/Swipeable.swift; sourceTree = "<group>"; };
 		5D4F713D5D539D709A0334D685318A7A /* Pods-Nouilles-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Nouilles-acknowledgements.plist"; sourceTree = "<group>"; };
 		5E6A0D2DFAD7D3CFDABFB1097F777A4E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6787D09ACA9FAB1DC3290634B60334D8 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Source/Extensions.swift; sourceTree = "<group>"; };
-		7D6DD552A7CE68B50A830B0E006B8856 /* FirebaseAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseAnalytics.framework; path = Frameworks/FirebaseAnalytics.framework; sourceTree = "<group>"; };
+		601C9863DE054F83A5373A057D7C7425 /* SwipeTableViewCellDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTableViewCellDelegate.swift; path = Source/SwipeTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		6DF07AB1B0B92B6989A992734F40136F /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Source/Extensions.swift; sourceTree = "<group>"; };
+		7142E23C67AA74502B3A2A8D4D052594 /* SwipeActionButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeActionButton.swift; path = Source/SwipeActionButton.swift; sourceTree = "<group>"; };
+		7DA020C508F5683A311AAEFABAE1F2F1 /* SwipeCellKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwipeCellKit-dummy.m"; sourceTree = "<group>"; };
 		80001334E79D3B42D676EBD999DCAF48 /* Pods-Nouilles.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Nouilles.modulemap"; sourceTree = "<group>"; };
 		8E89FBCCE3DF2287A568F90EF77B04EE /* Pods-Nouilles-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Nouilles-dummy.m"; sourceTree = "<group>"; };
-		8EA62DB9BB7F9802B317287F5437EDF0 /* SwipeActionTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeActionTransitioning.swift; path = Source/SwipeActionTransitioning.swift; sourceTree = "<group>"; };
-		8FE16E779E46B93903DC282D6F7B9AD9 /* GoogleToolboxForMac-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GoogleToolboxForMac-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		98FD10BBD45071EBD711896BA41EC3E7 /* Pods-Nouilles-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Nouilles-resources.sh"; sourceTree = "<group>"; };
+		9AF27C83A55B4F3B57532237E2039C15 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1500B143A3B2BA9AB7EE0CF702FFAF7 /* SwipeAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeAction.swift; path = Source/SwipeAction.swift; sourceTree = "<group>"; };
 		A15D5FF90D85ACC977D56848606FA099 /* Pods-Nouilles-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Nouilles-umbrella.h"; sourceTree = "<group>"; };
-		AD3A2A32A4B976BEBE7120B2B7AC1787 /* GoogleToolboxForMac-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-umbrella.h"; sourceTree = "<group>"; };
-		B6CDA25BFCDBC21A98455C03C3E8E902 /* SwipeCellKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwipeCellKit.framework; path = SwipeCellKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B8E4BA7F3E67A4EDE87CEEE9DFED5151 /* Pods_Nouilles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Nouilles.framework; path = "Pods-Nouilles.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAD878FD1B86A231356022B667701E56 /* SwipeTransitionLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTransitionLayout.swift; path = Source/SwipeTransitionLayout.swift; sourceTree = "<group>"; };
-		C1B1C75ADA5B660A6079E32B1F0DEBCE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C22E47DBC35C558A2B55A1713A84D7E7 /* SwipeTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTableViewCell.swift; path = Source/SwipeTableViewCell.swift; sourceTree = "<group>"; };
-		C8AD8BD61B3C7DB3593F292E04292AE2 /* SwipeTableViewCellDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTableViewCellDelegate.swift; path = Source/SwipeTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		AB893C95621C442E376DEBCFB17E38B9 /* SwipeExpanding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeExpanding.swift; path = Source/SwipeExpanding.swift; sourceTree = "<group>"; };
+		AC58EEEF8D1F7564EB1AE88FD12263E3 /* SwipeCellKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwipeCellKit.modulemap; sourceTree = "<group>"; };
+		C67161839A3A88BAF5FD861FF821526A /* SwipeTableOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTableOptions.swift; path = Source/SwipeTableOptions.swift; sourceTree = "<group>"; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D1EF5F88DFF4A35B58E572D52EB87A53 /* Firebase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Firebase.h; path = Core/Sources/Firebase.h; sourceTree = "<group>"; };
-		D98A9F46453082DCE56D1E41020C386C /* SwipeCellKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwipeCellKit.modulemap; sourceTree = "<group>"; };
-		DCF8A70BB9F23A02A5553CD68CC55C24 /* SwipeExpanding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeExpanding.swift; path = Source/SwipeExpanding.swift; sourceTree = "<group>"; };
+		D098AAA133B132E2622CCF8F90F58C6B /* SwipeTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTableViewCell.swift; path = Source/SwipeTableViewCell.swift; sourceTree = "<group>"; };
 		DE4CEC416F68E2F3F54F086D5AD88B15 /* Pods-Nouilles-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Nouilles-acknowledgements.markdown"; sourceTree = "<group>"; };
-		E529B0F6F60D5DCA75C8E6D3E008AAE7 /* GoogleToolboxForMac-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GoogleToolboxForMac-prefix.pch"; sourceTree = "<group>"; };
-		E6E2E5AEB2493A5B0F66EF4A3A62BDD0 /* SwipeTableOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTableOptions.swift; path = Source/SwipeTableOptions.swift; sourceTree = "<group>"; };
 		EEC5216A5CCE35E7AD4D1D1199682A45 /* Pods-Nouilles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Nouilles.debug.xcconfig"; sourceTree = "<group>"; };
+		FA083047155CFC8CC98C2C34709ED10A /* SwipeTableViewCell+Accessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwipeTableViewCell+Accessibility.swift"; path = "Source/SwipeTableViewCell+Accessibility.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B1180719849CF38DDD7AE9C596E49F55 /* Frameworks */ = {
+		6389A86E14D3DB260874C7C748C06781 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BB70A34DC1CD880CE7CBA1AB426DAFF /* Foundation.framework in Frameworks */,
+				67D08408C5227219C20219786605BF1E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE8FF4877C7B45C8F2673EBDAFC23DA9 /* Frameworks */ = {
+		B66D3DD58EA9EE00D0CBD8A3D2E87739 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DB2C4F37E98584B0BF5ECCD7CA25350 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F9BC43EEAF05BCB201B3D28C244AA7E1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				3159D7CAFD56B809F40CA3330DA10889 /* Foundation.framework in Frameworks */,
+				D2406BF7BA84F4F49E9414682028DA9E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1AA9F35C5C8D178DDA9F1F4C73C0AA0F /* Defines */ = {
+		44E08BC1FF791CF76FD3E27AF8362132 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				0E38B74145180801F0DE5FF01EDA4248 /* GTMDefines.h */,
+				9AF27C83A55B4F3B57532237E2039C15 /* Info.plist */,
+				AC58EEEF8D1F7564EB1AE88FD12263E3 /* SwipeCellKit.modulemap */,
+				5158E2291256B0C2D4A6D9B5828CAA89 /* SwipeCellKit.xcconfig */,
+				7DA020C508F5683A311AAEFABAE1F2F1 /* SwipeCellKit-dummy.m */,
+				2AB49368D7453EC428CCBFA7C17E5615 /* SwipeCellKit-prefix.pch */,
+				116213BC8475EBE13DF6937015D2065D /* SwipeCellKit-umbrella.h */,
 			);
-			name = Defines;
-			sourceTree = "<group>";
-		};
-		1EA5A1CAA2DF6B56A66EE6F4C4DE0DC7 /* FirebaseCore */ = {
-			isa = PBXGroup;
-			children = (
-				4A498B7F3719B130D470BE55338DD616 /* Frameworks */,
-			);
-			name = FirebaseCore;
-			path = FirebaseCore;
-			sourceTree = "<group>";
-		};
-		212B1C51E36F4D9400F80FE32E70CC4B /* GoogleToolboxForMac */ = {
-			isa = PBXGroup;
-			children = (
-				1AA9F35C5C8D178DDA9F1F4C73C0AA0F /* Defines */,
-				CA66620EBAC2AB053CD30E47237C3627 /* NSData+zlib */,
-				D640D7F246DC84A354B243689F693F5C /* Support Files */,
-			);
-			name = GoogleToolboxForMac;
-			path = GoogleToolboxForMac;
-			sourceTree = "<group>";
-		};
-		316E0C2BFF3088B0502F4F8C7042DDE0 /* Firebase */ = {
-			isa = PBXGroup;
-			children = (
-				E8A569AAB0EDD1FC61565473337A2F40 /* Core */,
-			);
-			name = Firebase;
-			path = Firebase;
+			name = "Support Files";
+			path = "../Target Support Files/SwipeCellKit";
 			sourceTree = "<group>";
 		};
 		45D1947B8670E3637F41145DC35A0352 /* Pods-Nouilles */ = {
@@ -180,23 +126,10 @@
 			path = "Target Support Files/Pods-Nouilles";
 			sourceTree = "<group>";
 		};
-		4A498B7F3719B130D470BE55338DD616 /* Frameworks */ = {
+		548E5E2DCFD822FE9B392B98970936CD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1FA771C1147D84031B33930B51C8C7C4 /* FirebaseCore.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		52838E8B0542A186F83F43E2CB4F3C41 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				316E0C2BFF3088B0502F4F8C7042DDE0 /* Firebase */,
-				7613736B172F167E111738A08821D63A /* FirebaseAnalytics */,
-				1EA5A1CAA2DF6B56A66EE6F4C4DE0DC7 /* FirebaseCore */,
-				EF9A0CAAFD5F41370CAE093818FB3006 /* FirebaseInstanceID */,
-				212B1C51E36F4D9400F80FE32E70CC4B /* GoogleToolboxForMac */,
-				DE4C25C39CE5590813FECD10EB71D5A7 /* SwipeCellKit */,
+				9BA29D4E38F1588008DCA85BB1435358 /* SwipeCellKit */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -209,32 +142,24 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		7613736B172F167E111738A08821D63A /* FirebaseAnalytics */ = {
-			isa = PBXGroup;
-			children = (
-				831B434ACFBD02840E63130EC87D0BEF /* Frameworks */,
-			);
-			name = FirebaseAnalytics;
-			path = FirebaseAnalytics;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				52838E8B0542A186F83F43E2CB4F3C41 /* Pods */,
-				A3F44E37EC1740325BA3D3E79568FD2B /* Products */,
+				548E5E2DCFD822FE9B392B98970936CD /* Pods */,
+				8D3CE82F2DDD331CBE77FF729DE91B1E /* Products */,
 				91DFC545E217B0DE3A6D3425B2B4656F /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		831B434ACFBD02840E63130EC87D0BEF /* Frameworks */ = {
+		8D3CE82F2DDD331CBE77FF729DE91B1E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7D6DD552A7CE68B50A830B0E006B8856 /* FirebaseAnalytics.framework */,
+				3C267C44E25CAB258759E3F82211FCE7 /* Pods_Nouilles.framework */,
+				2042EF07C56C8E4AFEBDCF099B61E1FE /* SwipeCellKit.framework */,
 			);
-			name = Frameworks;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		91DFC545E217B0DE3A6D3425B2B4656F /* Targets Support Files */ = {
@@ -245,22 +170,26 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		A3F44E37EC1740325BA3D3E79568FD2B /* Products */ = {
+		9BA29D4E38F1588008DCA85BB1435358 /* SwipeCellKit */ = {
 			isa = PBXGroup;
 			children = (
-				4DAC58D3EA7F4CA92FED18BCF7253CED /* GoogleToolboxForMac.framework */,
-				B8E4BA7F3E67A4EDE87CEEE9DFED5151 /* Pods_Nouilles.framework */,
-				B6CDA25BFCDBC21A98455C03C3E8E902 /* SwipeCellKit.framework */,
+				6DF07AB1B0B92B6989A992734F40136F /* Extensions.swift */,
+				570168D278B049F4329F4065F184D751 /* Swipeable.swift */,
+				A1500B143A3B2BA9AB7EE0CF702FFAF7 /* SwipeAction.swift */,
+				7142E23C67AA74502B3A2A8D4D052594 /* SwipeActionButton.swift */,
+				36017C7C7EFA4E210C6DE7C2A47943CA /* SwipeActionsView.swift */,
+				13FF3D1299AB09654F9B133E15A2628F /* SwipeActionTransitioning.swift */,
+				AB893C95621C442E376DEBCFB17E38B9 /* SwipeExpanding.swift */,
+				295F7187FC792F37260D7D2BC58C0BA0 /* SwipeExpansionStyle.swift */,
+				C67161839A3A88BAF5FD861FF821526A /* SwipeTableOptions.swift */,
+				D098AAA133B132E2622CCF8F90F58C6B /* SwipeTableViewCell.swift */,
+				FA083047155CFC8CC98C2C34709ED10A /* SwipeTableViewCell+Accessibility.swift */,
+				601C9863DE054F83A5373A057D7C7425 /* SwipeTableViewCellDelegate.swift */,
+				544157FBF06019A0139E986871A7B11F /* SwipeTransitionLayout.swift */,
+				44E08BC1FF791CF76FD3E27AF8362132 /* Support Files */,
 			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		A60D9B1CB02BD2F438E491EB5895E86D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				5C6392A1EA1134D3FD8A225875B08D03 /* FirebaseInstanceID.framework */,
-			);
-			name = Frameworks;
+			name = SwipeCellKit;
+			path = SwipeCellKit;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -271,155 +200,53 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CA66620EBAC2AB053CD30E47237C3627 /* NSData+zlib */ = {
-			isa = PBXGroup;
-			children = (
-				3B6B805EB8E05EBC8E3C81D38C3E1AF5 /* GTMNSData+zlib.h */,
-				2ABE4E85DB6D3E5DECEF7B308696F9ED /* GTMNSData+zlib.m */,
-			);
-			name = "NSData+zlib";
-			sourceTree = "<group>";
-		};
-		D640D7F246DC84A354B243689F693F5C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				43F7ECBB2C2B3A51F08171DB0C724240 /* GoogleToolboxForMac.modulemap */,
-				4C62602548BBA7296E773F541E6FB0DA /* GoogleToolboxForMac.xcconfig */,
-				8FE16E779E46B93903DC282D6F7B9AD9 /* GoogleToolboxForMac-dummy.m */,
-				E529B0F6F60D5DCA75C8E6D3E008AAE7 /* GoogleToolboxForMac-prefix.pch */,
-				AD3A2A32A4B976BEBE7120B2B7AC1787 /* GoogleToolboxForMac-umbrella.h */,
-				0D82D71BB9585820BEB1215CC06DDACC /* Info.plist */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/GoogleToolboxForMac";
-			sourceTree = "<group>";
-		};
-		D9B83C1BB5B2057BFF5981471BA86AE9 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				C1B1C75ADA5B660A6079E32B1F0DEBCE /* Info.plist */,
-				D98A9F46453082DCE56D1E41020C386C /* SwipeCellKit.modulemap */,
-				4E58D0F6EE94D6F621C8B5CD7FB4B45E /* SwipeCellKit.xcconfig */,
-				1DB5C7BB4B1D62D61C8F694A064B27B0 /* SwipeCellKit-dummy.m */,
-				078B4289A9E46D63C87F39CF55DE7BD7 /* SwipeCellKit-prefix.pch */,
-				35961B220D1551B48BFECA74010BF488 /* SwipeCellKit-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwipeCellKit";
-			sourceTree = "<group>";
-		};
-		DE4C25C39CE5590813FECD10EB71D5A7 /* SwipeCellKit */ = {
-			isa = PBXGroup;
-			children = (
-				6787D09ACA9FAB1DC3290634B60334D8 /* Extensions.swift */,
-				212B0C82058D90EAF29DB2B94959D8A5 /* SwipeAction.swift */,
-				0B0DFD34A4061DB32E5C7FBB5FE51B34 /* SwipeActionButton.swift */,
-				3D1A66F14464FC7A723AFE90D8C281E3 /* SwipeActionsView.swift */,
-				8EA62DB9BB7F9802B317287F5437EDF0 /* SwipeActionTransitioning.swift */,
-				DCF8A70BB9F23A02A5553CD68CC55C24 /* SwipeExpanding.swift */,
-				E6E2E5AEB2493A5B0F66EF4A3A62BDD0 /* SwipeTableOptions.swift */,
-				C22E47DBC35C558A2B55A1713A84D7E7 /* SwipeTableViewCell.swift */,
-				06B55055ADB0D767F73995C42F67F5D9 /* SwipeTableViewCell+Accessibility.swift */,
-				C8AD8BD61B3C7DB3593F292E04292AE2 /* SwipeTableViewCellDelegate.swift */,
-				BAD878FD1B86A231356022B667701E56 /* SwipeTransitionLayout.swift */,
-				D9B83C1BB5B2057BFF5981471BA86AE9 /* Support Files */,
-			);
-			name = SwipeCellKit;
-			path = SwipeCellKit;
-			sourceTree = "<group>";
-		};
-		E8A569AAB0EDD1FC61565473337A2F40 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				D1EF5F88DFF4A35B58E572D52EB87A53 /* Firebase.h */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		EF9A0CAAFD5F41370CAE093818FB3006 /* FirebaseInstanceID */ = {
-			isa = PBXGroup;
-			children = (
-				A60D9B1CB02BD2F438E491EB5895E86D /* Frameworks */,
-			);
-			name = FirebaseInstanceID;
-			path = FirebaseInstanceID;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		0279196E55DA27C35900724A87833CD1 /* Headers */ = {
+		73D92C790047315445F434ADE403D141 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26ABD7347582291F7E2D5F00169A5880 /* SwipeCellKit-umbrella.h in Headers */,
+				C44558D51EE585190C4923AF8970AAD8 /* Pods-Nouilles-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		08832AABA6EA5B1A73ED295325F3433E /* Headers */ = {
+		F97D81FBDF112B80EE9195F3BE5BBCF9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADD1E234832460E791A1232E9B02FA36 /* Pods-Nouilles-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDA600FDC48ED17BA03DA2D85D4EDA97 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				81E4B6988FF26F9249B79C6C8CC667B4 /* GoogleToolboxForMac-umbrella.h in Headers */,
-				541C5362289CC44D4F067D097F231250 /* GTMDefines.h in Headers */,
-				DBFECCB0BBE3F11CC41A3C1A8C4879D3 /* GTMNSData+zlib.h in Headers */,
+				20187D8E9FBCB286CB2B5A02A34AFB38 /* SwipeCellKit-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */ = {
+		605781C16F709DA2D3171935877EA30A /* Pods-Nouilles */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C43D9CA5106C6CCEF973B7EDF833947B /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */;
+			buildConfigurationList = 83E198826FD1E7A926C257AFED400934 /* Build configuration list for PBXNativeTarget "Pods-Nouilles" */;
 			buildPhases = (
-				63D7DA997053F6B5D01DE8CB5817CB51 /* Sources */,
-				F9BC43EEAF05BCB201B3D28C244AA7E1 /* Frameworks */,
-				FDA600FDC48ED17BA03DA2D85D4EDA97 /* Headers */,
+				E6DA96DEA5F83BFB2BDD9A18F426D219 /* Sources */,
+				6389A86E14D3DB260874C7C748C06781 /* Frameworks */,
+				73D92C790047315445F434ADE403D141 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			name = GoogleToolboxForMac;
-			productName = GoogleToolboxForMac;
-			productReference = 4DAC58D3EA7F4CA92FED18BCF7253CED /* GoogleToolboxForMac.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		28F2E21F73D3DCE393E6F4933FA2444E /* Pods-Nouilles */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BBCE735A0FD2B0892A68920EE8EA08E5 /* Build configuration list for PBXNativeTarget "Pods-Nouilles" */;
-			buildPhases = (
-				66D8D45BC914A88D05B5BBBF10DA2FC0 /* Sources */,
-				B1180719849CF38DDD7AE9C596E49F55 /* Frameworks */,
-				08832AABA6EA5B1A73ED295325F3433E /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4F6E1C8BE50041E6D03A5FFE1B66D5D2 /* PBXTargetDependency */,
-				1635356F167BE451302B0A36780C1636 /* PBXTargetDependency */,
+				DECD7596C459BB7C27821B0BB2806478 /* PBXTargetDependency */,
 			);
 			name = "Pods-Nouilles";
 			productName = "Pods-Nouilles";
-			productReference = B8E4BA7F3E67A4EDE87CEEE9DFED5151 /* Pods_Nouilles.framework */;
+			productReference = 3C267C44E25CAB258759E3F82211FCE7 /* Pods_Nouilles.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		5CB61E73CA81498B6F448F4E9A910759 /* SwipeCellKit */ = {
+		95F542D693EE8F497475E404AC06ADF0 /* SwipeCellKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 88B6D4D924A84F2E4BB0B898182AAB2B /* Build configuration list for PBXNativeTarget "SwipeCellKit" */;
+			buildConfigurationList = 39348F0B251577FE75CFDFA63C71D0C8 /* Build configuration list for PBXNativeTarget "SwipeCellKit" */;
 			buildPhases = (
-				6B954CC673181FC0AE8F134A7D60178F /* Sources */,
-				BE8FF4877C7B45C8F2673EBDAFC23DA9 /* Frameworks */,
-				0279196E55DA27C35900724A87833CD1 /* Headers */,
+				7EDD3799C3FACB742B9E2880AE0504EF /* Sources */,
+				B66D3DD58EA9EE00D0CBD8A3D2E87739 /* Frameworks */,
+				F97D81FBDF112B80EE9195F3BE5BBCF9 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -427,7 +254,7 @@
 			);
 			name = SwipeCellKit;
 			productName = SwipeCellKit;
-			productReference = B6CDA25BFCDBC21A98455C03C3E8E902 /* SwipeCellKit.framework */;
+			productReference = 2042EF07C56C8E4AFEBDCF099B61E1FE /* SwipeCellKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -447,105 +274,58 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = A3F44E37EC1740325BA3D3E79568FD2B /* Products */;
+			productRefGroup = 8D3CE82F2DDD331CBE77FF729DE91B1E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */,
-				28F2E21F73D3DCE393E6F4933FA2444E /* Pods-Nouilles */,
-				5CB61E73CA81498B6F448F4E9A910759 /* SwipeCellKit */,
+				605781C16F709DA2D3171935877EA30A /* Pods-Nouilles */,
+				95F542D693EE8F497475E404AC06ADF0 /* SwipeCellKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		63D7DA997053F6B5D01DE8CB5817CB51 /* Sources */ = {
+		7EDD3799C3FACB742B9E2880AE0504EF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC3F3CAABA60EF76069431C5BB5032A /* GoogleToolboxForMac-dummy.m in Sources */,
-				F7D889906DECB078EAAECB9D4A320E9C /* GTMNSData+zlib.m in Sources */,
+				983F36ADDC7BBE16BE0EB8160CEA8C58 /* Extensions.swift in Sources */,
+				986725B6E3B8C6F4E67C9605A5AB6590 /* Swipeable.swift in Sources */,
+				2CAD105D4CBD1A774261C2913CD70D86 /* SwipeAction.swift in Sources */,
+				B470151B2398F7A14E6381624D59A2AD /* SwipeActionButton.swift in Sources */,
+				2D423CD19A9129E2D2B52B60DCE25177 /* SwipeActionsView.swift in Sources */,
+				54DE1F6B0C50D3B623043CBD939D5F92 /* SwipeActionTransitioning.swift in Sources */,
+				8841677A5DC3090EE8E31E47E0D6B0C3 /* SwipeCellKit-dummy.m in Sources */,
+				E29BD721343B2CB0C8F0DB62D3BDF10B /* SwipeExpanding.swift in Sources */,
+				1DC094F8FB3DACF87F82BE86D0B93042 /* SwipeExpansionStyle.swift in Sources */,
+				D2A2AA1EB6B5E76ABF6333591A9D871D /* SwipeTableOptions.swift in Sources */,
+				B8A025649051C8797944B7F168B89B35 /* SwipeTableViewCell+Accessibility.swift in Sources */,
+				FA735FEC2A2A5EDB8F6581AC5C41C5C1 /* SwipeTableViewCell.swift in Sources */,
+				269335EBFC301D21D9CB56C009C5FD09 /* SwipeTableViewCellDelegate.swift in Sources */,
+				DB8DBCC060FABA091C7750FCAF2B34C2 /* SwipeTransitionLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		66D8D45BC914A88D05B5BBBF10DA2FC0 /* Sources */ = {
+		E6DA96DEA5F83BFB2BDD9A18F426D219 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97CA14C61E020A66F7292C3E520BC246 /* Pods-Nouilles-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6B954CC673181FC0AE8F134A7D60178F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				32CE2347D61C0F9ED43D1CA919A0000D /* Extensions.swift in Sources */,
-				5AA814EA51F48241B0C3CEDE55B4AEE2 /* SwipeAction.swift in Sources */,
-				C2B5FDA842CE66ED8F8C72A127FEE83F /* SwipeActionButton.swift in Sources */,
-				FA4A03E94B6D4807505862EFB7E28291 /* SwipeActionsView.swift in Sources */,
-				6F0535E165D55A0FBC5E7FC494D2C186 /* SwipeActionTransitioning.swift in Sources */,
-				6767DBBCABE908EBC462231AA16B309A /* SwipeCellKit-dummy.m in Sources */,
-				D5220C9E27439455B1341A6735EF695A /* SwipeExpanding.swift in Sources */,
-				376FEBA6D5DBE1E050EF18630990FBB9 /* SwipeTableOptions.swift in Sources */,
-				A189ACF163C56EACE334F0DD4A5679DA /* SwipeTableViewCell+Accessibility.swift in Sources */,
-				BB1090A1B2990F816C6D98E2A0A113B0 /* SwipeTableViewCell.swift in Sources */,
-				B4B3CF32455992E285F4AF4276F4056B /* SwipeTableViewCellDelegate.swift in Sources */,
-				9243045D2613A20F9D0F5C05BCC9F1D1 /* SwipeTransitionLayout.swift in Sources */,
+				612CD7FE7F32CFDA5ED8532248578F78 /* Pods-Nouilles-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1635356F167BE451302B0A36780C1636 /* PBXTargetDependency */ = {
+		DECD7596C459BB7C27821B0BB2806478 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = SwipeCellKit;
-			target = 5CB61E73CA81498B6F448F4E9A910759 /* SwipeCellKit */;
-			targetProxy = 45C57B87261AE3252B0F91027C7E4DC5 /* PBXContainerItemProxy */;
-		};
-		4F6E1C8BE50041E6D03A5FFE1B66D5D2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = GoogleToolboxForMac;
-			target = 00103D6C821BE85971C563025527BA5D /* GoogleToolboxForMac */;
-			targetProxy = DA2AC40607582520FA9622C7E87BA8FD /* PBXContainerItemProxy */;
+			target = 95F542D693EE8F497475E404AC06ADF0 /* SwipeCellKit */;
+			targetProxy = F63560CD50AC22142B94814491E9B57A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0F2082FD2401EF7BEA1D888F26C604DD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E58D0F6EE94D6F621C8B5CD7FB4B45E /* SwipeCellKit.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwipeCellKit/SwipeCellKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwipeCellKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwipeCellKit/SwipeCellKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwipeCellKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		12914D756594D15C6F2CA12FE5F89F1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -590,75 +370,7 @@
 			};
 			name = Debug;
 		};
-		19E2B8FBCF1F3989DEF522897E894EF4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEC5216A5CCE35E7AD4D1D1199682A45 /* Pods-Nouilles.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Nouilles/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Nouilles/Pods-Nouilles.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Nouilles;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		74758812E7CA8B9FECA5E9AF4A016CB8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E58D0F6EE94D6F621C8B5CD7FB4B45E /* SwipeCellKit.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwipeCellKit/SwipeCellKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwipeCellKit/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwipeCellKit/SwipeCellKit.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwipeCellKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		D1F1C58212A14406026F72CA8AB46B32 /* Release */ = {
+		68C80568F8DDD533BB44F3ED66D7ED71 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0CB6E97F37C87AE04F371D56A750876A /* Pods-Nouilles.release.xcconfig */;
 			buildSettings = {
@@ -693,9 +405,41 @@
 			};
 			name = Release;
 		};
-		D60CD877A708870E2BE96B83BA32F883 /* Debug */ = {
+		8BDEC33FA0C9CC2C1883401DFEE38D5C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C62602548BBA7296E773F541E6FB0DA /* GoogleToolboxForMac.xcconfig */;
+			baseConfigurationReference = 5158E2291256B0C2D4A6D9B5828CAA89 /* SwipeCellKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwipeCellKit/SwipeCellKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwipeCellKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwipeCellKit/SwipeCellKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SwipeCellKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8DEF54CE307CCCB7572CA7F58C2275BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5158E2291256B0C2D4A6D9B5828CAA89 /* SwipeCellKit.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -708,17 +452,54 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SwipeCellKit/SwipeCellKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwipeCellKit/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.modulemap";
+				MODULEMAP_FILE = "Target Support Files/SwipeCellKit/SwipeCellKit.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = GoogleToolboxForMac;
+				PRODUCT_NAME = SwipeCellKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B430D7B644A3778AC2139B743CC2E068 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EEC5216A5CCE35E7AD4D1D1199682A45 /* Pods-Nouilles.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Nouilles/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Nouilles/Pods-Nouilles.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Nouilles;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -765,38 +546,6 @@
 			};
 			name = Release;
 		};
-		F066921CBDBDB5F45795E50FBC5AC972 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4C62602548BBA7296E773F541E6FB0DA /* GoogleToolboxForMac.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/GoogleToolboxForMac/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = GoogleToolboxForMac;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -809,29 +558,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		88B6D4D924A84F2E4BB0B898182AAB2B /* Build configuration list for PBXNativeTarget "SwipeCellKit" */ = {
+		39348F0B251577FE75CFDFA63C71D0C8 /* Build configuration list for PBXNativeTarget "SwipeCellKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0F2082FD2401EF7BEA1D888F26C604DD /* Debug */,
-				74758812E7CA8B9FECA5E9AF4A016CB8 /* Release */,
+				8DEF54CE307CCCB7572CA7F58C2275BD /* Debug */,
+				8BDEC33FA0C9CC2C1883401DFEE38D5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BBCE735A0FD2B0892A68920EE8EA08E5 /* Build configuration list for PBXNativeTarget "Pods-Nouilles" */ = {
+		83E198826FD1E7A926C257AFED400934 /* Build configuration list for PBXNativeTarget "Pods-Nouilles" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				19E2B8FBCF1F3989DEF522897E894EF4 /* Debug */,
-				D1F1C58212A14406026F72CA8AB46B32 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C43D9CA5106C6CCEF973B7EDF833947B /* Build configuration list for PBXNativeTarget "GoogleToolboxForMac" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D60CD877A708870E2BE96B83BA32F883 /* Debug */,
-				F066921CBDBDB5F45795E50FBC5AC972 /* Release */,
+				B430D7B644A3778AC2139B743CC2E068 /* Debug */,
+				68C80568F8DDD533BB44F3ED66D7ED71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

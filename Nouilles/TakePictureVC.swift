@@ -18,7 +18,6 @@
 
 import UIKit
 import CoreData
-import Firebase
 
 class TakePictureVC: UIViewController {
     
@@ -65,8 +64,6 @@ class TakePictureVC: UIViewController {
     
     @IBAction func cameraTapped(_ sender: Any) {
         
-        FIRAnalytics.logEvent(withName: Names.pictureCameraTapped, parameters: nil)
-        
         let pickController = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             
@@ -85,8 +82,6 @@ class TakePictureVC: UIViewController {
     }
     
     @IBAction func albumTapped(_ sender: Any) {
-        
-        FIRAnalytics.logEvent(withName: Names.pictureAlbumTapped, parameters: nil)
         
         let pickController = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {

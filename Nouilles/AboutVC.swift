@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class AboutVC: UIViewController {
 
@@ -27,8 +26,6 @@ class AboutVC: UIViewController {
     
     @IBAction func helpButtonTapped(_ sender: Any) {
         
-        FIRAnalytics.logEvent(withName: Names.helpButtonTappedEvent, parameters: nil)
-
         let url = URL(string: "http://hexaedre.com/apps/noodles/")
         if let url = url {
             if #available(iOS 10.0, *) {
@@ -41,8 +38,6 @@ class AboutVC: UIViewController {
     
     @IBAction func supportButtonTapped(_ sender: Any) {
         
-        FIRAnalytics.logEvent(withName: Names.supportButtonTappedEvent, parameters: nil)
-
         let url = URL(string: "mailto:dr@hexaedre.com?subject=Noodle%20App%20support%20request&body=Please%20ask%20your%20quetion%20or%20make%20your%20comment%20here.%20Thank%20you!")
         if let url = url {
             if #available(iOS 10.0, *) {
@@ -57,8 +52,6 @@ class AboutVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        FIRAnalytics.logEvent(withName: Names.viewAboutPageEvent, parameters: nil)
         
         // theme related
         view.backgroundColor = NoodlesStyleKit.lighterYellow
@@ -75,8 +68,8 @@ class AboutVC: UIViewController {
         supportButton.setTitle(.supportButtonLabel, for: .normal)
         
         // display current version number
-        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            versionLabel.text = "v. " + version
+        if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String, let buildNumber = Bundle.main.infoDictionary?["CFBundleVersion"] as? String {
+            versionLabel.text = "v. " + version + " (" + buildNumber + ")"
         }
         
         // display copyright

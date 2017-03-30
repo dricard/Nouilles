@@ -6,7 +6,6 @@ target 'Nouilles' do
   use_frameworks!
 
   # Pods for Nouilles
-  pod 'Firebase/Core'
-  pod 'SwipeCellKit', :git => 'https://github.com/jerkoch/SwipeCellKit.git', :branch => 'develop'
+  pod 'SwipeCellKit'
   
 end

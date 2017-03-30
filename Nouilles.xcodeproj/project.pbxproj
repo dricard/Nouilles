@@ -43,7 +43,6 @@
 		2185319B1DDCA5060092B335 /* AddNoodleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2185319A1DDCA5060092B335 /* AddNoodleVC.swift */; };
 		218BA7A51E71DB36003DD59B /* ringSound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 218BA7A41E71DB36003DD59B /* ringSound.m4a */; };
 		218BA7A71E71E0AB003DD59B /* ringSound2.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 218BA7A61E71E0AB003DD59B /* ringSound2.m4a */; };
-		2192EE2F1E67019700B273DA /* FirebaseEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2192EE2E1E67019700B273DA /* FirebaseEvent.swift */; };
 		2198B46A1DDE413B006C88C2 /* TakePictureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2198B4691DDE413B006C88C2 /* TakePictureVC.swift */; };
 		21A148D21D6B841800FA52BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A148D11D6B841800FA52BA /* AppDelegate.swift */; };
 		21A148D71D6B841900FA52BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21A148D51D6B841900FA52BA /* Main.storyboard */; };
@@ -101,7 +100,6 @@
 		2185319A1DDCA5060092B335 /* AddNoodleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoodleVC.swift; sourceTree = "<group>"; };
 		218BA7A41E71DB36003DD59B /* ringSound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ringSound.m4a; sourceTree = "<group>"; };
 		218BA7A61E71E0AB003DD59B /* ringSound2.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = ringSound2.m4a; sourceTree = "<group>"; };
-		2192EE2E1E67019700B273DA /* FirebaseEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseEvent.swift; sourceTree = "<group>"; };
 		2198B4691DDE413B006C88C2 /* TakePictureVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePictureVC.swift; sourceTree = "<group>"; };
 		21A148CE1D6B841800FA52BA /* Noodles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noodles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21A148D11D6B841800FA52BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,7 +173,6 @@
 				210200FF1DE7CED000D1F349 /* scanBeep.mp3 */,
 				21FE64091DF8652D0012B799 /* Nouilles-Bridging-Header.h */,
 				217BFB911E6651B300E6E588 /* GoogleService-Info.plist */,
-				2192EE2E1E67019700B273DA /* FirebaseEvent.swift */,
 			);
 			name = Divers;
 			sourceTree = "<group>";
@@ -415,7 +412,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2192EE2F1E67019700B273DA /* FirebaseEvent.swift in Sources */,
 				21795F381DE3896C00FAC131 /* TimerVC.swift in Sources */,
 				213B05151DEDDA1300A5002A /* NetworkCoordinator.swift in Sources */,
 				21F2FEEB1E2683CA003A8017 /* NoodleTimer.swift in Sources */,

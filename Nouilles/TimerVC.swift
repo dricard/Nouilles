@@ -17,7 +17,6 @@
 
 
 import UIKit
-import Firebase
 
 class TimerVC: UIViewController {
     
@@ -120,8 +119,6 @@ class TimerVC: UIViewController {
     
     func cancelTapped(_ sender: Any) {
         
-        FIRAnalytics.logEvent(withName: Names.timerCancelButtonTapped, parameters: nil)
-        
         // cancel internal timer which is used to update the display
         internalTimer.invalidate()
         guard let noodleTimer = noodleTimer else { return }
@@ -141,8 +138,6 @@ class TimerVC: UIViewController {
     }
     
     func pauseTapped(_ sender: Any) {
-        
-        FIRAnalytics.logEvent(withName: Names.timerPausePlayButtonTapped, parameters: nil)
         
         guard let noodleTimer = noodleTimer else { return }
         if noodleTimer.togglePauseTimer() {

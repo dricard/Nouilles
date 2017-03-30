@@ -77,14 +77,14 @@ class NetworkCoordinator {
             
             // GUARD: Was there an error returned by the URL request?
             guard error == nil else {
-                sendError("SendFindByUPCRequest returned and error: \(error)", code: NetworkParams.CodeFindByUPCRequestFailed)
+                sendError("SendFindByUPCRequest returned and error: \(error ?? "no detailed info" as! Error)", code: NetworkParams.CodeFindByUPCRequestFailed)
                 return
             }
             
             // GUARD: did we get a successful 2XX response?
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
                 let theStatusCode = (response as? HTTPURLResponse)?.statusCode
-                sendError("Network returned a status code outside the success range: \(theStatusCode)", code: NetworkParams.CodeSendRequestFailed)
+                sendError("Network returned a status code outside the success range: \(String(describing: theStatusCode))", code: NetworkParams.CodeSendRequestFailed)
                 return
             }
             

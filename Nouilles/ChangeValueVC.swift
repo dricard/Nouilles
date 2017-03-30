@@ -16,7 +16,6 @@
  */
 
 import UIKit
-import Firebase
 
 class ChangeValueVC: UIViewController {
     
@@ -43,8 +42,6 @@ class ChangeValueVC: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         
-        FIRAnalytics.logEvent(withName: Names.saveChangesButtonTapped, parameters: nil)
-        
         switch validateAndSave() {
         case .valid:
             textField.resignFirstResponder()
@@ -55,9 +52,7 @@ class ChangeValueVC: UIViewController {
     }
     
     func cancelButtonTapped(_ sender: Any) {
-        
-        FIRAnalytics.logEvent(withName: Names.cancelChangesButtonTapped, parameters: nil)
-        
+                
         if textField.isFirstResponder {
             textField.resignFirstResponder()
         } else {
@@ -109,7 +104,7 @@ extension ChangeValueVC: UITextFieldDelegate {
         let controller = UIAlertController()
         controller.title = .invalidEntry
         let errorType = "\(error)"
-        controller.message = "\(.field) '\(field)' \(ErrorCode.message(rawValue: errorType))"
+        controller.message = "\(String.field) '\(field)' \(ErrorCode.message(rawValue: errorType))"
         
         let okAction = UIAlertAction(title: .ok, style: UIAlertActionStyle.default, handler: nil)
         controller.addAction(okAction)
