@@ -85,7 +85,7 @@
 "is made by" = "par";
 "Noodles is dedicated to" = "Nouilles est dédiée à";
 "Dominique, Coralie and Florence — for their patience and their love of noodles!" = "Dominique, Coralie et Florence\npour leur support et leur patience\net pour leur grand amour des nouilles!";
-"Ring sound provided by Mike Koenig on http://soundbible.com" = "Utilise l'excellente librairie SwipeCellKit par @jerkoch: https://github.com/jerkoch/SwipeCellKit";
+"Ring sound provided by Mike Koenig on http://soundbible.com" = "Utilise la librairie SwipeCellKit par @jerkoch: \nhttps://github.com/jerkoch/SwipeCellKit";
 "Help" = "Aide";
 "Support" = "Support";
 "Filters" = "Options";

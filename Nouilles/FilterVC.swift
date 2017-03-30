@@ -105,7 +105,7 @@ class FilterVC: UITableViewController {
         guard let filters = filters else { fatalError() }
         filters.setFilters(indexPath: indexPath)
         
-        let selected = (indexPath.section * 10 + indexPath.row) as NSObject
+//        let selected = (indexPath.section * 10 + indexPath.row) as NSObject
         
         tableView.reloadData()
     }

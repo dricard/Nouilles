@@ -102,7 +102,7 @@ class EditDataVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let value = indexPath.row as NSObject
+//        let value = indexPath.row as NSObject
         
         guard let nouille = nouille else { return }
         // bool types are edited in place, otherwise segue to changeValueVC
