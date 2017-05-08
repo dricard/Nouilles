@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -1424,15 +1425,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="portion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cux-7W-VMb">
-                                <rect key="frame" x="10" y="539" width="300" height="24"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="24" id="BQq-pw-lP6"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fz6-kS-6Dh">
                                 <rect key="frame" x="0.0" y="124" width="320" height="320"/>
                                 <subviews>
@@ -1451,8 +1443,8 @@
                                     <constraint firstItem="mhE-PY-Wr0" firstAttribute="centerY" secondItem="fz6-kS-6Dh" secondAttribute="centerY" id="lmo-eu-DM5"/>
                                 </constraints>
                             </view>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="fl2-Su-FcC">
-                                <rect key="frame" x="24" y="501" width="272" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.25" maxValue="15" translatesAutoresizingMaskIntoConstraints="NO" id="fl2-Su-FcC">
+                                <rect key="frame" x="24" y="528" width="272" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="zek-Km-lfg"/>
                                 </constraints>
@@ -1460,18 +1452,27 @@
                                     <action selector="portionSliderUpdated:" destination="r4Y-5k-Ty0" eventType="valueChanged" id="OWF-UG-p73"/>
                                 </connections>
                             </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="portion" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cux-7W-VMb">
+                                <rect key="frame" x="26" y="32" width="268" height="25.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25.5" id="rpz-pa-tkf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9g9-ZK-Iqa" firstAttribute="top" secondItem="fl2-Su-FcC" secondAttribute="bottom" constant="10" id="50f-6J-axt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fl2-Su-FcC" secondAttribute="trailing" constant="10" id="I0Z-z4-Lzo"/>
                             <constraint firstItem="fz6-kS-6Dh" firstAttribute="width" secondItem="JMf-tc-XEh" secondAttribute="width" id="JNj-e5-1O1"/>
+                            <constraint firstItem="cux-7W-VMb" firstAttribute="topMargin" secondItem="fzc-he-ksp" secondAttribute="bottom" constant="20" id="MdO-s8-GyS"/>
                             <constraint firstItem="fl2-Su-FcC" firstAttribute="leading" secondItem="JMf-tc-XEh" secondAttribute="leadingMargin" constant="10" id="Wb8-w1-m7D"/>
-                            <constraint firstItem="cux-7W-VMb" firstAttribute="leading" secondItem="JMf-tc-XEh" secondAttribute="leading" constant="10" id="X0x-c9-HIP"/>
                             <constraint firstItem="fz6-kS-6Dh" firstAttribute="centerX" secondItem="JMf-tc-XEh" secondAttribute="centerX" id="bpX-tI-tml"/>
-                            <constraint firstAttribute="trailing" secondItem="cux-7W-VMb" secondAttribute="trailing" constant="10" id="hrb-EO-qDA"/>
+                            <constraint firstItem="cux-7W-VMb" firstAttribute="leading" secondItem="JMf-tc-XEh" secondAttribute="leadingMargin" constant="10" id="fTv-Ka-mRk"/>
                             <constraint firstItem="fz6-kS-6Dh" firstAttribute="centerY" secondItem="JMf-tc-XEh" secondAttribute="centerY" id="tGn-01-dfj"/>
-                            <constraint firstItem="9g9-ZK-Iqa" firstAttribute="top" secondItem="cux-7W-VMb" secondAttribute="bottom" constant="5" id="udQ-eo-pra"/>
-                            <constraint firstItem="cux-7W-VMb" firstAttribute="top" secondItem="fl2-Su-FcC" secondAttribute="bottom" constant="8" id="wHX-ZT-yDI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cux-7W-VMb" secondAttribute="trailing" constant="10" id="xU5-I1-Vh2"/>
                         </constraints>
                     </view>
                     <connections>
