@@ -113,7 +113,7 @@ extension String {
     static let isMadeByLabel = NSLocalizedString("is made by")
     static let dedicatedToLabel = NSLocalizedString("Noodles is dedicated to")
     static let dedicationLabel = NSLocalizedString("Dominique, Coralie and Florence — for their patience and their love of noodles!")
-    static let ringCredits = NSLocalizedString("Ring sound provided by Mike Koenig on http://soundbible.com")
+    static let ringCredits = NSLocalizedString("libraries used credits")
     static let helpButtonLabel = NSLocalizedString("Help")
     static let supportButtonLabel = NSLocalizedString("Support")
 
