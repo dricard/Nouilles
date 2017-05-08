@@ -16,9 +16,8 @@ import UIKit
 open class SwipeTableViewCell: UITableViewCell {
     /// The object that acts as the delegate of the `SwipeTableViewCell`.
     public weak var delegate: SwipeTableViewCellDelegate?
-
-    var feedbackGenerator: UIImpactFeedbackGenerator?
-    var animator: UIViewPropertyAnimator?
+    
+    var animator: SwipeAnimator?
 
     var state = SwipeState.center
     var originalCenter: CGFloat = 0
@@ -48,6 +47,12 @@ open class SwipeTableViewCell: UITableViewCell {
         didSet {
             actionsView?.visibleWidth = abs(frame.minX)
         }
+    }
+    
+    /// :nodoc:
+    open override var frame: CGRect {
+        set { super.frame = state.isActive ? CGRect(origin: CGPoint(x: frame.minX, y: newValue.minY), size: newValue.size) : newValue }
+        get { return super.frame }
     }
     
     /// :nodoc:
@@ -119,9 +124,6 @@ open class SwipeTableViewCell: UITableViewCell {
 
             originalCenter = center.x
             
-            feedbackGenerator = UIImpactFeedbackGenerator(style: .light)
-            feedbackGenerator?.prepare()
-
             if state == .center || state == .animatingToCenter {
                 let velocity = gesture.velocity(in: target)
                 let orientation: SwipeActionsOrientation = velocity.x > 0 ? .left : .right
@@ -159,15 +161,11 @@ open class SwipeTableViewCell: UITableViewCell {
                 } else {
                     target.center.x = gesture.elasticTranslation(in: target,
                                                                  withLimit: CGSize(width: targetOffset, height: 0),
-                                                                 fromOriginalCenter: CGPoint(x: originalCenter, y: 0)).x
+                                                                 fromOriginalCenter: CGPoint(x: originalCenter, y: 0),
+                                                                 applyingRatio: expansionStyle.targetOverscrollElasticity).x
                 }
                 
-                if expanded != actionsView.expanded {
-                    feedbackGenerator?.impactOccurred()
-                    feedbackGenerator?.prepare()
-                }
-                
-                actionsView.expanded = expanded
+                actionsView.setExpanded(expanded: expanded, feedback: true)
             } else {
                 target.center.x = gesture.elasticTranslation(in: target,
                                                              withLimit: CGSize(width: actionsView.preferredWidth, height: 0),
@@ -183,8 +181,6 @@ open class SwipeTableViewCell: UITableViewCell {
             let velocity = gesture.velocity(in: target)
             state = targetState(forVelocity: velocity)
             
-            feedbackGenerator = nil
-
             if actionsView.expanded == true, let expandedAction = actionsView.expandableAction  {
                 perform(action: expandedAction)
             } else {
@@ -220,7 +216,7 @@ open class SwipeTableViewCell: UITableViewCell {
         originalLayoutMargins = super.layoutMargins
         
         // Remove highlight and deselect any selected cells
-        isHighlighted = false
+        super.setHighlighted(false, animated: false)
         let selectedIndexPaths = tableView.indexPathsForSelectedRows
         selectedIndexPaths?.forEach { tableView.deselectRow(at: $0, animated: false) }
         
@@ -261,6 +257,8 @@ open class SwipeTableViewCell: UITableViewCell {
         }
         
         self.actionsView = actionsView
+
+        state = .dragging
         
         notifyEditingStateChange(active: true)
     }
@@ -277,18 +275,26 @@ open class SwipeTableViewCell: UITableViewCell {
         }
     }
     
-    func animate(duration: Double = 0.7, toOffset offset: CGFloat, withInitialVelocity velocity: CGFloat = 0, completion: ((UIViewAnimatingPosition) -> Void)? = nil) {
+    func animate(duration: Double = 0.7, toOffset offset: CGFloat, withInitialVelocity velocity: CGFloat = 0, completion: ((Bool) -> Void)? = nil) {
         stopAnimatorIfNeeded()
         
         layoutIfNeeded()
         
-        let animator: UIViewPropertyAnimator = {
+        let animator: SwipeAnimator = {
             if velocity != 0 {
-                let velocity = CGVector(dx: velocity, dy: velocity)
-                let parameters = UISpringTimingParameters(mass: 1.0, stiffness: 100, damping: 18, initialVelocity: velocity)
-                return UIViewPropertyAnimator(duration: 0.0, timingParameters: parameters)
+                if #available(iOS 10, *) {
+                    let velocity = CGVector(dx: velocity, dy: velocity)
+                    let parameters = UISpringTimingParameters(mass: 1.0, stiffness: 100, damping: 18, initialVelocity: velocity)
+                    return UIViewPropertyAnimator(duration: 0.0, timingParameters: parameters)
+                } else {
+                    return UIViewSpringAnimator(duration: duration, damping: 1.0, initialVelocity: velocity)
+                }
             } else {
-                return UIViewPropertyAnimator(duration: duration, dampingRatio: 1.0)
+                if #available(iOS 10, *) {
+                    return UIViewPropertyAnimator(duration: duration, dampingRatio: 1.0)
+                } else {
+                    return UIViewSpringAnimator(duration: duration, damping: 1.0)
+                }
             }
         }()
 
@@ -299,7 +305,7 @@ open class SwipeTableViewCell: UITableViewCell {
         })
         
         if let completion = completion {
-            animator.addCompletion(completion)
+            animator.addCompletion(completion: completion)
         }
         
         self.animator = animator
@@ -390,61 +396,6 @@ extension SwipeTableViewCell {
         actionsView?.removeFromSuperview()
         actionsView = nil
     }
-    
-    /**
-     Hides the swipe actions and returns the cell to center.
-     
-     - parameter animated: Specify `true` to animate the hiding of the swipe actions or `false` to hide it immediately.
-     */
-    public func hideSwipe(animated: Bool) {
-        guard state == .left || state == .right else { return }
-
-        state = .animatingToCenter
-        
-        tableView?.setGestureEnabled(true)
-
-        let targetCenter = self.targetCenter(active: false)
-        
-        if animated {
-            animate(toOffset: targetCenter) { _ in
-                self.reset()
-            }
-        } else {
-            center = CGPoint(x: targetCenter, y: self.center.y)
-            reset()
-        }
-        
-        notifyEditingStateChange(active: false)
-    }
-    
-    /**
-     Shows the swipe actions for the specified orientation.
-
-     - parameter orientation: The side of the cell on which to show the swipe actions.
-
-     - parameter animated: Specify `true` to animate the showing of the swipe actions or `false` to show them immediately.
-     
-     - parameter completion: The closure to be executed once the animation has finished. A `Boolean` argument indicates whether or not the animations actually finished before the completion handler was called.
-    */
-    public func showSwipe(orientation: SwipeActionsOrientation, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
-        let targetState = SwipeState(orientation: orientation)
-        
-        guard state != targetState, showActionsView(for: orientation) else { return }
-        
-        tableView?.hideSwipeCell()
-
-        state = targetState
-
-        let targetCenter = self.targetCenter(active: true)
-        
-        if animated {
-            animate(toOffset: targetCenter) { position in
-                completion?(position == .end)
-            }
-        } else {
-            center.x = targetCenter
-        }
-    }
 }
 
 extension SwipeTableViewCell: SwipeActionsViewDelegate {
@@ -457,7 +408,7 @@ extension SwipeTableViewCell: SwipeActionsViewDelegate {
         
         if action == actionsView.expandableAction, let expansionStyle = actionsView.options.expansionStyle {
             // Trigger the expansion (may already be expanded from drag)
-            actionsView.expanded = true
+            actionsView.setExpanded(expanded: true)
 
             switch expansionStyle.completionAnimation {
             case .bounce:
@@ -484,10 +435,6 @@ extension SwipeTableViewCell: SwipeActionsViewDelegate {
         guard let actionsView = actionsView,
             let tableView = tableView,
             let indexPath = tableView.indexPath(for: self) else { return }
-
-        let mask = UIView(frame: CGRect(x: min(0, actionsView.frame.minX), y: 0, width: bounds.width + actionsView.bounds.width, height: bounds.height))
-        mask.backgroundColor = UIColor.white
-        self.mask = mask
         
         let newCenter = bounds.midX - (bounds.width + actionsView.minimumButtonWidth) * actionsView.orientation.scale
 
@@ -498,11 +445,13 @@ extension SwipeTableViewCell: SwipeActionsViewDelegate {
             
             switch style {
             case .delete:
+                self?.mask = actionsView.createDeletionMask()
+                
                 tableView.deleteRows(at: [indexPath], with: .none)
                 
                 UIView.animate(withDuration: 0.3, animations: {
                     self?.center.x = newCenter
-                    mask.frame.size.height = 0
+                    self?.mask?.frame.size.height = 0
                     
                     if fillOption.timing == .after {
                         actionsView.alpha = 0

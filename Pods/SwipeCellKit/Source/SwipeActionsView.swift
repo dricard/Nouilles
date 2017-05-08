@@ -17,7 +17,9 @@ class SwipeActionsView: UIView {
     let transitionLayout: SwipeTransitionLayout
     var layoutContext: ActionsViewLayoutContext
     
-    var expansionAnimator: UIViewPropertyAnimator?
+    var feedbackGenerator: SwipeFeedback
+    
+    var expansionAnimator: SwipeAnimator?
     
     var expansionDelegate: SwipeExpanding? {
         return options.expansionDelegate ?? (expandableAction?.hasBackgroundColor == false ? ScaleAndAlphaExpansion.default : nil)
@@ -63,26 +65,7 @@ class SwipeActionsView: UIView {
         }
     }
     
-    var expanded: Bool = false {
-        didSet {
-            guard oldValue != expanded else { return }
-
-            let timingParameters = expansionDelegate?.animationTimingParameters(buttons: buttons.reversed(), expanding: expanded)
-            
-            if expansionAnimator?.isRunning == true {
-                expansionAnimator?.stopAnimation(true)
-            }
-            
-            expansionAnimator = UIViewPropertyAnimator(duration: timingParameters?.duration ?? 0.6, dampingRatio: 1.0) {
-                self.setNeedsLayout()
-                self.layoutIfNeeded()
-            }
-            
-            expansionAnimator?.startAnimation(afterDelay: timingParameters?.delay ?? 0)
-
-            notifyExpansion(expanded: expanded)
-        }
-    }
+    private(set) var expanded: Bool = false
     
     var expandableAction: SwipeAction? {
         return options.expansionStyle != nil ? actions.last : nil
@@ -104,6 +87,9 @@ class SwipeActionsView: UIView {
         
         self.layoutContext = ActionsViewLayoutContext(numberOfActions: actions.count, orientation: orientation)
         
+        feedbackGenerator = SwipeFeedback(style: .light)
+        feedbackGenerator.prepare()
+        
         super.init(frame: .zero)
         
         clipsToBounds = true
@@ -121,6 +107,7 @@ class SwipeActionsView: UIView {
         let buttons: [SwipeActionButton] = actions.map({ action in
             let actionButton = SwipeActionButton(action: action)
             actionButton.addTarget(self, action: #selector(actionTapped(button:)), for: .touchUpInside)
+            actionButton.autoresizingMask = [.flexibleHeight, orientation == .right ? .flexibleRightMargin : .flexibleLeftMargin]
             actionButton.spacing = options.buttonSpacing ?? 8
             actionButton.contentEdgeInsets = buttonEdgeInsets(fromOptions: options)
             return actionButton
@@ -131,13 +118,15 @@ class SwipeActionsView: UIView {
         
         buttons.enumerated().forEach { (index, button) in
             let action = actions[index]
-            let frame = CGRect(origin: .zero, size: CGSize(width: size.width * 2, height: size.height))
+            let frame = CGRect(origin: .zero, size: CGSize(width: bounds.width, height: bounds.height))
             let wrapperView = SwipeActionButtonWrapperView(frame: frame, action: action, orientation: orientation, contentWidth: minimumButtonWidth)
+            wrapperView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
             wrapperView.addSubview(button)
             
             if let effect = action.backgroundEffect {
                 let effectView = UIVisualEffectView(effect: effect)
                 effectView.frame = wrapperView.frame
+                effectView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
                 effectView.contentView.addSubview(wrapperView)
                 addSubview(effectView)
             } else {
@@ -164,6 +153,40 @@ class SwipeActionsView: UIView {
         return UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
     }
     
+    func setExpanded(expanded: Bool, feedback: Bool = false) {
+        guard self.expanded != expanded else { return }
+        
+        self.expanded = expanded
+        
+        if feedback {
+            feedbackGenerator.impactOccurred()
+            feedbackGenerator.prepare()
+        }
+        
+        let timingParameters = expansionDelegate?.animationTimingParameters(buttons: buttons.reversed(), expanding: expanded)
+        
+        if expansionAnimator?.isRunning == true {
+            expansionAnimator?.stopAnimation(true)
+        }
+        
+        if #available(iOS 10, *) {
+            expansionAnimator = UIViewPropertyAnimator(duration: timingParameters?.duration ?? 0.6, dampingRatio: 1.0)
+        } else {
+            expansionAnimator = UIViewSpringAnimator(duration: timingParameters?.duration ?? 0.6,
+                                                     damping: 1.0,
+                                                     initialVelocity: 1.0)
+        }
+        
+        expansionAnimator?.addAnimations {
+            self.setNeedsLayout()
+            self.layoutIfNeeded()
+        }
+        
+        expansionAnimator?.startAnimation(afterDelay: timingParameters?.delay ?? 0)
+        
+        notifyExpansion(expanded: expanded)
+    }
+    
     func notifyVisibleWidthChanged(oldWidths: [CGFloat], newWidths: [CGFloat]) {
         DispatchQueue.main.async {
             oldWidths.enumerated().forEach { index, oldWidth in
@@ -186,6 +209,12 @@ class SwipeActionsView: UIView {
         guard let expandedButton = buttons.last else { return }
 
         expansionDelegate?.actionButton(expandedButton, didChange: expanded, otherActionButtons: buttons.dropLast().reversed())
+    }
+    
+    func createDeletionMask() -> UIView {
+        let mask = UIView(frame: CGRect(x: min(0, frame.minX), y: 0, width: bounds.width * 2, height: bounds.height))
+        mask.backgroundColor = UIColor.white
+        return mask
     }
     
     override func layoutSubviews() {
