@@ -202,6 +202,7 @@ class NouilleDetailVC: UIViewController {
                 totalServing = Double(numberOfServings) * customServingSize
             }
             controller.portion = totalServing
+            controller.nouille = nouille
         }
         
         show(controller, sender: self)

@@ -8,10 +8,18 @@
 
 import UIKit
 
+extension Double {
+    func rounded(to precision: Double) -> Double {
+        let halfPrecision = precision / 2.0
+        return Double(Int(Double(self) / precision + halfPrecision)) * precision
+    }
+}
+
 class LongNoodlesPortionVC: UIViewController {
 
     // MARK: - Properties
     
+    var nouille: Nouille?
     var portion:  Double?
     let portionAreaInInchesSquared = 0.4464008928
     
@@ -25,8 +33,9 @@ class LongNoodlesPortionVC: UIViewController {
     @IBOutlet weak var portionHeightConstraint: NSLayoutConstraint!
     
     @IBAction func portionSliderUpdated(_ sender: Any) {
-        portion = Double(portionSlider.value)
-        portion = Double(Int(Double(portion!) / 1.0 + 0.5) * 1)
+        let newValue = Double(portionSlider.value)
+        portion = newValue.rounded(to: 0.25)
+        updateMealSize(nouille: nouille)
         updatePortionRadius()
     }
     
@@ -54,6 +63,19 @@ class LongNoodlesPortionVC: UIViewController {
     }
     
     // MARK: - Utilities
+    
+    private func updateMealSize(nouille: Nouille?) {
+        if let nouille = nouille, let portion = portion {
+            let numberOfServings = nouille.numberOfServing as! Int
+            if nouille.mealSizePrefered! as! Bool {
+                let customServingSize = portion / Double(numberOfServings)
+                nouille.servingCustom = customServingSize as NSNumber
+            } else {
+                let customServingSize = portion / Double(numberOfServings)
+                nouille.servingSideDish = customServingSize as NSNumber
+            }
+        }
+    }
     
     private func radiusFrom(portion: Double) -> Double {
         return sqrt((portion * portionAreaInInchesSquared) / Double.pi) * pixelPerInchOfDevice() / 3
