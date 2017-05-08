@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aFL-WZ-zmv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aFL-WZ-zmv">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -1435,25 +1435,52 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fz6-kS-6Dh">
                                 <rect key="frame" x="0.0" y="124" width="320" height="320"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="longNoodlePortionCircle" translatesAutoresizingMaskIntoConstraints="NO" id="mhE-PY-Wr0">
+                                        <rect key="frame" x="-3" y="-3" width="326" height="326"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="326" id="rFo-J6-QhY"/>
+                                            <constraint firstAttribute="height" constant="326" id="yJR-jy-UOe"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="fz6-kS-6Dh" secondAttribute="height" multiplier="1:1" id="Uvo-WU-Lud"/>
+                                    <constraint firstItem="mhE-PY-Wr0" firstAttribute="centerX" secondItem="fz6-kS-6Dh" secondAttribute="centerX" id="ZIR-8z-gke"/>
+                                    <constraint firstItem="mhE-PY-Wr0" firstAttribute="centerY" secondItem="fz6-kS-6Dh" secondAttribute="centerY" id="lmo-eu-DM5"/>
                                 </constraints>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="fl2-Su-FcC">
+                                <rect key="frame" x="24" y="501" width="272" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="zek-Km-lfg"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="portionSliderUpdated:" destination="r4Y-5k-Ty0" eventType="valueChanged" id="OWF-UG-p73"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="fl2-Su-FcC" secondAttribute="trailing" constant="10" id="I0Z-z4-Lzo"/>
                             <constraint firstItem="fz6-kS-6Dh" firstAttribute="width" secondItem="JMf-tc-XEh" secondAttribute="width" id="JNj-e5-1O1"/>
+                            <constraint firstItem="fl2-Su-FcC" firstAttribute="leading" secondItem="JMf-tc-XEh" secondAttribute="leadingMargin" constant="10" id="Wb8-w1-m7D"/>
                             <constraint firstItem="cux-7W-VMb" firstAttribute="leading" secondItem="JMf-tc-XEh" secondAttribute="leading" constant="10" id="X0x-c9-HIP"/>
                             <constraint firstItem="fz6-kS-6Dh" firstAttribute="centerX" secondItem="JMf-tc-XEh" secondAttribute="centerX" id="bpX-tI-tml"/>
                             <constraint firstAttribute="trailing" secondItem="cux-7W-VMb" secondAttribute="trailing" constant="10" id="hrb-EO-qDA"/>
                             <constraint firstItem="fz6-kS-6Dh" firstAttribute="centerY" secondItem="JMf-tc-XEh" secondAttribute="centerY" id="tGn-01-dfj"/>
                             <constraint firstItem="9g9-ZK-Iqa" firstAttribute="top" secondItem="cux-7W-VMb" secondAttribute="bottom" constant="5" id="udQ-eo-pra"/>
+                            <constraint firstItem="cux-7W-VMb" firstAttribute="top" secondItem="fl2-Su-FcC" secondAttribute="bottom" constant="8" id="wHX-ZT-yDI"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="portionHeightConstraint" destination="yJR-jy-UOe" id="sNy-zZ-XHV"/>
+                        <outlet property="portionImageView" destination="mhE-PY-Wr0" id="Zfu-7q-hKg"/>
                         <outlet property="portionLabel" destination="cux-7W-VMb" id="AJm-jq-sZ0"/>
+                        <outlet property="portionSlider" destination="fl2-Su-FcC" id="xgK-M9-zSr"/>
                         <outlet property="portionView" destination="fz6-kS-6Dh" id="yEd-7z-xS4"/>
+                        <outlet property="portionWidthContraint" destination="rFo-J6-QhY" id="g2O-TI-EoS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODQ-tn-X3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1807,5 +1834,6 @@
     </scenes>
     <resources>
         <image name="logo_210" width="210" height="210"/>
+        <image name="longNoodlePortionCircle" width="330" height="330"/>
     </resources>
 </document>

@@ -19,7 +19,16 @@ class LongNoodlesPortionVC: UIViewController {
     
     @IBOutlet weak var portionLabel: UILabel!
     @IBOutlet weak var portionView: UIView!
+    @IBOutlet weak var portionImageView: UIImageView!
+    @IBOutlet weak var portionWidthContraint: NSLayoutConstraint!
+    @IBOutlet weak var portionSlider: UISlider!
+    @IBOutlet weak var portionHeightConstraint: NSLayoutConstraint!
     
+    @IBAction func portionSliderUpdated(_ sender: Any) {
+        portion = Double(portionSlider.value)
+        portion = Double(Int(Double(portion!) / 1.0 + 0.5) * 1)
+        updatePortionRadius()
+    }
     
     // MARK: - Life Cycle
     
@@ -29,14 +38,18 @@ class LongNoodlesPortionVC: UIViewController {
         view.backgroundColor = NoodlesStyleKit.baseGreen
         portionView.backgroundColor = NoodlesStyleKit.baseGreen
         
+        updatePortionRadius()
+        
         print(userDeviceName())
     }
 
-    override func viewDidLayoutSubviews() {
+    func updatePortionRadius() {
         if let portion = portion {
             portionLabel.text = "\(portion)"
+            portionSlider.value = Float(portion)
             let portionRect = rectFromRadius(radius: radiusFrom(portion: portion), bounds: portionView.bounds)
-            drawRingFittingInsideView(rect: portionRect)
+            portionWidthContraint.constant = portionRect.width
+            portionHeightConstraint.constant = portionRect.height
         }
     }
     
@@ -51,24 +64,7 @@ class LongNoodlesPortionVC: UIViewController {
         print(radius)
         return CGRect(x: bounds.width / 2 - radiusCGF, y: bounds.height / 2 - radiusCGF, width: 2 * radiusCGF, height: 2 * radiusCGF)
     }
-    
-    private func drawRingFittingInsideView(rect: CGRect) {
         
-        let lineWidth: CGFloat = 4
-        _ = lineWidth / 2
-        
-//        let insetRect = UIEdgeInsetsInsetRect(rect, UIEdgeInsetsMake(halfWidth, halfWidth, halfWidth, halfWidth))
-//        let circlePath = UIBezierPath(ovalIn: insetRect)
-        let circlePath = UIBezierPath(ovalIn: rect)
-
-        let shapeLayer = CAShapeLayer()
-        shapeLayer.path = circlePath.cgPath
-        shapeLayer.fillColor = NoodlesStyleKit.lighterYellow.cgColor
-        shapeLayer.strokeColor = NoodlesStyleKit.darkerGreen.cgColor
-        shapeLayer.lineWidth = lineWidth
-        portionView.layer.addSublayer(shapeLayer)
-    }
-    
     func userDeviceName() -> (device: String, ppi: Double) {
         var name: [Int32] = [CTL_HW, HW_MACHINE]
         var size: Int = 2
