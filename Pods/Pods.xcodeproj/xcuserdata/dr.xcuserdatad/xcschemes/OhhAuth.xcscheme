@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '83987A48993A88E1C86F25AD76A1B1C1'
-               BlueprintName = 'SwipeCellKit'
+               BlueprintIdentifier = '64E5A5D76A52C974C878D7D3CF0B18BC'
+               BlueprintName = 'OhhAuth'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwipeCellKit.framework'>
+               BuildableName = 'OhhAuth.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

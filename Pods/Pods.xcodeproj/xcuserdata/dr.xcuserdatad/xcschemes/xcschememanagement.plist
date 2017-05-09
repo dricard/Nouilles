@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>OhhAuth.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Nouilles.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -17,12 +22,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>605781C16F709DA2D3171935877EA30A</key>
+		<key>64E5A5D76A52C974C878D7D3CF0B18BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95F542D693EE8F497475E404AC06ADF0</key>
+		<key>7F818176049A9487F5D8EB07F3A1781F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>83987A48993A88E1C86F25AD76A1B1C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>

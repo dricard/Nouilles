@@ -7,5 +7,6 @@ target 'Nouilles' do
 
   # Pods for Nouilles
   pod 'SwipeCellKit'
+  pod 'OhhAuth'
   
 end

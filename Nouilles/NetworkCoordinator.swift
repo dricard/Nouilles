@@ -116,7 +116,7 @@ class NetworkCoordinator {
     /// at the moment.
     static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void)  {
         
-        let selectedAPI: foodAPIProviders = .nutritionix
+        let selectedAPI: foodAPIProviders = .fatSecret
         
         switch selectedAPI {
         case .fatSecret:
