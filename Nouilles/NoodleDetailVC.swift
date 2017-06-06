@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class NouilleDetailVC: UIViewController {
+class NoodleDetailVC: UIViewController {
     
     // MARK: - Properties
     
@@ -230,26 +230,26 @@ class NouilleDetailVC: UIViewController {
         // because user can choose from the album
         
         // add gesture recognizer on image so user can add/change picture
-        tapRec.addTarget(self, action: #selector(NouilleDetailVC.imageTapped))
+        tapRec.addTarget(self, action: #selector(NoodleDetailVC.imageTapped))
         image.addGestureRecognizer(tapRec)
         
         // add gesture recognizer on preferedMealSize so user can toggle
-        tapMS.addTarget(self, action: #selector(NouilleDetailVC.preferedMealSizeTapped))
+        tapMS.addTarget(self, action: #selector(NoodleDetailVC.preferedMealSizeTapped))
         mealPreferedSizeIndicator.addGestureRecognizer(tapMS)
         
         // add gesture recognizer on onHandIndicator so user can toggle
-        tapOH.addTarget(self, action: #selector(NouilleDetailVC.onHandTapped))
+        tapOH.addTarget(self, action: #selector(NoodleDetailVC.onHandTapped))
         onHandIndicatorView.addGestureRecognizer(tapOH)
         
         // add segmented control target
-        segmentedControl.addTarget(self, action: #selector(NouilleDetailVC.segmentedControlTapped), for: .valueChanged)
+        segmentedControl.addTarget(self, action: #selector(NoodleDetailVC.segmentedControlTapped), for: .valueChanged)
         
         // add edit button to navigation bar
-        let editButton = UIBarButtonItem(title: .editButtonlabel, style: .plain, target: self, action: #selector(NouilleDetailVC.editButtonTapped))
+        let editButton = UIBarButtonItem(title: .editButtonlabel, style: .plain, target: self, action: #selector(NoodleDetailVC.editButtonTapped))
         self.navigationItem.rightBarButtonItem = editButton
         
         // add gesture recognizer on timer button so user can start timer
-        tapTimerButton.addTarget(self, action: #selector(NouilleDetailVC.startTimerTapped))
+        tapTimerButton.addTarget(self, action: #selector(NoodleDetailVC.startTimerTapped))
         timerButton.addGestureRecognizer(tapTimerButton)
         
         // Add blur to blurView

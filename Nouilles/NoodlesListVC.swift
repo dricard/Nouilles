@@ -31,7 +31,7 @@ import UIKit
 import CoreData
 import SwipeCellKit
 
-class ListeDeNouillesVC: UIViewController {
+class NoodlesListVC: UIViewController {
     
     // MARK: - Properties
     
@@ -120,7 +120,7 @@ class ListeDeNouillesVC: UIViewController {
         // if we have one or more timers running, start a display timer
         if timers.isNotEmpty() {
             DispatchQueue.main.async {
-                self.internalTimer = Timer.scheduledTimer(timeInterval: self.timeIntervalForUpdates, target: self, selector: #selector(ListeDeNouillesVC.updateTimers), userInfo: nil, repeats: true)
+                self.internalTimer = Timer.scheduledTimer(timeInterval: self.timeIntervalForUpdates, target: self, selector: #selector(NoodlesListVC.updateTimers), userInfo: nil, repeats: true)
             }
         }
     }
@@ -201,7 +201,7 @@ class ListeDeNouillesVC: UIViewController {
 
 // MARK: - Table View Data Source
 
-extension ListeDeNouillesVC: UITableViewDataSource {
+extension NoodlesListVC: UITableViewDataSource {
     
     func configure(cell: NoodleListTableViewCell, indexPath: IndexPath) {
         
@@ -300,7 +300,7 @@ extension ListeDeNouillesVC: UITableViewDataSource {
 
 // MARK: - Gestures
 
-extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
+extension NoodlesListVC: SwipeTableViewCellDelegate {
     
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
@@ -379,7 +379,7 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
                     // since we didn't do it in viewDidAppear, we need to start
                     // an internal timer to update the display
                     DispatchQueue.main.async {
-                        self.internalTimer = Timer.scheduledTimer(timeInterval: self.timeIntervalForUpdates, target: self, selector: #selector(ListeDeNouillesVC.updateTimers), userInfo: nil, repeats: true)
+                        self.internalTimer = Timer.scheduledTimer(timeInterval: self.timeIntervalForUpdates, target: self, selector: #selector(NoodlesListVC.updateTimers), userInfo: nil, repeats: true)
                     }
 
                     self.tableView.reloadData()
@@ -451,13 +451,13 @@ extension ListeDeNouillesVC: SwipeTableViewCellDelegate {
 
 // MARK: - Table View Delegate
 
-extension ListeDeNouillesVC: UITableViewDelegate {
+extension NoodlesListVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // a row was selected, prepare the segue
         let nouille = fetchedResultsController.object(at: indexPath)
-        let vc = storyboard?.instantiateViewController(withIdentifier: "NouilleDetailVC") as! NouilleDetailVC
+        let vc = storyboard?.instantiateViewController(withIdentifier: "NouilleDetailVC") as! NoodleDetailVC
         // dependencies injection
         vc.managedContext = self.managedContext!
         vc.nouille = nouille
@@ -481,7 +481,7 @@ extension ListeDeNouillesVC: UITableViewDelegate {
     }
 }
 
-extension ListeDeNouillesVC: NSFetchedResultsControllerDelegate {
+extension NoodlesListVC: NSFetchedResultsControllerDelegate {
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.reloadData()
@@ -489,7 +489,7 @@ extension ListeDeNouillesVC: NSFetchedResultsControllerDelegate {
     
 }
 
-extension ListeDeNouillesVC: FilterVCDelegate {
+extension NoodlesListVC: FilterVCDelegate {
     
     // This is used to return modifications to the sort descriptors and
     // predicates from the FilterVC (delegate pattern)

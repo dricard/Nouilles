@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         center.delegate = self
         
         // get a reference to the first view controller
-        guard let navController = window?.rootViewController as? UINavigationController, let viewController = navController.topViewController as? ListeDeNouillesVC else { return true }
+        guard let navController = window?.rootViewController as? UINavigationController, let viewController = navController.topViewController as? NoodlesListVC else { return true }
         
         // Theme related: set background color to the navigation bar
         navController.navigationBar.backgroundColor = NoodlesStyleKit.darkerYellow
