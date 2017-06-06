@@ -7,121 +7,148 @@
 //
 
 import Foundation
+import OhhAuth
 
 class FatSecretAPI {
    
+    // TESTING OHHOAUTH LIBRARY
+    static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void) {
+        
+        let cc = (key: NetworkKeys.FSConsumerKey, secret: NetworkKeys.FSConsumerSecret)
+        let uc: (key: String, secret: String)? = nil
+        
+        var req = URLRequest(url: URL(string: NetworkParams.FatSecretAPIBaseURL)!)
+        
+        let paras = ["status": "Hey Twitter! \u{1F6A7} Take a look at this sweet UUID: \(UUID())"]
+        
+        req.oAuthSign(method: "POST", urlFormParameters: paras, consumerCredentials: cc, userCredentials: uc)
+        
+        let task = URLSession(configuration: .ephemeral).dataTask(with: req) { (data, response, error) in
+            
+            if let error = error {
+                print(error)
+            }
+            else if let data = data {
+                print(String(data: data, encoding: .utf8) ?? "Does not look like a utf8 response :(")
+            }
+        }
+        task.resume()
+    }
+    
+    
+    
     /// This send a request to FatSecret's API with a search string to find the Noodle's nutritional
     /// information.
-    static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void) {
-      
-      // Get the parameters common to all requests
-      var normalizedParams = FatSecretAPI.commonParameters()
-      
-      // set specific parameters for this call: foods.search
-      let httpMethod = "GET"
-      let requestURL = NetworkParams.FatSecretAPIBaseURL
-      let requestParams: [(String, String)] = [ ("method", "foods.search"), ("format", "json"), ("search_expression", searchString)]
-
-      // add specific parameters to common parameters
-      for parameters in requestParams {
-         normalizedParams.append(parameters)
-      }
-
-      // get the signature
-      let signature = FatSecretAPI.signOauthRequest(httpMethod: httpMethod, requestURL: requestURL, requestParams: normalizedParams)
-      
-      // and add this to the parameters
-      normalizedParams.append(("oauth_signature", signature))
-
-      // now send the request
-
-      let sessionConfig = URLSessionConfiguration.default
-      
-      // Create the session
-      let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
-      
-      // Build the URL for GET request
-      guard var URL = URL(string: NetworkParams.FatSecretAPIBaseURL) else {return}
-      
-      // Build parameters dictionary
-      var URLParams: [String:String] = [:]
-      
-      for (field, value) in normalizedParams {
-         URLParams[field] = value
-      }
-      
-      // add the parameters to the URL
-      URL = URL.appendingQueryParameters(URLParams)
-
-      // create the request
-      var request = URLRequest(url: URL)
-      request.httpMethod = httpMethod
-
-      // Make the request
-      let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
-         
-         // Utility function
-         func sendError(_ error: String, code: Int) {
-            print("Error: \(error), code: \(code)")
-            // build informative NSError to return
-            let userInfo = [NSLocalizedDescriptionKey: error]
-            completionHandlerForFindNutritionInfoRequest(nil, false, NSError(domain: "findNutritionInformation", code: code, userInfo: userInfo))
-         }
-         
-         // GUARD: Was there an error returned by the URL request?
-         guard error == nil else {
-            sendError("findNutritionInformation returned and error: \(String(describing: error))", code: NetworkParams.CodeFindByStringRequestFailed)
-            return
-         }
-         
-         // GUARD: did we get a successful 2XX response?
-         guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-            let theStatusCode = (response as? HTTPURLResponse)?.statusCode
-            sendError("Network returned a status code outside the success range: \(String(describing: theStatusCode))", code: NetworkParams.CodeSendRequestFailed)
-            return
-         }
-         
-         // GUARD: was there data returned?
-         guard let data = data else {
-            sendError("No data returned by the request!", code: NetworkParams.CodeNoDataReturned)
-            return
-         }
-         
-         // Parse the data
-         let parsedResult = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:AnyObject]
-         
-         // GUARD: make sure we could parse the data
-         guard let _ = parsedResult??["hits"] as? [[String:AnyObject]] else {
-            sendError("Could not parse the data", code: NetworkParams.CodeCouldNotParseData)
-            return
-         }
-         
-//         // extract useful information from parsed data
+//    static func findNutritionInformation(searchString: String, completionHandlerForFindNutritionInfoRequest: @escaping (_ foodInfo: NutritionInfoData?, _ success: Bool, _ error: NSError?) -> Void) {
+//      
+//      // Get the parameters common to all requests
+//      var normalizedParams = FatSecretAPI.commonParameters()
+//      
+//      // set specific parameters for this call: foods.search
+//      let httpMethod = "GET"
+//      let requestURL = NetworkParams.FatSecretAPIBaseURL
+//      let requestParams: [(String, String)] = [ ("method", "foods.search"), ("format", "json"), ("search_expression", searchString)]
+//
+//      // add specific parameters to common parameters
+//      for parameters in requestParams {
+//         normalizedParams.append(parameters)
+//      }
+//
+//      // get the signature
+//      let signature = FatSecretAPI.signOauthRequest(httpMethod: httpMethod, requestURL: requestURL, requestParams: normalizedParams)
+//      
+//      // and add this to the parameters
+//      normalizedParams.append(("oauth_signature", signature))
+//
+//      // now send the request
+//
+//      let sessionConfig = URLSessionConfiguration.default
+//      
+//      // Create the session
+//      let session = URLSession(configuration: sessionConfig, delegate: nil, delegateQueue: nil)
+//      
+//      // Build the URL for GET request
+//      guard var URL = URL(string: NetworkParams.FatSecretAPIBaseURL) else {return}
+//      
+//      // Build parameters dictionary
+//      var URLParams: [String:String] = [:]
+//      
+//      for (field, value) in normalizedParams {
+//         URLParams[field] = value
+//      }
+//      
+//      // add the parameters to the URL
+//      URL = URL.appendingQueryParameters(URLParams)
+//
+//      // create the request
+//      var request = URLRequest(url: URL)
+//      request.httpMethod = httpMethod
+//
+//      // Make the request
+//      let task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) -> Void in
 //         
-//         let infoArray: [String:AnyObject] = result.first!["fields"] as! [String : AnyObject]
+//         // Utility function
+//         func sendError(_ error: String, code: Int) {
+//            print("Error: \(error), code: \(code)")
+//            // build informative NSError to return
+//            let userInfo = [NSLocalizedDescriptionKey: error]
+//            completionHandlerForFindNutritionInfoRequest(nil, false, NSError(domain: "findNutritionInformation", code: code, userInfo: userInfo))
+//         }
 //         
-//         let calories = infoArray["nf_calories"] as? Double
-//         let fat = infoArray["nf_total_fat"] as? Double
-//         let saturatedFat = infoArray["nf_saturated_fat"] as? Double
-//         let transFat = infoArray["nf_trans_fatty_acid"] as? Double
-//         let sodium = infoArray["nf_sodium"] as? Double
-//         let carbs = infoArray["nf_total_carbohydrate"] as? Double
-//         let fibre = infoArray["nf_dietary_fiber"] as? Double
-//         let sugars = infoArray["nf_sugars"] as? Double
-//         let protein = infoArray["nf_protein"] as? Double
-//         let serving = infoArray["nf_serving_size_qty"] as? Double
+//         // GUARD: Was there an error returned by the URL request?
+//         guard error == nil else {
+//            sendError("findNutritionInformation returned and error: \(String(describing: error))", code: NetworkParams.CodeFindByStringRequestFailed)
+//            return
+//         }
 //         
-//         // return the information to calling method
+//         // GUARD: did we get a successful 2XX response?
+//         guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+//            let theStatusCode = (response as? HTTPURLResponse)?.statusCode
+//            sendError("Network returned a status code outside the success range: \(String(describing: theStatusCode))", code: NetworkParams.CodeSendRequestFailed)
+//            return
+//         }
 //         
-         let foodInfo = NutritionInfoData(calories: 200, fat: 3, saturatedFat: 0.3, transFat: 0, sodium: 5, carbs: 61, fibre: 3, sugars: 6, protein: 11, serving: 1)
-         
-         completionHandlerForFindNutritionInfoRequest(foodInfo, true, nil)
-         
-         
-      })
-      task.resume()
-      session.finishTasksAndInvalidate()
-   }
+//         // GUARD: was there data returned?
+//         guard let data = data else {
+//            sendError("No data returned by the request!", code: NetworkParams.CodeNoDataReturned)
+//            return
+//         }
+//         
+//         // Parse the data
+//         let parsedResult = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String:AnyObject]
+//         
+//         // GUARD: make sure we could parse the data
+//         guard let _ = parsedResult??["hits"] as? [[String:AnyObject]] else {
+//            sendError("Could not parse the data", code: NetworkParams.CodeCouldNotParseData)
+//            return
+//         }
+//         
+////         // extract useful information from parsed data
+////         
+////         let infoArray: [String:AnyObject] = result.first!["fields"] as! [String : AnyObject]
+////         
+////         let calories = infoArray["nf_calories"] as? Double
+////         let fat = infoArray["nf_total_fat"] as? Double
+////         let saturatedFat = infoArray["nf_saturated_fat"] as? Double
+////         let transFat = infoArray["nf_trans_fatty_acid"] as? Double
+////         let sodium = infoArray["nf_sodium"] as? Double
+////         let carbs = infoArray["nf_total_carbohydrate"] as? Double
+////         let fibre = infoArray["nf_dietary_fiber"] as? Double
+////         let sugars = infoArray["nf_sugars"] as? Double
+////         let protein = infoArray["nf_protein"] as? Double
+////         let serving = infoArray["nf_serving_size_qty"] as? Double
+////         
+////         // return the information to calling method
+////         
+//         let foodInfo = NutritionInfoData(calories: 200, fat: 3, saturatedFat: 0.3, transFat: 0, sodium: 5, carbs: 61, fibre: 3, sugars: 6, protein: 11, serving: 1)
+//         
+//         completionHandlerForFindNutritionInfoRequest(foodInfo, true, nil)
+//         
+//         
+//      })
+//      task.resume()
+//      session.finishTasksAndInvalidate()
+//   }
    
    static func commonParameters() -> [(String, String)] {
 
